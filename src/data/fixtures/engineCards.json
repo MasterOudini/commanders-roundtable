@@ -329746,6 +329746,570 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "NACRE_TALISMAN": {
+    "scryfallId": "06912236-8225-4eb0-8086-c6a163c69892",
+    "oracleId": "f87aaed9-7f78-4f8b-8af5-44d4be1d6f30",
+    "name": "Nacre Talisman",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nacre Talisman",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "Whenever a player casts a white spell, you may pay {3}. If you do, untap target permanent.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mark Tedin",
+        "imageId": "06912236-8225-4eb0-8086-c6a163c69892"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ice",
+    "collectorNumber": "329",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BRASS_MAN": {
+    "scryfallId": "0ba1daee-a5ac-4d9e-b681-3e3c7a3eb095",
+    "oracleId": "64f56228-7874-4465-ba58-1049083ea02f",
+    "name": "Brass Man",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Brass Man",
+        "manaCost": "{1}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "This creature doesn't untap during your untap step.\nAt the beginning of your upkeep, you may pay {1}. If you do, untap this creature.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Christopher Rush",
+        "imageId": "0ba1daee-a5ac-4d9e-b681-3e3c7a3eb095"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "3ed",
+    "collectorNumber": "238",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BIBLIOPLEX_KRAKEN": {
+    "scryfallId": "1f69f0bf-6626-4418-9335-b79d75c99df1",
+    "oracleId": "a1bdba37-f034-412f-8395-adbaed95ad11",
+    "name": "Biblioplex Kraken",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Biblioplex Kraken",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Kraken",
+        "oracleText": "When this creature enters, scry 3. (Look at the top three cards of your library, then put any number of them on the bottom and the rest on top in any order.)\nWhenever this creature attacks, you may return another creature you control to its owner's hand. If you do, this creature can't be blocked this turn.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Caio Monteiro",
+        "imageId": "1f69f0bf-6626-4418-9335-b79d75c99df1"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "j22",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_WAR_WAGON": {
+    "scryfallId": "229e8124-54ed-4c29-8c44-4962bd60f145",
+    "oracleId": "81a38340-9558-49d3-8de6-d7d01babfd97",
+    "name": "Goblin War Wagon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin War Wagon",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Juggernaut",
+        "oracleText": "This creature doesn't untap during your untap step.\nAt the beginning of your upkeep, you may pay {2}. If you do, untap this creature.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Doug Chaffee",
+        "imageId": "229e8124-54ed-4c29-8c44-4962bd60f145"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mrd",
+    "collectorNumber": "179",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FRENZIED_GOBLIN": {
+    "scryfallId": "2e68ddf0-5cf6-4024-ab71-827f28a0b0ee",
+    "oracleId": "6ac470a1-c2be-4971-a5ca-10bb189ebe4d",
+    "name": "Frenzied Goblin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Frenzied Goblin",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Goblin Berserker",
+        "oracleText": "Whenever this creature attacks, you may pay {R}. If you do, target creature can't block this turn.",
+        "flavorText": "The upside to not thinking about the consequences is that you'll always surprise those who do.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Randy Vargas",
+        "imageId": "2e68ddf0-5cf6-4024-ab71-827f28a0b0ee"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "536",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRAVELGILL_SCOUNDREL": {
+    "scryfallId": "320bc30c-7a8a-411a-9f36-9c69126e131b",
+    "oracleId": "6d7f7e6e-5076-4af7-afe3-3e500835c4aa",
+    "name": "Gravelgill Scoundrel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gravelgill Scoundrel",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Merfolk Rogue",
+        "oracleText": "Vigilance\nWhenever this creature attacks, you may tap another untapped creature you control. If you do, this creature can't be blocked this turn.",
+        "flavorText": "\"Cut the line and take the catch. Then find a little kith to snatch.\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "John Tedrick",
+        "imageId": "320bc30c-7a8a-411a-9f36-9c69126e131b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "ecl",
+    "collectorNumber": "53",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BRASS_GNAT": {
+    "scryfallId": "386ae7c6-347c-4b29-b7a9-3ca3bb050396",
+    "oracleId": "7f6ddfa2-31ba-4cb7-83e7-1f099e3e8dc3",
+    "name": "Brass Gnat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Brass Gnat",
+        "manaCost": "{1}",
+        "typeLine": "Artifact Creature — Insect",
+        "oracleText": "Flying\nThis creature doesn't untap during your untap step.\nAt the beginning of your upkeep, you may pay {1}. If you do, untap this creature.",
+        "flavorText": "Its buzzing is the sound of its inner mechanisms, ever winding down.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Martina Pilcerova",
+        "imageId": "386ae7c6-347c-4b29-b7a9-3ca3bb050396"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "tsp",
+    "collectorNumber": "249",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELABORATE_FIRECANNON": {
+    "scryfallId": "4b9170f0-d332-42ba-98c7-7e99922fa3fb",
+    "oracleId": "6e61ae7b-f2e8-421c-870b-a48c08d07503",
+    "name": "Elaborate Firecannon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elaborate Firecannon",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "This artifact doesn't untap during your untap step.\n{4}, {T}: This artifact deals 2 damage to any target.\nAt the beginning of your upkeep, you may discard a card. If you do, untap this artifact.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Adrian Majkrzak",
+        "imageId": "4b9170f0-d332-42ba-98c7-7e99922fa3fb"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "xln",
+    "collectorNumber": "237",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAULFIST_DOORBUSTER": {
+    "scryfallId": "53681384-b72d-42a6-b134-aa420115ea12",
+    "oracleId": "70a04e3f-e123-4925-9a02-9825488f1bc8",
+    "name": "Maulfist Doorbuster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Maulfist Doorbuster",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "When this creature enters, you get {E}{E} (two energy counters).\nWhenever this creature attacks, you may pay {E}. If you do, target creature can't block this turn.",
+        "flavorText": "\"Knock, knock . . . too late.\"",
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Josh Hass",
+        "imageId": "53681384-b72d-42a6-b134-aa420115ea12"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "kld",
+    "collectorNumber": "123",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MALACHITE_TALISMAN": {
+    "scryfallId": "63fb8a24-ce53-4a69-be2a-55c6dbba5ee7",
+    "oracleId": "0be4877d-72ff-4951-aa52-f4f816abc844",
+    "name": "Malachite Talisman",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Malachite Talisman",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "Whenever a player casts a green spell, you may pay {3}. If you do, untap target permanent.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Christopher Rush",
+        "imageId": "63fb8a24-ce53-4a69-be2a-55c6dbba5ee7"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ice",
+    "collectorNumber": "328",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HEMATITE_TALISMAN": {
+    "scryfallId": "83585337-56a9-44d2-9ed1-8a959bcfb010",
+    "oracleId": "586601dd-ac73-4451-848d-f21e64feb6a9",
+    "name": "Hematite Talisman",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hematite Talisman",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "Whenever a player casts a red spell, you may pay {3}. If you do, untap target permanent.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Allen Williams",
+        "imageId": "83585337-56a9-44d2-9ed1-8a959bcfb010"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ice",
+    "collectorNumber": "320",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOODMIST_INFILTRATOR": {
+    "scryfallId": "909489a9-2678-4b6f-9d5e-2c04bb4cbd66",
+    "oracleId": "dcebce37-02eb-4b5d-86be-42b4a0287624",
+    "name": "Bloodmist Infiltrator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bloodmist Infiltrator",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "Whenever this creature attacks, you may sacrifice another creature. If you do, this creature can't be blocked this turn.",
+        "flavorText": "Blood seeks blood, and nothing shall hold back its hunger.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mitchell Malloy",
+        "imageId": "909489a9-2678-4b6f-9d5e-2c04bb4cbd66"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "rna",
+    "collectorNumber": "65",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ONYX_TALISMAN": {
+    "scryfallId": "a89b2368-1180-4821-bcb8-8161c18e5538",
+    "oracleId": "d19a19ed-33f9-400d-9669-c393d7127652",
+    "name": "Onyx Talisman",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Onyx Talisman",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "Whenever a player casts a black spell, you may pay {3}. If you do, untap target permanent.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Sandra Everingham",
+        "imageId": "a89b2368-1180-4821-bcb8-8161c18e5538"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ice",
+    "collectorNumber": "331",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INTIMIDATOR_INITIATE": {
+    "scryfallId": "c19dd557-dd49-450d-8446-71ce351d4f52",
+    "oracleId": "227f95ba-65b1-4399-8b12-39f8b1327d62",
+    "name": "Intimidator Initiate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Intimidator Initiate",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Goblin Shaman",
+        "oracleText": "Whenever a player casts a red spell, you may pay {1}. If you do, target creature can't block this turn.",
+        "flavorText": "Don't stand in his way, for his way is full of pointy things and fire.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Ralph Horsley",
+        "imageId": "c19dd557-dd49-450d-8446-71ce351d4f52"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "shm",
+    "collectorNumber": "96",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LAPIS_LAZULI_TALISMAN": {
+    "scryfallId": "ce00bb19-983e-427d-be54-ae6daf0ccdde",
+    "oracleId": "83447e57-06f7-4e7b-91d4-7b8f71ea0676",
+    "name": "Lapis Lazuli Talisman",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lapis Lazuli Talisman",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "Whenever a player casts a blue spell, you may pay {3}. If you do, untap target permanent.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Amy Weber",
+        "imageId": "ce00bb19-983e-427d-be54-ae6daf0ccdde"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ice",
+    "collectorNumber": "327",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_DIRIGIBLE": {
+    "scryfallId": "d2ed2990-e5bf-4567-9a41-1846108a8aeb",
+    "oracleId": "8e69b322-4e66-4d5b-ab46-f002c40a913f",
+    "name": "Goblin Dirigible",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Dirigible",
+        "manaCost": "{6}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "Flying\nThis creature doesn't untap during your untap step.\nAt the beginning of your upkeep, you may pay {4}. If you do, untap this creature.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Michael Sutfin",
+        "imageId": "d2ed2990-e5bf-4567-9a41-1846108a8aeb"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 6,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "mrd",
+    "collectorNumber": "177",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FORCE_OF_NATURE": {
+    "scryfallId": "03f733dc-41de-42f6-abdb-e27e369b6f3c",
+    "oracleId": "e3c4c27d-f263-4c69-a4fe-2928136ff68b",
+    "name": "Force of Nature",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Force of Nature",
+        "manaCost": "{2}{G}{G}{G}{G}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)\nAt the beginning of your upkeep, this creature deals 8 damage to you unless you pay {G}{G}{G}{G}.",
+        "flavorText": null,
+        "power": "8",
+        "toughness": "8",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "03f733dc-41de-42f6-abdb-e27e369b6f3c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "9ed",
+    "collectorNumber": "242★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HASRAN_OGRESS": {
+    "scryfallId": "9f310cf5-0985-4826-9779-19a713089d6d",
+    "oracleId": "a57d4a9d-4ac5-4a68-adb9-a73754034d7c",
+    "name": "Hasran Ogress",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hasran Ogress",
+        "manaCost": "{B}{B}",
+        "typeLine": "Creature — Ogre",
+        "oracleText": "Whenever this creature attacks, it deals 3 damage to you unless you pay {2}.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dan Frazier",
+        "imageId": "9f310cf5-0985-4826-9779-19a713089d6d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "arn",
+    "collectorNumber": "27",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

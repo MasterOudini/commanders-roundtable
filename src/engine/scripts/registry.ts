@@ -7,6 +7,24 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { NACRE_TALISMAN_SCRIPT } from './cards/nacreTalisman';
+import { BRASS_MAN_SCRIPT } from './cards/brassMan';
+import { BIBLIOPLEX_KRAKEN_SCRIPT } from './cards/biblioplexKraken';
+import { GOBLIN_WAR_WAGON_SCRIPT } from './cards/goblinWarWagon';
+import { FRENZIED_GOBLIN_SCRIPT } from './cards/frenziedGoblin';
+import { GRAVELGILL_SCOUNDREL_SCRIPT } from './cards/gravelgillScoundrel';
+import { BRASS_GNAT_SCRIPT } from './cards/brassGnat';
+import { ELABORATE_FIRECANNON_SCRIPT } from './cards/elaborateFirecannon';
+import { MAULFIST_DOORBUSTER_SCRIPT } from './cards/maulfistDoorbuster';
+import { MALACHITE_TALISMAN_SCRIPT } from './cards/malachiteTalisman';
+import { HEMATITE_TALISMAN_SCRIPT } from './cards/hematiteTalisman';
+import { BLOODMIST_INFILTRATOR_SCRIPT } from './cards/bloodmistInfiltrator';
+import { ONYX_TALISMAN_SCRIPT } from './cards/onyxTalisman';
+import { INTIMIDATOR_INITIATE_SCRIPT } from './cards/intimidatorInitiate';
+import { LAPIS_LAZULI_TALISMAN_SCRIPT } from './cards/lapisLazuliTalisman';
+import { GOBLIN_DIRIGIBLE_SCRIPT } from './cards/goblinDirigible';
+import { FORCE_OF_NATURE_SCRIPT } from './cards/forceOfNature';
+import { HASRAN_OGRESS_SCRIPT } from './cards/hasranOgress';
 import { UNDEAD_BUTLER_SCRIPT } from './cards/undeadButler';
 import { GREENWARDEN_OF_MURASA_SCRIPT } from './cards/greenwardenOfMurasa';
 import { DOOMBOT_HARBINGER_SCRIPT } from './cards/doombotHarbinger';
@@ -8752,6 +8770,24 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  NACRE_TALISMAN_SCRIPT,
+  BRASS_MAN_SCRIPT,
+  BIBLIOPLEX_KRAKEN_SCRIPT,
+  GOBLIN_WAR_WAGON_SCRIPT,
+  FRENZIED_GOBLIN_SCRIPT,
+  GRAVELGILL_SCOUNDREL_SCRIPT,
+  BRASS_GNAT_SCRIPT,
+  ELABORATE_FIRECANNON_SCRIPT,
+  MAULFIST_DOORBUSTER_SCRIPT,
+  MALACHITE_TALISMAN_SCRIPT,
+  HEMATITE_TALISMAN_SCRIPT,
+  BLOODMIST_INFILTRATOR_SCRIPT,
+  ONYX_TALISMAN_SCRIPT,
+  INTIMIDATOR_INITIATE_SCRIPT,
+  LAPIS_LAZULI_TALISMAN_SCRIPT,
+  GOBLIN_DIRIGIBLE_SCRIPT,
+  FORCE_OF_NATURE_SCRIPT,
+  HASRAN_OGRESS_SCRIPT,
   UNDEAD_BUTLER_SCRIPT,
   GREENWARDEN_OF_MURASA_SCRIPT,
   DOOMBOT_HARBINGER_SCRIPT,

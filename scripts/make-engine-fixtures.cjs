@@ -10865,6 +10865,26 @@ const WANTED = [
   'Master Skald',
   'Carrion Thrash',
   // D609 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D610 - FOUR MORE PAYMENT BRANCHES: the rows the whole-leftover row maker rowed once the suite asserted a payment branch that untaps, flags a creature for combat or deals damage to each player.
+  'Nacre Talisman',
+  'Brass Man',
+  'Biblioplex Kraken',
+  'Goblin War Wagon',
+  'Frenzied Goblin',
+  'Gravelgill Scoundrel',
+  'Brass Gnat',
+  'Elaborate Firecannon',
+  'Maulfist Doorbuster',
+  'Malachite Talisman',
+  'Hematite Talisman',
+  'Bloodmist Infiltrator',
+  'Onyx Talisman',
+  'Intimidator Initiate',
+  'Lapis Lazuli Talisman',
+  'Goblin Dirigible',
+  'Force of Nature',
+  'Hasran Ogress',
+  // D610 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
