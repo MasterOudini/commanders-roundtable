@@ -10856,6 +10856,15 @@ const WANTED = [
   'Ghoulcaller Gisa',
   'Airdrop Condor',
   // D608 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D609 - THE DYING CARD OWN EXILE: the rows the whole-leftover row maker rowed once the vocabulary read you may exile it under a dies head as a verb price.
+  'Undead Butler',
+  'Greenwarden of Murasa',
+  'Doombot Harbinger',
+  'Veinwitch Coven',
+  'Eternal Taskmaster',
+  'Master Skald',
+  'Carrion Thrash',
+  // D609 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

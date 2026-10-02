@@ -9677,6 +9677,13 @@ export const KHERU_DREADMAW: CardData = F.KHERU_DREADMAW as CardData;
 export const DINA_SOUL_STEEPER: CardData = F.DINA_SOUL_STEEPER as CardData;
 export const GHOULCALLER_GISA: CardData = F.GHOULCALLER_GISA as CardData;
 export const AIRDROP_CONDOR: CardData = F.AIRDROP_CONDOR as CardData;
+export const UNDEAD_BUTLER: CardData = F.UNDEAD_BUTLER as CardData;
+export const GREENWARDEN_OF_MURASA: CardData = F.GREENWARDEN_OF_MURASA as CardData;
+export const DOOMBOT_HARBINGER: CardData = F.DOOMBOT_HARBINGER as CardData;
+export const VEINWITCH_COVEN: CardData = F.VEINWITCH_COVEN as CardData;
+export const ETERNAL_TASKMASTER: CardData = F.ETERNAL_TASKMASTER as CardData;
+export const MASTER_SKALD: CardData = F.MASTER_SKALD as CardData;
+export const CARRION_THRASH: CardData = F.CARRION_THRASH as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -19628,6 +19635,13 @@ export const ENGINE_CARDS: CardData[] = [
   DINA_SOUL_STEEPER,
   GHOULCALLER_GISA,
   AIRDROP_CONDOR,
+  UNDEAD_BUTLER,
+  GREENWARDEN_OF_MURASA,
+  DOOMBOT_HARBINGER,
+  VEINWITCH_COVEN,
+  ETERNAL_TASKMASTER,
+  MASTER_SKALD,
+  CARRION_THRASH,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

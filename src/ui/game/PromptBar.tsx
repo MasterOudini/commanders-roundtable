@@ -730,7 +730,8 @@ export function PromptBar() {
               onClick={() => {
                 const v = awaiting.verbs;
                 if (!v) return;
-                if (v.sacrificeSelf) {
+                // D609 - the dying card's own exile is the source itself, as its own sacrifice is: no pick to make.
+                if (v.sacrificeSelf || v.exileSelf === true) {
                   send({ t: 'AnswerPayMana', player: viewer, pay: true, picks: awaiting.candidates ? [...awaiting.candidates] : [] });
                   return;
                 }

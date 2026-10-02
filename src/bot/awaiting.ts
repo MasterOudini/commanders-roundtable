@@ -344,7 +344,8 @@ export function answerAwaiting(
       if (awaiting.verbs) {
         const v = awaiting.verbs;
         // D571 - a champion's exile names one.
-        const count = v.sacrificeSelf || v.championExile !== undefined ? 1 : (v.sacrificeCost?.count ?? v.discardCost?.count ?? v.tapCost?.count ?? v.exileFromGraveyardCost?.count ?? v.returnCost?.count ?? 0);
+        // D609 - the dying card's own exile names one too (itself).
+        const count = v.sacrificeSelf || v.exileSelf === true || v.championExile !== undefined ? 1 : (v.sacrificeCost?.count ?? v.discardCost?.count ?? v.tapCost?.count ?? v.exileFromGraveyardCost?.count ?? v.returnCost?.count ?? 0);
         const pool: CardView[] =
           v.discardCost !== null
             ? myHand(view, me)
@@ -363,7 +364,8 @@ export function answerAwaiting(
         const payable = pool.filter((c) => !aimed.has(c.instanceId));
         const sorted = v.discardCost !== null ? [...payable].sort(worstFirst) : [...payable].sort(worstFirst).reverse();
         const picks = sorted.slice(0, count).map((c) => c.instanceId);
-        const cheap = v.discardCost !== null || v.exileFromGraveyardCost !== null || v.tapCost !== null;
+        // D609 - exiling a card already in the graveyard costs the board nothing: cheap, as an exile from the graveyard is.
+        const cheap = v.discardCost !== null || v.exileFromGraveyardCost !== null || v.tapCost !== null || v.exileSelf === true;
         const spareLand = !cheap && !v.sacrificeSelf && !benefit && pool.length >= 6 && pool.every(isLand);
         const payVerb = picks.length === count && count > 0 && (cheap || spareLand);
         return act(

@@ -1311,6 +1311,12 @@ export interface VerbPrice {
    * source's entry (D407's `until`) - it returns under its owner's control when the champion leaves. Absent elsewhere.
    */
   readonly championExile?: { readonly any: readonly PermanentPredicate[] };
+  /**
+   * D609 - THE DYING CARD'S OWN EXILE (`you may exile it. If you do, ...` under a dies head): the price is the source itself,
+   * exiled from its owner's graveyard - payable while the card is still there (CR 400.7: a card that left is a new object).
+   * One pick, the source. Absent elsewhere.
+   */
+  readonly exileSelf?: true;
 }
 
 export interface PaySpec {

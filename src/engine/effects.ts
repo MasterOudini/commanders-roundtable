@@ -931,6 +931,11 @@ export function effectResult(
             const inst = self === null ? undefined : priced.cards[self];
             verbCandidates = self !== null && inst !== undefined && inst.zone.kind === 'battlefield' ? [self] : [];
             shipCandidates = true;
+          } else if (pay.verbs.exileSelf) {
+            // D609 - the dying card's own exile: the source while it is still in its owner's graveyard (CR 400.7).
+            const inst = self === null ? undefined : priced.cards[self];
+            verbCandidates = self !== null && inst !== undefined && inst.zone.kind === 'graveyard' ? [self] : [];
+            shipCandidates = true;
           } else if (pay.verbs.championExile) {
             // D571 - the champion's exile: ANOTHER permanent the payer controls the noun admits (public - the prompt
             // ships them); a champion gone from the battlefield prices nothing.

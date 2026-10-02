@@ -7,6 +7,13 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { UNDEAD_BUTLER_SCRIPT } from './cards/undeadButler';
+import { GREENWARDEN_OF_MURASA_SCRIPT } from './cards/greenwardenOfMurasa';
+import { DOOMBOT_HARBINGER_SCRIPT } from './cards/doombotHarbinger';
+import { VEINWITCH_COVEN_SCRIPT } from './cards/veinwitchCoven';
+import { ETERNAL_TASKMASTER_SCRIPT } from './cards/eternalTaskmaster';
+import { MASTER_SKALD_SCRIPT } from './cards/masterSkald';
+import { CARRION_THRASH_SCRIPT } from './cards/carrionThrash';
 import { DINA_SOUL_STEEPER_SCRIPT } from './cards/dinaSoulSteeper';
 import { GHOULCALLER_GISA_SCRIPT } from './cards/ghoulcallerGisa';
 import { ATOGATOG_SCRIPT } from './cards/atogatog';
@@ -8745,6 +8752,13 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  UNDEAD_BUTLER_SCRIPT,
+  GREENWARDEN_OF_MURASA_SCRIPT,
+  DOOMBOT_HARBINGER_SCRIPT,
+  VEINWITCH_COVEN_SCRIPT,
+  ETERNAL_TASKMASTER_SCRIPT,
+  MASTER_SKALD_SCRIPT,
+  CARRION_THRASH_SCRIPT,
   DINA_SOUL_STEEPER_SCRIPT,
   GHOULCALLER_GISA_SCRIPT,
   ATOGATOG_SCRIPT,

@@ -3265,6 +3265,10 @@ export function exploitSpec(): EffectSpec {
 
 function readVerbPrice(raw: string): VerbPrice | null {
   const price = raw.trim();
+  // D609 - the dying card's own exile: the source, from its owner's graveyard (`you may exile it` under a dies head).
+  if (/^exile (?:it|~|this (?:creature|card|permanent))$/i.test(price)) {
+    return { costText: price, sacrificeSelf: false, sacrificeCost: null, discardCost: null, tapCost: null, exileFromGraveyardCost: null, returnCost: null, exileSelf: true };
+  }
   if (SELF_PRICE_RE.test(price)) {
     return { costText: price, sacrificeSelf: true, sacrificeCost: null, discardCost: null, tapCost: null, exileFromGraveyardCost: null, returnCost: null };
   }

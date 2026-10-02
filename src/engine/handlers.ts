@@ -4180,6 +4180,19 @@ function verbPriceEvents(
     if (picks.length > 0 && (picks.length !== 1 || picks[0] !== self)) return { error: reject('illegalSacrifice', `${awaiting.label}'s price is its own sacrifice.`) };
     return additionalCostEvents(state, deps, player, awaiting.identity, picksOf({ sacrifice: [self] }));
   }
+  // D609 - the dying card's own exile: the source, still in its owner's graveyard (CR 400.7 - a card that left is a new
+  // object, and nothing is left to pay with), moved to exile.
+  if (verbs.exileSelf) {
+    const inst = self === '' ? undefined : state.cards[self];
+    if (!inst || inst.zone.kind !== 'graveyard') return { error: reject('cannotAfford', `${awaiting.label}: the card is no longer in the graveyard.`) };
+    if (picks.length !== 1 || picks[0] !== self) return { error: reject('noSuchCard', `${awaiting.label}'s price is its own exile.`) };
+    return {
+      events: [
+        { t: 'CardsMoved', moves: [{ card: self, from: { kind: 'graveyard', player: inst.owner }, to: { kind: 'exile', player: inst.owner } }] },
+        narrated(n`${who(state, player)} ${vb(player, 'exiles', 'exile')} ${revealedName(state, deps, self)} for ${awaiting.label}.`, player, awaiting.identity),
+      ],
+    };
+  }
   const cache = makeDeriveCache(state);
   // D571 - CHAMPION's exile: one pick, another permanent the payer controls the noun admits, re-checked against the
   // board as it stands; the move carries the champion's entry stamp (D407's `until`) - the state-based return brings

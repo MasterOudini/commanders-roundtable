@@ -329504,6 +329504,248 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "UNDEAD_BUTLER": {
+    "scryfallId": "018612db-2a32-42fd-9d4d-aa4bc62d9b20",
+    "oracleId": "426fa8e8-b0f9-4b6c-b22b-04ec2073187a",
+    "name": "Undead Butler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Undead Butler",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "When this creature enters, mill three cards. (Put the top three cards of your library into your graveyard.)\nWhen this creature dies, you may exile it. When you do, return target creature card from your graveyard to your hand.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Néstor Ossandón Leal",
+        "imageId": "018612db-2a32-42fd-9d4d-aa4bc62d9b20"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "dbl",
+    "collectorNumber": "400",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GREENWARDEN_OF_MURASA": {
+    "scryfallId": "24249343-8274-4c16-bb51-4d37b4b60741",
+    "oracleId": "2facb1b3-4522-4610-a0ab-29ac53ca7fcd",
+    "name": "Greenwarden of Murasa",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Greenwarden of Murasa",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "When this creature enters, you may return target card from your graveyard to your hand.\nWhen this creature dies, you may exile it. If you do, return target card from your graveyard to your hand.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Eric Deschamps",
+        "imageId": "24249343-8274-4c16-bb51-4d37b4b60741"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "ecc",
+    "collectorNumber": "110",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DOOMBOT_HARBINGER": {
+    "scryfallId": "faa0c280-36e1-468b-8f88-61de394f250c",
+    "oracleId": "37042a3e-c377-4282-80f9-068e4955f8a1",
+    "name": "Doombot Harbinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Doombot Harbinger",
+        "manaCost": "{2}{B}",
+        "typeLine": "Artifact Creature — Robot Villain",
+        "oracleText": "Flying\nWhen this creature enters, you may mill four cards. (You may put the top four cards of your library into your graveyard.)\nWhen this creature dies, you may exile this card. When you do, return target creature card from your graveyard to your hand.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Myles Wohl",
+        "imageId": "faa0c280-36e1-468b-8f88-61de394f250c"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Mill"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "655",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VEINWITCH_COVEN": {
+    "scryfallId": "3ed2934a-324f-4be9-b8c8-edae66ab0a2f",
+    "oracleId": "ab478ac9-af59-4df1-afef-5e9806c06643",
+    "name": "Veinwitch Coven",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Veinwitch Coven",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Vampire Warlock",
+        "oracleText": "Menace\nWhenever you gain life, you may pay {B}. If you do, return target creature card from your graveyard to your hand.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Caio Monteiro",
+        "imageId": "3ed2934a-324f-4be9-b8c8-edae66ab0a2f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Menace"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "90080",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ETERNAL_TASKMASTER": {
+    "scryfallId": "58afc628-2d79-4155-bb27-373fc4c50ba1",
+    "oracleId": "a7c000a8-1864-4bb2-80fa-a61d74dbd966",
+    "name": "Eternal Taskmaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eternal Taskmaster",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "This creature enters tapped.\nWhenever this creature attacks, you may pay {2}{B}. If you do, return target creature card from your graveyard to your hand.",
+        "flavorText": "Sometimes she considered how much easier it would have been to stay dead.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Chris Seaman",
+        "imageId": "58afc628-2d79-4155-bb27-373fc4c50ba1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "j25",
+    "collectorNumber": "117",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MASTER_SKALD": {
+    "scryfallId": "6b269e27-8e17-4bf2-b28a-a83ecc7d22c0",
+    "oracleId": "34bccfc0-453d-4d1a-8046-70f9c3065e88",
+    "name": "Master Skald",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Master Skald",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Dwarf Warrior",
+        "oracleText": "When this creature enters, you may exile a creature card from your graveyard. If you do, return target artifact or enchantment card from your graveyard to your hand.",
+        "flavorText": "\"All my scars have stories to tell.\"",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "6b269e27-8e17-4bf2-b28a-a83ecc7d22c0"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "khm",
+    "collectorNumber": "19",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CARRION_THRASH": {
+    "scryfallId": "f14c7b9e-eb80-4842-8aa3-1d0c46d9677e",
+    "oracleId": "89599a64-19fc-47ad-a116-3ce0a10fa546",
+    "name": "Carrion Thrash",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Carrion Thrash",
+        "manaCost": "{2}{B}{R}{G}",
+        "typeLine": "Creature — Lizard Warrior",
+        "oracleText": "When this creature dies, you may pay {2}. If you do, return another target creature card from your graveyard to your hand.",
+        "flavorText": "Viashino hunt in gangs called thrashes. Not all thrashes hunt the freshest game.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G",
+          "R"
+        ],
+        "artist": "Jaime Jones",
+        "imageId": "f14c7b9e-eb80-4842-8aa3-1d0c46d9677e"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G",
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "ala",
+    "collectorNumber": "162",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
