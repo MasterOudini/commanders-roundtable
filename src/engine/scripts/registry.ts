@@ -7,6 +7,50 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { TIME_BOMB_SCRIPT } from './cards/timeBomb';
+import { ASSEMBLE_THE_LEGION_SCRIPT } from './cards/assembleTheLegion';
+import { CONVERSION_CHAMBER_SCRIPT } from './cards/conversionChamber';
+import { GOLEM_FOUNDRY_SCRIPT } from './cards/golemFoundry';
+import { MAGMA_MINE_SCRIPT } from './cards/magmaMine';
+import { CLEARWATER_GOBLET_SCRIPT } from './cards/clearwaterGoblet';
+import { CEPHALID_VANDAL_SCRIPT } from './cards/cephalidVandal';
+import { FONT_OF_PROGRESS_SCRIPT } from './cards/fontOfProgress';
+import { CROWDED_CRYPT_SCRIPT } from './cards/crowdedCrypt';
+import { SCROLL_OF_THE_MASTERS_SCRIPT } from './cards/scrollOfTheMasters';
+import { DRAGONS_HOARD_SCRIPT } from './cards/dragonsHoard';
+import { WAR_DANCE_SCRIPT } from './cards/warDance';
+import { OTHERWORLD_ATLAS_SCRIPT } from './cards/otherworldAtlas';
+import { KJELDORAN_JAVELINEER_SCRIPT } from './cards/kjeldoranJavelineer';
+import { FIREMINDS_RESEARCH_SCRIPT } from './cards/firemindsResearch';
+import { GRINDCLOCK_SCRIPT } from './cards/grindclock';
+import { CULLING_DAIS_SCRIPT } from './cards/cullingDais';
+import { TORCH_SONG_SCRIPT } from './cards/torchSong';
+import { RAVENOUS_AMULET_SCRIPT } from './cards/ravenousAmulet';
+import { BAKU_ALTAR_SCRIPT } from './cards/bakuAltar';
+import { SHRINE_OF_BURNING_RAGE_SCRIPT } from './cards/shrineOfBurningRage';
+import { BARRINS_CODEX_SCRIPT } from './cards/barrinsCodex';
+import { MIDSUMMER_REVEL_SCRIPT } from './cards/midsummerRevel';
+import { SHRINE_OF_LOYAL_LEGIONS_SCRIPT } from './cards/shrineOfLoyalLegions';
+import { ARCANE_SPYGLASS_SCRIPT } from './cards/arcaneSpyglass';
+import { CHIMERIC_EGG_SCRIPT } from './cards/chimericEgg';
+import { GOLDEN_URN_SCRIPT } from './cards/goldenUrn';
+import { MIND_UNBOUND_SCRIPT } from './cards/mindUnbound';
+import { MYCOLOTH_SCRIPT } from './cards/mycoloth';
+import { THE_MAGIC_MIRROR_SCRIPT } from './cards/theMagicMirror';
+import { GRUESOME_SCOURGER_SCRIPT } from './cards/gruesomeScourger';
+import { VOLLEY_VETERAN_SCRIPT } from './cards/volleyVeteran';
+import { HONDEN_OF_INFINITE_RAGE_SCRIPT } from './cards/hondenOfInfiniteRage';
+import { STADIUM_HEADLINER_SCRIPT } from './cards/stadiumHeadliner';
+import { SPAWN_OF_THRAXES_SCRIPT } from './cards/spawnOfThraxes';
+import { SHAMAN_OF_THE_PACK_SCRIPT } from './cards/shamanOfThePack';
+import { GENERAL_LEO_CRISTOPHE_SCRIPT } from './cards/generalLeoCristophe';
+import { FALKENRATH_EXTERMINATOR_SCRIPT } from './cards/falkenrathExterminator';
+import { HELIOPHIAL_SCRIPT } from './cards/heliophial';
+import { FIRE_DRAGON_SCRIPT } from './cards/fireDragon';
+import { FOUNDRY_CHAMPION_SCRIPT } from './cards/foundryChampion';
+import { WALKING_ARCHIVE_SCRIPT } from './cards/walkingArchive';
+import { KESSIG_MALCONTENTS_SCRIPT } from './cards/kessigMalcontents';
+import { CAT_GATOR_SCRIPT } from './cards/catGator';
 import { NACRE_TALISMAN_SCRIPT } from './cards/nacreTalisman';
 import { BRASS_MAN_SCRIPT } from './cards/brassMan';
 import { BIBLIOPLEX_KRAKEN_SCRIPT } from './cards/biblioplexKraken';
@@ -6950,7 +6994,6 @@ import { SPARE_SUPPLIES_SCRIPT } from './cards/spareSupplies';
 import { SPELL_SNUFF_SCRIPT } from './cards/spellSnuff';
 import { SPHINXS_INSIGHT_SCRIPT } from './cards/sphinxsInsight';
 import { STAFF_OF_NIN_SCRIPT } from './cards/staffOfNin';
-import { STENSIA_BANQUET_SCRIPT } from './cards/stensiaBanquet';
 import { STIMULUS_PACKAGE_SCRIPT } from './cards/stimulusPackage';
 import { STORMSCAPE_APPRENTICE_SCRIPT } from './cards/stormscapeApprentice';
 import { SUNBEAM_SPELLBOMB_SCRIPT } from './cards/sunbeamSpellbomb';
@@ -7144,7 +7187,6 @@ import { VENERABLE_MONK_SCRIPT } from './cards/venerableMonk';
 import { VERDANT_FORCE_SCRIPT } from './cards/verdantForce';
 import { VESSEL_OF_EPHEMERA_SCRIPT } from './cards/vesselOfEphemera';
 import { UNIFIED_WILL_SCRIPT } from './cards/unifiedWill';
-import { UNION_OF_THE_THIRD_PATH_SCRIPT } from './cards/unionOfTheThirdPath';
 import { UNIVERSAL_SOLVENT_SCRIPT } from './cards/universalSolvent';
 import { UNIVERSITY_CAMPUS_SCRIPT } from './cards/universityCampus';
 import { UNLEASH_FURY_SCRIPT } from './cards/unleashFury';
@@ -7168,7 +7210,6 @@ import { TYRANTS_MACHINE_SCRIPT } from './cards/tyrantsMachine';
 import { UGINS_INSIGHT_SCRIPT } from './cards/uginsInsight';
 import { UKTABI_FAERIE_SCRIPT } from './cards/uktabiFaerie';
 import { UKTABI_ORANGUTAN_SCRIPT } from './cards/uktabiOrangutan';
-import { ULTIMATE_ALLIANCE_SCRIPT } from './cards/ultimateAlliance';
 import { ULVENWALD_OBSERVER_SCRIPT } from './cards/ulvenwaldObserver';
 import { UMBRAL_COLLAR_ZEALOT_SCRIPT } from './cards/umbralCollarZealot';
 import { UNAGIS_SPRAY_SCRIPT } from './cards/unagisSpray';
@@ -7740,7 +7781,6 @@ import { ORZHOV_LOCKET_SCRIPT } from './cards/orzhovLocket';
 import { OSCORP_RESEARCH_TEAM_SCRIPT } from './cards/oscorpResearchTeam';
 import { OSTIARY_THRULL_SCRIPT } from './cards/ostiaryThrull';
 import { OUTLAW_MEDIC_SCRIPT } from './cards/outlawMedic';
-import { OUTNUMBER_SCRIPT } from './cards/outnumber';
 import { OVERGROWN_ESTATE_SCRIPT } from './cards/overgrownEstate';
 import { OVERWHELMING_FORCES_SCRIPT } from './cards/overwhelmingForces';
 import { OVERWHELMING_INSTINCT_SCRIPT } from './cards/overwhelmingInstinct';
@@ -7822,7 +7862,6 @@ import { NATURES_RESURGENCE_SCRIPT } from './cards/naturesResurgence';
 import { NATURES_RUIN_SCRIPT } from './cards/naturesRuin';
 import { NAUSEA_SCRIPT } from './cards/nausea';
 import { NEBELGAST_BEGUILER_SCRIPT } from './cards/nebelgastBeguiler';
-import { MOB_JUSTICE_SCRIPT } from './cards/mobJustice';
 import { MOGG_RAIDER_SCRIPT } from './cards/moggRaider';
 import { MOLECULAR_MODIFIER_SCRIPT } from './cards/molecularModifier';
 import { MOLTEN_RAIN_SCRIPT } from './cards/moltenRain';
@@ -7851,8 +7890,6 @@ import { MIST_RAVEN_SCRIPT } from './cards/mistRaven';
 import { MISTHIOSS_FURY_SCRIPT } from './cards/misthiossFury';
 import { MISTY_PALMS_OASIS_SCRIPT } from './cards/mistyPalmsOasis';
 import { MMMENON_UTHROS_EXILE_SCRIPT } from './cards/mmmenonUthrosExile';
-import { MASSIVE_RAID_SCRIPT } from './cards/massiveRaid';
-import { MASTER_THE_WAY_SCRIPT } from './cards/masterTheWay';
 import { MATHEMAGICS_SCRIPT } from './cards/mathemagics';
 import { MELT_TERRAIN_SCRIPT } from './cards/meltTerrain';
 import { MELTDOWN_SCRIPT } from './cards/meltdown';
@@ -7908,7 +7945,6 @@ import { INUNDATE_SCRIPT } from './cards/inundate';
 import { INVIGORATING_FALLS_SCRIPT } from './cards/invigoratingFalls';
 import { INVINCIBLE_HYMN_SCRIPT } from './cards/invincibleHymn';
 import { IONIZE_SCRIPT } from './cards/ionize';
-import { IRE_OF_KAMINARI_SCRIPT } from './cards/ireOfKaminari';
 import { IRIDIAN_MAELSTROM_SCRIPT } from './cards/iridianMaelstrom';
 import { IRON_LANCE_SCRIPT } from './cards/ironLance';
 import { IXALLIS_KEEPER_SCRIPT } from './cards/ixallisKeeper';
@@ -7958,20 +7994,17 @@ import { HOBBITS_STING_SCRIPT } from './cards/hobbitsSting';
 import { HOLD_THE_LINE_SCRIPT } from './cards/holdTheLine';
 import { GLISTENING_DELUGE_SCRIPT } from './cards/glisteningDeluge';
 import { GOBLIN_MOTIVATOR_SCRIPT } from './cards/goblinMotivator';
-import { GOBLIN_WAR_STRIKE_SCRIPT } from './cards/goblinWarStrike';
 import { GOLDEN_RATIO_SCRIPT } from './cards/goldenRatio';
 import { GRANULATE_SCRIPT } from './cards/granulate';
 import { GREAT_DEFENDER_SCRIPT } from './cards/greatDefender';
 import { GREY_HAVENS_NAVIGATOR_SCRIPT } from './cards/greyHavensNavigator';
 import { GRIPTIDE_SCRIPT } from './cards/griptide';
-import { GROUND_ASSAULT_SCRIPT } from './cards/groundAssault';
 import { GROWTH_CYCLE_SCRIPT } from './cards/growthCycle';
 import { GUAN_YUS_MARCH_SCRIPT } from './cards/guanYusMarch';
 import { GUARDIAN_OF_SOLITUDE_SCRIPT } from './cards/guardianOfSolitude';
 import { HAIL_STORM_SCRIPT } from './cards/hailStorm';
 import { HALLOWED_BURIAL_SCRIPT } from './cards/hallowedBurial';
 import { HARMATTAN_EFREET_SCRIPT } from './cards/harmattanEfreet';
-import { FRANTIC_INVENTORY_SCRIPT } from './cards/franticInventory';
 import { FYNDHORN_BOW_SCRIPT } from './cards/fyndhornBow';
 import { GAEAS_MIGHT_SCRIPT } from './cards/gaeasMight';
 import { GALADHRIM_GUIDE_SCRIPT } from './cards/galadhrimGuide';
@@ -8000,7 +8033,6 @@ import { FRACTURING_GUST_SCRIPT } from './cards/fracturingGust';
 import { FRANTIC_FIREBOLT_SCRIPT } from './cards/franticFirebolt';
 import { FEAST_OF_FLESH_SCRIPT } from './cards/feastOfFlesh';
 import { FEED_THE_SWARM_SCRIPT } from './cards/feedTheSwarm';
-import { FEEDBACK_BOLT_SCRIPT } from './cards/feedbackBolt';
 import { FESTERGLOOM_SCRIPT } from './cards/festergloom';
 import { FESTIVAL_OF_TROKIN_SCRIPT } from './cards/festivalOfTrokin';
 import { FIELDS_OF_STRIFE_SCRIPT } from './cards/fieldsOfStrife';
@@ -8040,7 +8072,6 @@ import { EXPONENTIAL_GROWTH_SCRIPT } from './cards/exponentialGrowth';
 import { EXSANGUINATE_SCRIPT } from './cards/exsanguinate';
 import { EXTINGUISH_ALL_HOPE_SCRIPT } from './cards/extinguishAllHope';
 import { EARLY_HARVEST_SCRIPT } from './cards/earlyHarvest';
-import { EARTH_TREMOR_SCRIPT } from './cards/earthTremor';
 import { ECHOING_CALM_SCRIPT } from './cards/echoingCalm';
 import { ECHOING_COURAGE_SCRIPT } from './cards/echoingCourage';
 import { ECHOING_DECAY_SCRIPT } from './cards/echoingDecay';
@@ -8053,7 +8084,6 @@ import { END_HOSTILITIES_SCRIPT } from './cards/endHostilities';
 import { END_THE_FESTIVITIES_SCRIPT } from './cards/endTheFestivities';
 import { ENGULF_THE_SHORE_SCRIPT } from './cards/engulfTheShore';
 import { DIVINE_OFFERING_SCRIPT } from './cards/divineOffering';
-import { DOGPILE_SCRIPT } from './cards/dogpile';
 import { DOUBLE_TROUBLE_SCRIPT } from './cards/doubleTrouble';
 import { DRAG_DOWN_SCRIPT } from './cards/dragDown';
 import { DRAG_TO_THE_BOTTOM_SCRIPT } from './cards/dragToTheBottom';
@@ -8171,7 +8201,6 @@ import { BLOOD_LUST_SCRIPT } from './cards/bloodLust';
 import { BLOOD_MIST_SCRIPT } from './cards/bloodMist';
 import { BLOODLUST_INCITER_SCRIPT } from './cards/bloodlustInciter';
 import { BLOODTHORN_TAUNTER_SCRIPT } from './cards/bloodthornTaunter';
-import { BLOSSOMING_WREATH_SCRIPT } from './cards/blossomingWreath';
 import { BOIL_SCRIPT } from './cards/boil';
 import { BOILING_SEAS_SCRIPT } from './cards/boilingSeas';
 import { AXGARD_CAVALRY_SCRIPT } from './cards/axgardCavalry';
@@ -8770,6 +8799,50 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  TIME_BOMB_SCRIPT,
+  ASSEMBLE_THE_LEGION_SCRIPT,
+  CONVERSION_CHAMBER_SCRIPT,
+  GOLEM_FOUNDRY_SCRIPT,
+  MAGMA_MINE_SCRIPT,
+  CLEARWATER_GOBLET_SCRIPT,
+  CEPHALID_VANDAL_SCRIPT,
+  FONT_OF_PROGRESS_SCRIPT,
+  CROWDED_CRYPT_SCRIPT,
+  SCROLL_OF_THE_MASTERS_SCRIPT,
+  DRAGONS_HOARD_SCRIPT,
+  WAR_DANCE_SCRIPT,
+  OTHERWORLD_ATLAS_SCRIPT,
+  KJELDORAN_JAVELINEER_SCRIPT,
+  FIREMINDS_RESEARCH_SCRIPT,
+  GRINDCLOCK_SCRIPT,
+  CULLING_DAIS_SCRIPT,
+  TORCH_SONG_SCRIPT,
+  RAVENOUS_AMULET_SCRIPT,
+  BAKU_ALTAR_SCRIPT,
+  SHRINE_OF_BURNING_RAGE_SCRIPT,
+  BARRINS_CODEX_SCRIPT,
+  MIDSUMMER_REVEL_SCRIPT,
+  SHRINE_OF_LOYAL_LEGIONS_SCRIPT,
+  ARCANE_SPYGLASS_SCRIPT,
+  CHIMERIC_EGG_SCRIPT,
+  GOLDEN_URN_SCRIPT,
+  MIND_UNBOUND_SCRIPT,
+  MYCOLOTH_SCRIPT,
+  THE_MAGIC_MIRROR_SCRIPT,
+  GRUESOME_SCOURGER_SCRIPT,
+  VOLLEY_VETERAN_SCRIPT,
+  HONDEN_OF_INFINITE_RAGE_SCRIPT,
+  STADIUM_HEADLINER_SCRIPT,
+  SPAWN_OF_THRAXES_SCRIPT,
+  SHAMAN_OF_THE_PACK_SCRIPT,
+  GENERAL_LEO_CRISTOPHE_SCRIPT,
+  FALKENRATH_EXTERMINATOR_SCRIPT,
+  HELIOPHIAL_SCRIPT,
+  FIRE_DRAGON_SCRIPT,
+  FOUNDRY_CHAMPION_SCRIPT,
+  WALKING_ARCHIVE_SCRIPT,
+  KESSIG_MALCONTENTS_SCRIPT,
+  CAT_GATOR_SCRIPT,
   NACRE_TALISMAN_SCRIPT,
   BRASS_MAN_SCRIPT,
   BIBLIOPLEX_KRAKEN_SCRIPT,
@@ -15713,7 +15786,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   SPELL_SNUFF_SCRIPT,
   SPHINXS_INSIGHT_SCRIPT,
   STAFF_OF_NIN_SCRIPT,
-  STENSIA_BANQUET_SCRIPT,
   STIMULUS_PACKAGE_SCRIPT,
   STORMSCAPE_APPRENTICE_SCRIPT,
   SUNBEAM_SPELLBOMB_SCRIPT,
@@ -15907,7 +15979,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   VERDANT_FORCE_SCRIPT,
   VESSEL_OF_EPHEMERA_SCRIPT,
   UNIFIED_WILL_SCRIPT,
-  UNION_OF_THE_THIRD_PATH_SCRIPT,
   UNIVERSAL_SOLVENT_SCRIPT,
   UNIVERSITY_CAMPUS_SCRIPT,
   UNLEASH_FURY_SCRIPT,
@@ -15931,7 +16002,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   UGINS_INSIGHT_SCRIPT,
   UKTABI_FAERIE_SCRIPT,
   UKTABI_ORANGUTAN_SCRIPT,
-  ULTIMATE_ALLIANCE_SCRIPT,
   ULVENWALD_OBSERVER_SCRIPT,
   UMBRAL_COLLAR_ZEALOT_SCRIPT,
   UNAGIS_SPRAY_SCRIPT,
@@ -16502,7 +16572,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   OSCORP_RESEARCH_TEAM_SCRIPT,
   OSTIARY_THRULL_SCRIPT,
   OUTLAW_MEDIC_SCRIPT,
-  OUTNUMBER_SCRIPT,
   OVERGROWN_ESTATE_SCRIPT,
   OVERWHELMING_FORCES_SCRIPT,
   OVERWHELMING_INSTINCT_SCRIPT,
@@ -16584,7 +16653,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   NATURES_RUIN_SCRIPT,
   NAUSEA_SCRIPT,
   NEBELGAST_BEGUILER_SCRIPT,
-  MOB_JUSTICE_SCRIPT,
   MOGG_RAIDER_SCRIPT,
   MOLECULAR_MODIFIER_SCRIPT,
   MOLTEN_RAIN_SCRIPT,
@@ -16613,8 +16681,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   MISTHIOSS_FURY_SCRIPT,
   MISTY_PALMS_OASIS_SCRIPT,
   MMMENON_UTHROS_EXILE_SCRIPT,
-  MASSIVE_RAID_SCRIPT,
-  MASTER_THE_WAY_SCRIPT,
   MATHEMAGICS_SCRIPT,
   MELT_TERRAIN_SCRIPT,
   MELTDOWN_SCRIPT,
@@ -16670,7 +16736,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   INVIGORATING_FALLS_SCRIPT,
   INVINCIBLE_HYMN_SCRIPT,
   IONIZE_SCRIPT,
-  IRE_OF_KAMINARI_SCRIPT,
   IRIDIAN_MAELSTROM_SCRIPT,
   IRON_LANCE_SCRIPT,
   IXALLIS_KEEPER_SCRIPT,
@@ -16720,20 +16785,17 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   HOLD_THE_LINE_SCRIPT,
   GLISTENING_DELUGE_SCRIPT,
   GOBLIN_MOTIVATOR_SCRIPT,
-  GOBLIN_WAR_STRIKE_SCRIPT,
   GOLDEN_RATIO_SCRIPT,
   GRANULATE_SCRIPT,
   GREAT_DEFENDER_SCRIPT,
   GREY_HAVENS_NAVIGATOR_SCRIPT,
   GRIPTIDE_SCRIPT,
-  GROUND_ASSAULT_SCRIPT,
   GROWTH_CYCLE_SCRIPT,
   GUAN_YUS_MARCH_SCRIPT,
   GUARDIAN_OF_SOLITUDE_SCRIPT,
   HAIL_STORM_SCRIPT,
   HALLOWED_BURIAL_SCRIPT,
   HARMATTAN_EFREET_SCRIPT,
-  FRANTIC_INVENTORY_SCRIPT,
   FYNDHORN_BOW_SCRIPT,
   GAEAS_MIGHT_SCRIPT,
   GALADHRIM_GUIDE_SCRIPT,
@@ -16762,7 +16824,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   FRANTIC_FIREBOLT_SCRIPT,
   FEAST_OF_FLESH_SCRIPT,
   FEED_THE_SWARM_SCRIPT,
-  FEEDBACK_BOLT_SCRIPT,
   FESTERGLOOM_SCRIPT,
   FESTIVAL_OF_TROKIN_SCRIPT,
   FIELDS_OF_STRIFE_SCRIPT,
@@ -16802,7 +16863,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   EXSANGUINATE_SCRIPT,
   EXTINGUISH_ALL_HOPE_SCRIPT,
   EARLY_HARVEST_SCRIPT,
-  EARTH_TREMOR_SCRIPT,
   ECHOING_CALM_SCRIPT,
   ECHOING_COURAGE_SCRIPT,
   ECHOING_DECAY_SCRIPT,
@@ -16815,7 +16875,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   END_THE_FESTIVITIES_SCRIPT,
   ENGULF_THE_SHORE_SCRIPT,
   DIVINE_OFFERING_SCRIPT,
-  DOGPILE_SCRIPT,
   DOUBLE_TROUBLE_SCRIPT,
   DRAG_DOWN_SCRIPT,
   DRAG_TO_THE_BOTTOM_SCRIPT,
@@ -16933,7 +16992,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   BLOOD_MIST_SCRIPT,
   BLOODLUST_INCITER_SCRIPT,
   BLOODTHORN_TAUNTER_SCRIPT,
-  BLOSSOMING_WREATH_SCRIPT,
   BOIL_SCRIPT,
   BOILING_SEAS_SCRIPT,
   AXGARD_CAVALRY_SCRIPT,

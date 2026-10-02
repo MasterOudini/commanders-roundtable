@@ -597,6 +597,12 @@ export interface StackObject {
    */
   readonly sacrificed?: readonly { readonly card: InstanceId; readonly power: number | null; readonly toughness: number | null; readonly manaValue: number }[];
   /**
+   * D611 - the SOURCE's counters as it last existed, stamped by the activation's cost batch when that batch moved it (a
+   * sacrifice, a return to the hand - CR 608.2h): `where X is the number of charge counters on this artifact` reads them.
+   * Absent when the cost left the source where it was, or it carried no counter, so every older log replays untouched.
+   */
+  readonly sourceCounters?: Readonly<Record<string, number>>;
+  /**
    * Which face was cast — CR 712, a modal DFC's back face.
    *
    * ⚠️ **THE SPELL CARRIES IT, NOT THE CARD, AND THAT IS FORCED**: every zone

@@ -3039,6 +3039,10 @@ function finishAbility(
       : {}),
     // D607 - the sacrifice cost's permanents as they last existed (CR 608.2h), read before the cost batch moved them.
     ...(ability.sacrificeCost && pending.sacrifice && pending.sacrifice.length > 0 ? { sacrificed: sacrificedOf(state, deps, pending.sacrifice) } : {}),
+    // D611 - the source's counters as it last existed, when this cost batch moves it (a sacrifice, a return - CR 608.2h).
+    ...((ability.sacrificesSelf || ability.returnsSelf) && Object.keys(state.cards[pending.card]?.counters ?? {}).length > 0
+      ? { sourceCounters: { ...(state.cards[pending.card]?.counters ?? {}) } }
+      : {}),
   };
   events.push({ t: 'AbilityPutOnStack', obj });
   events.push(

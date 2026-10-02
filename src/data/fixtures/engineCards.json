@@ -330310,6 +330310,1413 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "TIME_BOMB": {
+    "scryfallId": "092ec691-4729-46d3-a4e2-0cfc5df42a31",
+    "oracleId": "29062094-594d-4557-9496-11a15d7e3bb0",
+    "name": "Time Bomb",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Time Bomb",
+        "manaCost": "{4}",
+        "typeLine": "Artifact",
+        "oracleText": "At the beginning of your upkeep, put a time counter on this artifact.\n{1}, {T}, Sacrifice this artifact: This artifact deals damage equal to the number of time counters on it to each creature and each player.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Amy Weber",
+        "imageId": "092ec691-4729-46d3-a4e2-0cfc5df42a31"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ice",
+    "collectorNumber": "342",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ASSEMBLE_THE_LEGION": {
+    "scryfallId": "10ce686a-eecd-4b32-a882-9a6ca3274ae6",
+    "oracleId": "6f81bef3-6ca0-4cf4-aa99-7b2813eeef04",
+    "name": "Assemble the Legion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Assemble the Legion",
+        "manaCost": "{3}{R}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "At the beginning of your upkeep, put a muster counter on this enchantment. Then create a 1/1 red and white Soldier creature token with haste for each muster counter on this enchantment.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Eric Deschamps",
+        "imageId": "10ce686a-eecd-4b32-a882-9a6ca3274ae6"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "rvr",
+    "collectorNumber": "163",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CONVERSION_CHAMBER": {
+    "scryfallId": "14d5a8f3-05b6-4bb7-bbe1-e753e22cbb50",
+    "oracleId": "46af64c9-2ab5-4e63-98db-cfb885a96109",
+    "name": "Conversion Chamber",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Conversion Chamber",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{2}, {T}: Exile target artifact card from a graveyard. Put a charge counter on this artifact.\n{2}, {T}, Remove a charge counter from this artifact: Create a 3/3 colorless Phyrexian Golem artifact creature token.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Anthony Francisco",
+        "imageId": "14d5a8f3-05b6-4bb7-bbe1-e753e22cbb50"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "nph",
+    "collectorNumber": "133",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOLEM_FOUNDRY": {
+    "scryfallId": "18724f37-d50b-4b00-bd47-c5bc6e62697a",
+    "oracleId": "8e96c09f-c064-4dd8-85ee-0f48d86ab670",
+    "name": "Golem Foundry",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Golem Foundry",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "Whenever you cast an artifact spell, you may put a charge counter on this artifact.\nRemove three charge counters from this artifact: Create a 3/3 colorless Golem artifact creature token.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Nic Klein",
+        "imageId": "18724f37-d50b-4b00-bd47-c5bc6e62697a"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "eoc",
+    "collectorNumber": "138",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAGMA_MINE": {
+    "scryfallId": "1aecc3df-7ce6-419c-b3d6-60fc28bfe941",
+    "oracleId": "8a2726a4-29b7-4836-bd0a-9c0d914ed915",
+    "name": "Magma Mine",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Magma Mine",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{4}: Put a pressure counter on this artifact.\n{T}, Sacrifice this artifact: It deals damage equal to the number of pressure counters on it to any target.",
+        "flavorText": "BOOM!",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Ron Spencer",
+        "imageId": "1aecc3df-7ce6-419c-b3d6-60fc28bfe941"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "vis",
+    "collectorNumber": "149",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CLEARWATER_GOBLET": {
+    "scryfallId": "20b81117-d2f3-46fb-ab04-236374daff47",
+    "oracleId": "ffecd3e8-aa28-41a1-8154-a54ae3ce8016",
+    "name": "Clearwater Goblet",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Clearwater Goblet",
+        "manaCost": "{5}",
+        "typeLine": "Artifact",
+        "oracleText": "Sunburst (This artifact enters with a charge counter on it for each color of mana spent to cast it.)\nAt the beginning of your upkeep, you may gain life equal to the number of charge counters on this artifact.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Dany Orizio",
+        "imageId": "20b81117-d2f3-46fb-ab04-236374daff47"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 5,
+    "keywords": [
+      "Sunburst"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "5DN-109",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CEPHALID_VANDAL": {
+    "scryfallId": "2500976f-a329-4a51-bcc1-cafe39bc3ccf",
+    "oracleId": "f48dae33-ebf9-41ee-a61e-7573a2733db2",
+    "name": "Cephalid Vandal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cephalid Vandal",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Octopus Rogue",
+        "oracleText": "At the beginning of your upkeep, put a shred counter on this creature. Then mill a card for each shred counter on this creature.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Alex Horley-Orlandelli",
+        "imageId": "2500976f-a329-4a51-bcc1-cafe39bc3ccf"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "tor",
+    "collectorNumber": "31",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FONT_OF_PROGRESS": {
+    "scryfallId": "272c9888-ef13-4d47-a4bc-f5239b357a1b",
+    "oracleId": "ec1fcec2-ba7a-44d7-b251-22a7cd417493",
+    "name": "Font of Progress",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Font of Progress",
+        "manaCost": "{U}",
+        "typeLine": "Artifact",
+        "oracleText": "This artifact enters with two oil counters on it.\n{3}, {T}: Target player mills X cards, where X is the number of oil counters on this artifact.",
+        "flavorText": "\"Drink deeply of the truth, and become *compleat*.\"\n—Tamiyo",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Aaron J. Riley",
+        "imageId": "272c9888-ef13-4d47-a4bc-f5239b357a1b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "one",
+    "collectorNumber": "51",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CROWDED_CRYPT": {
+    "scryfallId": "27bc8c78-199d-4068-90c5-14ab84e4a482",
+    "oracleId": "25712827-626a-484d-bc52-f3bd6087857f",
+    "name": "Crowded Crypt",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crowded Crypt",
+        "manaCost": "{2}{B}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Add {B}.\nWhenever a creature you control dies, put a corpse counter on this artifact.\n{4}{B}{B}, {T}, Sacrifice this artifact: Create a 2/2 black Zombie creature token with decayed for each corpse counter on this artifact. (A creature with decayed can't block. When it attacks, sacrifice it at end of combat.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jarel Threat",
+        "imageId": "27bc8c78-199d-4068-90c5-14ab84e4a482"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "prm",
+    "collectorNumber": "93976",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCROLL_OF_THE_MASTERS": {
+    "scryfallId": "2a5ce210-9a72-453a-88c4-ee1eec450110",
+    "oracleId": "f2c7adde-492b-4585-8385-42d7e0d6e914",
+    "name": "Scroll of the Masters",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scroll of the Masters",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "Whenever you cast a noncreature spell, put a lore counter on this artifact.\n{3}, {T}: Target creature you control gets +1/+1 until end of turn for each lore counter on this artifact.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Lake Hurwitz",
+        "imageId": "2a5ce210-9a72-453a-88c4-ee1eec450110"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "FRF-163",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DRAGON_S_HOARD": {
+    "scryfallId": "36b6f0a8-b6c2-49fc-880c-01ad63213271",
+    "oracleId": "8cf77dc4-763b-41b7-a5da-0ef2734f08e6",
+    "name": "Dragon's Hoard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dragon's Hoard",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "Whenever a Dragon you control enters, put a gold counter on this artifact.\n{T}, Remove a gold counter from this artifact: Draw a card.\n{T}: Add one mana of any color.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Adam Paquette",
+        "imageId": "36b6f0a8-b6c2-49fc-880c-01ad63213271"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "clb",
+    "collectorNumber": "858",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WAR_DANCE": {
+    "scryfallId": "392b4acf-4548-47dd-be58-bdf4ca4ece7e",
+    "oracleId": "ecfc81df-1271-47ca-9184-49bf5798e195",
+    "name": "War Dance",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "War Dance",
+        "manaCost": "{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "At the beginning of your upkeep, you may put a verse counter on this enchantment.\nSacrifice this enchantment: Target creature gets +X/+X until end of turn, where X is the number of verse counters on this enchantment.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Terese Nielsen",
+        "imageId": "392b4acf-4548-47dd-be58-bdf4ca4ece7e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "usg",
+    "collectorNumber": "282",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OTHERWORLD_ATLAS": {
+    "scryfallId": "46e4aa67-4643-42ff-8172-200498686494",
+    "oracleId": "8d907a1b-f301-46a3-aa1c-25fb7f29c949",
+    "name": "Otherworld Atlas",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Otherworld Atlas",
+        "manaCost": "{4}",
+        "typeLine": "Artifact — Book",
+        "oracleText": "{T}: Put a charge counter on this artifact.\n{T}: Each player draws a card for each charge counter on this artifact.",
+        "flavorText": "\"Any fool can open it. But it takes a genius to decipher the blank pages.\"\n—Kordel the Cryptic",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Sam Wolfe Connelly",
+        "imageId": "46e4aa67-4643-42ff-8172-200498686494"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "avr",
+    "collectorNumber": "219",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KJELDORAN_JAVELINEER": {
+    "scryfallId": "48b0776b-d1ed-4b0d-9684-99978e3e3b46",
+    "oracleId": "95921d1e-0487-4274-b797-8652e94fc4bc",
+    "name": "Kjeldoran Javelineer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kjeldoran Javelineer",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Cumulative upkeep {1} (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)\n{T}: This creature deals damage equal to the number of age counters on it to target attacking or blocking creature.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Dave Dorman",
+        "imageId": "48b0776b-d1ed-4b0d-9684-99978e3e3b46"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Cumulative upkeep"
+    ],
+    "setCode": "csp",
+    "collectorNumber": "11",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FIREMIND_S_RESEARCH": {
+    "scryfallId": "4bc926b2-1e54-4c62-8b6c-fce4ef013abc",
+    "oracleId": "edac6c23-cff5-4ee2-9227-756b1dc6ab0c",
+    "name": "Firemind's Research",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Firemind's Research",
+        "manaCost": "{U}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever you cast an instant or sorcery spell, put a charge counter on this enchantment.\n{1}{U}, Remove two charge counters from this enchantment: Draw a card.\n{1}{R}, Remove five charge counters from this enchantment: It deals 5 damage to any target.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Grzegorz Rutkowski",
+        "imageId": "4bc926b2-1e54-4c62-8b6c-fce4ef013abc"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "grn",
+    "collectorNumber": "171",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRINDCLOCK": {
+    "scryfallId": "53498863-2e69-4b98-b0f0-7ae13dc1033e",
+    "oracleId": "6b7de1c0-4b97-47e1-8ea7-ba55a8d16a9b",
+    "name": "Grindclock",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grindclock",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Put a charge counter on this artifact.\n{T}: Target player mills X cards, where X is the number of charge counters on this artifact.",
+        "flavorText": "Pray you never hear it chime.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Nils Hamm",
+        "imageId": "53498863-2e69-4b98-b0f0-7ae13dc1033e"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "m15",
+    "collectorNumber": "217",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CULLING_DAIS": {
+    "scryfallId": "54dc8c2a-928d-465e-8f76-82a90cc66854",
+    "oracleId": "42b03dd7-e796-47c3-b596-87960d72818b",
+    "name": "Culling Dais",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Culling Dais",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}, Sacrifice a creature: Put a charge counter on this artifact.\n{1}, Sacrifice this artifact: Draw a card for each charge counter on this artifact.",
+        "flavorText": "\"Forswear the flesh and you will truly see.\"\n—Jin-Gitaxias, Core Augur",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Anthony Palumbo",
+        "imageId": "54dc8c2a-928d-465e-8f76-82a90cc66854"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "2xm",
+    "collectorNumber": "246",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TORCH_SONG": {
+    "scryfallId": "6ba8cdf0-492a-4e64-9143-4ccb29ba1d56",
+    "oracleId": "69826a0d-3ec9-47e7-b129-2fc13b41a07e",
+    "name": "Torch Song",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Torch Song",
+        "manaCost": "{2}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "At the beginning of your upkeep, you may put a verse counter on this enchantment.\n{2}{R}, Sacrifice this enchantment: It deals X damage to any target, where X is the number of verse counters on this enchantment.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Thomas M. Baxa",
+        "imageId": "6ba8cdf0-492a-4e64-9143-4ccb29ba1d56"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "usg",
+    "collectorNumber": "222",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAVENOUS_AMULET": {
+    "scryfallId": "80cadee5-6f26-4440-ad31-a8e573a90436",
+    "oracleId": "87424e20-00ab-4f6d-a905-1955897b358e",
+    "name": "Ravenous Amulet",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ravenous Amulet",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "{1}, {T}, Sacrifice a creature: Draw a card and put a soul counter on this artifact. Activate only as a sorcery.\n{4}, {T}, Sacrifice this artifact: Each opponent loses life equal to the number of soul counters on this artifact.",
+        "flavorText": "Each of its owners' final moments is remembered within the roiling stone.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Igor Krstic",
+        "imageId": "80cadee5-6f26-4440-ad31-a8e573a90436"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "fdn",
+    "collectorNumber": "131",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BAKU_ALTAR": {
+    "scryfallId": "81e1dbb8-3df8-4e7e-b74b-baab7d6f97c1",
+    "oracleId": "8443b8c2-d0ab-4fb1-ad35-7e5e4cb345b6",
+    "name": "Baku Altar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Baku Altar",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "Whenever you cast a Spirit or Arcane spell, you may put a ki counter on this artifact.\n{2}, {T}, Remove a ki counter from this artifact: Create a 1/1 colorless Spirit creature token.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Edward P. Beard, Jr.",
+        "imageId": "81e1dbb8-3df8-4e7e-b74b-baab7d6f97c1"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "bok",
+    "collectorNumber": "152",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHRINE_OF_BURNING_RAGE": {
+    "scryfallId": "8255740d-f822-4359-8f9e-6f08235ef539",
+    "oracleId": "e2535383-79f5-4900-8dce-227b0b3650c4",
+    "name": "Shrine of Burning Rage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shrine of Burning Rage",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "At the beginning of your upkeep and whenever you cast a red spell, put a charge counter on this artifact.\n{3}, {T}, Sacrifice this artifact: It deals damage equal to the number of charge counters on it to any target.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Nils Hamm",
+        "imageId": "8255740d-f822-4359-8f9e-6f08235ef539"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "prm",
+    "collectorNumber": "40090",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BARRIN_S_CODEX": {
+    "scryfallId": "9951b225-f11e-41bd-ab6e-e1fda957dff3",
+    "oracleId": "f7c237e6-17a4-4e72-8cc3-456aec738394",
+    "name": "Barrin's Codex",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Barrin's Codex",
+        "manaCost": "{4}",
+        "typeLine": "Artifact — Book",
+        "oracleText": "At the beginning of your upkeep, you may put a page counter on this artifact.\n{4}, {T}, Sacrifice this artifact: Draw X cards, where X is the number of page counters on this artifact.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "DiTerlizzi",
+        "imageId": "9951b225-f11e-41bd-ab6e-e1fda957dff3"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "usg",
+    "collectorNumber": "286",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MIDSUMMER_REVEL": {
+    "scryfallId": "b40a7f65-10fe-4ce5-ad1c-be53a635d7a9",
+    "oracleId": "d3579282-5045-4b37-9998-9a282e9932b9",
+    "name": "Midsummer Revel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Midsummer Revel",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "At the beginning of your upkeep, you may put a verse counter on this enchantment.\n{G}, Sacrifice this enchantment: Create X 3/3 green Beast creature tokens, where X is the number of verse counters on this enchantment.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Steve Firchow",
+        "imageId": "b40a7f65-10fe-4ce5-ad1c-be53a635d7a9"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "usg",
+    "collectorNumber": "268",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHRINE_OF_LOYAL_LEGIONS": {
+    "scryfallId": "ced53428-391d-4b61-83e8-cce297e28de9",
+    "oracleId": "9696ad3d-2e17-4ab7-88ee-3c56a632b7a8",
+    "name": "Shrine of Loyal Legions",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shrine of Loyal Legions",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "At the beginning of your upkeep and whenever you cast a white spell, put a charge counter on this artifact.\n{3}, {T}, Sacrifice this artifact: Create a 1/1 colorless Phyrexian Myr artifact creature token for each charge counter on this artifact.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Igor Kieryluk",
+        "imageId": "ced53428-391d-4b61-83e8-cce297e28de9"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "md1",
+    "collectorNumber": "5",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARCANE_SPYGLASS": {
+    "scryfallId": "d10d85c9-859a-4ff5-9a41-bf20622a3ff5",
+    "oracleId": "c2fbdc80-ad5d-4fe0-a860-3e4f452e6302",
+    "name": "Arcane Spyglass",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arcane Spyglass",
+        "manaCost": "{4}",
+        "typeLine": "Artifact",
+        "oracleText": "{2}, {T}, Sacrifice a land: Draw a card and put a charge counter on this artifact.\nRemove three charge counters from this artifact: Draw a card.",
+        "flavorText": "It breaches not physical distances but temporal ones.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Trevor Hairsine",
+        "imageId": "d10d85c9-859a-4ff5-9a41-bf20622a3ff5"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "dst",
+    "collectorNumber": "93",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHIMERIC_EGG": {
+    "scryfallId": "d516f267-e72b-453c-bceb-4766582568d2",
+    "oracleId": "3fd23519-ef40-4c84-9407-2626d0c0d792",
+    "name": "Chimeric Egg",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chimeric Egg",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "Whenever an opponent casts a nonartifact spell, put a charge counter on this artifact.\nRemove three charge counters from this artifact: This artifact becomes a 6/6 Construct artifact creature with trample until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Michael Sutfin",
+        "imageId": "d516f267-e72b-453c-bceb-4766582568d2"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "dst",
+    "collectorNumber": "106",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOLDEN_URN": {
+    "scryfallId": "ec7abeca-da01-4962-b107-dd7a77469753",
+    "oracleId": "ddb19cac-20b0-4ab8-a31d-c5c155491780",
+    "name": "Golden Urn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Golden Urn",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "At the beginning of your upkeep, you may put a charge counter on this artifact.\n{T}, Sacrifice this artifact: You gain life equal to the number of charge counters on this artifact.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Charles Urbach",
+        "imageId": "ec7abeca-da01-4962-b107-dd7a77469753"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "som",
+    "collectorNumber": "158",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MIND_UNBOUND": {
+    "scryfallId": "fd90cf36-9841-4adf-b5cb-0a7bf103eb93",
+    "oracleId": "0f12aec9-5898-4261-bebd-1b545e0aea68",
+    "name": "Mind Unbound",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mind Unbound",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "At the beginning of your upkeep, put a lore counter on this enchantment, then draw a card for each lore counter on this enchantment.",
+        "flavorText": "The creations of the hand are confined by reality. The creations of the mind know no such limits.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jason Felix",
+        "imageId": "fd90cf36-9841-4adf-b5cb-0a7bf103eb93"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "m12",
+    "collectorNumber": "68",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MYCOLOTH": {
+    "scryfallId": "014c07d2-b698-4459-b8b8-47f3aa1acce3",
+    "oracleId": "d7fd16ce-282d-49cd-b2b4-0d25935e7a72",
+    "name": "Mycoloth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mycoloth",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Fungus",
+        "oracleText": "Devour 2 (As this creature enters, you may sacrifice any number of creatures. It enters with twice that many +1/+1 counters on it.)\nAt the beginning of your upkeep, create a 1/1 green Saproling creature token for each +1/+1 counter on this creature.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Raymond Swanland",
+        "imageId": "014c07d2-b698-4459-b8b8-47f3aa1acce3"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Devour"
+    ],
+    "setCode": "c15",
+    "collectorNumber": "192",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THE_MAGIC_MIRROR": {
+    "scryfallId": "08b89af1-7b22-4153-b42d-a2ea4e0f320c",
+    "oracleId": "9acf2701-2ba1-46fa-ad4a-b130a58181d3",
+    "name": "The Magic Mirror",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "The Magic Mirror",
+        "manaCost": "{6}{U}{U}{U}",
+        "typeLine": "Legendary Artifact",
+        "oracleText": "This spell costs {1} less to cast for each instant and sorcery card in your graveyard.\nYou have no maximum hand size.\nAt the beginning of your upkeep, put a knowledge counter on The Magic Mirror, then draw a card for each knowledge counter on The Magic Mirror.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Anastasia Ovchinnikova",
+        "imageId": "08b89af1-7b22-4153-b42d-a2ea4e0f320c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 9,
+    "keywords": [],
+    "setCode": "eld",
+    "collectorNumber": "51",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRUESOME_SCOURGER": {
+    "scryfallId": "0ffbb50e-76ca-4bfd-b6d1-95ab8cf3bbf8",
+    "oracleId": "1b2993fa-b212-4eaa-b3e8-f79c2f2e4cbe",
+    "name": "Gruesome Scourger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gruesome Scourger",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Creature — Orc Warrior",
+        "oracleText": "When this creature enters, it deals damage to target opponent or planeswalker equal to the number of creatures you control.",
+        "flavorText": "His whips twist and tremble like living things, moved by the fury of the horde he commands.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "0ffbb50e-76ca-4bfd-b6d1-95ab8cf3bbf8"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "m20",
+    "collectorNumber": "104",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VOLLEY_VETERAN": {
+    "scryfallId": "164960fc-6e80-4a53-90d7-5a18c0a28083",
+    "oracleId": "bf4268e6-170a-445b-b215-718f7494ae28",
+    "name": "Volley Veteran",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Volley Veteran",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "When this creature enters, it deals damage to target creature an opponent controls equal to the number of Goblins you control.",
+        "flavorText": "\"Fill the sky with stuff!\"",
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Craig J Spearing",
+        "imageId": "164960fc-6e80-4a53-90d7-5a18c0a28083"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "m19",
+    "collectorNumber": "168",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HONDEN_OF_INFINITE_RAGE": {
+    "scryfallId": "174bcea4-4e9c-4de5-b001-6a9df2242e37",
+    "oracleId": "0cb76b04-d9c3-46fc-a3f2-5f0cb0d91761",
+    "name": "Honden of Infinite Rage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Honden of Infinite Rage",
+        "manaCost": "{2}{R}",
+        "typeLine": "Legendary Enchantment — Shrine",
+        "oracleText": "At the beginning of your upkeep, Honden of Infinite Rage deals damage to any target equal to the number of Shrines you control.",
+        "flavorText": "To the sorrow of all, its rage became focused on those who once stoked it.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "John Avon",
+        "imageId": "174bcea4-4e9c-4de5-b001-6a9df2242e37"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ema",
+    "collectorNumber": "134",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STADIUM_HEADLINER": {
+    "scryfallId": "229df6b9-bd1c-496f-86a0-772cc177b1eb",
+    "oracleId": "d8cfa20a-343e-4661-9f5a-a8265f6917a8",
+    "name": "Stadium Headliner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stadium Headliner",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "Mobilize 1 (Whenever this creature attacks, create a tapped and attacking 1/1 red Warrior creature token. Sacrifice it at the beginning of the next end step.)\n{1}{R}, Sacrifice this creature: It deals damage equal to the number of creatures you control to target creature.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Ralph Horsley",
+        "imageId": "229df6b9-bd1c-496f-86a0-772cc177b1eb"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Mobilize"
+    ],
+    "setCode": "ptdm",
+    "collectorNumber": "122s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPAWN_OF_THRAXES": {
+    "scryfallId": "24d4a5fa-b867-4e29-a8e2-3231698a9fca",
+    "oracleId": "52289774-d292-4028-91fb-8826fa004dc8",
+    "name": "Spawn of Thraxes",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spawn of Thraxes",
+        "manaCost": "{5}{R}{R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying\nWhen this creature enters, it deals damage to any target equal to the number of Mountains you control.",
+        "flavorText": "Sparks from Purphoros's forge fill the belly of every dragon.",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason Rainville",
+        "imageId": "24d4a5fa-b867-4e29-a8e2-3231698a9fca"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "52320",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHAMAN_OF_THE_PACK": {
+    "scryfallId": "304687b1-2294-4144-b2bd-7e36f9aaac34",
+    "oracleId": "39c7d2cc-4fd1-4f1a-be1a-a6ae56d2356d",
+    "name": "Shaman of the Pack",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shaman of the Pack",
+        "manaCost": "{1}{B}{G}",
+        "typeLine": "Creature — Elf Shaman",
+        "oracleText": "When this creature enters, target opponent loses life equal to the number of Elves you control.",
+        "flavorText": "To the elves, her spear is a compass; to the boggarts, a harbinger of doom.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "304687b1-2294-4144-b2bd-7e36f9aaac34"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ori",
+    "collectorNumber": "217",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GENERAL_LEO_CRISTOPHE": {
+    "scryfallId": "39384ab7-54da-43e3-8fbc-5c171b7ca7f4",
+    "oracleId": "088166b8-5b0b-4ba9-9b0d-358ae523f336",
+    "name": "General Leo Cristophe",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "General Leo Cristophe",
+        "manaCost": "{4}{W}",
+        "typeLine": "Legendary Creature — Human Soldier",
+        "oracleText": "When General Leo Cristophe enters, return up to one target creature card with mana value 3 or less from your graveyard to the battlefield. Then put a +1/+1 counter on General Leo Cristophe for each creature you control.",
+        "flavorText": "\"You're a human being before you're a soldier.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Lee Woo-chul",
+        "imageId": "39384ab7-54da-43e3-8fbc-5c171b7ca7f4"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "fic",
+    "collectorNumber": "20",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FALKENRATH_EXTERMINATOR": {
+    "scryfallId": "40e23909-7e08-4686-ae59-e18e7d4cfd3c",
+    "oracleId": "fd5fc69e-1bba-4f39-88c1-5966fa941f32",
+    "name": "Falkenrath Exterminator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Falkenrath Exterminator",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Vampire Archer",
+        "oracleText": "Whenever this creature deals combat damage to a player, put a +1/+1 counter on it.\n{2}{R}: This creature deals damage to target creature equal to the number of +1/+1 counters on this creature.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Winona Nelson",
+        "imageId": "40e23909-7e08-4686-ae59-e18e7d4cfd3c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "avr",
+    "collectorNumber": "134",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HELIOPHIAL": {
+    "scryfallId": "4d65fa8e-6944-4fe8-b7b4-c77dfbddf605",
+    "oracleId": "6c3be36d-2461-4e38-9ab4-4394cd4996e7",
+    "name": "Heliophial",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Heliophial",
+        "manaCost": "{5}",
+        "typeLine": "Artifact",
+        "oracleText": "Sunburst (This artifact enters with a charge counter on it for each color of mana spent to cast it.)\n{2}, Sacrifice this artifact: It deals damage equal to the number of charge counters on it to any target.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Wayne England",
+        "imageId": "4d65fa8e-6944-4fe8-b7b4-c77dfbddf605"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 5,
+    "keywords": [
+      "Sunburst"
+    ],
+    "setCode": "5dn",
+    "collectorNumber": "130",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FIRE_DRAGON": {
+    "scryfallId": "72c6eb99-759d-4baa-8ce9-f20583671e82",
+    "oracleId": "349d8ef9-e07a-416f-a5b1-2c2be6bb322d",
+    "name": "Fire Dragon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fire Dragon",
+        "manaCost": "{6}{R}{R}{R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying\nWhen this creature enters, it deals damage to target creature equal to the number of Mountains you control.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "William Simpson",
+        "imageId": "72c6eb99-759d-4baa-8ce9-f20583671e82"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 9,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "me2",
+    "collectorNumber": "125",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FOUNDRY_CHAMPION": {
+    "scryfallId": "84e39703-db78-4d3d-aacd-5396848253ed",
+    "oracleId": "d1c44856-ca53-4b6e-902e-8d9c6fe1f61c",
+    "name": "Foundry Champion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Foundry Champion",
+        "manaCost": "{4}{R}{W}",
+        "typeLine": "Creature — Elemental Soldier",
+        "oracleText": "When this creature enters, it deals damage to any target equal to the number of creatures you control.\n{R}: This creature gets +1/+0 until end of turn.\n{W}: This creature gets +0/+1 until end of turn.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Todd Lockwood",
+        "imageId": "84e39703-db78-4d3d-aacd-5396848253ed"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "gtc",
+    "collectorNumber": "165",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WALKING_ARCHIVE": {
+    "scryfallId": "c390e074-bd30-4564-a39a-176af7df79f4",
+    "oracleId": "e2998b41-0822-4e9c-b8b1-f47c400176e9",
+    "name": "Walking Archive",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Walking Archive",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Golem",
+        "oracleText": "Defender (This creature can't attack.)\nThis creature enters with a +1/+1 counter on it.\nAt the beginning of each player's upkeep, that player draws a card for each +1/+1 counter on this creature.\n{2}{W}{U}: Put a +1/+1 counter on this creature.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Heather Hudson",
+        "imageId": "c390e074-bd30-4564-a39a-176af7df79f4"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "dis",
+    "collectorNumber": "169",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KESSIG_MALCONTENTS": {
+    "scryfallId": "dce9a30f-a850-4826-a255-ce511d567b60",
+    "oracleId": "eedaf405-4aa2-426a-af82-b0f92de7b6c3",
+    "name": "Kessig Malcontents",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kessig Malcontents",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "When this creature enters, it deals damage to target player or planeswalker equal to the number of Humans you control.",
+        "flavorText": "Discontent is a powerful weapon in the hands of a mob.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "John Stanko",
+        "imageId": "dce9a30f-a850-4826-a255-ce511d567b60"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "avr",
+    "collectorNumber": "142",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CAT_GATOR": {
+    "scryfallId": "ec83a825-79e6-42a4-919c-3bc498ff4433",
+    "oracleId": "349e6b9e-40a8-49bc-9cd3-4a22f5363fa5",
+    "name": "Cat-Gator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cat-Gator",
+        "manaCost": "{6}{B}",
+        "typeLine": "Creature — Fish Crocodile",
+        "oracleText": "Lifelink\nWhen this creature enters, it deals damage equal to the number of Swamps you control to any target.",
+        "flavorText": "People don't go fishing for cat-gators. Cat-gators go fishing for people.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Joseph Weston",
+        "imageId": "ec83a825-79e6-42a4-919c-3bc498ff4433"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Lifelink"
+    ],
+    "setCode": "tla",
+    "collectorNumber": "91",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -339967,6 +341374,41 @@
     "keywords": [],
     "setCode": "tmsc",
     "collectorNumber": "9",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ELEMENTAL_4_4_W_CREATURE_FLYING_TOKEN": {
+    "scryfallId": "17057115-9163-4f91-b2b9-8387ea547c9d",
+    "oracleId": "3b6d8366-9459-43f7-9d3e-371b8398aee2",
+    "name": "Elemental",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Elemental",
+        "manaCost": "",
+        "typeLine": "Token Creature — Elemental",
+        "oracleText": "Flying",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "17057115-9163-4f91-b2b9-8387ea547c9d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "tc20",
+    "collectorNumber": "3",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

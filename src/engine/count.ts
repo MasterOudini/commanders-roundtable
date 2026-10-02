@@ -37,6 +37,8 @@ export function countOf(
   memo = 0,
   /** D608 - the cost's sacrificed permanent's last known numbers (`StackObject.sacrificed[0]`); none counts zero. */
   sacrificed?: { readonly power: number | null; readonly toughness: number | null; readonly manaValue: number },
+  /** D611 - the source's counters as it last existed, when the cost moved it (`StackObject.sourceCounters`). */
+  sourceCounters?: Readonly<Record<string, number>>,
 ): number {
   const d = (id: InstanceId) => derive(state, deps.oracle, deps.scripts, id, cache);
   switch (expr.kind) {
@@ -48,6 +50,12 @@ export function countOf(
       return Math.max(0, memo);
     case 'sacrificed':
       return Math.max(0, sacrificed?.[expr.stat] ?? 0);
+    case 'selfCounters': {
+      // D611 - the source on the battlefield is read as it is; one the cost moved is read off the stamp (CR 608.2h).
+      const inst = source !== null ? state.cards[source] : undefined;
+      if (inst && inst.zone.kind === 'battlefield') return Math.max(0, inst.counters[expr.counter] ?? 0);
+      return Math.max(0, sourceCounters?.[expr.counter] ?? 0);
+    }
     case 'cardsInHand':
       return (state.zones.hand[controller] ?? []).length;
     case 'players': {

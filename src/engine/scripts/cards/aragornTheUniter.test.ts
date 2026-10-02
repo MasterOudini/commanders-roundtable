@@ -8,7 +8,6 @@ import { createRegistry } from '../registryCore';
 import { ARAGORN_THE_UNITER_SCRIPT } from './aragornTheUniter';
 import { TOPPLE_THE_STATUE_SCRIPT } from './toppleTheStatue';
 import { SORCEROUS_SIGHT_SCRIPT } from './sorcerousSight';
-import { STENSIA_BANQUET_SCRIPT } from './stensiaBanquet';
 import { TRANQUIL_PATH_SCRIPT } from './tranquilPath';
 import { SPHINXS_INSIGHT_SCRIPT } from './sphinxsInsight';
 import { TOKEN_TABLE } from '../../../data/tokenTable';
@@ -30,7 +29,6 @@ const SCRIPTS = [
   ARAGORN_THE_UNITER_SCRIPT,
   TOPPLE_THE_STATUE_SCRIPT,
   SORCEROUS_SIGHT_SCRIPT,
-  STENSIA_BANQUET_SCRIPT,
   TRANQUIL_PATH_SCRIPT,
   SPHINXS_INSIGHT_SCRIPT,
 ];

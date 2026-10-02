@@ -10885,6 +10885,52 @@ const WANTED = [
   'Force of Nature',
   'Hasran Ogress',
   // D610 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D611 - THE NAMED COUNTER ON ITS OWN PERMANENT: the rows the whole-leftover row maker rowed once the vocabulary put a charge, quest or verse counter on its own card and counted it back (and read the equal-to-the-number-of print).
+  'Time Bomb',
+  'Assemble the Legion',
+  'Conversion Chamber',
+  'Golem Foundry',
+  'Magma Mine',
+  'Clearwater Goblet',
+  'Cephalid Vandal',
+  'Font of Progress',
+  'Crowded Crypt',
+  'Scroll of the Masters',
+  "Dragon's Hoard",
+  'War Dance',
+  'Otherworld Atlas',
+  'Kjeldoran Javelineer',
+  "Firemind's Research",
+  'Grindclock',
+  'Culling Dais',
+  'Torch Song',
+  'Ravenous Amulet',
+  'Baku Altar',
+  'Shrine of Burning Rage',
+  "Barrin's Codex",
+  'Midsummer Revel',
+  'Shrine of Loyal Legions',
+  'Arcane Spyglass',
+  'Chimeric Egg',
+  'Golden Urn',
+  'Mind Unbound',
+  'Mycoloth',
+  'The Magic Mirror',
+  'Gruesome Scourger',
+  'Volley Veteran',
+  'Honden of Infinite Rage',
+  'Stadium Headliner',
+  'Spawn of Thraxes',
+  'Shaman of the Pack',
+  'General Leo Cristophe',
+  'Falkenrath Exterminator',
+  'Heliophial',
+  'Fire Dragon',
+  'Foundry Champion',
+  'Walking Archive',
+  'Kessig Malcontents',
+  'Cat-Gator',
+  // D611 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -11334,6 +11380,8 @@ const WANTED_TOKENS = [
   { name: 'Zombie', set: 'tbro', cn: '11', key: 'ZOMBIE_FEF47D03_TOKEN' },
   { name: 'Robot', set: 'tpip', cn: '16', key: 'ROBOT_76CDE21F_TOKEN' },
   { name: 'Rogue', set: 'tmsc', cn: '9', key: 'ROGUE_064DEC90_TOKEN' },
+  // D611 - the tokens the wave's rows create (the port's token-pin step, missing until D494).
+  { name: 'Elemental', set: 'tc20', cn: '3', key: 'ELEMENTAL_4_4_W_CREATURE_FLYING_TOKEN' },
 ];
 
 function constName(name) {

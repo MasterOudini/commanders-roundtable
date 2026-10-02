@@ -9702,6 +9702,50 @@ export const LAPIS_LAZULI_TALISMAN: CardData = F.LAPIS_LAZULI_TALISMAN as CardDa
 export const GOBLIN_DIRIGIBLE: CardData = F.GOBLIN_DIRIGIBLE as CardData;
 export const FORCE_OF_NATURE: CardData = F.FORCE_OF_NATURE as CardData;
 export const HASRAN_OGRESS: CardData = F.HASRAN_OGRESS as CardData;
+export const TIME_BOMB: CardData = F.TIME_BOMB as CardData;
+export const ASSEMBLE_THE_LEGION: CardData = F.ASSEMBLE_THE_LEGION as CardData;
+export const CONVERSION_CHAMBER: CardData = F.CONVERSION_CHAMBER as CardData;
+export const GOLEM_FOUNDRY: CardData = F.GOLEM_FOUNDRY as CardData;
+export const MAGMA_MINE: CardData = F.MAGMA_MINE as CardData;
+export const CLEARWATER_GOBLET: CardData = F.CLEARWATER_GOBLET as CardData;
+export const CEPHALID_VANDAL: CardData = F.CEPHALID_VANDAL as CardData;
+export const FONT_OF_PROGRESS: CardData = F.FONT_OF_PROGRESS as CardData;
+export const CROWDED_CRYPT: CardData = F.CROWDED_CRYPT as CardData;
+export const SCROLL_OF_THE_MASTERS: CardData = F.SCROLL_OF_THE_MASTERS as CardData;
+export const DRAGON_S_HOARD: CardData = F.DRAGON_S_HOARD as CardData;
+export const WAR_DANCE: CardData = F.WAR_DANCE as CardData;
+export const OTHERWORLD_ATLAS: CardData = F.OTHERWORLD_ATLAS as CardData;
+export const KJELDORAN_JAVELINEER: CardData = F.KJELDORAN_JAVELINEER as CardData;
+export const FIREMIND_S_RESEARCH: CardData = F.FIREMIND_S_RESEARCH as CardData;
+export const GRINDCLOCK: CardData = F.GRINDCLOCK as CardData;
+export const CULLING_DAIS: CardData = F.CULLING_DAIS as CardData;
+export const TORCH_SONG: CardData = F.TORCH_SONG as CardData;
+export const RAVENOUS_AMULET: CardData = F.RAVENOUS_AMULET as CardData;
+export const BAKU_ALTAR: CardData = F.BAKU_ALTAR as CardData;
+export const SHRINE_OF_BURNING_RAGE: CardData = F.SHRINE_OF_BURNING_RAGE as CardData;
+export const BARRIN_S_CODEX: CardData = F.BARRIN_S_CODEX as CardData;
+export const MIDSUMMER_REVEL: CardData = F.MIDSUMMER_REVEL as CardData;
+export const SHRINE_OF_LOYAL_LEGIONS: CardData = F.SHRINE_OF_LOYAL_LEGIONS as CardData;
+export const ARCANE_SPYGLASS: CardData = F.ARCANE_SPYGLASS as CardData;
+export const CHIMERIC_EGG: CardData = F.CHIMERIC_EGG as CardData;
+export const GOLDEN_URN: CardData = F.GOLDEN_URN as CardData;
+export const MIND_UNBOUND: CardData = F.MIND_UNBOUND as CardData;
+export const MYCOLOTH: CardData = F.MYCOLOTH as CardData;
+export const THE_MAGIC_MIRROR: CardData = F.THE_MAGIC_MIRROR as CardData;
+export const GRUESOME_SCOURGER: CardData = F.GRUESOME_SCOURGER as CardData;
+export const VOLLEY_VETERAN: CardData = F.VOLLEY_VETERAN as CardData;
+export const HONDEN_OF_INFINITE_RAGE: CardData = F.HONDEN_OF_INFINITE_RAGE as CardData;
+export const STADIUM_HEADLINER: CardData = F.STADIUM_HEADLINER as CardData;
+export const SPAWN_OF_THRAXES: CardData = F.SPAWN_OF_THRAXES as CardData;
+export const SHAMAN_OF_THE_PACK: CardData = F.SHAMAN_OF_THE_PACK as CardData;
+export const GENERAL_LEO_CRISTOPHE: CardData = F.GENERAL_LEO_CRISTOPHE as CardData;
+export const FALKENRATH_EXTERMINATOR: CardData = F.FALKENRATH_EXTERMINATOR as CardData;
+export const HELIOPHIAL: CardData = F.HELIOPHIAL as CardData;
+export const FIRE_DRAGON: CardData = F.FIRE_DRAGON as CardData;
+export const FOUNDRY_CHAMPION: CardData = F.FOUNDRY_CHAMPION as CardData;
+export const WALKING_ARCHIVE: CardData = F.WALKING_ARCHIVE as CardData;
+export const KESSIG_MALCONTENTS: CardData = F.KESSIG_MALCONTENTS as CardData;
+export const CAT_GATOR: CardData = F.CAT_GATOR as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -9991,6 +10035,7 @@ export const VIBRANIUM_252FF4C7_TOKEN: CardData = F.VIBRANIUM_252FF4C7_TOKEN as 
 export const ZOMBIE_FEF47D03_TOKEN: CardData = F.ZOMBIE_FEF47D03_TOKEN as CardData;
 export const ROBOT_76CDE21F_TOKEN: CardData = F.ROBOT_76CDE21F_TOKEN as CardData;
 export const ROGUE_064DEC90_TOKEN: CardData = F.ROGUE_064DEC90_TOKEN as CardData;
+export const ELEMENTAL_4_4_W_CREATURE_FLYING_TOKEN: CardData = F.ELEMENTAL_4_4_W_CREATURE_FLYING_TOKEN as CardData;
 
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
@@ -19678,6 +19723,50 @@ export const ENGINE_CARDS: CardData[] = [
   GOBLIN_DIRIGIBLE,
   FORCE_OF_NATURE,
   HASRAN_OGRESS,
+  TIME_BOMB,
+  ASSEMBLE_THE_LEGION,
+  CONVERSION_CHAMBER,
+  GOLEM_FOUNDRY,
+  MAGMA_MINE,
+  CLEARWATER_GOBLET,
+  CEPHALID_VANDAL,
+  FONT_OF_PROGRESS,
+  CROWDED_CRYPT,
+  SCROLL_OF_THE_MASTERS,
+  DRAGON_S_HOARD,
+  WAR_DANCE,
+  OTHERWORLD_ATLAS,
+  KJELDORAN_JAVELINEER,
+  FIREMIND_S_RESEARCH,
+  GRINDCLOCK,
+  CULLING_DAIS,
+  TORCH_SONG,
+  RAVENOUS_AMULET,
+  BAKU_ALTAR,
+  SHRINE_OF_BURNING_RAGE,
+  BARRIN_S_CODEX,
+  MIDSUMMER_REVEL,
+  SHRINE_OF_LOYAL_LEGIONS,
+  ARCANE_SPYGLASS,
+  CHIMERIC_EGG,
+  GOLDEN_URN,
+  MIND_UNBOUND,
+  MYCOLOTH,
+  THE_MAGIC_MIRROR,
+  GRUESOME_SCOURGER,
+  VOLLEY_VETERAN,
+  HONDEN_OF_INFINITE_RAGE,
+  STADIUM_HEADLINER,
+  SPAWN_OF_THRAXES,
+  SHAMAN_OF_THE_PACK,
+  GENERAL_LEO_CRISTOPHE,
+  FALKENRATH_EXTERMINATOR,
+  HELIOPHIAL,
+  FIRE_DRAGON,
+  FOUNDRY_CHAMPION,
+  WALKING_ARCHIVE,
+  KESSIG_MALCONTENTS,
+  CAT_GATOR,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -19967,4 +20056,5 @@ export const ENGINE_CARDS: CardData[] = [
   ZOMBIE_FEF47D03_TOKEN,
   ROBOT_76CDE21F_TOKEN,
   ROGUE_064DEC90_TOKEN,
+  ELEMENTAL_4_4_W_CREATURE_FLYING_TOKEN,
 ];

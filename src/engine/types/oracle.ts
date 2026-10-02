@@ -674,6 +674,12 @@ export type CountExpr =
    * existed (CR 608.2h), off D607's stamp (`StackObject.sacrificed`); no stamp counts zero.
    */
   | { readonly kind: 'sacrificed'; readonly stat: 'power' | 'toughness' | 'manaValue' }
+  /**
+   * D611 - `for each charge counter on this artifact`, `where X is the number of page counters on this artifact`: the
+   * counters of that kind on the SOURCE - as the resolution finds it (an earlier clause's put included), or as it last
+   * existed when the cost moved it (`StackObject.sourceCounters`, CR 608.2h). Gone with no stamp counts zero.
+   */
+  | { readonly kind: 'selfCounters'; readonly counter: string }
   | { readonly kind: 'diedThisTurn' }
   | { readonly kind: 'party' }
   | { readonly kind: 'players'; readonly who: 'opponents' | 'any' }
@@ -1185,6 +1191,14 @@ export type CounterKind =
   | 'trample'
   | 'vigilance'
   | 'shadow';
+/**
+ * D611 - a counter of a NAMED kind (charge, quest, verse, page ...) the vocabulary puts on its OWN permanent alone
+ * (`Put a charge counter on this artifact.`): nothing applies it by itself, and the card that prints it reads it back
+ * in its own text - a remove cost (D319), `for each charge counter on this artifact`, `where X is the number of page
+ * counters on this artifact` (`CountExpr` `selfCounters`). Every other line of such a card has to read whole for the
+ * card to count as executed, so the counter is never a number nothing reads (D90). The printed word, lower case.
+ */
+export type NamedCounterKind = string & Record<never, never>;
 /** D471 - the counter kinds the vocabulary may put, as printed; `counterKindOf` is the one gate. */
 export const COUNTER_KINDS: readonly CounterKind[] = ['+1/+1', '-1/-1', 'shield', 'stun', 'flying', 'first strike', 'double strike', 'deathtouch', 'hexproof', 'indestructible', 'lifelink', 'menace', 'reach', 'trample', 'vigilance', 'shadow'];
 
@@ -1429,7 +1443,8 @@ export interface EffectSpec {
    * A default of `'+1/+1'` would have been tidier and would mean that any future
    * rule which forgot to set it silently put +1/+1 counters somewhere.
    */
-  readonly counterKind: CounterKind | null;
+  // D611 - or a NAMED kind on the source itself (`NamedCounterKind`; `self` is set): the counter its own text reads back.
+  readonly counterKind: CounterKind | NamedCounterKind | null;
   /**
    * `createToken` only: the printing the description names.
    *

@@ -1318,6 +1318,19 @@ const RULES: readonly Rule[] = [
       return n === null || kind === null ? null : { ...BASE, amount: n, counterKind: kind, targetIndex: -1, self: true };
     },
   },
+  // D611 - THE NAMED COUNTER on the source itself (`Put a charge counter on this artifact.`, `put an hour counter on ~`):
+  // a printed kind outside the closed list, on SELF alone - the card's own text reads it back (a remove cost, `for each
+  // charge counter on this artifact`, `where X is the number of page counters on this artifact`). A named kind on a
+  // target or a host stays unread: nothing on another permanent reads it.
+  {
+    kind: 'putCounters',
+    re: new RegExp(`^put (${COUNT}|an) ([a-z][a-z-]*) counters? on ${SELF}\\.$`, 'i'),
+    build: (m) => {
+      const n = (m[1] ?? '').toLowerCase() === 'an' ? 1 : num(m[1]);
+      const word = (m[2] ?? '').toLowerCase();
+      return n === null || word === '' || counterKindOf(word) !== null ? null : { ...BASE, amount: n, counterKind: word, targetIndex: -1, self: true };
+    },
+  },
   // D527 - `Return ~ to its owner's hand` is read as `returnSelf` FIRST: the executor case knows a source in the graveyard
   // (the spell's own card once a clash's answers resumed its clauses) and the loop knows the hand fate; the self bounce
   // below stays for a reader that asks it by kind.
@@ -3504,6 +3517,10 @@ const COUNT_PERM = new RegExp(
 function readCountNoun(raw: string): CountExpr | null {
   const noun = raw.trim();
   const low = noun.toLowerCase();
+  // D611 - the counters of a kind on the SOURCE (`charge counter on this artifact`): read off the source as the clause
+  // resolves, or as it last existed when the cost moved it (`StackObject.sourceCounters`).
+  const sc = /^(\+1\/\+1|-1\/-1|[a-z][a-z-]*) counter on (?:this (?:creature|permanent|artifact|enchantment|land)|~)$/.exec(low);
+  if (sc) return { kind: 'selfCounters', counter: sc[1] ?? '' };
   if (/^time (?:it|this spell|this creature|this permanent|~) was kicked$/.test(low)) return { kind: 'kicked' };
   if (low === 'card in your hand') return { kind: 'cardsInHand', who: 'you' };
   if (low === 'creature that died this turn') return { kind: 'diedThisTurn' };
@@ -3614,11 +3631,49 @@ function matchSpellX(sentence: string): EffectSpec | null {
   if (!inner || !MULTIPLIABLE.has(inner.kind) || inner.per !== null) return null;
   return { ...inner, text: sentence, per: { kind: 'spellX' } };
 }
+/**
+ * D611 - `equal to the number of <noun>`: the counted sentence in its other print, the amount being the count - `You gain life
+ * equal to the number of charge counters on this artifact.`, `~ deals damage equal to the number of charge counters on it to any
+ * target.`, `This artifact deals damage to you equal to the number of pain counters on it.`, `draw cards equal to ...`, `...
+ * loses life equal to ...`. The base sentence is read with 1 and the count rides as `per` (D418). `on it` names the source only
+ * when the source is the one dealing the damage; anywhere else it stays unread.
+ */
+const EQ_SELF_SUBJECT = /^(?:~|this (?:creature|permanent|artifact|enchantment|land)|it)$/i;
+function matchEqualToNumber(sentence: string): EffectSpec | null {
+  let base: string | null = null;
+  let noun = '';
+  let subject: string | null = null;
+  const gain = /^(?:you )?gain life equal to the number of ([^.]+)\.$/i.exec(sentence);
+  const draw = gain ? null : /^(?:you )?draw cards equal to the number of ([^.]+)\.$/i.exec(sentence);
+  const lose = gain || draw ? null : /^(.+?) loses life equal to the number of ([^.]+)\.$/i.exec(sentence);
+  const dmgTo = gain || draw || lose ? null : /^(.+?) deals damage equal to the number of ([^.]+?) to ([^.]+)\.$/i.exec(sentence);
+  const dmgEq = gain || draw || lose || dmgTo ? null : /^(.+?) deals damage to ([^.]+?) equal to the number of ([^.]+)\.$/i.exec(sentence);
+  if (gain) { base = 'You gain 1 life.'; noun = gain[1] ?? ''; }
+  else if (draw) { base = 'Draw a card.'; noun = draw[1] ?? ''; }
+  else if (lose) { base = `${lose[1] ?? ''} loses 1 life.`; noun = lose[2] ?? ''; }
+  else if (dmgTo) { subject = dmgTo[1] ?? ''; base = `${EQ_SELF_SUBJECT.test(subject) ? '~' : subject} deals 1 damage to ${dmgTo[3] ?? ''}.`; noun = dmgTo[2] ?? ''; }
+  else if (dmgEq) { subject = dmgEq[1] ?? ''; base = `${EQ_SELF_SUBJECT.test(subject) ? '~' : subject} deals 1 damage to ${dmgEq[2] ?? ''}.`; noun = dmgEq[3] ?? ''; }
+  if (base === null) return null;
+  if (/ on it$/i.test(noun)) {
+    if (subject === null || !EQ_SELF_SUBJECT.test(subject)) return null;
+    noun = noun.replace(/ on it$/i, ' on ~');
+  }
+  const per = readCountNoun(singularCountNoun(noun));
+  if (!per) return null;
+  const inner = matchRule(base);
+  if (!inner || !MULTIPLIABLE.has(inner.kind) || inner.per !== null) return null;
+  return { ...inner, text: sentence, per };
+}
 function matchCounted(sentence: string): EffectSpec | null {
+  // D611 - the `equal to the number of` print first: its nouns are the `for each` reader's.
+  const eq = matchEqualToNumber(sentence);
+  if (eq) return eq;
   const fe = /^(.+?) for each ([^.]+)\.$/i.exec(sentence);
   if (fe) {
     const per = readCountNoun(fe[2] ?? '');
-    const inner = per ? matchRule((fe[1] ?? '') + '.') : null;
+    // D611 - a counted sentence after a put (`Then create a 1/1 ... token for each muster counter on this enchantment.`): the
+    // `then` only orders the clauses, which the executor runs in order anyway.
+    const inner = per ? matchRule((fe[1] ?? '').replace(/^then /i, '') + '.') : null;
     if (!per || !inner || !MULTIPLIABLE.has(inner.kind) || inner.per !== null) return null;
     return { ...inner, text: sentence, per };
   }
@@ -3646,7 +3701,8 @@ function matchCounted(sentence: string): EffectSpec | null {
   if (wx) {
     const per = readCountNoun(singularCountNoun(wx[2] ?? ''));
     if (!per) return null;
-    let base = wx[1] ?? '';
+    // D611 - `then` orders the clauses only (as above).
+    let base = (wx[1] ?? '').replace(/^then /i, '');
     if (/\bX\/X\b/.test(base)) return null;
     base = base
       .replace(/\bX cards\b/gi, 'a card')

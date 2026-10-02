@@ -438,7 +438,12 @@ export function effectResult(
       // A permanent's trigger reads the kicks its spell announced off the permanent (CR 702.33c).
       // D437 - the spell's X rides the stack object (`xValue`, announced at the cast).
       // D608 - and the cost's sacrificed permanent's numbers ride it too (D607's stamp).
-      const count = countOf(state, deps, controller, effect.per, source ?? null, obj.kicked ?? (source ? state.cards[source]?.kicked : undefined) ?? 0, cache, obj.xValue ?? 0, obj.memo ?? 0, obj.sacrificed?.[0]);
+      // D611 - CR 608.2h: the count is read as THIS clause applies - after the clauses before it in the same resolution.
+      // `state` is the snapshot before the batch (D295), so the batch's own events so far are applied to a scratch copy:
+      // `Draw a card.` before `... equal to the number of cards in your hand`, a put before `for each charge counter on this
+      // artifact`. A source the cost moved is read off the activation's stamp (`StackObject.sourceCounters`).
+      const live = out.length > 0 ? out.reduce((s, body) => apply(s, { seq: s.eventCount, body, cause: { kind: 'system' } } as never), state) : state;
+      const count = countOf(live, deps, controller, effect.per, source ?? null, obj.kicked ?? (source ? state.cards[source]?.kicked : undefined) ?? 0, live === state ? cache : undefined, obj.xValue ?? 0, obj.memo ?? 0, obj.sacrificed?.[0], obj.sourceCounters);
       if (count === 0) {
         out.push(narrated(`${obj.label} counts nothing — “${effect.text}” does nothing.`, obj.controller, obj.identity));
         continue;
