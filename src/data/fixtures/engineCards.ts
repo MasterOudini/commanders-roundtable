@@ -9674,6 +9674,9 @@ export const BLOODSHOT_CYCLOPS: CardData = F.BLOODSHOT_CYCLOPS as CardData;
 export const LIFE_CHISEL: CardData = F.LIFE_CHISEL as CardData;
 export const ANIMAL_BONEYARD: CardData = F.ANIMAL_BONEYARD as CardData;
 export const KHERU_DREADMAW: CardData = F.KHERU_DREADMAW as CardData;
+export const DINA_SOUL_STEEPER: CardData = F.DINA_SOUL_STEEPER as CardData;
+export const GHOULCALLER_GISA: CardData = F.GHOULCALLER_GISA as CardData;
+export const AIRDROP_CONDOR: CardData = F.AIRDROP_CONDOR as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -19622,6 +19625,9 @@ export const ENGINE_CARDS: CardData[] = [
   LIFE_CHISEL,
   ANIMAL_BONEYARD,
   KHERU_DREADMAW,
+  DINA_SOUL_STEEPER,
+  GHOULCALLER_GISA,
+  AIRDROP_CONDOR,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -35,6 +35,8 @@ export function countOf(
   xValue = 0,
   /** D476 - the trigger's own number (`obj.memo`): the damage its head's event dealt; a head with none counts zero. */
   memo = 0,
+  /** D608 - the cost's sacrificed permanent's last known numbers (`StackObject.sacrificed[0]`); none counts zero. */
+  sacrificed?: { readonly power: number | null; readonly toughness: number | null; readonly manaValue: number },
 ): number {
   const d = (id: InstanceId) => derive(state, deps.oracle, deps.scripts, id, cache);
   switch (expr.kind) {
@@ -44,6 +46,8 @@ export function countOf(
       return Math.max(0, xValue);
     case 'memo':
       return Math.max(0, memo);
+    case 'sacrificed':
+      return Math.max(0, sacrificed?.[expr.stat] ?? 0);
     case 'cardsInHand':
       return (state.zones.hand[controller] ?? []).length;
     case 'players': {

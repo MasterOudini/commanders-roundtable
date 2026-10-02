@@ -752,11 +752,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D608 - X as the sacrificed number read; what stays is a card the row maker refuses for another reason.
+  ['Korozda Guildmage', 'the row maker: cost: a sacrifice cost with no fixture the suite can put: nontoken creature - its clause reads since D608 (D608)'],
   // D607 - the sacrificed number read; what stays is a card the row maker refuses for another reason.
   ['Jarad, Golgari Lich Lord', 'the row maker: cost: a sacrifice cost with no fixture the suite can put: Swamp and a Forest - its clause reads since D607 (D607)'],
   ['Greater Good', 'the row maker: a queued discard the scaffold hand may not hold: Discard three cards. - its clause reads since D607 (D607)'],
   ['Barrage Tyrant', 'the row maker: cost: a sacrifice cost with no fixture the suite can put: colorless creature - its clause reads since D607 (D607)'],
-  ['Airdrop Condor', 'the row maker: a sacrificed number with no fodder the suite stages (not this wave): ~ deals damage equal to the sacrificed cr - its clause reads since D607 (D607)'],
   // D606 - the defending player read; what stays is a card the row maker refuses for another reason.
   ['Elite Scaleguard', 'the row maker: trigger head not in the library: Whenever a creature you control with a +1/+1 counter on it attacks, ta - its clause reads since D606 (D606)'],
   ['Necrite', 'the row maker: a defending-player clause under a head that binds no attacker of its own (not this wave): You may sacrifice it - its clause reads since D606 (D606)'],
@@ -3915,7 +3916,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // generator rows no spell but a mass pump, and most read the SACRIFICED permanent's power, toughness or
   // mana value, a referent the vocabulary does not carry; one creature for a battle clause).
   ['Burnt Offering', "a spell line outside the row vocabulary beside its sacrifice cost (X mana of {B} and/or {R}, X the sacrificed creature's mana value)"],
-  ['Call for Blood', "a spell line outside the row vocabulary beside its sacrifice cost (-X/-X, X the sacrificed creature's power)"],
   ['Corpse Explosion', "a spell line outside the row vocabulary beside its exile-from-graveyard cost (damage equal to the exiled card's power to each creature)"],
   ['Corpse Lunge', "a spell line outside the row vocabulary beside its exile-from-graveyard cost (damage equal to the exiled card's power)"],
   ['Culling the Weak', 'a spell line outside the row vocabulary beside its sacrifice cost (Add {B}{B}{B}{B} - a mana spell)'],

@@ -13,7 +13,7 @@
 // tutors, no recursion, because the engine runs none of those yet. That ceiling
 // is the honest state of the app and it rises as the engine's coverage does.
 //
-// commander: Akiri, Line-Slinger (RW), chosen from 449 fully-executable legendary creatures for reaching 5379 cards
+// commander: Akiri, Line-Slinger (RW), chosen from 451 fully-executable legendary creatures for reaching 5381 cards
 // mv 0–1: wanted 6, took 6
 // mv 2–2: wanted 14, took 14
 // mv 3–3: wanted 14, took 14

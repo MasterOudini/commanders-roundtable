@@ -5,6 +5,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from './log';
+import { project } from './project';
 import { must, put, startedGame, ORACLE } from './testing/harness';
 import { unaccountedLines } from '../data/engineComplete';
 import { ENGINE_CARDS } from '../data/fixtures/engineCards';
@@ -51,6 +52,20 @@ describe('the reveal lands (D441)', () => {
     expect(g.state.cards[plains]?.zone.kind).toBe('hand');
     expect(g.log.some((e) => e.body.t === 'CardsRevealed' && e.body.cards.includes(plains) && e.body.to.length === 2)).toBe(true);
     expect(g.state.priority.awaiting).toBeNull();
+    expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
+  });
+
+  // D608 - the fuzz gate's find (seed 'leak': p1 saw a Godless Shrine in p4's hand long after p4 revealed it for a reveal
+  // land): a reveal shows the card "for a brief time" (CR 701.16a) and ends with the answer - the card goes back to a hand
+  // nobody else can see.
+  test('the reveal ends with the answer: the card goes back to a hidden hand', () => {
+    const g = game(['Port Town', 'Plains']);
+    const plains = put(g, 'p1', 'Plains', 'hand');
+    const town = put(g, 'p1', 'Port Town');
+    asked(g);
+    must(g.submit({ t: 'AnswerEntersChoice', player: 'p1', source: town, pay: true, reveal: plains }));
+    expect(g.state.cards[plains]?.revealedTo).toEqual([]);
+    expect(project(g.state, ORACLE, g.deps.scripts, 'p2').cards[plains]?.card ?? null, 'p2 sees the card only while it is revealed').toBeNull();
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
   });
 

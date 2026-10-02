@@ -329401,6 +329401,109 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "DINA_SOUL_STEEPER": {
+    "scryfallId": "056da29c-8ae8-4e37-93c7-2d367cb51900",
+    "oracleId": "2121bcb4-f5fe-447f-9112-c7e5b5c45baf",
+    "name": "Dina, Soul Steeper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dina, Soul Steeper",
+        "manaCost": "{B}{G}",
+        "typeLine": "Legendary Creature — Dryad Druid",
+        "oracleText": "Whenever you gain life, each opponent loses 1 life.\n{1}, Sacrifice another creature: Dina gets +X/+0 until end of turn, where X is the sacrificed creature's power.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Chris Rahn",
+        "imageId": "056da29c-8ae8-4e37-93c7-2d367cb51900"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "STX-178",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GHOULCALLER_GISA": {
+    "scryfallId": "0bcba8d3-725b-49f9-8281-eafac15208c5",
+    "oracleId": "0dd894cb-1968-471c-af08-ea7ec5ce8428",
+    "name": "Ghoulcaller Gisa",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ghoulcaller Gisa",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Legendary Creature — Human Wizard",
+        "oracleText": "{B}, {T}, Sacrifice another creature: Create X 2/2 black Zombie creature tokens, where X is the sacrificed creature's power.",
+        "flavorText": "\"Geralf, must you always whine? I agreed to nothing. I'll raise ghouls anytime I wish.\"",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Karla Ortiz",
+        "imageId": "0bcba8d3-725b-49f9-8281-eafac15208c5"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "jmp",
+    "collectorNumber": "236",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AIRDROP_CONDOR": {
+    "scryfallId": "ec9796ac-11e2-4295-bf00-f684d0111970",
+    "oracleId": "25fc274f-d5af-4174-b8e8-c2e65bb4c13f",
+    "name": "Airdrop Condor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Airdrop Condor",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying\n{1}{R}, Sacrifice a Goblin creature: This creature deals damage equal to the sacrificed creature's power to any target.",
+        "flavorText": "It has two kinds of droppings, neither of which is particularly pleasant.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Glen Angus",
+        "imageId": "ec9796ac-11e2-4295-bf00-f684d0111970"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "ons",
+    "collectorNumber": "186",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

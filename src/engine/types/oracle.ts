@@ -669,6 +669,11 @@ export type CountExpr =
   | { readonly kind: 'spellX' }
   /** D476 - the trigger's own number (`obj.memo`): `you gain that much life`, `draw that many cards` under a damage head. */
   | { readonly kind: 'memo' }
+  /**
+   * D608 - `where X is the sacrificed creature's power` (toughness, mana value): the cost's sacrificed permanent as it last
+   * existed (CR 608.2h), off D607's stamp (`StackObject.sacrificed`); no stamp counts zero.
+   */
+  | { readonly kind: 'sacrificed'; readonly stat: 'power' | 'toughness' | 'manaValue' }
   | { readonly kind: 'diedThisTurn' }
   | { readonly kind: 'party' }
   | { readonly kind: 'players'; readonly who: 'opponents' | 'any' }

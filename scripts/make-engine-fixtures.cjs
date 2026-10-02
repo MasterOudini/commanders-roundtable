@@ -10851,6 +10851,11 @@ const WANTED = [
   'Animal Boneyard',
   'Kheru Dreadmaw',
   // D607 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D608 - X IS THE SACRIFICED NUMBER: the rows the whole-leftover row maker rowed once the vocabulary read where X is the sacrificed creature power, toughness or mana value (CR 608.2h).
+  'Dina, Soul Steeper',
+  'Ghoulcaller Gisa',
+  'Airdrop Condor',
+  // D608 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

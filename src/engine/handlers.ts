@@ -4304,6 +4304,9 @@ function answerEntersChoice(
         intent.player,
       ),
     );
+    // D608 - the reveal is "for a brief time" (CR 701.16a): it ends with the answer, and the card goes back to a hand nobody
+    // else sees. The fuzz gate's find: left revealed, an opponent's projection showed it for the rest of the game.
+    events.push({ t: 'RevealCleared', cards: [intent.reveal] });
   } else if (intent.pay) {
     const life = seat?.life ?? 0;
     events.push({ t: 'LifeChanged', player: intent.player, delta: -awaiting.life, to: life - awaiting.life });

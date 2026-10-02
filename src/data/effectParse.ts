@@ -207,6 +207,7 @@ const sacrificedStat = (raw: string | undefined): 'power' | 'toughness' | 'manaV
 /** D607 - a clause that reads the cost's sacrificed number, itself or in a payment's branch or a reflexive payload. */
 const readsSacrificed = (spec: EffectSpec): boolean =>
   spec.fromSacrificed !== undefined ||
+  spec.per?.kind === 'sacrificed' ||
   [...(spec.pay?.ifPaid ?? []), ...(spec.pay?.ifNotPaid ?? []), ...(spec.pay?.reflexive?.effects ?? []), ...(spec.reflexive?.effects ?? [])].some(readsSacrificed);
 // D606 - and `defending player controls` (CR 508.5), on the same terms: `readController` reads it as `'defending'` and
 // `specAdmits` binds it to the player the source's attacker is attacking.
@@ -3616,6 +3617,26 @@ function matchCounted(sentence: string): EffectSpec | null {
     const inner = per ? matchRule((fe[1] ?? '') + '.') : null;
     if (!per || !inner || !MULTIPLIABLE.has(inner.kind) || inner.per !== null) return null;
     return { ...inner, text: sentence, per };
+  }
+  // D608 - `where X is the sacrificed creature's power` (toughness, mana value): the cost's sacrificed permanent's number as it
+  // last existed (D607's stamp, CR 608.2h), counted as below; a pump whose halves mix X and a number (`+X/+1`) stays unread -
+  // the count scales both halves.
+  const sx = new RegExp(`^(.+?), where X is ${SACRIFICED_STAT}\\.$`, 'i').exec(sentence);
+  if (sx) {
+    const head = sx[1] ?? '';
+    if (/\bX\/X\b/.test(head) || /[+-]X\/[+-][1-9]|[+-][1-9]\d*\/[+-]X\b/.test(head)) return null;
+    const base = head
+      .replace(/\bX cards\b/gi, 'a card')
+      .replace(/\bX life\b/gi, '1 life')
+      .replace(/\bX damage\b/gi, '1 damage')
+      .replace(/\bX \+1\/\+1 counters\b/gi, 'a +1/+1 counter')
+      .replace(/\bX -1\/-1 counters\b/gi, 'a -1/-1 counter')
+      .replace(/([+-])X\b/g, '$11')
+      .replace(/\b(create|creates) X ([^.]*?tokens?)\b/i, (_m, verb: string, rest: string) => verb + ' a ' + rest.replace(/tokens\b/, 'token'));
+    if (/\bX\b/.test(base)) return null;
+    const inner = matchRule(base + '.');
+    if (!inner || !MULTIPLIABLE.has(inner.kind) || inner.per !== null) return null;
+    return { ...inner, text: sentence, per: { kind: 'sacrificed', stat: sacrificedStat(sx[2]) } };
   }
   const wx = /^(.+?), where X is the number of ([^.]+)\.$/i.exec(sentence);
   if (wx) {

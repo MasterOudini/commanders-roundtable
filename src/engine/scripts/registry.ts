@@ -7,6 +7,10 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { DINA_SOUL_STEEPER_SCRIPT } from './cards/dinaSoulSteeper';
+import { GHOULCALLER_GISA_SCRIPT } from './cards/ghoulcallerGisa';
+import { ATOGATOG_SCRIPT } from './cards/atogatog';
+import { AIRDROP_CONDOR_SCRIPT } from './cards/airdropCondor';
 import { MIREN_THE_MOANING_WELL_SCRIPT } from './cards/mirenTheMoaningWell';
 import { BOSH_IRON_GOLEM_SCRIPT } from './cards/boshIronGolem';
 import { DISCIPLE_OF_GRISELBRAND_SCRIPT } from './cards/discipleOfGriselbrand';
@@ -8741,6 +8745,10 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  DINA_SOUL_STEEPER_SCRIPT,
+  GHOULCALLER_GISA_SCRIPT,
+  ATOGATOG_SCRIPT,
+  AIRDROP_CONDOR_SCRIPT,
   MIREN_THE_MOANING_WELL_SCRIPT,
   BOSH_IRON_GOLEM_SCRIPT,
   DISCIPLE_OF_GRISELBRAND_SCRIPT,
