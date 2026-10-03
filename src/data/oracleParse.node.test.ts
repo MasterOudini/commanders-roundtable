@@ -449,7 +449,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // D452 - 2,719 -> 2,622: Channel is an ability word; its discard-self price is D451's.
       // D457 - 2,622 -> 2,521: the exhaust word is read and the cost behind it charged (CR 702.178).
       // D458 - 2,521 -> 2,478: the boast word the same way (CR 702.142).
-      'activated:nonManaCost': 2352,
+      'activated:nonManaCost': 2348, // D612: the long `Remove ... counters from ...` cost lines indexed, their pieces read (4 fewer unread).
       'activated:loyalty': 4635,
       'target:modalUnion': 505,
       // D291: "attacking or blocking creature" used to lose its first word to
@@ -457,7 +457,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // D293: a qualifier after a noun LIST binds one alternative in print, so
       // such a clause is free aim now instead of a narrowed read of its first
       // noun (+35); the six new lists take the other direction.
-      'target:unparsedClause': 875, // D479: the tribal target (a capitalised subtype noun, enforced through subtypesAll).
+      'target:unparsedClause': 878, // D612: three more among the newly indexed long cost lines' effects; D479: the tribal target (a capitalised subtype noun, enforced through subtypesAll).
       'typeLine:unknownType': 729,
       // D356 - the seam's own mirror: a protection naming a card type, a subtype or a colour
       // category is enforced now, so 244 lines that were recorded and unenforced are neither.
@@ -525,15 +525,15 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
     // the effect, `legal.ts`'s gate), `targeted` +50 (target clauses inside
     // the newly admitted lines).
     expect(report.activated).toEqual({
-      lines: 44219, // D597: the 40 synthesized typed and once-each-turn Equip abilities; D559: the 37 synthesized Transmute abilities; D553: the 71 synthesized Saddle abilities; D546: the 85 synthesized Embalm and Eternalize abilities; D462: the 172 synthesized Ninjutsu abilities; D451: the 15 synthesized Reinforce abilities; D448: the 155 synthesized Unearth abilities; D440: the 26 synthesized Scavenge abilities; D311: the 529 synthesized Crew abilities; D410: the typecyclings
+      lines: 44263, // D612: the 44 `Remove ... counters from ...` cost lines past the 60-character prose-colon cap, indexed now; D597: the 40 synthesized typed and once-each-turn Equip abilities; D559: the 37 synthesized Transmute abilities; D553: the 71 synthesized Saddle abilities; D546: the 85 synthesized Embalm and Eternalize abilities; D462: the 172 synthesized Ninjutsu abilities; D451: the 15 synthesized Reinforce abilities; D448: the 155 synthesized Unearth abilities; D440: the 26 synthesized Scavenge abilities; D311: the 529 synthesized Crew abilities; D410: the typecyclings
       // ⚠️ 28,133 → 29,933 in M6.4k (D168): the sacrifice-cost chooser's
       // 1,800 lines — the exact mirror of `nonManaCost`'s fall above.
       // ⚠️ 29,933 → 31,058 in M6.4dw (D286): the discard and tap choosers'
       // 1,125 lines — the mirror of `nonManaCost`'s second fall.
-      payable: 41761, // D597: the 40 typed and once-each-turn equip lines (a mana cost); D559: the 37 transmute lines (the mana and the card's own discard); D553: the 71 saddle lines (the tap chooser pays them); D546: the 85 embalm and eternalize lines; D472: the numeric loyalty costs; D462: the 172 ninjutsu lines; D458: the 43 boast lines; D457: the 101 exhaust lines; D452: the 97 Channel lines; D451: the 90 discard-self lines and the 15 reinforces; D448: the 155 unearth abilities; D447: the 26 any-kind remove-a-counter lines.
+      payable: 41809, // D612: those lines and the self counter removals counted past five; D597: the 40 typed and once-each-turn equip lines (a mana cost); D559: the 37 transmute lines (the mana and the card's own discard); D553: the 71 saddle lines (the tap chooser pays them); D546: the 85 embalm and eternalize lines; D472: the numeric loyalty costs; D462: the 172 ninjutsu lines; D458: the 43 boast lines; D457: the 101 exhaust lines; D452: the 97 Channel lines; D451: the 90 discard-self lines and the 15 reinforces; D448: the 155 unearth abilities; D447: the 26 any-kind remove-a-counter lines.
       // ⚠️ 11,911 → 11,938: the 27 lines D116 taught the parser to read.
       manaAbility: 11578,
-      targeted: 12395, // D605: Support N (Joraga Auxiliary's activation aims now); D597: the typed equip lines (a creature of the quality you control); D451: the reinforce clauses.
+      targeted: 12409, // D612: the newly indexed lines' aims; D605: Support N (Joraga Auxiliary's activation aims now); D597: the typed equip lines (a creature of the quality you control); D451: the reinforce clauses.
     });
   });
 

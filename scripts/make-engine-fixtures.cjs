@@ -10931,6 +10931,28 @@ const WANTED = [
   'Kessig Malcontents',
   'Cat-Gator',
   // D611 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D612 - THE COUNTERS IT LEFT WITH: the rows the whole-leftover row maker rowed once a looks-back trigger read its source counters as it last existed, and the Quests remove-and-sacrifice line read.
+  'Soulstinger',
+  'Ominous Seas',
+  'Chasm Skulker',
+  'Khalni Heart Expedition',
+  'Quest for the Gravelord',
+  'Servant of the Scale',
+  'Marketback Walker',
+  'Ior Ruin Expedition',
+  'Hangarback Walker',
+  'Toothy, Imaginary Friend',
+  'Vogar, Necropolis Tyrant',
+  'Bloodtracker',
+  'Revered Unicorn',
+  'Soul Stair Expedition',
+  'Grief Tyrant',
+  'Watchful Blisterzoa',
+  'Dusk Urchins',
+  'Sunspring Expedition',
+  'Zektar Shrine Expedition',
+  'Preyseizer Dragon',
+  // D612 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -11382,6 +11404,10 @@ const WANTED_TOKENS = [
   { name: 'Rogue', set: 'tmsc', cn: '9', key: 'ROGUE_064DEC90_TOKEN' },
   // D611 - the tokens the wave's rows create (the port's token-pin step, missing until D494).
   { name: 'Elemental', set: 'tc20', cn: '3', key: 'ELEMENTAL_4_4_W_CREATURE_FLYING_TOKEN' },
+  // D612 - the tokens the wave's rows create (the port's token-pin step, missing until D494).
+  { name: 'Kraken', set: 'tiko', cn: '6', key: 'KRAKEN_8_8_U_CREATURE_TOKEN' },
+  { name: 'Zombie Giant', set: 'ddr', cn: '73', key: 'ZOMBIE_GIANT_5_5_B_CREATURE_TOKEN' },
+  { name: 'Elemental', set: 'tzen', cn: '8', key: 'ELEMENTAL_F9E12780_TOKEN' },
 ];
 
 function constName(name) {

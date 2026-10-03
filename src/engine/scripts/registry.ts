@@ -7,6 +7,26 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { SOULSTINGER_SCRIPT } from './cards/soulstinger';
+import { OMINOUS_SEAS_SCRIPT } from './cards/ominousSeas';
+import { CHASM_SKULKER_SCRIPT } from './cards/chasmSkulker';
+import { KHALNI_HEART_EXPEDITION_SCRIPT } from './cards/khalniHeartExpedition';
+import { QUEST_FOR_THE_GRAVELORD_SCRIPT } from './cards/questForTheGravelord';
+import { SERVANT_OF_THE_SCALE_SCRIPT } from './cards/servantOfTheScale';
+import { MARKETBACK_WALKER_SCRIPT } from './cards/marketbackWalker';
+import { IOR_RUIN_EXPEDITION_SCRIPT } from './cards/iorRuinExpedition';
+import { HANGARBACK_WALKER_SCRIPT } from './cards/hangarbackWalker';
+import { TOOTHY_IMAGINARY_FRIEND_SCRIPT } from './cards/toothyImaginaryFriend';
+import { VOGAR_NECROPOLIS_TYRANT_SCRIPT } from './cards/vogarNecropolisTyrant';
+import { BLOODTRACKER_SCRIPT } from './cards/bloodtracker';
+import { REVERED_UNICORN_SCRIPT } from './cards/reveredUnicorn';
+import { SOUL_STAIR_EXPEDITION_SCRIPT } from './cards/soulStairExpedition';
+import { GRIEF_TYRANT_SCRIPT } from './cards/griefTyrant';
+import { WATCHFUL_BLISTERZOA_SCRIPT } from './cards/watchfulBlisterzoa';
+import { DUSK_URCHINS_SCRIPT } from './cards/duskUrchins';
+import { SUNSPRING_EXPEDITION_SCRIPT } from './cards/sunspringExpedition';
+import { ZEKTAR_SHRINE_EXPEDITION_SCRIPT } from './cards/zektarShrineExpedition';
+import { PREYSEIZER_DRAGON_SCRIPT } from './cards/preyseizerDragon';
 import { TIME_BOMB_SCRIPT } from './cards/timeBomb';
 import { ASSEMBLE_THE_LEGION_SCRIPT } from './cards/assembleTheLegion';
 import { CONVERSION_CHAMBER_SCRIPT } from './cards/conversionChamber';
@@ -8799,6 +8819,26 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SOULSTINGER_SCRIPT,
+  OMINOUS_SEAS_SCRIPT,
+  CHASM_SKULKER_SCRIPT,
+  KHALNI_HEART_EXPEDITION_SCRIPT,
+  QUEST_FOR_THE_GRAVELORD_SCRIPT,
+  SERVANT_OF_THE_SCALE_SCRIPT,
+  MARKETBACK_WALKER_SCRIPT,
+  IOR_RUIN_EXPEDITION_SCRIPT,
+  HANGARBACK_WALKER_SCRIPT,
+  TOOTHY_IMAGINARY_FRIEND_SCRIPT,
+  VOGAR_NECROPOLIS_TYRANT_SCRIPT,
+  BLOODTRACKER_SCRIPT,
+  REVERED_UNICORN_SCRIPT,
+  SOUL_STAIR_EXPEDITION_SCRIPT,
+  GRIEF_TYRANT_SCRIPT,
+  WATCHFUL_BLISTERZOA_SCRIPT,
+  DUSK_URCHINS_SCRIPT,
+  SUNSPRING_EXPEDITION_SCRIPT,
+  ZEKTAR_SHRINE_EXPEDITION_SCRIPT,
+  PREYSEIZER_DRAGON_SCRIPT,
   TIME_BOMB_SCRIPT,
   ASSEMBLE_THE_LEGION_SCRIPT,
   CONVERSION_CHAMBER_SCRIPT,

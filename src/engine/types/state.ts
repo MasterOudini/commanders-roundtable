@@ -910,6 +910,12 @@ export interface PendingTrigger {
   readonly player?: PlayerId;
   /** D440 - a number the head read off the pre-event state (a modular creature's counters), riding onto `StackObject.memo`. */
   readonly memo?: number;
+  /**
+   * D612 - a LOOKS-BACK trigger's source counters as it last existed (CR 603.10a, 608.2h): read off the board before the
+   * move, riding onto `StackObject.sourceCounters` for `for each +1/+1 counter on it` under a dies or leaves head. Absent
+   * when the source carried none, so every older log replays untouched.
+   */
+  readonly sourceCounters?: Readonly<Record<string, number>>;
   /** D402 - the delayed trigger this pending one fires (its `effects` ride onto the stack object). */
   readonly delayed?: string;
   /** D536 - a keyword trigger's own effects (storm's copies), riding onto the stack object as `delayedEffects` (D402's path). */

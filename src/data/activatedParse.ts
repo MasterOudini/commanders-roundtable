@@ -365,7 +365,10 @@ function costParts(costText: string): string[] {
     .replace(ABILITY_WORD_RE, '')
     .split(',')
     .map((p) => p.trim())
-    .filter((p) => p !== '');
+    .filter((p) => p !== '')
+    // D612 - `Remove three quest counters from this enchantment and sacrifice it` (the Quests, the Expeditions): two cost
+    // pieces in one clause, the removal and the self-sacrifice (CR 602.2b pays both, in the cost batch).
+    .flatMap((p) => { const m = /^(.+?) and sacrifice (?:it|this [a-z]+)$/i.exec(p); return m ? [m[1] ?? '', 'Sacrifice this permanent'] : [p]; });
 }
 
 /** Is this whole part payable in mana symbols alone? */
@@ -486,6 +489,8 @@ export interface ActivatedParseInput {
 /** "a" / "an" / "one" … "five" → the number of cards or permanents a cost names. */
 const COUNT_WORDS: Readonly<Record<string, number>> = {
   a: 1, an: 1, another: 1, one: 1, two: 2, three: 3, four: 4, five: 5,
+  // D612 - a counter removal counts past five (`Remove eight foreshadow counters from this enchantment`).
+  six: 6, seven: 7, eight: 8, nine: 9, ten: 10, eleven: 11, twelve: 12,
 };
 
 /**
@@ -1188,7 +1193,7 @@ export function parseActivatedAbilities(
       // undef'd ability (D159's rule).
       // D320 - "from this creature" on a newer printing, "from Brigone" on an older one.
       const selfAlt = selfName ? '|' + selfName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') : '';
-      const rc = new RegExp('^remove (a|an|one|two|three|four|five) ([^ ]+) counters? from (?:this [a-z]+' + selfAlt + ')$', 'i').exec(part.trim());
+      const rc = new RegExp('^remove (a|an|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve) ([^ ]+) counters? from (?:this [a-z]+' + selfAlt + ')$', 'i').exec(part.trim());
       if (rc && removeCounterCost === null) {
         const count = COUNT_WORDS[(rc[1] ?? '').toLowerCase()] ?? 0;
         const kind = rc[2] ?? '';
@@ -1201,7 +1206,7 @@ export function parseActivatedAbilities(
       // named, SELF only. Deterministic all the same - +1/+1 and -1/-1 annihilate in pairs (CR 704.5q), so
       // the permanent carries one kind whenever the ability can be activated, and `kind: null` says "the
       // kind it carries". The chooser form ("from a creature you control") still needs a kind to pick by.
-      const rca = new RegExp('^remove (a|an|one|two|three|four|five) counters? from (?:this [a-z]+' + selfAlt + ')$', 'i').exec(part.trim());
+      const rca = new RegExp('^remove (a|an|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve) counters? from (?:this [a-z]+' + selfAlt + ')$', 'i').exec(part.trim());
       if (rca && removeCounterCost === null) {
         const count = COUNT_WORDS[(rca[1] ?? '').toLowerCase()] ?? 0;
         if (count > 0) {

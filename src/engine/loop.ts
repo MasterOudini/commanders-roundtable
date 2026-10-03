@@ -306,6 +306,8 @@ export function stackPendingTriggers(
       ...(trigger.player !== undefined ? { player: trigger.player } : {}),
       // D440 - a number the head memoised off the pre-event state (a modular creature's counters) rides the same way.
       ...(trigger.memo !== undefined ? { memo: trigger.memo } : {}),
+      // D612 - a looks-back trigger's source counters as it last existed ride the same way (`selfCounters` reads them).
+      ...(trigger.sourceCounters !== undefined ? { sourceCounters: trigger.sourceCounters } : {}),
       // D402 - a delayed trigger's effects ride onto the stack; the armed entry leaves the list as it goes on.
       ...(trigger.delayed !== undefined ? { delayedEffects: state.delayedTriggers.find((d) => d.id === trigger.delayed)?.effects ?? [] } : {}),
       // D536 - a keyword trigger's own effects (storm's copies) ride the same way.

@@ -1448,6 +1448,8 @@ export function collectTriggers(
             ...(def.memo ? { memo: def.memo(ctx, id, event.body, item) } : {}),
             // D474 - a token's trigger carries its printing: the instance may have ceased before the aim (CR 603.10).
             ...(card.isToken ? { lki: { printingId: card.printingId, faceIndex: card.faceIndex } } : {}),
+            // D612 - a looks-back trigger carries its source's counters as it last existed (the board before the move).
+            ...(look && Object.keys(card.counters).length > 0 ? { sourceCounters: { ...card.counters } } : {}),
           });
         }
       }

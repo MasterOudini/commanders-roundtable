@@ -118,7 +118,9 @@ export function splitAbilityLines(text: string, isPermanentSpell = false): Abili
     // equal to the number of colors in your commanders' color identity`.
     const colon = masked.indexOf(':');
     const stop = masked.search(/[.;]/);
-    const costLike = colon <= MAX_COST_LEN || line.startsWith('{');
+    // D612 - and a counter REMOVAL is a cost at any length: `Remove three quest counters from this enchantment and
+    // sacrifice it:` (the Quests, the Expeditions) runs past the cap, and no prose opens with that verb before a colon.
+    const costLike = colon <= MAX_COST_LEN || line.startsWith('{') || /^Remove [a-z]+ [^.;:]*counters? from [^.;:]+$/.test(masked.slice(0, colon));
     if (colon > 0 && costLike && (stop < 0 || colon < stop)) {
       out.push({
         text: line,

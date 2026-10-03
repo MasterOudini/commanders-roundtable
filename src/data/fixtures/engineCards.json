@@ -331717,6 +331717,686 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "SOULSTINGER": {
+    "scryfallId": "0504be31-eaab-4b3e-8cfb-274e46d3d67a",
+    "oracleId": "31505942-52c4-4485-9241-c9592e6839e4",
+    "name": "Soulstinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Soulstinger",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Scorpion Demon",
+        "oracleText": "When this creature enters, put two -1/-1 counters on target creature you control.\nWhen this creature dies, you may put a -1/-1 counter on target creature for each -1/-1 counter on this creature.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mike Burns",
+        "imageId": "0504be31-eaab-4b3e-8cfb-274e46d3d67a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "akh",
+    "collectorNumber": "108",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OMINOUS_SEAS": {
+    "scryfallId": "067f24df-7018-45c8-bd67-1336b3672bb3",
+    "oracleId": "58ea9b0a-1bef-4ccb-acb7-f03c8daf3df3",
+    "name": "Ominous Seas",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ominous Seas",
+        "manaCost": "{1}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever you draw a card, put a foreshadow counter on this enchantment.\nRemove eight foreshadow counters from this enchantment: Create an 8/8 blue Kraken creature token.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Vincent Proce",
+        "imageId": "067f24df-7018-45c8-bd67-1336b3672bb3"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Cycling"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "IKO-61",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHASM_SKULKER": {
+    "scryfallId": "13cf5b23-9427-4313-8af8-abf2f3800948",
+    "oracleId": "69facbc7-3859-4716-b627-5199571fb3cf",
+    "name": "Chasm Skulker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chasm Skulker",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Squid Horror",
+        "oracleText": "Whenever you draw a card, put a +1/+1 counter on this creature.\nWhen this creature dies, create X 1/1 blue Squid creature tokens with islandwalk, where X is the number of +1/+1 counters on this creature. (They can't be blocked as long as defending player controls an Island.)",
+        "flavorText": "Designed by Mike Neumann",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jack Wang",
+        "imageId": "13cf5b23-9427-4313-8af8-abf2f3800948"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "m15",
+    "collectorNumber": "46",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KHALNI_HEART_EXPEDITION": {
+    "scryfallId": "159c309c-568d-4780-9db5-b50a997e7bb2",
+    "oracleId": "be6155de-c5b2-415c-ad83-142f9926462a",
+    "name": "Khalni Heart Expedition",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Khalni Heart Expedition",
+        "manaCost": "{1}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "Landfall — Whenever a land you control enters, you may put a quest counter on this enchantment.\nRemove three quest counters from this enchantment and sacrifice it: Search your library for up to two basic land cards, put them onto the battlefield tapped, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jason Chan",
+        "imageId": "159c309c-568d-4780-9db5-b50a997e7bb2"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Landfall"
+    ],
+    "setCode": "cmm",
+    "collectorNumber": "899",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "QUEST_FOR_THE_GRAVELORD": {
+    "scryfallId": "1838157f-5697-4463-b98d-97aeb3667006",
+    "oracleId": "c5f92560-dc82-4bd2-ae6b-4c3942d458b7",
+    "name": "Quest for the Gravelord",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Quest for the Gravelord",
+        "manaCost": "{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever a creature dies, you may put a quest counter on this enchantment.\nRemove three quest counters from this enchantment and sacrifice it: Create a 5/5 black Zombie Giant creature token.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Chris Rahn",
+        "imageId": "1838157f-5697-4463-b98d-97aeb3667006"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "ddr",
+    "collectorNumber": "58",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SERVANT_OF_THE_SCALE": {
+    "scryfallId": "1954f994-cddd-498c-97fc-65f28b2280d9",
+    "oracleId": "7d404420-e3de-47a8-a159-2f634a73f2c9",
+    "name": "Servant of the Scale",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Servant of the Scale",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "This creature enters with a +1/+1 counter on it.\nWhen this creature dies, put X +1/+1 counters on target creature you control, where X is the number of +1/+1 counters on this creature.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Winona Nelson",
+        "imageId": "1954f994-cddd-498c-97fc-65f28b2280d9"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "j21",
+    "collectorNumber": "635",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARKETBACK_WALKER": {
+    "scryfallId": "20419718-d922-4f3c-aeb2-30ffb2ff7cbb",
+    "oracleId": "0405e0a9-6d02-4691-bdb8-59c72b824dab",
+    "name": "Marketback Walker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Marketback Walker",
+        "manaCost": "{X}{X}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "This creature enters with X +1/+1 counters on it.\n{4}: Put a +1/+1 counter on this creature.\nWhen this creature dies, draw a card for each +1/+1 counter on it.",
+        "flavorText": "Many of the inventions built to fight the Phyrexians have since been repurposed for civilian use.",
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Svetlin Velinov",
+        "imageId": "20419718-d922-4f3c-aeb2-30ffb2ff7cbb"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "dft",
+    "collectorNumber": "498",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IOR_RUIN_EXPEDITION": {
+    "scryfallId": "252f296d-b335-4d93-b09a-0c7fdad63932",
+    "oracleId": "fc338ba2-c3a4-45d6-895f-af7f72bf7a94",
+    "name": "Ior Ruin Expedition",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ior Ruin Expedition",
+        "manaCost": "{1}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Landfall — Whenever a land you control enters, you may put a quest counter on this enchantment.\nRemove three quest counters from this enchantment and sacrifice it: Draw two cards.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Chris Rahn",
+        "imageId": "252f296d-b335-4d93-b09a-0c7fdad63932"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Landfall"
+    ],
+    "setCode": "e01",
+    "collectorNumber": "25",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HANGARBACK_WALKER": {
+    "scryfallId": "2d2c323f-eecd-4560-a128-ab513d231552",
+    "oracleId": "dde55256-5259-44e7-a267-fca45a7f0d04",
+    "name": "Hangarback Walker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hangarback Walker",
+        "manaCost": "{X}{X}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "This creature enters with X +1/+1 counters on it.\nWhen this creature dies, create a 1/1 colorless Thopter artifact creature token with flying for each +1/+1 counter on this creature.\n{1}, {T}: Put a +1/+1 counter on this creature.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daarken",
+        "imageId": "2d2c323f-eecd-4560-a128-ab513d231552"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "cmm",
+    "collectorNumber": "951",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TOOTHY_IMAGINARY_FRIEND": {
+    "scryfallId": "4182556f-3a01-41b5-a469-50ce5363c863",
+    "oracleId": "41d6cce0-b852-4d0e-aee2-081df13dd9b8",
+    "name": "Toothy, Imaginary Friend",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Toothy, Imaginary Friend",
+        "manaCost": "{3}{U}",
+        "typeLine": "Legendary Creature — Illusion",
+        "oracleText": "Partner with Pir, Imaginative Rascal (When this creature enters, target player may put Pir into their hand from their library, then shuffle.)\nWhenever you draw a card, put a +1/+1 counter on Toothy.\nWhen Toothy leaves the battlefield, draw a card for each +1/+1 counter on it.",
+        "flavorText": "Go ahead, tell it that it isn't real.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jeannie L Paske",
+        "imageId": "4182556f-3a01-41b5-a469-50ce5363c863"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Partner with",
+      "Partner"
+    ],
+    "setCode": "sld",
+    "collectorNumber": "1049",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VOGAR_NECROPOLIS_TYRANT": {
+    "scryfallId": "42679318-e5c4-4aa4-8097-97552defc8bf",
+    "oracleId": "1d704c2f-cd24-4a04-a51a-da7984dcd358",
+    "name": "Vogar, Necropolis Tyrant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vogar, Necropolis Tyrant",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Legendary Creature — Zombie Giant",
+        "oracleText": "Menace\nWhenever another creature dies during your turn, put a +1/+1 counter on Vogar.\nWhen Vogar dies, draw a card for each +1/+1 counter on it.",
+        "flavorText": "A despot in life. A monster in death.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jason A. Engle",
+        "imageId": "42679318-e5c4-4aa4-8097-97552defc8bf"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Menace"
+    ],
+    "setCode": "gn3",
+    "collectorNumber": "3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOODTRACKER": {
+    "scryfallId": "73041c8a-2282-40f6-b2bf-592e8091f1de",
+    "oracleId": "fcf9ced2-867d-4bc5-b7b6-6153ed2cac97",
+    "name": "Bloodtracker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bloodtracker",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Vampire Wizard",
+        "oracleText": "Flying\n{B}, Pay 2 life: Put a +1/+1 counter on this creature.\nWhen this creature leaves the battlefield, draw a card for each +1/+1 counter on it.",
+        "flavorText": "\"Flee all you like. The further you run the more firmly I feel your heartbeat.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Magali Villeneuve",
+        "imageId": "73041c8a-2282-40f6-b2bf-592e8091f1de"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "j22",
+    "collectorNumber": "382",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REVERED_UNICORN": {
+    "scryfallId": "8c642dd2-1a3e-4b08-917e-6e8aed358b72",
+    "oracleId": "18a8b50b-2328-459b-979d-04c4c769e569",
+    "name": "Revered Unicorn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Revered Unicorn",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Unicorn",
+        "oracleText": "Cumulative upkeep {1} (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)\nWhen this creature leaves the battlefield, you gain life equal to the number of age counters on it.",
+        "flavorText": "\"I felt unworthy even to dream of it.\"\n—Hanna, *Weatherlight* navigator",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "David A. Cherry",
+        "imageId": "8c642dd2-1a3e-4b08-917e-6e8aed358b72"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Cumulative upkeep"
+    ],
+    "setCode": "wth",
+    "collectorNumber": "23",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOUL_STAIR_EXPEDITION": {
+    "scryfallId": "902d03cd-2df7-4f87-ab99-fd52f0df6339",
+    "oracleId": "24b11ede-26c8-40ed-b874-c0f6b21572c3",
+    "name": "Soul Stair Expedition",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Soul Stair Expedition",
+        "manaCost": "{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Landfall — Whenever a land you control enters, you may put a quest counter on this enchantment.\nRemove three quest counters from this enchantment and sacrifice it: Return up to two target creature cards from your graveyard to your hand.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Anthony Francisco",
+        "imageId": "902d03cd-2df7-4f87-ab99-fd52f0df6339"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Landfall"
+    ],
+    "setCode": "zen",
+    "collectorNumber": "112",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRIEF_TYRANT": {
+    "scryfallId": "971a3b39-5b4b-41a4-9f67-1f24c48ba621",
+    "oracleId": "ce855b35-4a31-4e42-9dbc-fea8d244fbe0",
+    "name": "Grief Tyrant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grief Tyrant",
+        "manaCost": "{5}{B/R}",
+        "typeLine": "Creature — Horror",
+        "oracleText": "This creature enters with four -1/-1 counters on it.\nWhen this creature dies, put a -1/-1 counter on target creature for each -1/-1 counter on this creature.",
+        "flavorText": null,
+        "power": "8",
+        "toughness": "8",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Izzy",
+        "imageId": "971a3b39-5b4b-41a4-9f67-1f24c48ba621"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "shm",
+    "collectorNumber": "189",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WATCHFUL_BLISTERZOA": {
+    "scryfallId": "a895f63f-3c59-4249-9346-55ef489944fc",
+    "oracleId": "ca130ba1-a4a8-4225-9799-75d56bac6fb3",
+    "name": "Watchful Blisterzoa",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Watchful Blisterzoa",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Creature — Phyrexian Jellyfish",
+        "oracleText": "Flying\nThis creature enters with an oil counter on it.\nWhen this creature dies, draw cards equal to the number of oil counters on it.",
+        "flavorText": "After a series of ambushes, Uulbrek demanded a sentry with no blind spots.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Chris Cold",
+        "imageId": "a895f63f-3c59-4249-9346-55ef489944fc"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "one",
+    "collectorNumber": "78",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DUSK_URCHINS": {
+    "scryfallId": "adce41c5-3a43-4fe0-b84e-8baaad1a0777",
+    "oracleId": "1c2cc166-dc59-44ce-86d5-ed6013b0bf67",
+    "name": "Dusk Urchins",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dusk Urchins",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Ouphe",
+        "oracleText": "Whenever this creature attacks or blocks, put a -1/-1 counter on it.\nWhen this creature dies, draw a card for each -1/-1 counter on it.",
+        "flavorText": "They spawn from shadow, wreaking chaos until shadow claims them again.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Darrell Riche",
+        "imageId": "adce41c5-3a43-4fe0-b84e-8baaad1a0777"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "shm",
+    "collectorNumber": "65",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUNSPRING_EXPEDITION": {
+    "scryfallId": "b0811c4c-9e91-4785-b3d2-e4221c5d92d8",
+    "oracleId": "f5aeed95-24f8-4f28-9e7c-1e3502d013cd",
+    "name": "Sunspring Expedition",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sunspring Expedition",
+        "manaCost": "{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "Landfall — Whenever a land you control enters, you may put a quest counter on this enchantment.\nRemove three quest counters from this enchantment and sacrifice it: You gain 8 life.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Chris J. Anderson",
+        "imageId": "b0811c4c-9e91-4785-b3d2-e4221c5d92d8"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Landfall"
+    ],
+    "setCode": "zen",
+    "collectorNumber": "37",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ZEKTAR_SHRINE_EXPEDITION": {
+    "scryfallId": "f12d2c01-0ef2-40e6-8c7d-8512e2c8c074",
+    "oracleId": "45bd5e97-f34e-47bc-ad21-da42d3444431",
+    "name": "Zektar Shrine Expedition",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Zektar Shrine Expedition",
+        "manaCost": "{1}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "Landfall — Whenever a land you control enters, you may put a quest counter on this enchantment.\nRemove three quest counters from this enchantment and sacrifice it: Create a 7/1 red Elemental creature token with trample and haste. Exile it at the beginning of the next end step.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Justin Sweet",
+        "imageId": "f12d2c01-0ef2-40e6-8c7d-8512e2c8c074"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Landfall"
+    ],
+    "setCode": "zen",
+    "collectorNumber": "155",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PREYSEIZER_DRAGON": {
+    "scryfallId": "468534eb-b6fb-4141-9260-c0c7b43480b9",
+    "oracleId": "1b36eb85-0b1e-41fb-8ecd-dda13c4feffc",
+    "name": "Preyseizer Dragon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Preyseizer Dragon",
+        "manaCost": "{4}{R}{R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying\nDevour 2 (As this creature enters, you may sacrifice any number of creatures. It enters with twice that many +1/+1 counters on it.)\nWhenever this creature attacks, it deals damage to any target equal to the number of +1/+1 counters on this creature.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Daarken",
+        "imageId": "468534eb-b6fb-4141-9260-c0c7b43480b9"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Devour"
+    ],
+    "setCode": "pca",
+    "collectorNumber": "50",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -341409,6 +342089,108 @@
     ],
     "setCode": "tc20",
     "collectorNumber": "3",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "KRAKEN_8_8_U_CREATURE_TOKEN": {
+    "scryfallId": "ca17c7b2-180a-4bd1-9ab2-152f8f656dba",
+    "oracleId": "b8b5dc05-b4b7-4f3d-9314-408c977bc9f3",
+    "name": "Kraken",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Kraken",
+        "manaCost": "",
+        "typeLine": "Token Creature — Kraken",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "8",
+        "toughness": "8",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Vincent Proce",
+        "imageId": "ca17c7b2-180a-4bd1-9ab2-152f8f656dba"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tiko",
+    "collectorNumber": "6",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ZOMBIE_GIANT_5_5_B_CREATURE_TOKEN": {
+    "scryfallId": "094ceb6a-51fa-4347-b1be-ae4a80b189be",
+    "oracleId": "e7bba04b-be75-4857-a724-c9e2150d56ad",
+    "name": "Zombie Giant",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Zombie Giant",
+        "manaCost": "",
+        "typeLine": "Token Creature — Zombie Giant",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Igor Kieryluk",
+        "imageId": "094ceb6a-51fa-4347-b1be-ae4a80b189be"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "ddr",
+    "collectorNumber": "73",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ELEMENTAL_F9E12780_TOKEN": {
+    "scryfallId": "f9e12780-9c25-4cb0-b1ff-a36ca50b19d8",
+    "oracleId": "ecc72bfd-151f-4fa7-92bf-914732c19eb2",
+    "name": "Elemental",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Elemental",
+        "manaCost": "",
+        "typeLine": "Token Creature — Elemental",
+        "oracleText": "Trample, haste",
+        "flavorText": null,
+        "power": "7",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Anthony Francisco",
+        "imageId": "f9e12780-9c25-4cb0-b1ff-a36ca50b19d8"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Haste",
+      "Trample"
+    ],
+    "setCode": "tzen",
+    "collectorNumber": "8",
     "commanderLegality": "not_legal",
     "singleImage": true
   }
