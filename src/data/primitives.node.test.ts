@@ -320,8 +320,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // wave's rows. The other 34 are spells the seam reads whole with no script anywhere.
       // M6.4hq (D384): the QUOTED GRANT, 8,035 -> 8,040 - five cards whose only leftover was the
       // ability they hand out, which `scrub` blanks so the classifier could not see it at all.
-      complete: 13545,
-      blocked: 18147,
+      complete: 13571,
+      blocked: 18121,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -330,7 +330,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // in D160, → 1,219 in D161 — the D161 fall is 13 landed; the selection's
       // new spell/unenforced filters change what a BATCH offers, not this
       // count, which stays the parsers' own).
-      scriptableToday: 1941,
+      scriptableToday: 1944,
       // ⚠️⚠️ **2,025 → 96, AND THE OLD NUMBER WAS THE ARTEFACT.** `optional` was
       // tested ahead of `expressible` and every rule below it, so it caught any
       // line containing "you may" whatever else that line needed — 4,549 lines,
@@ -345,7 +345,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // 812 → 915, and `chooseFromZone` 691 → 1,005 is the largest single move.
       layer6: 917,
       counter: 960,
-      token: 730,
+      token: 729,
     });
   });
 
@@ -382,7 +382,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // scriptable by the seam), so the multiplier fell 5.1× → 3.1× — the
     // report's own headline note coming true: "if that number is large, the
     // library is the bottleneck", and now it is.
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1941, 1956, 3271, 4746, 5814]);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1944, 1959, 3274, 4751, 5819]);
     expect.soft(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(2.8);
   });
 
@@ -527,7 +527,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     // D608 - one permanent down: a `Create X ... tokens, where X is the sacrificed creature's power` sentence reads now.
     // D611 - two permanents down: their counted token sentences (`for each charge counter on this artifact`) read now.
     // D613 - two permanents down: their `Create X ... tokens` activations read now (the X announced).
-    expect.soft(byOwner).toEqual({ spell: 269, permanent: 461 });
+    // D617 - one permanent down: its other sentence (a graveyard or mass exile, an aimed life gain) reads now.
+    expect.soft(byOwner).toEqual({ spell: 269, permanent: 460 });
     // ⚠️ `unclaimed: 0` is the canary on the classifier: every one of the 1,123
     // is accounted for, so the five buckets are the whole row rather than five
     // buckets and a shrug.
@@ -541,7 +542,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     // were being counted as blocked on a yes/no. Same row, read honestly.
     expect.soft(byKind).toEqual({
       copy: 92,
-      predefined: 106,
+      predefined: 105,
       withAbilities: 226,
       variable: 73,
       plain: 233,
@@ -575,8 +576,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
    */
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1941, 1956]);
-    expect.soft(r.complete).toBe(13545);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1944, 1959]);
+    expect.soft(r.complete).toBe(13571);
   });
 });
 
@@ -720,20 +721,20 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
    */
   test('the residue splits into named families', () => {
     expect.soft(rr.residue).toEqual({
-      activatedCost: 1554,
+      activatedCost: 1545,
       triggeredShell: 1329,
       damage: 498,
-      exile: 741,
+      exile: 724,
       staticShell: 507,
       attackBlock: 602,
-      lifeGainLoss: 245,
+      lifeGainLoss: 242,
       drawDiscard: 212,
       tokensAndCounters: 258,
       copySpell: 180,
       cantBeCountered: 18,
       gainControl: 58,
       wardHexproofGrant: 44,
-      other: 2216,
+      other: 2215,
     });
   });
 

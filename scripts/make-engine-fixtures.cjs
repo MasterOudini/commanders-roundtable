@@ -11064,6 +11064,25 @@ const WANTED = [
   'Gingerbread Hunter // Puny Snack',
   "Grabby Giant // That's Mine",
   // D616 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D617 - the graveyard exile the seam's test activates (graveyardExile.test.ts)
+  "Tormod's Crypt",
+  // D617 - THE GRAVEYARD EXILE AND THE MASS EXILE: the rows the whole-leftover row maker rowed once a graveyard (aimed or scoped) and a wide scope could be exiled and a target player could gain life.
+  'Nihil Spellbomb',
+  "Tormod's Cryptkeeper",
+  'Dauntless Scrapbot',
+  'Orzhov Guildmage',
+  'Soul-Guide Lantern',
+  'Agent of Erebos',
+  'Trigon of Mending',
+  'Remorseful Cleric',
+  'Tonic Peddler',
+  'Jirina, Dauntless General',
+  "Elspeth's Nightmare",
+  'False Prophet',
+  'Angel of Finality',
+  'Mournful Zombie',
+  'Boggart Trawler // Boggart Bog',
+  // D617 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

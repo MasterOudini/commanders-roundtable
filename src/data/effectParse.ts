@@ -1231,6 +1231,34 @@ const RULES: readonly Rule[] = [
       return s === null || s.kind === 'player' ? null : { ...BASE, targetIndex: -1, self: true, scopes: [s] };
     },
   },
+  /**
+   * D617 - THE GRAVEYARD EXILE: a whole graveyard into exile - `Exile target player's graveyard.` (and `target opponent's`, the
+   * aimed player), `Exile each opponent's graveyard.`, `Exile all graveyards.` / `Exile all cards from all graveyards.`,
+   * `Exile your graveyard.` (a player scope, APNAP).
+   */
+  {
+    kind: 'exileGraveyard',
+    re: /^exile target (?:player|opponent)(?:'|’)s graveyard[.]$/i,
+    build: () => ({ ...BASE }),
+  },
+  {
+    kind: 'exileGraveyard',
+    re: /^exile (each opponent(?:'|’)s graveyard|all graveyards|all cards from all graveyards|your graveyard)[.]$/i,
+    build: (m) => {
+      const w = (m[1] ?? '').toLowerCase();
+      const controller = w.startsWith('each opponent') ? 'opponents' : w === 'your graveyard' ? 'you' : 'any';
+      return { ...BASE, targetIndex: -1, self: true, scopes: [{ kind: 'player', controller }] };
+    },
+  },
+  /** D617 - THE MASS EXILE: `Exile <each / all ...>.` over the wide scope (D505), the members to their owners' exile. */
+  {
+    kind: 'exileAll',
+    re: /^exile ((?:each|all) [^.]+)[.]$/i,
+    build: (m) => {
+      const s = readWideScope(m[1] ?? '');
+      return s === null || s.kind === 'player' ? null : { ...BASE, targetIndex: -1, self: true, scopes: [s] };
+    },
+  },
   {
     kind: 'bounceAll',
     re: new RegExp(`^return ${SCOPE} to their owners(?:'|\u2019) hands\.$`, 'i'),
@@ -1745,6 +1773,15 @@ const RULES: readonly Rule[] = [
   {
     kind: 'loseLife',
     re: new RegExp(`^target (?:player|opponent) loses (${NUM}) life\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      return n === null ? null : { ...BASE, amount: n };
+    },
+  },
+  /** D617 - `Target player gains N life.`: the aimed player (the executor's D504 aim). */
+  {
+    kind: 'gainLife',
+    re: new RegExp('^target player gains (' + NUM + ') life[.]$', 'i'),
     build: (m) => {
       const n = num(m[1]);
       return n === null ? null : { ...BASE, amount: n };

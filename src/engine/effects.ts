@@ -852,6 +852,27 @@ export function effectResult(
         break;
       }
 
+      // D617 - THE MASS EXILE: bounceAll's walk, the members to their owners' exile.
+      case 'exileAll': {
+        const moves = [];
+        for (const id of scopeMembers(state, deps, controller, effect.scopes ?? [], cache).cards) {
+          const inst = state.cards[id];
+          if (!inst) continue;
+          moves.push({ card: id, from: { kind: 'battlefield' as const, player: inst.controller }, to: { kind: 'exile' as const, player: inst.owner } });
+        }
+        if (moves.length > 0) out.push({ t: 'CardsMoved', moves });
+        break;
+      }
+
+      // D617 - THE GRAVEYARD EXILE: every card in the graveyard of each scope member (APNAP), or of the aimed player, to
+      // its owner's exile.
+      case 'exileGraveyard': {
+        const players = effect.scopes && effect.scopes.length > 0 ? apnapPlayers(state, scopeMembers(state, deps, controller, effect.scopes, cache).players) : aim?.kind === 'player' ? [aim.id] : [];
+        const moves = players.flatMap((p) => (state.zones.graveyard[p] ?? []).map((id) => ({ card: id, from: { kind: 'graveyard' as const, player: p }, to: { kind: 'exile' as const, player: state.cards[id]?.owner ?? p } })));
+        if (moves.length > 0) out.push({ t: 'CardsMoved', moves });
+        break;
+      }
+
       case 'bounceAll': {
         const moves = [];
         for (const id of scopeMembers(state, deps, controller, effect.scopes ?? [], cache).cards) {

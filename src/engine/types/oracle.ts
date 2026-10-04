@@ -882,6 +882,9 @@ export type EffectKind =
   | 'damageEach'
   | 'destroyAll'
   | 'bounceAll'
+  // D617 - THE MASS EXILE (the wide scope's members to exile) and THE GRAVEYARD EXILE (a whole graveyard, aimed or scoped).
+  | 'exileAll'
+  | 'exileGraveyard'
   /** D383 - "You gain N life for each <count>": a life gain the BOARD sizes. */
   | 'gainLifePer'
   /** D383 - "Put target creature on top of its owner's library." */

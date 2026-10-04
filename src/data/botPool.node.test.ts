@@ -240,9 +240,9 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * verified identical across isolated and full-suite runs.
    */
   test('D90 does not reproduce, and the vocabulary keeps moving it: 948 auto, 1,832 assisted (D199, D343)', () => {
-    expect.soft(r.spells.auto).toBe(2635);
-    expect.soft(r.spells.assisted).toBe(1654);
-    expect.soft(r.spells.autoAnyFace).toBe(2642);
+    expect.soft(r.spells.auto).toBe(2654);
+    expect.soft(r.spells.assisted).toBe(1664);
+    expect.soft(r.spells.autoAnyFace).toBe(2661);
   });
 
   /**
@@ -283,7 +283,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // Contemplation). D472 - the loyalty cost is charged now (CR 606), and the
     // first five planeswalkers whose every line reads are in; battles stay
     // pinned at zero for the same reason the enchantments were.
-    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(834);
+    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(835);
     expect.soft(r.poolByType['planeswalker'] ?? 0).toBe(16);
     expect.soft(r.poolByType['battle'] ?? 0).toBe(0);
   });
@@ -462,14 +462,14 @@ const POOL: Record<string, number> = {
   // D484 - the prompt continuation: the spells whose ask precedes their last sentence (Vampiric Tutor, Disrupt, Geth's Verdict, Contentious Plan ...).
   // D485 - the token copy: the permanents that copy themselves (Spawnwrithe, Giant Adephage ...) and the copy spells (Rite of Replication, Cackling Counterpart ...).
   // D486 - the clone: the clones themselves (Clone, Stunt Double, Phyrexian Metamorph, Copy Enchantment, Vesuva ...).
-  creature: 8083,
-  instant: 1730,
-  sorcery: 1399,
+  creature: 8094,
+  instant: 1737,
+  sorcery: 1401,
   // M6.4hq (D384): the quoted grant - four Auras and an Equipment whose only leftover was the
   // ability they hand out, which `scrub` blanks and the classifier could not see.
-  land: 703,
-  artifact: 780,
-  enchantment: 834,
+  land: 704,
+  artifact: 784,
+  enchantment: 835,
   // D472: the loyalty cost is charged now - the first five planeswalkers whose every line reads.
   planeswalker: 16,
 };

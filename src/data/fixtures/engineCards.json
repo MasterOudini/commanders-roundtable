@@ -336297,6 +336297,541 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "TORMOD_S_CRYPT": {
+    "scryfallId": "0f9668ba-d26d-4484-b4b8-6fb91fbfb617",
+    "oracleId": "1573f7f9-672c-421a-b1ac-3d0d8aea59ca",
+    "name": "Tormod's Crypt",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tormod's Crypt",
+        "manaCost": "{0}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}, Sacrifice this artifact: Exile target player's graveyard.",
+        "flavorText": "The dark opening seemed to breathe the cold, damp air of the dead earth in a steady rhythm.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Christopher Rush",
+        "imageId": "0f9668ba-d26d-4484-b4b8-6fb91fbfb617"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "drk",
+    "collectorNumber": "112",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIHIL_SPELLBOMB": {
+    "scryfallId": "03927043-9276-42d5-9db9-eb935cf8a7c8",
+    "oracleId": "b713e49f-1b13-42d1-91f2-cc7a579e7614",
+    "name": "Nihil Spellbomb",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nihil Spellbomb",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}, Sacrifice this artifact: Exile target player's graveyard.\nWhen this artifact is put into a graveyard from the battlefield, you may pay {B}. If you do, draw a card.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Franz Vohwinkel",
+        "imageId": "03927043-9276-42d5-9db9-eb935cf8a7c8"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "SOM-187",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TORMOD_S_CRYPTKEEPER": {
+    "scryfallId": "05900f1d-f065-4656-a8a2-2f719d3fdea8",
+    "oracleId": "8c846841-1b44-4bc5-b803-76baaa217548",
+    "name": "Tormod's Cryptkeeper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tormod's Cryptkeeper",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Golem",
+        "oracleText": "Vigilance\n{T}, Sacrifice this creature: Exile target player's graveyard.",
+        "flavorText": "It guards not a body, but a secret.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Greg Staples",
+        "imageId": "05900f1d-f065-4656-a8a2-2f719d3fdea8"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "mh2",
+    "collectorNumber": "239",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DAUNTLESS_SCRAPBOT": {
+    "scryfallId": "0efe5342-42b7-4f49-b4b4-d77055508c4d",
+    "oracleId": "b75ca527-4494-4957-b2e3-8c590df42e95",
+    "name": "Dauntless Scrapbot",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dauntless Scrapbot",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Robot",
+        "oracleText": "When this creature enters, exile each opponent's graveyard. Create a Lander token. (It's an artifact with \"{2}, {T}, Sacrifice this token: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.\")",
+        "flavorText": "The wastelands of yesterday's colonies will pave the road to tomorrow's.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alix Branwyn",
+        "imageId": "0efe5342-42b7-4f49-b4b4-d77055508c4d"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "eoe",
+    "collectorNumber": "237",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORZHOV_GUILDMAGE": {
+    "scryfallId": "10f60c15-923f-4d97-b20b-ad5c05df92b4",
+    "oracleId": "877bfa3f-6e30-4cb3-831e-d56849b01334",
+    "name": "Orzhov Guildmage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Orzhov Guildmage",
+        "manaCost": "{W/B}{W/B}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{2}{W}: Target player gains 1 life.\n{2}{B}: Each player loses 1 life.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "10f60c15-923f-4d97-b20b-ad5c05df92b4"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "rvr",
+    "collectorNumber": "208",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOUL_GUIDE_LANTERN": {
+    "scryfallId": "13571173-29e7-4915-af5f-05f13b463061",
+    "oracleId": "1b5e6560-ff2e-4475-96cb-63f64c8a86db",
+    "name": "Soul-Guide Lantern",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Soul-Guide Lantern",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters, exile target card from a graveyard.\n{T}, Sacrifice this artifact: Exile each opponent's graveyard.\n{1}, {T}, Sacrifice this artifact: Draw a card.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Iris Compiet",
+        "imageId": "13571173-29e7-4915-af5f-05f13b463061"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "woe",
+    "collectorNumber": "251",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AGENT_OF_EREBOS": {
+    "scryfallId": "1e07a595-5579-4d5a-b07c-84239d690459",
+    "oracleId": "3fa5e109-4a67-4523-8183-90e48a906400",
+    "name": "Agent of Erebos",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Agent of Erebos",
+        "manaCost": "{3}{B}",
+        "typeLine": "Enchantment Creature — Zombie",
+        "oracleText": "Constellation — Whenever this creature or another enchantment you control enters, exile target player's graveyard.",
+        "flavorText": "Erebos's minions hunt the Returned and warn those who consider the same folly.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Cyril Van Der Haegen",
+        "imageId": "1e07a595-5579-4d5a-b07c-84239d690459"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Constellation"
+    ],
+    "setCode": "jou",
+    "collectorNumber": "59",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRIGON_OF_MENDING": {
+    "scryfallId": "241142e0-3a79-4bce-8535-18ae7e392f5e",
+    "oracleId": "17b1c870-ef94-49af-8f9b-a8765f1b54db",
+    "name": "Trigon of Mending",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Trigon of Mending",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "This artifact enters with three charge counters on it.\n{W}{W}, {T}: Put a charge counter on this artifact.\n{2}, {T}, Remove a charge counter from this artifact: Target player gains 3 life.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Igor Kieryluk",
+        "imageId": "241142e0-3a79-4bce-8535-18ae7e392f5e"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "som",
+    "collectorNumber": "215",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REMORSEFUL_CLERIC": {
+    "scryfallId": "2e91e16a-f122-4f93-a350-c40b98d18c98",
+    "oracleId": "c40bc9f6-2b72-4ae1-b912-50075af59628",
+    "name": "Remorseful Cleric",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Remorseful Cleric",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Spirit Cleric",
+        "oracleText": "Flying\nSacrifice this creature: Exile target player's graveyard.",
+        "flavorText": "A lifetime of keeping up appearances is not enough to earn an eternity of rest.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Grzegorz Rutkowski",
+        "imageId": "2e91e16a-f122-4f93-a350-c40b98d18c98"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "pm19",
+    "collectorNumber": "33p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TONIC_PEDDLER": {
+    "scryfallId": "334bbd9d-3549-4352-9635-d772aab28503",
+    "oracleId": "9039f59a-915b-4b16-a5c4-1a5fbfb0b639",
+    "name": "Tonic Peddler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tonic Peddler",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Spellshaper",
+        "oracleText": "{W}, {T}, Discard a card: Target player gains 3 life.",
+        "flavorText": "\"The price is written at the bottom of the cup.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Adam Rex",
+        "imageId": "334bbd9d-3549-4352-9635-d772aab28503"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mmq",
+    "collectorNumber": "54",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JIRINA_DAUNTLESS_GENERAL": {
+    "scryfallId": "373475d5-42a7-42ad-a235-685c3d160f60",
+    "oracleId": "fda76032-7e6f-416f-8874-2a0642837522",
+    "name": "Jirina, Dauntless General",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jirina, Dauntless General",
+        "manaCost": "{W}{B}",
+        "typeLine": "Legendary Creature — Human Soldier",
+        "oracleText": "When Jirina enters, exile target player's graveyard.\nSacrifice Jirina: Humans you control gain hexproof and indestructible until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Justine Mara Andersen",
+        "imageId": "373475d5-42a7-42ad-a235-685c3d160f60"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mat",
+    "collectorNumber": "82",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELSPETH_S_NIGHTMARE": {
+    "scryfallId": "37ccd974-d2bc-4fcf-94a7-0a868a04cb98",
+    "oracleId": "ff768016-67f8-409e-8359-9ed05bcb46d2",
+    "name": "Elspeth's Nightmare",
+    "layout": "saga",
+    "faces": [
+      {
+        "name": "Elspeth's Nightmare",
+        "manaCost": "{2}{B}",
+        "typeLine": "Enchantment — Saga",
+        "oracleText": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)\nI — Destroy target creature an opponent controls with power 2 or less.\nII — Target opponent reveals their hand. You choose a noncreature, nonland card from it. That player discards that card.\nIII — Exile target opponent's graveyard.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jason Rainville",
+        "imageId": "37ccd974-d2bc-4fcf-94a7-0a868a04cb98"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "thb",
+    "collectorNumber": "91",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FALSE_PROPHET": {
+    "scryfallId": "3853fde8-a7cf-402d-abe1-526d0f92dc32",
+    "oracleId": "87c44c23-f209-494a-ab66-c9f5cf7bb4ea",
+    "name": "False Prophet",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "False Prophet",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "When this creature dies, exile all creatures.",
+        "flavorText": "\"You lived for Serra's love. Will you not die for it?\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Eric Peterson",
+        "imageId": "3853fde8-a7cf-402d-abe1-526d0f92dc32"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "puds",
+    "collectorNumber": "6",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ANGEL_OF_FINALITY": {
+    "scryfallId": "5e199cea-ab34-4eca-9d52-56959d648a16",
+    "oracleId": "48d14b5c-711a-4f8a-9de5-55415cb7a79a",
+    "name": "Angel of Finality",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Angel of Finality",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Angel",
+        "oracleText": "Flying\nWhen this creature enters, exile target player's graveyard.",
+        "flavorText": "\"Better the dead depart utterly than be enslaved.\"",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Howard Lyon",
+        "imageId": "5e199cea-ab34-4eca-9d52-56959d648a16"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "c20",
+    "collectorNumber": "75",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOURNFUL_ZOMBIE": {
+    "scryfallId": "9ba12fb1-de8c-46c6-b33f-e0580ed2a3ee",
+    "oracleId": "f0ed2cf1-7bd4-4586-a682-fd588632cb3d",
+    "name": "Mournful Zombie",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mournful Zombie",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "{W}, {T}: Target player gains 1 life.",
+        "flavorText": "Treated with a powerful mix of herbs and potions, its wrappings have a remarkable preservative effect, even for the living.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "John Matson",
+        "imageId": "9ba12fb1-de8c-46c6-b33f-e0580ed2a3ee"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "apc",
+    "collectorNumber": "43",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOGGART_TRAWLER_BOGGART_BOG": {
+    "scryfallId": "d0d484a6-5610-4f1d-95ec-eda273c255e4",
+    "oracleId": "727f3201-1cfc-4ab2-9dfe-be4f7251f42f",
+    "name": "Boggart Trawler // Boggart Bog",
+    "layout": "modal_dfc",
+    "faces": [
+      {
+        "name": "Boggart Trawler",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Goblin",
+        "oracleText": "When this creature enters, exile target player's graveyard.",
+        "flavorText": "\"Look what I found, and it's only been dead for a week!\"",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Randy Gallegos",
+        "imageId": "d0d484a6-5610-4f1d-95ec-eda273c255e4-0"
+      },
+      {
+        "name": "Boggart Bog",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "As this land enters, you may pay 3 life. If you don't, it enters tapped.\n{T}: Add {B}.",
+        "flavorText": "A boggart warren is usually located in a place rich with sensations... good and bad.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Randy Gallegos",
+        "imageId": "d0d484a6-5610-4f1d-95ec-eda273c255e4-1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mh3",
+    "collectorNumber": "243",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

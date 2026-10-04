@@ -726,6 +726,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D617 - the graveyard exile and the mass exile read; what stays is a card the row maker refuses for another reason.
+  ['Scavenger Grounds', 'the row maker: a graveyard exile over the controllers graveyard behind a cost that feeds it (not this wave) - its clause reads since D617 (D617)'],
+  ['Sentinel Totem', 'the row maker: cost: Exile this artifact - its clause reads since D617 (D617)'],
+  ['Lantern of the Lost', 'the row maker: cost: Exile this artifact - its clause reads since D617 (D617)'],
+  ['Perilous Vault', 'the row maker: cost: Exile this artifact - its clause reads since D617 (D617)'],
+  ['Crook of Condemnation', 'the row maker: cost: Exile this artifact - its clause reads since D617 (D617)'],
   // D615 - speed read (start your engines!, max speed); what stays is a card the row maker refuses for another reason.
   ["Zahur, Glory's Past", 'the row maker: trigger payload not a pump: If you have max speed, create a tapped 2/2 black Zombie crea - its clause reads since D615 (D615)'],
   ['Perilous Snare', 'the row maker: activation condition: as a sorcery. Activate only if you have max speed - its clause reads since D615 (D615)'],
@@ -1545,7 +1551,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Triumph of Gerrard', 'the row maker: trigger payload not a pump: Put a +1/+1 counter on target creature you control with the (D528)'],
   ['Waking the Trolls', 'the row maker: trigger payload not a pump: Put target land card from a graveyard onto the battlefield u (D528)'],
   ["Vault 11: Voter's Dilemma", 'the row maker: trigger payload not a pump: For each opponent, you create a 1/1 white Human Soldier crea (D528)'],
-  ["Elspeth's Nightmare", 'the row maker: trigger payload not a pump: Exile target opponent\'s graveyard. (D528)'],
   ['Vault 75: Middle School', 'the row maker: trigger payload not a pump: Exile all creatures with power 4 or greater. (D528)'],
   ['Fall of the Thran', 'the row maker: a scope with no witness the suite can put: Destroy all lands. (D528)'],
   ['Summon: Good King Mog XII', 'the row maker: trigger payload not a pump: Whenever you cast a noncreature spell this turn, create a to (D528)'],
@@ -3442,7 +3447,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Rat King, Pale Piper', 'token-predicate sacrifice cost'],
   ['Reality Anchor', 'temporary keyword/ability grant'],
   ['Reforge the Soul', 'miracle mechanic'],
-  ['Refreshing Rain', 'cast-time alternative cost'],
   ['Reverent Silence', 'cast-time alternative cost'],
 
   // D280 (M6.4dq) — the R/S residue; ONE new class.
@@ -3489,7 +3493,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // resolution (script-raised prompt); Tidal Bore is refused for its
   // alternative cost first.
   ['Surgical Suite // Hospital Room', 'room mechanic'],
-  ['Sylvan Bounty', 'cycling mechanic'],
   ['Thunderblade Charge', 'free-cast permission'],
   ['Tidal Bore', 'cast-time alternative cost'],
   ['Twitch', 'script-raised prompt'],

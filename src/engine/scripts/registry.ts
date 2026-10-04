@@ -7,6 +7,23 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { BOJUKA_BOG_SCRIPT } from './cards/bojukaBog';
+import { NIHIL_SPELLBOMB_SCRIPT } from './cards/nihilSpellbomb';
+import { TORMODS_CRYPTKEEPER_SCRIPT } from './cards/tormodsCryptkeeper';
+import { DAUNTLESS_SCRAPBOT_SCRIPT } from './cards/dauntlessScrapbot';
+import { TORMODS_CRYPT_SCRIPT } from './cards/tormodsCrypt';
+import { ORZHOV_GUILDMAGE_SCRIPT } from './cards/orzhovGuildmage';
+import { SOUL_GUIDE_LANTERN_SCRIPT } from './cards/soulGuideLantern';
+import { AGENT_OF_EREBOS_SCRIPT } from './cards/agentOfErebos';
+import { TRIGON_OF_MENDING_SCRIPT } from './cards/trigonOfMending';
+import { REMORSEFUL_CLERIC_SCRIPT } from './cards/remorsefulCleric';
+import { TONIC_PEDDLER_SCRIPT } from './cards/tonicPeddler';
+import { JIRINA_DAUNTLESS_GENERAL_SCRIPT } from './cards/jirinaDauntlessGeneral';
+import { ELSPETHS_NIGHTMARE_SCRIPT } from './cards/elspethsNightmare';
+import { FALSE_PROPHET_SCRIPT } from './cards/falseProphet';
+import { ANGEL_OF_FINALITY_SCRIPT } from './cards/angelOfFinality';
+import { MOURNFUL_ZOMBIE_SCRIPT } from './cards/mournfulZombie';
+import { BOGGART_TRAWLER_BOGGART_BOG_SCRIPT } from './cards/boggartTrawlerBoggartBog';
 import { MERCHANT_OF_THE_VALE_HAGGLE_SCRIPT } from './cards/merchantOfTheValeHaggle';
 import { BRAZEN_BORROWER_PETTY_THEFT_SCRIPT } from './cards/brazenBorrowerPettyTheft';
 import { FLAXEN_INTRUDER_WELCOME_HOME_SCRIPT } from './cards/flaxenIntruderWelcomeHome';
@@ -7148,7 +7165,6 @@ import { LOSSARNACH_CAPTAIN_SCRIPT } from './cards/lossarnachCaptain';
 import { MARKER_BEETLES_SCRIPT } from './cards/markerBeetles';
 import { MIGHT_OF_THE_OLD_WAYS_SCRIPT } from './cards/mightOfTheOldWays';
 import { HALIYA_ASCENDANT_CADET_SCRIPT } from './cards/haliyaAscendantCadet';
-import { HEALING_HANDS_SCRIPT } from './cards/healingHands';
 import { HERMES_OVERSEER_OF_ELPIS_SCRIPT } from './cards/hermesOverseerOfElpis';
 import { HOW_TO_START_ARIOT_SCRIPT } from './cards/howToStartARiot';
 import { HYDROLASH_SCRIPT } from './cards/hydrolash';
@@ -7973,7 +7989,6 @@ import { MYSTIC_SNAKE_SCRIPT } from './cards/mysticSnake';
 import { NAGA_ORACLE_SCRIPT } from './cards/nagaOracle';
 import { NANTUKO_DISCIPLE_SCRIPT } from './cards/nantukoDisciple';
 import { NATURAL_OBSOLESCENCE_SCRIPT } from './cards/naturalObsolescence';
-import { NATURAL_SPRING_SCRIPT } from './cards/naturalSpring';
 import { NATURES_RESURGENCE_SCRIPT } from './cards/naturesResurgence';
 import { NATURES_RUIN_SCRIPT } from './cards/naturesRuin';
 import { NAUSEA_SCRIPT } from './cards/nausea';
@@ -7987,7 +8002,6 @@ import { MOONFOLK_PUZZLEMAKER_SCRIPT } from './cards/moonfolkPuzzlemaker';
 import { MOONLIT_WAKE_SCRIPT } from './cards/moonlitWake';
 import { MOONRISE_CLERIC_SCRIPT } from './cards/moonriseCleric';
 import { MORALE_SCRIPT } from './cards/morale';
-import { MORNINGTIDE_SCRIPT } from './cards/morningtide';
 import { MOSSBEARD_ANCIENT_SCRIPT } from './cards/mossbeardAncient';
 import { MOSSTODON_SCRIPT } from './cards/mosstodon';
 import { MOTHRIDER_PATROL_SCRIPT } from './cards/mothriderPatrol';
@@ -8053,7 +8067,6 @@ import { KEEN_GLIDEMASTER_SCRIPT } from './cards/keenGlidemaster';
 import { KIKUS_SHADOW_SCRIPT } from './cards/kikusShadow';
 import { KINDLE_SCRIPT } from './cards/kindle';
 import { KISHLA_VILLAGE_SCRIPT } from './cards/kishlaVillage';
-import { KISS_OF_THE_AMESHA_SCRIPT } from './cards/kissOfTheAmesha';
 import { LANGUISH_SCRIPT } from './cards/languish';
 import { LAQUATUSS_CREATIVITY_SCRIPT } from './cards/laquatussCreativity';
 import { INSPIRED_ULTIMATUM_SCRIPT } from './cards/inspiredUltimatum';
@@ -8101,7 +8114,6 @@ import { HEARTWARMING_REDEMPTION_SCRIPT } from './cards/heartwarmingRedemption';
 import { HEDGE_MAZE_SCRIPT } from './cards/hedgeMaze';
 import { HELL_SWARM_SCRIPT } from './cards/hellSwarm';
 import { HELLFIRE_SCRIPT } from './cards/hellfire';
-import { HEROES_REUNION_SCRIPT } from './cards/heroesReunion';
 import { HEX_SCRIPT } from './cards/hex';
 import { HIBERNATION_SCRIPT } from './cards/hibernation';
 import { HIDETSUGUS_SECOND_RITE_SCRIPT } from './cards/hidetsugusSecondRite';
@@ -8156,7 +8168,6 @@ import { FIERY_CANNONADE_SCRIPT } from './cards/fieryCannonade';
 import { FIGHT_TO_THE_DEATH_SCRIPT } from './cards/fightToTheDeath';
 import { FILIGREE_FRACTURE_SCRIPT } from './cards/filigreeFracture';
 import { FILTER_OUT_SCRIPT } from './cards/filterOut';
-import { FINAL_JUDGMENT_SCRIPT } from './cards/finalJudgment';
 import { FIRE_TEMPEST_SCRIPT } from './cards/fireTempest';
 import { FIRST_VOLLEY_SCRIPT } from './cards/firstVolley';
 import { FISSURE_SCRIPT } from './cards/fissure';
@@ -8263,7 +8274,6 @@ import { CLOUDSHIFT_SCRIPT } from './cards/cloudshift';
 import { COMBAT_PROFESSOR_SCRIPT } from './cards/combatProfessor';
 import { COMMERCIAL_DISTRICT_SCRIPT } from './cards/commercialDistrict';
 import { COMPLEAT_DEVOTION_SCRIPT } from './cards/compleatDevotion';
-import { CONGREGATE_SCRIPT } from './cards/congregate';
 import { CONSIGN_TO_THE_PIT_SCRIPT } from './cards/consignToThePit';
 import { CONSUME_THE_MEEK_SCRIPT } from './cards/consumeTheMeek';
 import { CONSUMING_ASHES_SCRIPT } from './cards/consumingAshes';
@@ -8915,6 +8925,23 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BOJUKA_BOG_SCRIPT,
+  NIHIL_SPELLBOMB_SCRIPT,
+  TORMODS_CRYPTKEEPER_SCRIPT,
+  DAUNTLESS_SCRAPBOT_SCRIPT,
+  TORMODS_CRYPT_SCRIPT,
+  ORZHOV_GUILDMAGE_SCRIPT,
+  SOUL_GUIDE_LANTERN_SCRIPT,
+  AGENT_OF_EREBOS_SCRIPT,
+  TRIGON_OF_MENDING_SCRIPT,
+  REMORSEFUL_CLERIC_SCRIPT,
+  TONIC_PEDDLER_SCRIPT,
+  JIRINA_DAUNTLESS_GENERAL_SCRIPT,
+  ELSPETHS_NIGHTMARE_SCRIPT,
+  FALSE_PROPHET_SCRIPT,
+  ANGEL_OF_FINALITY_SCRIPT,
+  MOURNFUL_ZOMBIE_SCRIPT,
+  BOGGART_TRAWLER_BOGGART_BOG_SCRIPT,
   MERCHANT_OF_THE_VALE_HAGGLE_SCRIPT,
   BRAZEN_BORROWER_PETTY_THEFT_SCRIPT,
   FLAXEN_INTRUDER_WELCOME_HOME_SCRIPT,
@@ -16056,7 +16083,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   MARKER_BEETLES_SCRIPT,
   MIGHT_OF_THE_OLD_WAYS_SCRIPT,
   HALIYA_ASCENDANT_CADET_SCRIPT,
-  HEALING_HANDS_SCRIPT,
   HERMES_OVERSEER_OF_ELPIS_SCRIPT,
   HOW_TO_START_ARIOT_SCRIPT,
   HYDROLASH_SCRIPT,
@@ -16880,7 +16906,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   NAGA_ORACLE_SCRIPT,
   NANTUKO_DISCIPLE_SCRIPT,
   NATURAL_OBSOLESCENCE_SCRIPT,
-  NATURAL_SPRING_SCRIPT,
   NATURES_RESURGENCE_SCRIPT,
   NATURES_RUIN_SCRIPT,
   NAUSEA_SCRIPT,
@@ -16894,7 +16919,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   MOONLIT_WAKE_SCRIPT,
   MOONRISE_CLERIC_SCRIPT,
   MORALE_SCRIPT,
-  MORNINGTIDE_SCRIPT,
   MOSSBEARD_ANCIENT_SCRIPT,
   MOSSTODON_SCRIPT,
   MOTHRIDER_PATROL_SCRIPT,
@@ -16960,7 +16984,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   KIKUS_SHADOW_SCRIPT,
   KINDLE_SCRIPT,
   KISHLA_VILLAGE_SCRIPT,
-  KISS_OF_THE_AMESHA_SCRIPT,
   LANGUISH_SCRIPT,
   LAQUATUSS_CREATIVITY_SCRIPT,
   INSPIRED_ULTIMATUM_SCRIPT,
@@ -17008,7 +17031,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   HEDGE_MAZE_SCRIPT,
   HELL_SWARM_SCRIPT,
   HELLFIRE_SCRIPT,
-  HEROES_REUNION_SCRIPT,
   HEX_SCRIPT,
   HIBERNATION_SCRIPT,
   HIDETSUGUS_SECOND_RITE_SCRIPT,
@@ -17063,7 +17085,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   FIGHT_TO_THE_DEATH_SCRIPT,
   FILIGREE_FRACTURE_SCRIPT,
   FILTER_OUT_SCRIPT,
-  FINAL_JUDGMENT_SCRIPT,
   FIRE_TEMPEST_SCRIPT,
   FIRST_VOLLEY_SCRIPT,
   FISSURE_SCRIPT,
@@ -17170,7 +17191,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   COMBAT_PROFESSOR_SCRIPT,
   COMMERCIAL_DISTRICT_SCRIPT,
   COMPLEAT_DEVOTION_SCRIPT,
-  CONGREGATE_SCRIPT,
   CONSIGN_TO_THE_PIT_SCRIPT,
   CONSUME_THE_MEEK_SCRIPT,
   CONSUMING_ASHES_SCRIPT,
