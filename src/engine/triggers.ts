@@ -1127,6 +1127,18 @@ export function conditionHolds(
           return !!c && c.controller !== controller && d(id).isLand;
         }).length >= condition.count
       );
+    // D621 - FEROCIOUS: one of the controller's creatures with at least that much DERIVED power.
+    case 'creaturePower':
+      return mine.some((id) => {
+        const chars = d(id);
+        return chars.isCreature && (chars.power ?? Number.NEGATIVE_INFINITY) >= condition.power;
+      });
+    // D621 - an opponent with more lands than the controller (any one of them).
+    case 'opponentMoreLands': {
+      const lands = (p: PlayerId): number => inPlay(state).filter((id) => state.cards[id]?.controller === p && d(id).isLand).length;
+      const own = lands(controller);
+      return livingPlayers(state).some((p) => p !== controller && lands(p) > own);
+    }
     case 'controlPermanent':
       return mine.some((id) => {
         const chars = d(id);

@@ -7,6 +7,25 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { KNIGHT_OF_THE_WHITE_ORCHID_SCRIPT } from './cards/knightOfTheWhiteOrchid';
+import { BONDERS_ENCLAVE_SCRIPT } from './cards/bondersEnclave';
+import { BEASTBOND_OUTCASTER_SCRIPT } from './cards/beastbondOutcaster';
+import { HEIR_OF_THE_WILDS_SCRIPT } from './cards/heirOfTheWilds';
+import { LOYAL_WARHOUND_SCRIPT } from './cards/loyalWarhound';
+import { GARRUKS_UPRISING_SCRIPT } from './cards/garruksUprising';
+import { LAND_TAX_SCRIPT } from './cards/landTax';
+import { TURRET_OGRE_SCRIPT } from './cards/turretOgre';
+import { SPACE_MARINE_SCOUT_SCRIPT } from './cards/spaceMarineScout';
+import { FRONTIER_MASTODON_SCRIPT } from './cards/frontierMastodon';
+import { ORNERY_DILOPHOSAUR_SCRIPT } from './cards/orneryDilophosaur';
+import { THE_FIRST_IROAN_GAMES_SCRIPT } from './cards/theFirstIroanGames';
+import { DRUMHUNTER_SCRIPT } from './cards/drumhunter';
+import { NESSIAN_HORNBEETLE_SCRIPT } from './cards/nessianHornbeetle';
+import { COLOSSAL_MAJESTY_SCRIPT } from './cards/colossalMajesty';
+import { SCOUTING_HAWK_SCRIPT } from './cards/scoutingHawk';
+import { BOUNDARY_LANDS_RANGER_SCRIPT } from './cards/boundaryLandsRanger';
+import { SUNSTAR_EXPANSIONIST_SCRIPT } from './cards/sunstarExpansionist';
+import { SUNSEED_NURTURER_SCRIPT } from './cards/sunseedNurturer';
 import { DUSK_CHARGER_SCRIPT } from './cards/duskCharger';
 import { ARCH_OF_ORAZCA_SCRIPT } from './cards/archOfOrazca';
 import { SNUBHORN_SENTRY_SCRIPT } from './cards/snubhornSentry';
@@ -8955,6 +8974,25 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  KNIGHT_OF_THE_WHITE_ORCHID_SCRIPT,
+  BONDERS_ENCLAVE_SCRIPT,
+  BEASTBOND_OUTCASTER_SCRIPT,
+  HEIR_OF_THE_WILDS_SCRIPT,
+  LOYAL_WARHOUND_SCRIPT,
+  GARRUKS_UPRISING_SCRIPT,
+  LAND_TAX_SCRIPT,
+  TURRET_OGRE_SCRIPT,
+  SPACE_MARINE_SCOUT_SCRIPT,
+  FRONTIER_MASTODON_SCRIPT,
+  ORNERY_DILOPHOSAUR_SCRIPT,
+  THE_FIRST_IROAN_GAMES_SCRIPT,
+  DRUMHUNTER_SCRIPT,
+  NESSIAN_HORNBEETLE_SCRIPT,
+  COLOSSAL_MAJESTY_SCRIPT,
+  SCOUTING_HAWK_SCRIPT,
+  BOUNDARY_LANDS_RANGER_SCRIPT,
+  SUNSTAR_EXPANSIONIST_SCRIPT,
+  SUNSEED_NURTURER_SCRIPT,
   DUSK_CHARGER_SCRIPT,
   ARCH_OF_ORAZCA_SCRIPT,
   SNUBHORN_SENTRY_SCRIPT,

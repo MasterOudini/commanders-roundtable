@@ -90,6 +90,10 @@ export type EntersTappedCondition =
   | { readonly kind: 'anyPlayerLifeAtMost'; readonly life: number }
   /** `your opponents control eight or more lands` */
   | { readonly kind: 'opponentsLands'; readonly count: number }
+  /** D621 - `you control a creature with power 4 or greater` (FEROCIOUS): one of your creatures, its DERIVED power. */
+  | { readonly kind: 'creaturePower'; readonly power: number }
+  /** D621 - `an opponent controls more lands than you` (the Knight of the White Orchid catch-up). */
+  | { readonly kind: 'opponentMoreLands' }
   /** `you control a Forest or a Plains` · `a basic land` · `a legendary creature` */
   | { readonly kind: 'controlPermanent'; readonly any: readonly PermanentPredicate[] };
 
@@ -299,6 +303,15 @@ const CONDITIONS: readonly (readonly [RegExp, (m: RegExpMatchArray) => EntersTap
       return n === null ? null : { kind: 'opponentsLands', count: n };
     },
   ],
+  // D621 - before the generic noun: a creature by its power, and the land count against an opponent's.
+  [
+    new RegExp(`^you control a creature with power (${N}) or greater$`, 'i'),
+    (m) => {
+      const n = count(m[1]);
+      return n === null ? null : { kind: 'creaturePower', power: n };
+    },
+  ],
+  [/^an opponent controls more lands than you$/i, () => ({ kind: 'opponentMoreLands' })],
   [
     /^you control (.+)$/i,
     (m) => {

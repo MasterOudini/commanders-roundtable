@@ -89,12 +89,14 @@ describe('D342 - the activation conditions', () => {
     // ⚠️ D348 moved two of the clauses this list was written with INTO the vocabulary (a creature dying,
     // a noncreature spell cast), and the compound one reads whole now. These four still refuse, measured
     // against the parser: a plural subtype count, a keyword on a permanent predicate, an opponent's
-    // permanent count, and a power threshold on somebody other than the source.
+    // permanent count, and a toughness threshold on somebody other than the source.
+    // ⚠️ D621 moved the power threshold (FEROCIOUS - `a creature with power 4 or greater`) into the
+    // vocabulary (`creaturePower`); its toughness twin still refuses.
     for (const tail of [
       'if you control two or more Elves',
       'if you control a creature with flying',
       'if an opponent controls four or more lands',
-      'if you control a creature with power 4 or greater',
+      'if you control a creature with toughness 4 or greater',
     ]) {
       const a = ability(`{T}: Draw a card. Activate only ${tail}.`);
       expect(a.payable, tail).toBe(false);

@@ -13,7 +13,7 @@
 // tutors, no recursion, because the engine runs none of those yet. That ceiling
 // is the honest state of the app and it rises as the engine's coverage does.
 //
-// commander: Akiri, Line-Slinger (RW), chosen from 462 fully-executable legendary creatures for reaching 5497 cards
+// commander: Akiri, Line-Slinger (RW), chosen from 462 fully-executable legendary creatures for reaching 5507 cards
 // mv 0–1: wanted 6, took 6
 // mv 2–2: wanted 14, took 14
 // mv 3–3: wanted 14, took 14
@@ -119,12 +119,12 @@ export const BOT_DECK = {
   "Blighted Gorge",
   "Blinkmoth Well",
   "Bloodstained Mire",
+  "Bonders' Enclave",
   "Boros Garrison",
   "Boros Guildgate",
   "Brokers Hideout",
   "Buried Ruin",
   "Cabaretti Courtyard",
   "Capital City",
-  "Captivating Cave",
   ],
 } as const;

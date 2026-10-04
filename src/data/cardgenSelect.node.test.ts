@@ -723,6 +723,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D621 - the ferocious and land catch-up conditions read; what stays is a card the row maker refuses for another reason.
+  ["Master's Guidance", 'the row maker: trigger head not in the library: Whenever you attack with two or more legendary creatures, put a +1/+1  - its clause reads since D621 (D621)'],
+  ['Bugenhagen, Wise Elder', 'the row maker: an intervening if the suite cannot stage (a ferocious power above the fixture: 7): you control a creature with - its clause reads since D621 (D621)'],
+  ['Stampede Rider', 'the generator: no eachCombat head (the row maker rows the each-combat line, gen-oneshot has no HEAD for it) - its gate reads since D621 (D621)'],
   // D620 - ascend and the city blessing read; what stays is a card the row maker refuses for another reason.
   ['Secrets of the Golden City', 'the row maker: a spell with a line outside the vocabulary: Ascend (If you control ten or more permanents, you get the c - its clause reads since D620 (D620)'],
   // D617 - the graveyard exile and the mass exile read; what stays is a card the row maker refuses for another reason.
@@ -1537,7 +1541,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['The Clone Saga', 'the row maker: trigger payload not a pump: When you next cast a creature spell this turn, copy it, exce (D528)'],
   ['Tale of Tinúviel', 'the row maker: a condition outside the closed vocabulary: you control ~ (D528)'],
   ['The Aesir Escape Valhalla', 'the row maker: trigger payload not a pump: Exile a permanent card from your graveyard. You gain life eq (D528)'],
-  ['The First Iroan Games', 'the row maker: trigger payload not a pump: If you control a creature with power 4 or greater, draw two (D528)'],
   ['Narci, Fable Singer', 'a head that watches a Saga\'s final chapter (`Whenever the final chapter ability of a Saga you control resolves`) - the SagaSacrificed marker exists, t (D528)'],
   ['The Bloodsky Massacre', 'the row maker: trigger payload not a pump: Whenever a Berserker attacks this turn, you draw a card and (D528)'],
   ['Song of Eärendil', 'the row maker: trigger payload not a pump: Scry 2, then draw two cards. (D528)'],
@@ -1806,7 +1809,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Secrets of the Key', 'a cast-time fact outside the union (`this spell was cast from a graveyard`) (D523)'],
   ['Tackle Artist', 'a cast-time fact outside the union (`five or more mana was spent to cast that spell`) (D523)'],
   ['The Final Days', 'a cast-time fact outside the union (`this spell was cast from a graveyard`) (D523)'],
-  ["Undercity's Embrace", 'a predicate outside the closed condition union (`you control a creature with power 4 or greater`) (D523)'],
   ['Gore Vassal', 'a predicate outside the closed condition union (`that creature\'s toughness is 1 or greater`) (D523)'],
   ['Elemental Mascot', 'a cast-time fact outside the union (`five or more mana was spent to cast that spell`) (D523)'],
   ['Reject Imperfection', 'a predicate outside the closed condition union (`that spell\'s mana value was 3 or less`) (D523)'],

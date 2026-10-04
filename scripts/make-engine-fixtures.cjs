@@ -11124,6 +11124,27 @@ const WANTED = [
   'Spire Winder',
   'Deadeye Brawler',
   // D620 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D621 - FEROCIOUS AND THE LAND CATCH-UP: the rows the whole-leftover row maker rowed once a creature with power N or greater and an opponent with more lands than you were board conditions the engine reads.
+  'Knight of the White Orchid',
+  "Bonders' Enclave",
+  'Beastbond Outcaster',
+  'Heir of the Wilds',
+  'Loyal Warhound',
+  "Garruk's Uprising",
+  'Land Tax',
+  'Turret Ogre',
+  'Space Marine Scout',
+  'Frontier Mastodon',
+  'Ornery Dilophosaur',
+  'The First Iroan Games',
+  'Drumhunter',
+  'Nessian Hornbeetle',
+  'Colossal Majesty',
+  'Scouting Hawk',
+  'Boundary Lands Ranger',
+  'Sunstar Expansionist',
+  'Sunseed Nurturer',
+  // D621 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -11581,6 +11602,8 @@ const WANTED_TOKENS = [
   { name: 'Elemental', set: 'tzen', cn: '8', key: 'ELEMENTAL_F9E12780_TOKEN' },
   // D613 - the tokens the wave's rows create (the port's token-pin step, missing until D494).
   { name: 'Snake', set: 'tktk', cn: '9', key: 'SNAKE_032E9F9D_TOKEN' },
+  // D621 - the tokens the wave's rows create (the port's token-pin step, missing until D494).
+  { name: 'Gold', set: 'tc15', cn: '24', key: 'GOLD_ARTIFACT_TOKEN' },
 ];
 
 function constName(name) {
