@@ -885,6 +885,8 @@ export type EffectKind =
   // D617 - THE MASS EXILE (the wide scope's members to exile) and THE GRAVEYARD EXILE (a whole graveyard, aimed or scoped).
   | 'exileAll'
   | 'exileGraveyard'
+  // D618 - THE GRAVEYARD SHUFFLE (the graveyard - and the hand - into the library, shuffled; no draw).
+  | 'graveyardShuffle'
   /** D383 - "You gain N life for each <count>": a life gain the BOARD sizes. */
   | 'gainLifePer'
   /** D383 - "Put target creature on top of its owner's library." */
@@ -1611,6 +1613,8 @@ export interface EffectSpec {
    * caster gains what the scope's members lost, summed at resolution. Absent on every other loss.
    */
   readonly gainLost?: boolean;
+  /** D618 - `graveyardShuffle` only: the hand goes in too (`shuffles their hand and graveyard into their library`). */
+  readonly withHand?: true;
   /**
    * Which of the spell's targets this clause applies to — an index into
    * `StackObject.targets`. -1 means "no target", e.g. `Draw three cards`.
@@ -1997,6 +2001,12 @@ export interface ActivatedAbility {
    * `Sacrifice a creature` (a choice) stays in `unpaidCosts`.
    */
   readonly sacrificesSelf: boolean;
+  /**
+   * D618 - `Exile this <type>` from the battlefield (D329's `from your graveyard` form is another cost): a SELF-exile, the
+   * self-sacrifice's deterministic price with exile for the graveyard (CR 602.2) - and its def gate: offered only when a
+   * def will run the effect.
+   */
+  readonly exilesSelf?: true;
   /**
    * D353 - `Put a -1/-1 counter on this creature`: `removeCounterCost`'s
    * mirror. SELF only and a fixed count, so it is a price rather than a

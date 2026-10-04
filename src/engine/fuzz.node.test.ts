@@ -696,15 +696,20 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // Sliver creature granting "{2}: This creature gets +1/+0" to all Sliver creatures, so it is
   // inside its OWN scope and can pump ITSELF with no second Sliver on the board - which is what
   // makes the canary self-sufficient at any pool size.
-  { names: ['Barbed Sliver'], copiesPerSeat: 2,
-    counterKeys: ['selfAimedResolved'], rotHistory: 'D373' },
+  // D618 - one a seat: its second slot went to Fog (the swap below; self-aimed pumps 31 over D618's first gate).
+  { names: ['Barbed Sliver'], copiesPerSeat: 1,
+    counterKeys: ['selfAimedResolved'], rotHistory: 'D373, D618' },
   // D382 - THE PREVENTION SHIELD (CR 615). `preventionShields` IS part of `GameState` and so of
   // the state hash, but 500 seeds of equal hashes prove nothing while every game's list is empty
   // (D128's green tick over nothing, D364's own warning), so a source of shields is dealt to
   // every seat. Fog is the self-sufficient one: {G}, no target to find, and its shield is
   // COMBAT-wide, so the fuzzer's own attacks spend it without having to aim anything.
-  { names: ['Fog'], copiesPerSeat: 5,
-    counterKeys: ['preventionShields', 'damagePrevented'], rotHistory: 'D382' },
+  // D618 - ROTTED to 0 prevented over 500 seeds (16 / 10 / 19 at the three gates before) once the self-exile rows reshaped
+  // the pools - 137 Fogs cast, none on a turn whose combat damage reached its shield; six a seat read 0 again: nine a seat,
+  // the sixth in Barbed Sliver's second slot and three in the static trio's second copies, its neighbours (the seat's
+  // card count kept, D553's rule; the trio's statics also spend combat damage before the shield can).
+  { names: ['Fog'], copiesPerSeat: 9,
+    counterKeys: ['preventionShields', 'damagePrevented'], rotHistory: 'D382, D618' },
   // D385 - THE CONTINUOUS PREVENTION EFFECT (CR 615), a `PreventionDef` on a battlefield
   // permanent. Nothing on the state moves for it (a static spends nothing), so the replay hash
   // cannot vouch for it at all (D364) and only the log can.
@@ -720,8 +725,9 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // measured spending), and Bubble Matrix and Mark of Asylum absorb the noncombat pings the
   // rotating pool's damage rows aim at creatures. Three cards, three fuels, one counter -
   // D149's CR 616 pair one card wider.
-  { names: ['Statecraft', 'Bubble Matrix', 'Mark of Asylum'], copiesPerSeat: 2,
-    counterKeys: ['staticDamagePrevented'], rotHistory: 'D385' },
+  // D618 - one of each a seat: their second copies went to Fog (the swap above; 17 prevented over D618's first gate).
+  { names: ['Statecraft', 'Bubble Matrix', 'Mark of Asylum'], copiesPerSeat: 1,
+    counterKeys: ['staticDamagePrevented'], rotHistory: 'D385, D618' },
   // D377 - THE MOVE'S REASON. `reason` never reaches `GameState` (the reducer reads the moves and
   // moves the cards), so unlike D364's `poolSnow` the replay hash cannot vouch for it at all: what
   // these three prove is that REAL GAMES produce the three reasons a printed head watches for,

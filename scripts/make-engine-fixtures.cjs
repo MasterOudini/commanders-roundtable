@@ -11083,6 +11083,25 @@ const WANTED = [
   'Mournful Zombie',
   'Boggart Trawler // Boggart Bog',
   // D617 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D618 - the self-exile cost the seam's test reads and charges (exileSelfCost.test.ts)
+  'Relic of Progenitus',
+  "Feldon's Cane",
+  // D618 - the graveyard shuffle the seam's test casts (graveyardShuffle.test.ts)
+  'Clear the Mind',
+  'Mnemonic Nexus',
+  // D618 - THE SELF-EXILE COST AND THE GRAVEYARD SHUFFLE: the rows the whole-leftover row maker rowed once Exile this artifact (from the battlefield) was a price the engine charges and a graveyard could be shuffled into its library.
+  'Sentinel Totem',
+  'Quest for Ancient Secrets',
+  'Nyx Weaver',
+  'Cranial Archive',
+  'Lantern of the Lost',
+  'Hanged Executioner',
+  'Thran Foundry',
+  'Crook of Condemnation',
+  'Inquisitive Puppet',
+  'Brittle Effigy',
+  'Amulet of Unmaking',
+  // D618 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

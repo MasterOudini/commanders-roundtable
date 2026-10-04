@@ -7,6 +7,18 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { FELDONS_CANE_SCRIPT } from './cards/feldonsCane';
+import { SENTINEL_TOTEM_SCRIPT } from './cards/sentinelTotem';
+import { QUEST_FOR_ANCIENT_SECRETS_SCRIPT } from './cards/questForAncientSecrets';
+import { NYX_WEAVER_SCRIPT } from './cards/nyxWeaver';
+import { CRANIAL_ARCHIVE_SCRIPT } from './cards/cranialArchive';
+import { LANTERN_OF_THE_LOST_SCRIPT } from './cards/lanternOfTheLost';
+import { HANGED_EXECUTIONER_SCRIPT } from './cards/hangedExecutioner';
+import { THRAN_FOUNDRY_SCRIPT } from './cards/thranFoundry';
+import { CROOK_OF_CONDEMNATION_SCRIPT } from './cards/crookOfCondemnation';
+import { INQUISITIVE_PUPPET_SCRIPT } from './cards/inquisitivePuppet';
+import { BRITTLE_EFFIGY_SCRIPT } from './cards/brittleEffigy';
+import { AMULET_OF_UNMAKING_SCRIPT } from './cards/amuletOfUnmaking';
 import { BOJUKA_BOG_SCRIPT } from './cards/bojukaBog';
 import { NIHIL_SPELLBOMB_SCRIPT } from './cards/nihilSpellbomb';
 import { TORMODS_CRYPTKEEPER_SCRIPT } from './cards/tormodsCryptkeeper';
@@ -8925,6 +8937,18 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  FELDONS_CANE_SCRIPT,
+  SENTINEL_TOTEM_SCRIPT,
+  QUEST_FOR_ANCIENT_SECRETS_SCRIPT,
+  NYX_WEAVER_SCRIPT,
+  CRANIAL_ARCHIVE_SCRIPT,
+  LANTERN_OF_THE_LOST_SCRIPT,
+  HANGED_EXECUTIONER_SCRIPT,
+  THRAN_FOUNDRY_SCRIPT,
+  CROOK_OF_CONDEMNATION_SCRIPT,
+  INQUISITIVE_PUPPET_SCRIPT,
+  BRITTLE_EFFIGY_SCRIPT,
+  AMULET_OF_UNMAKING_SCRIPT,
   BOJUKA_BOG_SCRIPT,
   NIHIL_SPELLBOMB_SCRIPT,
   TORMODS_CRYPTKEEPER_SCRIPT,

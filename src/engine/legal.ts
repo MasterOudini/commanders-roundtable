@@ -740,7 +740,7 @@ function offeredActions(
       // never the shipped list, so a test registry carrying the def is offered
       // it — and `tier3.ts` words the note for the undef'd case from this same
       // rule.
-      if (ability.sacrificesSelf && !defReady) {
+      if ((ability.sacrificesSelf || ability.exilesSelf) && !defReady) {
         continue;
       }
       // D353 - the SELF COUNTER, beside the self-sacrifice: a deterministic price, and the

@@ -336832,6 +336832,472 @@
     "commanderLegality": "legal",
     "singleImage": false
   },
+  "RELIC_OF_PROGENITUS": {
+    "scryfallId": "0f794639-8472-40dc-953b-68b98f0ac72f",
+    "oracleId": "6a9c3401-570c-41cb-a605-75dfa57d6ab7",
+    "name": "Relic of Progenitus",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Relic of Progenitus",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Target player exiles a card from their graveyard.\n{1}, Exile this artifact: Exile all graveyards. Draw a card.",
+        "flavorText": "Elves believe the hydra-god Progenitus sleeps beneath Naya, feeding on forgotten magics.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jean-Sébastien Rossbach",
+        "imageId": "0f794639-8472-40dc-953b-68b98f0ac72f"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "hop",
+    "collectorNumber": "124",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FELDON_S_CANE": {
+    "scryfallId": "026f55c3-8e65-4520-b26d-6208344f73b2",
+    "oracleId": "9b884dfd-59f4-45c0-bf1e-6ad9f5b58895",
+    "name": "Feldon's Cane",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Feldon's Cane",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}, Exile this artifact: Shuffle your graveyard into your library.",
+        "flavorText": "Feldon bartered the second of these canes from a Yumok fisherman who had been using it as a boat tiller.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Warren Mahy",
+        "imageId": "026f55c3-8e65-4520-b26d-6208344f73b2"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "fdn",
+    "collectorNumber": "673",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CLEAR_THE_MIND": {
+    "scryfallId": "335c5756-c1ac-4251-af0b-e7354a91c28e",
+    "oracleId": "141c33be-7a25-4981-b62c-efee8e8ec91d",
+    "name": "Clear the Mind",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Clear the Mind",
+        "manaCost": "{2}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Target player shuffles their graveyard into their library.\nDraw a card.",
+        "flavorText": "\"The best way to keep a secret is to forget it.\"\n—Lazav",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "David Palumbo",
+        "imageId": "335c5756-c1ac-4251-af0b-e7354a91c28e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "RNA-34",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MNEMONIC_NEXUS": {
+    "scryfallId": "200edda9-7ad9-47fc-837e-37ec9e5b4b51",
+    "oracleId": "6fe302f2-5594-478c-a66b-89b4b96e3611",
+    "name": "Mnemonic Nexus",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mnemonic Nexus",
+        "manaCost": "{3}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Each player shuffles their graveyard into their library.",
+        "flavorText": "True enlightenment comes not with a new thought, but with understanding of all the old ones.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Stephen Tappin",
+        "imageId": "200edda9-7ad9-47fc-837e-37ec9e5b4b51"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "rav",
+    "collectorNumber": "59",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SENTINEL_TOTEM": {
+    "scryfallId": "0d8097eb-518a-4b8e-8d6a-a139d4ddcc8f",
+    "oracleId": "5432bd43-e92c-464b-9ad2-3515f3042799",
+    "name": "Sentinel Totem",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sentinel Totem",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}, Exile this artifact: Exile all graveyards.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Anthony Palumbo",
+        "imageId": "0d8097eb-518a-4b8e-8d6a-a139d4ddcc8f"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "xln",
+    "collectorNumber": "245",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "QUEST_FOR_ANCIENT_SECRETS": {
+    "scryfallId": "0de22b67-968e-49e1-ae96-6dd0ee75cd54",
+    "oracleId": "d7f7b882-90cb-4031-8a57-8e721bc905ac",
+    "name": "Quest for Ancient Secrets",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Quest for Ancient Secrets",
+        "manaCost": "{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever a card is put into your graveyard from anywhere, you may put a quest counter on this enchantment.\nRemove five quest counters from this enchantment and sacrifice it: Target player shuffles their graveyard into their library.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mike Bierek",
+        "imageId": "0de22b67-968e-49e1-ae96-6dd0ee75cd54"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "zen",
+    "collectorNumber": "59",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NYX_WEAVER": {
+    "scryfallId": "0e8553cc-8f61-4022-97c9-e31183b65059",
+    "oracleId": "6f8bf968-0571-4582-8c04-9791e44d5df0",
+    "name": "Nyx Weaver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nyx Weaver",
+        "manaCost": "{1}{B}{G}",
+        "typeLine": "Enchantment Creature — Spider",
+        "oracleText": "Reach\nAt the beginning of your upkeep, mill two cards. (Put the top two cards of your library into your graveyard.)\n{1}{B}{G}, Exile this creature: Return target card from your graveyard to your hand.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Jack Wang",
+        "imageId": "0e8553cc-8f61-4022-97c9-e31183b65059"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Reach",
+      "Mill"
+    ],
+    "setCode": "jou",
+    "collectorNumber": "153",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRANIAL_ARCHIVE": {
+    "scryfallId": "1284b15f-2a70-48d6-89d3-e787af3f07eb",
+    "oracleId": "260f95c5-4058-4627-981f-98b9eafc2265",
+    "name": "Cranial Archive",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cranial Archive",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "{2}, Exile this artifact: Target player shuffles their graveyard into their library. Draw a card.",
+        "flavorText": "The greatest idea the zombie ever had in its head wasn't even its own.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Volkan Baǵa",
+        "imageId": "1284b15f-2a70-48d6-89d3-e787af3f07eb"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ktk",
+    "collectorNumber": "218",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LANTERN_OF_THE_LOST": {
+    "scryfallId": "1f573816-1a76-4c1d-bee5-604a85aa5a6a",
+    "oracleId": "f0c4414f-f153-40f6-a3b3-94bcbf1d3e29",
+    "name": "Lantern of the Lost",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lantern of the Lost",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters, exile target card from a graveyard.\n{1}, {T}, Exile this artifact: Exile all cards from all graveyards, then draw a card.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Chris Cold",
+        "imageId": "1f573816-1a76-4c1d-bee5-604a85aa5a6a"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "dbl",
+    "collectorNumber": "526",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HANGED_EXECUTIONER": {
+    "scryfallId": "2791a28a-30fa-4f1a-9f05-f3db155b6f06",
+    "oracleId": "6ff4ff67-ad08-447f-a112-1a071c1474a4",
+    "name": "Hanged Executioner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hanged Executioner",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Flying\nWhen this creature enters, create a 1/1 white Spirit creature token with flying.\n{3}{W}, Exile this creature: Exile target creature.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Johann Bodin",
+        "imageId": "2791a28a-30fa-4f1a-9f05-f3db155b6f06"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "blc",
+    "collectorNumber": "139",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THRAN_FOUNDRY": {
+    "scryfallId": "33dfdeef-a433-4395-aa0c-d25544ae8824",
+    "oracleId": "88079144-8d8e-4f98-9bee-3762540c94ca",
+    "name": "Thran Foundry",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thran Foundry",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{1}, {T}, Exile this artifact: Target player shuffles their graveyard into their library.",
+        "flavorText": "\"What we do not use up, we use again.\"\n—Urza",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Zeleznik",
+        "imageId": "33dfdeef-a433-4395-aa0c-d25544ae8824"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "wc99",
+    "collectorNumber": "ml140sb",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CROOK_OF_CONDEMNATION": {
+    "scryfallId": "78f6d7c2-ee4f-4cd0-a9a2-d8469ff89291",
+    "oracleId": "afc8df6d-7291-400e-b768-0c0c3e3fdc32",
+    "name": "Crook of Condemnation",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crook of Condemnation",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "{1}, {T}: Exile target card from a graveyard.\n{1}, Exile this artifact: Exile all graveyards.",
+        "flavorText": "The God-Pharaoh's angels stripped former initiates of their cartouches and the fortifying magic they provided.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Ben Maier",
+        "imageId": "78f6d7c2-ee4f-4cd0-a9a2-d8469ff89291"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "hou",
+    "collectorNumber": "159",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INQUISITIVE_PUPPET": {
+    "scryfallId": "807a570a-b5eb-420d-9fa5-6e5364025510",
+    "oracleId": "015004d7-989b-4549-9ffa-b062126d04d2",
+    "name": "Inquisitive Puppet",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Inquisitive Puppet",
+        "manaCost": "{1}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "When this creature enters, scry 1.\nExile this creature: Create a 1/1 white Human creature token.",
+        "flavorText": "\"The strings were gone, but he still felt the pull of invisible forces tugging at his mind.\"\n—*Beyond the Great Henge*",
+        "power": "0",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Joseph Meehan",
+        "imageId": "807a570a-b5eb-420d-9fa5-6e5364025510"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "eld",
+    "collectorNumber": "223",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BRITTLE_EFFIGY": {
+    "scryfallId": "b1e2a430-339c-46ae-a43f-61e11e018b7b",
+    "oracleId": "34909cf0-780d-4bc7-9926-9f7625b8f200",
+    "name": "Brittle Effigy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Brittle Effigy",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{4}, {T}, Exile this artifact: Exile target creature.",
+        "flavorText": "\"In my early experiments in phylactery, I found that fragile forms have their uses.\"\n—Rocati, Duke of Martyne",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Avon",
+        "imageId": "b1e2a430-339c-46ae-a43f-61e11e018b7b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "m11",
+    "collectorNumber": "202",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AMULET_OF_UNMAKING": {
+    "scryfallId": "fdbd94c8-611c-4b20-99ca-dd2d7661d644",
+    "oracleId": "945d5351-ce7d-488c-bc63-269ad82b74cb",
+    "name": "Amulet of Unmaking",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Amulet of Unmaking",
+        "manaCost": "{5}",
+        "typeLine": "Artifact",
+        "oracleText": "{5}, {T}, Exile this artifact: Exile target artifact, creature, or land. Activate only as a sorcery.",
+        "flavorText": "Trade to trade, not to keep.\n—Suq'Ata motto",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Kaja Foglio",
+        "imageId": "fdbd94c8-611c-4b20-99ca-dd2d7661d644"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "mir",
+    "collectorNumber": "293",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

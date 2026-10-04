@@ -973,6 +973,8 @@ export function parseActivatedAbilities(
     // D519 - `Pay {E}{E}`: energy counters, one per symbol (CR 122.1).
     let energyCost = 0;
     let sacrificesSelf = false;
+    // D618 - the self-exile (from the battlefield).
+    let exilesSelf = false;
     let sacrificeCost: ActivatedAbility['sacrificeCost'] = null;
     let discardCost: ActivatedAbility['discardCost'] = null;
     let tapCost: ActivatedAbility['tapCost'] = null;
@@ -1071,6 +1073,11 @@ export function parseActivatedAbilities(
       }
       if (new RegExp('^sacrifice (?:this [a-z]+' + sacSelfAlt + ')$', 'i').test(part.trim())) {
         sacrificesSelf = true;
+        continue;
+      }
+      // D618 - "Exile this artifact" / "Exile this creature" / the older printing's name: the self-sacrifice's price, to exile.
+      if (new RegExp('^exile (?:this [a-z]+' + sacSelfAlt + ')$', 'i').test(part.trim())) {
+        exilesSelf = true;
         continue;
       }
       // ⚠️ The CHOOSER half (D168): "Sacrifice a creature" / "another
@@ -1272,6 +1279,7 @@ export function parseActivatedAbilities(
       lifeCostCommanderColors,
       energyCost,
       sacrificesSelf,
+      ...(exilesSelf ? { exilesSelf: true as const } : {}),
       sacrificeCost,
       discardCost,
       tapCost,
@@ -1359,7 +1367,7 @@ export function readCostVerbs(costText: string, parseCost: (raw: string, warn?: 
   const parsed = parseActivatedAbilities({ oracleText: `${capital}: Draw a card.`, isPermanent: true, producesMana: [], parseCost, ...(selfName ? { selfName } : {}) });
   const a = parsed[0];
   if (!a || parsed.length !== 1 || !a.payable) return null;
-  if (a.manaCost !== null || a.requiresTap || a.requiresUntap || a.sacrificesSelf || a.returnsSelf || a.exileSelfFromGraveyard || a.isLoyalty) return null;
+  if (a.manaCost !== null || a.requiresTap || a.requiresUntap || a.sacrificesSelf || a.exilesSelf || a.returnsSelf || a.exileSelfFromGraveyard || a.isLoyalty) return null;
   if (a.putCounterCost !== null || a.removeCounterCost !== null || a.lifeCostCommanderColors) return null;
   if (a.discardCost?.atRandom) return null;
   const verbs = [a.sacrificeCost, a.discardCost, a.tapCost, a.exileFromGraveyardCost, a.returnCost].filter((x) => x !== null).length;
@@ -1588,7 +1596,7 @@ export function parseAlternativeCost(oracleText: string, parseCost: (raw: string
       const capital = piece.charAt(0).toUpperCase() + piece.slice(1);
       const parsed = parseActivatedAbilities({ oracleText: `${capital}: Draw a card.`, isPermanent: true, producesMana: [], parseCost, ...(selfName ? { selfName } : {}) });
       const a = parsed[0];
-      if (!a || parsed.length !== 1 || !a.payable || a.manaCost !== null || a.requiresTap || a.requiresUntap || a.sacrificesSelf || a.returnsSelf || a.exileSelfFromGraveyard || a.isLoyalty) return null;
+      if (!a || parsed.length !== 1 || !a.payable || a.manaCost !== null || a.requiresTap || a.requiresUntap || a.sacrificesSelf || a.exilesSelf || a.returnsSelf || a.exileSelfFromGraveyard || a.isLoyalty) return null;
       if (a.putCounterCost !== null || a.removeCounterCost !== null || a.lifeCost > 0 || a.discardCost?.atRandom || (a.tapCost && a.tapCost.powerAtLeast !== undefined)) return null;
       if (a.sacrificeCost) sacrificeCost = a.sacrificeCost;
       else if (a.discardCost) discardCost = a.discardCost;

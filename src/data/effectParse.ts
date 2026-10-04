@@ -2257,6 +2257,26 @@ const RULES: readonly Rule[] = [
   { kind: 'becomeMonarch', re: /^(?:then )?you become the monarch\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   { kind: 'becomeMonarch', re: /^(?:then )?target (?:player|opponent) becomes the monarch\.$/i, build: () => ({ ...BASE }) },
   /**
+   * D618 - THE GRAVEYARD SHUFFLE, no draw after: `Shuffle your graveyard into your library.` (the caster), `Target player
+   * shuffles their graveyard into their library.` (the aimed player), `Each player shuffles their graveyard into their
+   * library.` (APNAP) - and each with `hand and graveyard` (`withHand`).
+   */
+  {
+    kind: 'graveyardShuffle',
+    re: /^shuffle your (hand and )?graveyard into your library[.]$/i,
+    build: (m) => ({ ...BASE, targetIndex: -1, self: true, scopes: [{ kind: 'player', controller: 'you' }], ...(m[1] ? { withHand: true as const } : {}) }),
+  },
+  {
+    kind: 'graveyardShuffle',
+    re: /^target player shuffles their (hand and )?graveyard into their library[.]$/i,
+    build: (m) => ({ ...BASE, ...(m[1] ? { withHand: true as const } : {}) }),
+  },
+  {
+    kind: 'graveyardShuffle',
+    re: /^each (player|opponent) shuffles their (hand and )?graveyard into their library[.]$/i,
+    build: (m) => ({ ...BASE, targetIndex: -1, self: true, scopes: [{ kind: 'player', controller: (m[1] ?? '').toLowerCase() === 'opponent' ? 'opponents' : 'any' }], ...(m[2] ? { withHand: true as const } : {}) }),
+  },
+  /**
    * D510 - THE WHEEL INTO THE LIBRARY: `Each player shuffles their hand and graveyard into their library, then draws N
    * cards.` (Timetwister, Time Reversal, Echo of Eons, Time Spiral); the `you` form scopes the caster alone.
    */

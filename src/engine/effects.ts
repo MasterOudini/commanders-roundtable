@@ -1185,6 +1185,27 @@ export function effectResult(
       }
       // D510 - THE WHEEL INTO THE LIBRARY: every player the scope names, in APNAP order - the hand and the graveyard into
       // the library, one shuffle off the seeded generator (the RNG rides the batch), then N drawn; the marker per player.
+      // D618 - THE GRAVEYARD SHUFFLE: the scope's players (APNAP) or the aimed one - the graveyard (and the hand) into the
+      // library, one shuffle off the seeded generator per player (the wheel's walk without the draw).
+      case 'graveyardShuffle': {
+        const players = effect.scopes && effect.scopes.length > 0 ? apnapPlayers(state, scopeMembers(state, deps, controller, effect.scopes, cache).players) : aim?.kind === 'player' ? [aim.id] : [];
+        for (const p of players) {
+          if (state.players[p]?.hasLost) continue;
+          let now = state;
+          for (const body of out) now = apply(now, { seq: now.eventCount, body, cause: { kind: 'system' } } as never);
+          const hand = effect.withHand === true ? now.zones.hand[p] ?? [] : [];
+          const gy = now.zones.graveyard[p] ?? [];
+          const moves = [
+            ...hand.map((card) => ({ card, from: { kind: 'hand' as const, player: p }, to: { kind: 'library' as const, player: p } })),
+            ...gy.map((card) => ({ card, from: { kind: 'graveyard' as const, player: p }, to: { kind: 'library' as const, player: p } })),
+          ];
+          if (moves.length > 0) { out.push({ t: 'CardsMoved', moves }); now = apply(now, { seq: now.eventCount, body: out[out.length - 1] as EventBody, cause: { kind: 'system' } } as never); }
+          const mixed = shuffle(rng ?? state.rng, now.zones.library[p] ?? []);
+          rng = mixed.next;
+          out.push({ t: 'LibraryShuffled', player: p, order: mixed.value });
+        }
+        break;
+      }
       case 'wheelShuffle': {
         const players = effect.scopes && effect.scopes.length > 0 ? apnapPlayers(state, scopeMembers(state, deps, controller, effect.scopes, cache).players) : [controller];
         for (const p of players) {

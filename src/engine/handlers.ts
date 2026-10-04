@@ -1850,7 +1850,7 @@ function activateAbility(
   // only for an ability the registry will RUN. The host re-checks because a
   // client's word is not a rule (D139's shape) — without this, a hand-built
   // intent could eat a permanent for no effect.
-  if (ability.sacrificesSelf && !defReady) {
+  if ((ability.sacrificesSelf || ability.exilesSelf) && !defReady) {
     return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
   }
   // ⚠️ The CHOOSER cost (D168): the def gate, then the CHOICE — required,
@@ -3000,6 +3000,13 @@ function finishAbility(
       ),
     );
   }
+  // D618 - the self-exile: the self-sacrifice's move, to its owner's exile (CR 602.2).
+  if (ability.exilesSelf) {
+    const src = state.cards[pending.card];
+    if (!src) return reject('noSuchCard', 'That permanent is not in the game.');
+    events.push({ t: 'CardsMoved', moves: [{ card: pending.card, from: { kind: 'battlefield', player: pending.player }, to: { kind: 'exile', player: src.owner } }] });
+    events.push(narrated(n`${who(state, pending.player)} ${vb(pending.player, 'exiles', 'exile')} ${face.name}.`, pending.player, identity));
+  }
 
   // D319 - the counters come off as the cost is paid (CR 601.2h), beside the
   // self-sacrifice: deterministic, so no chooser rode the pending.
@@ -3086,7 +3093,7 @@ function finishAbility(
     // D607 - the sacrifice cost's permanents as they last existed (CR 608.2h), read before the cost batch moved them.
     ...(ability.sacrificeCost && pending.sacrifice && pending.sacrifice.length > 0 ? { sacrificed: sacrificedOf(state, deps, pending.sacrifice) } : {}),
     // D611 - the source's counters as it last existed, when this cost batch moves it (a sacrifice, a return - CR 608.2h).
-    ...((ability.sacrificesSelf || ability.returnsSelf) && Object.keys(state.cards[pending.card]?.counters ?? {}).length > 0
+    ...((ability.sacrificesSelf || ability.exilesSelf || ability.returnsSelf) && Object.keys(state.cards[pending.card]?.counters ?? {}).length > 0
       ? { sourceCounters: { ...(state.cards[pending.card]?.counters ?? {}) } }
       : {}),
   };

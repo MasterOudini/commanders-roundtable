@@ -146,7 +146,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Batch 9 (D166).
   // "Exile this artifact" as a cost — sacrificesSelf ONE EVENT OVER
   // (CardsMoved to exile instead of graveyard); named cheap, not built yet.
-  ['Brittle Effigy', 'exile-self cost'],
   // Batch 10 (D167).
   // "Your second spell each turn" is Axgard's per-turn trigger memory one
   // count over (D167).
@@ -511,7 +510,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Runic Armasaur', 'trigger head not in the library: Whenever an opponent activates an ability of a creature or land that i'],
   ['Rot Wolf', 'a filtered head outside the closed reader (an adjective outside the list: dealt): Whenever a creature dealt damage by ~ this turn dies, you ma'],
   ['Adaptive Gemguard', 'cost: a tap cost with no fixture the suite can put: artifacts and/or creatures'],
-  ['Amulet of Unmaking', 'cost: Exile this artifact'],
   ['Angelic Benediction', 'an attack head on a card with no creature body: aCreatureAttacksAlone'],
   ['Balemurk Leech', 'trigger head not in the library: Whenever an enchantment you control enters and whenever you fully unlo'],
   ['Bant Sojourners', 'a filtered head outside the closed reader (an adjective outside the list: you): When you cycle this card and when this creature dies, you ma'],
@@ -645,7 +643,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Nakia, Wakandan Operative', 'a filtered head outside the closed reader (an adjective outside the list: your): Whenever your commander enters, you become the monarch.'],
   ['Nomad Decoy', 'effect not a row kind: Tap two target creatures.'],
   ['Nucklavee', 'trigger payload not a pump: Return target red sorcery card from your graveyard to your h'],
-  ['Nyx Weaver', 'cost: Exile this creature'],
   ['Olivia, Opulent Outlaw', 'trigger head not in the library: Whenever one or more outlaws you control deal combat damage to a playe'],
   ['Preacher of the Schism', 'trigger head not in the library: Whenever this creature attacks the player with the most life or tied f'],
   ['Purple Pentapus', 'a graveyard return beside another cost piece'],
@@ -728,10 +725,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
   // D617 - the graveyard exile and the mass exile read; what stays is a card the row maker refuses for another reason.
   ['Scavenger Grounds', 'the row maker: a graveyard exile over the controllers graveyard behind a cost that feeds it (not this wave) - its clause reads since D617 (D617)'],
-  ['Sentinel Totem', 'the row maker: cost: Exile this artifact - its clause reads since D617 (D617)'],
-  ['Lantern of the Lost', 'the row maker: cost: Exile this artifact - its clause reads since D617 (D617)'],
   ['Perilous Vault', 'the row maker: cost: Exile this artifact - its clause reads since D617 (D617)'],
-  ['Crook of Condemnation', 'the row maker: cost: Exile this artifact - its clause reads since D617 (D617)'],
   // D615 - speed read (start your engines!, max speed); what stays is a card the row maker refuses for another reason.
   ["Zahur, Glory's Past", 'the row maker: trigger payload not a pump: If you have max speed, create a tapped 2/2 black Zombie crea - its clause reads since D615 (D615)'],
   ['Perilous Snare', 'the row maker: activation condition: as a sorcery. Activate only if you have max speed - its clause reads since D615 (D615)'],
@@ -2799,7 +2793,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // is the numeric-EXACT family's third card ('with mana value X' is an
   // equality the parser silently drops); Most Valuable Slayer's 'target
   // attacking creature' is Malamet Brawler's class's second card.
-  ['Mnemonic Nexus', 'ctx.random'],
   ['Molder', 'spell target parse (numeric exact)'],
   ['Moonlace', 'color change (indefinite)'],
   ['Most Valuable Slayer', 'combat target qualifier unenforced'],
@@ -2886,7 +2879,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D239 (M6.4cb)
   ['Relentless Pursuit', 'script-raised prompt'],
   ["Relic's Roar", 'until-end-of-turn base P/T set'],
-  ['Reminisce', 'ctx.random'],
   ['Repel Calamity', 'spell target parse (numeric disjunction)'],
   ['Resolute Strike', 'script-raised prompt'],
   ['Restore', 'spell target parse (graveyard noun)'],
@@ -3325,7 +3317,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Cat Collector', 'once-per-turn trigger memory'],
   ['Cerulean Wisps', 'UEOT color change'],
   ['Chivalric Alliance', 'discard-cost chooser'],
-  ['Clear the Mind', 'ctx.random'],
   ["Council's Deliberation", 'scry-surveil event discriminator'],
   ['Crackleburr', 'tap-creatures cost'],
 
@@ -3381,14 +3372,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // negated-type sacrifice predicate; Inaction Injunction DETAINS (Lyev
   // Decree's class). Icy Blast taps X targets (cast-time computed count).
   ['Guerrilla Tactics', 'discard-event discriminator'],
-  ['Hanged Executioner', 'exile-self cost'],
   ['Heroes Remembered', 'suspend mechanic'],
   ['Hunting Triad', 'hand-activated ability'],
   ['Hypergenesis', 'suspend mechanic'],
   ['Icy Blast', 'cast-time computed target count'],
   ["Illusionist's Stratagem", 'up-to-N targeting'],
   ['Impossible Inferno', 'play-from-exile permission'],
-  ['Inquisitive Puppet', 'exile-self cost'],
   ['Invigorate', 'cast-time alternative cost'],
   ['Jan Jansen, Chaos Crafter', 'negated-type sacrifice predicate'],
 
@@ -3405,7 +3394,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Katara's Reversal", 'up-to-N targeting'],
   ['Lantern Flare', 'cleave mechanic'],
   ["Laquatus's Disdain", 'cast-zone discriminator'],
-  ['Learn from the Past', 'ctx.random'],
   ['Lethargy Trap', 'cast-time alternative cost'],
   ['Manamorphose', 'script-raised prompt'],
   ['Metrognome', 'discard-event discriminator'],
