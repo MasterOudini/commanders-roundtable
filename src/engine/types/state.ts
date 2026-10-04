@@ -1479,7 +1479,8 @@ export type Awaiting =
        * the printed noun (D389's), asked of the DERIVED permanent by the host.
        */
       // D525 - `exile` for a pick drawn from a POOL of exiled cards (cascade's candidate; `pool` below).
-      readonly zone: 'hand' | 'library' | 'battlefield' | 'exile';
+      // D622 - `graveyard` for the mill's pick: the milled cards the noun admits are the POOL (public - a graveyard is public).
+      readonly zone: 'hand' | 'library' | 'battlefield' | 'exile' | 'graveyard';
       /**
        * Where the cards NOT chosen go — `library` prompts only, `null` for a
        * discard, where the unchosen simply stay in hand.

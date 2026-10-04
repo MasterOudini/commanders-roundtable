@@ -523,13 +523,16 @@ export function answerAwaiting(
           ? (view.peek ?? []).map((id) => view.cards[id]).filter((c): c is CardView => !!c)
           : awaiting.zone === 'battlefield'
             ? myPermanents(view, me)
-            : myHand(view, me);
+            // D622 - the mill's pick: the prompt's own PUBLIC pool, the cards of it still in a graveyard.
+            : awaiting.zone === 'graveyard'
+              ? (awaiting.pool ?? []).map((id) => view.cards[id]).filter((c): c is CardView => !!c && (view.zones[`gy:${c.owner}`] ?? []).includes(c.instanceId))
+              : myHand(view, me);
       // D389 - a look with a FILTER admits only the revealed cards the printed noun names, and
       // "you may" lets the answer be shorter than the count, down to nothing.
       // D390 - a queued sacrifice carries the printed noun too; a discard never does.
       const filter = awaiting.zone === 'hand' ? null : (awaiting.filter ?? null);
       // D493 - the look grammar's negations (`noncreature, nonland`): the types the pick must lack.
-      const lacks = awaiting.zone === 'library' ? (awaiting.none ?? []) : [];
+      const lacks = awaiting.zone === 'library' || awaiting.zone === 'graveyard' ? (awaiting.none ?? []) : [];
       const eligible = (filter ? pool.filter((c) => admitsCard(filter, c)) : pool).filter((c) => {
         if (lacks.length === 0) return true;
         const face = c.card?.faces[c.faceIndex] ?? c.card?.faces[0];
@@ -566,9 +569,10 @@ export function answerAwaiting(
         const cards = eligible.filter((c) => c.tapped).slice(0, awaiting.count).map((c) => c.instanceId);
         return act({ t: 'AnswerChooseFromZone', player: me, cards }, cards.length === 0 ? `untap nothing for ${awaiting.label}` : `untap ${cards.length} for ${awaiting.label}`);
       }
-      const min = awaiting.min ?? awaiting.count;
+      // D622 - the mill's pick keeps the best (the look's order), its fewest clamped to what is still there (the host's clamp).
+      const min = awaiting.zone === 'graveyard' ? Math.min(awaiting.min ?? awaiting.count, eligible.length) : (awaiting.min ?? awaiting.count);
       const ordered =
-        awaiting.zone === 'library' ? [...eligible].sort(worstFirst).reverse() : [...eligible].sort(worstFirst);
+        awaiting.zone === 'library' || awaiting.zone === 'graveyard' ? [...eligible].sort(worstFirst).reverse() : [...eligible].sort(worstFirst);
       const cards = ordered.slice(0, awaiting.count).map((c) => c.instanceId);
       // Short of the minimum means the engine asked for more than the zone holds,
       // which it does not do — but answering with fewer is a rejection, and a
@@ -580,6 +584,8 @@ export function answerAwaiting(
         { t: 'AnswerChooseFromZone', player: me, cards },
         awaiting.zone === 'library'
           ? `keep ${cards.length} for ${awaiting.label}`
+          : awaiting.zone === 'graveyard'
+            ? `take ${cards.length} of the milled cards for ${awaiting.label}`
           : awaiting.zone === 'battlefield'
             ? `sacrifice ${cards.length} to ${awaiting.label}`
             : `discard ${cards.length} to ${awaiting.label}`,

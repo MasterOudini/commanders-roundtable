@@ -619,6 +619,9 @@ export function simplestAnswer(
           : awaiting.zone === 'battlefield'
             // D511 - a computed pick (bolster's least toughness) is the host's own set.
             ? awaiting.pick === 'leastToughness' ? leastToughnessCreatures(state, deps(), awaiting.player) : inPlay(state).filter((id) => state.cards[id]?.controller === awaiting.player)
+            // D622 - the mill's pick: the pool's cards still in a graveyard.
+            : awaiting.zone === 'graveyard'
+              ? (awaiting.pool ?? []).filter((id) => state.cards[id]?.zone.kind === 'graveyard')
             // D491 - the from-hand free cast's pick: the first card of my own hand the grant admits (the host's reader).
             // D541 - a madness offer is declined (the card to the graveyard, as a discard left it before madness).
             : awaiting.castFree === true
@@ -632,7 +635,7 @@ export function simplestAnswer(
       // D390 - a queued sacrifice carries the printed noun too; a discard never does.
       const filter = awaiting.zone === 'hand' ? null : (awaiting.filter ?? null);
       // D493 - the look grammar's negations (`noncreature, nonland`): the types the pick must lack.
-      const lacks = awaiting.zone === 'library' ? (awaiting.none ?? []) : [];
+      const lacks = awaiting.zone === 'library' || awaiting.zone === 'graveyard' ? (awaiting.none ?? []) : [];
       const eligible = (filter
         ? pool.filter((id) => {
             const inst = state.cards[id];
@@ -648,10 +651,11 @@ export function simplestAnswer(
         const printing = inst ? ORACLE.byPrinting(inst.printingId) : undefined;
         return printing ? !lacks.some((t) => faceOf(printing, 0).typeLine.types.includes(t)) : false;
       });
+      // D622 - the mill's pick answers with the FEWEST it allows (inert: a test that wants the pick answers it itself).
       return {
         t: 'AnswerChooseFromZone',
         player: awaiting.player,
-        cards: eligible.slice(0, awaiting.count),
+        cards: eligible.slice(0, awaiting.zone === 'graveyard' ? Math.min(awaiting.min ?? awaiting.count, eligible.length) : awaiting.count),
       };
     }
     /**

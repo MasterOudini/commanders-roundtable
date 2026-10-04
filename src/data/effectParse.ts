@@ -1717,6 +1717,18 @@ const RULES: readonly Rule[] = [
     build: () => ({ ...BASE, targetIndex: -1, self: true }),
   },
   /**
+   * D622 - THE MILL GRAMMAR: `Mill N cards.` and a TAKE over the milled cards in the window's next sentence - `(then)
+   * (you may) put a <noun> card from among them / the cards milled this way / the milled cards / those cards` or `<noun>
+   * card milled this way`, `up to one` optional too, `into your hand` or `onto the battlefield (tapped)`. The look's noun
+   * reader (the negations, the filter - `permanent` expanded); the window must be consumed whole (a trailing sentence refuses
+   * it, and the shorter windows are tried next - the clause after the pick reads on its own and waits for the answer).
+   */
+  {
+    kind: 'millPick',
+    re: new RegExp(`^(?:you )?mill (?<n>${MILL_COUNT}) cards?\\.(?<body>(?: [^.]*\\.)+)$`, 'i'),
+    build: (m) => buildMillPick(m),
+  },
+  /**
    * D434 - the mill: `Mill three cards.` (the caster's own library), `Target player mills two cards.` (aimed at the
    * player), `Each player mills four cards.` (a player scope, APNAP). The top N into the graveyard; fewer if the
    * library is short. Nothing asks.
@@ -2920,7 +2932,7 @@ const OBJ_VERB_LEAD = new RegExp(`^(?:then )?(?<verb>untap|tap|regenerate|suspec
 const OBJ_VERB_SUBJ = new RegExp(`^(?:then )?${OBJ_REF} (?<rest>can't be blocked this turn|can't block this turn|(?:doesn't|don't) untap during (?:its|their) controller(?:'|’)s next untap step|don't untap during their controllers(?:'|’) next untap steps|phases? out)\\.$`, 'i');
 // The clauses whose objects are NOT on the battlefield in the state the object verbs read (they arrive as the clause runs).
 const OBJ_LATE: ReadonlySet<EffectKind> = new Set(['createToken', 'populate', 'reanimate', 'returnFromGraveyard', 'returnObj']);
-const OBJ_ASKS: ReadonlySet<EffectKind> = new Set(['search', 'lookAtTop', 'payOptional', 'sacrifice', 'discard', 'returnChoose', 'explore', 'connive', 'revealHandChoose', 'proliferate', 'scry', 'surveil', 'copySpell', 'putFromHand', 'untapChoose', 'bolster', 'amass', 'ringTempt']);
+const OBJ_ASKS: ReadonlySet<EffectKind> = new Set(['search', 'lookAtTop', 'millPick', 'payOptional', 'sacrifice', 'discard', 'returnChoose', 'explore', 'connive', 'revealHandChoose', 'proliferate', 'scry', 'surveil', 'copySpell', 'putFromHand', 'untapChoose', 'bolster', 'amass', 'ringTempt']);
 function objectsRewrite(sentence: string, previous: Clause | undefined): EffectSpec | null {
   const prev = previous?.spec;
   if (!prev) return null;
@@ -3276,7 +3288,7 @@ function matchReflexive(price: string, payload: string, cardName: string, afterA
 // `you do` is the answer - a second seam). A pronoun action (`it`, `them`) after another sentence of its line may be that
 // sentence's object, never the source: refused. The executor pushes D584's marker after the action's last step, when the
 // action was performed.
-const MANDATORY_ASKING: ReadonlySet<string> = new Set(['sacrifice', 'discard', 'surveil', 'scry', 'lookAtTop', 'search', 'amass', 'explore', 'connive', 'proliferate', 'populate', 'returnChoose', 'putFromHand', 'revealHandChoose', 'untapChoose', 'bolster', 'ringTempt', 'discover', 'clash', 'manifestDread', 'copySpell', 'endure', 'payOptional']);
+const MANDATORY_ASKING: ReadonlySet<string> = new Set(['sacrifice', 'discard', 'surveil', 'scry', 'lookAtTop', 'millPick', 'search', 'amass', 'explore', 'connive', 'proliferate', 'populate', 'returnChoose', 'putFromHand', 'revealHandChoose', 'untapChoose', 'bolster', 'ringTempt', 'discover', 'clash', 'manifestDread', 'copySpell', 'endure', 'payOptional']);
 function mandatoryAction(price: string, payload: string, cardName: string, afterAnother: boolean): EffectSpec | null {
   if (/^(?:then )?(?:if [^,]+, )?you may /i.test(price)) return null;
   if (afterAnother && /\b(?:it|them)\b/i.test(price)) return null;
@@ -3346,7 +3358,7 @@ function readVerbPrice(raw: string): VerbPrice | null {
   if (!read || read.lifeCost > 0) return null;
   return { costText: price, sacrificeSelf: false, sacrificeCost: read.sacrificeCost, discardCost: read.discardCost, tapCost: read.tapCost, exileFromGraveyardCost: read.exileFromGraveyardCost, returnCost: read.returnCost };
 }
-const PAY_BODY_REFUSED: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand', 'untapChoose', 'wheelShuffle', 'bolster', 'amass', 'ringTempt']);
+const PAY_BODY_REFUSED: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'millPick', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand', 'untapChoose', 'wheelShuffle', 'bolster', 'amass', 'ringTempt']);
 
 function readPrice(raw: string): { cost: PaySpec['cost']; life: number; energy: number } | null {
   const life = raw.match(/(\d+) life$/i);
@@ -3451,6 +3463,62 @@ function buildLookGrammar(m: RegExpMatchArray): EffectFields | null {
   };
 }
 
+/**
+ * D622 - the mill grammar's TAKE (see the rule): one sentence over the milled cards, read with the look's noun reader -
+ * the negations first, then the filter (`permanent` expanded to its six types, the search's reading, D478).
+ */
+const MILL_TAKE = new RegExp(
+  String.raw`^(?:then )?(?<may>you may )?put (?:(?:a|an)|(?<upto>up to one)) (?<noun>[a-zA-Z][a-zA-Z, ]*?) cards? (?:from among (?:them|the cards milled this way|the milled cards|those cards)|milled this way) (?<dest>into your hand|onto the battlefield(?<tapped> tapped)?)\.$`,
+  'i',
+);
+function buildMillPick(m: RegExpMatchArray): EffectFields | null {
+  const g = m.groups ?? {};
+  const n = num(g['n'] ?? '');
+  if (n === null || n < 1) return null;
+  const sentences = (g['body'] ?? '').trim().split(/(?<=\.)\s+(?=[A-Za-z])/).map((s) => s.trim()).filter((s) => s !== '');
+  if (sentences.length !== 1) return null;
+  const take = (sentences[0] ?? '').match(MILL_TAKE);
+  if (!take) return null;
+  const tg = take.groups ?? {};
+  let noun = (tg['noun'] ?? '').trim();
+  const none: string[] = [];
+  for (;;) {
+    const lead = noun.match(/^(non[a-z]+),?\s*/i);
+    const type = lead ? LOOK_NON[(lead[1] ?? '').toLowerCase()] : undefined;
+    if (!lead || type === undefined) break;
+    none.push(type);
+    noun = noun.slice(lead[0].length);
+  }
+  if (/\bnon[a-z]+/i.test(noun)) return null;
+  let filter: LookFilter | null = null;
+  if (noun !== '') {
+    // The look's alternatives (`an artifact creature card or Vehicle card`), each read back to its bare noun; `permanent` expanded.
+    const bare = distributeList(noun.replace(/,\s*(?:or\s+)?/g, ' or ').replace(/\s+/g, ' ').trim())
+      .split(/\bor\b/)
+      .map((p) => p.trim().replace(/^(?:a|an)\s+/i, '').replace(/\s+cards?$/i, ''))
+      .join(' or ');
+    const predicates = predicatesOf(expandPermanent(bare));
+    if (!predicates || predicates.length === 0) return null;
+    filter = { predicates, what: noun + ' card' };
+  }
+  if (filter === null && none.length === 0) return null;
+  const toBf = /onto the battlefield/i.test(tg['dest'] ?? '');
+  return {
+    ...BASE,
+    amount: n,
+    targetIndex: -1,
+    self: true,
+    look: {
+      take: 1,
+      rest: 'graveyard',
+      filter,
+      optional: tg['may'] !== undefined || tg['upto'] !== undefined,
+      ...(toBf ? { to: 'battlefield' as const } : {}),
+      ...(toBf && tg['tapped'] !== undefined ? { tapped: true as const } : {}),
+      ...(none.length > 0 ? { none } : {}),
+    },
+  };
+}
 function payBody(sentence: string): EffectSpec | null {
   if (/^you may\b/i.test(sentence)) return null;
   // D432 - `you create a Treasure token` (Smothering Tithe's decline body): the imperative the rules read, with the
@@ -3518,7 +3586,7 @@ function matchPayment(sentence: string): EffectSpec | null {
 // left the zone the verb needs does nothing (D494's rule). Asks, payments and referents stay refused.
 const DELAY_TAIL = /^(.+?) at (?:the beginning of )?(the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step|end of combat)\.$/i;
 const DELAY_HEAD = /^At (?:the beginning of )?(the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step|end of combat), (.+)$/i;
-const DELAY_ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand', 'untapChoose', 'wheelShuffle', 'bolster', 'amass', 'ringTempt']);
+const DELAY_ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'millPick', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand', 'untapChoose', 'wheelShuffle', 'bolster', 'amass', 'ringTempt']);
 function delayWhen(phrase: string): DelayWhen {
   const p = phrase.toLowerCase();
   if (p === 'end of combat') return { step: 'endCombat', whose: 'next' };

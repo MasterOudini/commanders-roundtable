@@ -7,6 +7,11 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { EERIE_GRAVESTONE_SCRIPT } from './cards/eerieGravestone';
+import { SZAREKH_THE_SILENT_KING_SCRIPT } from './cards/szarekhTheSilentKing';
+import { RICK_JONES_DESTINED_SIDEKICK_SCRIPT } from './cards/rickJonesDestinedSidekick';
+import { LEYLINE_DOWSER_SCRIPT } from './cards/leylineDowser';
+import { BRAMBLE_FAMILIAR_FETCH_QUEST_SCRIPT } from './cards/brambleFamiliarFetchQuest';
 import { KNIGHT_OF_THE_WHITE_ORCHID_SCRIPT } from './cards/knightOfTheWhiteOrchid';
 import { BONDERS_ENCLAVE_SCRIPT } from './cards/bondersEnclave';
 import { BEASTBOND_OUTCASTER_SCRIPT } from './cards/beastbondOutcaster';
@@ -8974,6 +8979,11 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  EERIE_GRAVESTONE_SCRIPT,
+  SZAREKH_THE_SILENT_KING_SCRIPT,
+  RICK_JONES_DESTINED_SIDEKICK_SCRIPT,
+  LEYLINE_DOWSER_SCRIPT,
+  BRAMBLE_FAMILIAR_FETCH_QUEST_SCRIPT,
   KNIGHT_OF_THE_WHITE_ORCHID_SCRIPT,
   BONDERS_ENCLAVE_SCRIPT,
   BEASTBOND_OUTCASTER_SCRIPT,

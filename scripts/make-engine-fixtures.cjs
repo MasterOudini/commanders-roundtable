@@ -11145,6 +11145,13 @@ const WANTED = [
   'Sunstar Expansionist',
   'Sunseed Nurturer',
   // D621 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D622 - MILL THEN PICK: the rows the whole-leftover row maker rowed once a mill and a pick from among the milled cards read as one asking clause (millPick, a graveyard pick over the milled pool).
+  'Eerie Gravestone',
+  'Szarekh, the Silent King',
+  'Rick Jones, Destined Sidekick',
+  'Leyline Dowser',
+  'Bramble Familiar // Fetch Quest',
+  // D622 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

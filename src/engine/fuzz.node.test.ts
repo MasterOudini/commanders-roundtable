@@ -1210,6 +1210,9 @@ function answerFor(state: GameState, p: Picker): Intent | null {
                 const face = ORACLE.byPrinting(inst.printingId)?.faces[0];
                 return face ? predicateAdmits(face, awaiting.filter.predicates) : false;
               })
+            // D622 - the mill's pick: the pool's cards still in a graveyard (the host clamps the fewest to them).
+            : awaiting.zone === 'graveyard'
+              ? (awaiting.pool ?? []).filter((id) => state.cards[id]?.zone.kind === 'graveyard')
             // D491 - the from-hand free cast's pick: my own hand through the one reader the host asks (a card the
             // host refuses spends the seed); the answer may be empty, and `want` below declines it half the time.
             : awaiting.castFree === true

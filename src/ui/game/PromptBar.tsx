@@ -231,6 +231,9 @@ function describe(
             ? `${nameOf(seats, awaiting.player)} is looking at the top of their library.`
             : awaiting.zone === 'battlefield'
               ? `${nameOf(seats, awaiting.player)} is choosing ${awaiting.count === 1 ? 'a' : awaiting.count} ${awaiting.filter?.what ?? 'permanent'}${awaiting.count === 1 ? '' : 's'} to sacrifice.`
+              // D622 - the mill's pick.
+              : awaiting.zone === 'graveyard'
+                ? `${nameOf(seats, awaiting.player)} is choosing from the milled cards.`
               : awaiting.castFree === true && awaiting.madness !== undefined
                 ? `${nameOf(seats, awaiting.player)} may cast a card for its madness cost.`
               : awaiting.castFree === true
@@ -251,6 +254,14 @@ function describe(
         // D390 - a queued sacrifice: the veil is the control, the bar says what the noun admits.
         if (awaiting.zone === 'battlefield') {
           return `${awaiting.label}: click ${awaiting.count === 1 ? 'a' : awaiting.count} ${awaiting.filter?.what ?? 'permanent'}${awaiting.count === 1 ? '' : 's'} you control to sacrifice.`;
+        }
+        // D622 - the mill's pick: the milled cards the noun admits are on the peek panel.
+        if (awaiting.zone === 'graveyard') {
+          const least = awaiting.min ?? awaiting.count;
+          const where = awaiting.to === 'battlefield' ? 'put onto the battlefield' : 'put into your hand';
+          return least < awaiting.count
+            ? `${awaiting.label}: click up to ${awaiting.count} ${awaiting.filter?.what ?? 'card'}${awaiting.count === 1 ? '' : 's'} of the milled cards to ${where}, then commit. Taking nothing is legal.`
+            : `${awaiting.label}: click ${awaiting.count} ${awaiting.filter?.what ?? 'card'}${awaiting.count === 1 ? '' : 's'} of the milled cards to ${where}.`;
         }
         if (awaiting.zone === 'library') {
           // D389 - a filtered, optional look names what may be kept and says nothing is legal.

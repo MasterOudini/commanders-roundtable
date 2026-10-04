@@ -4652,6 +4652,43 @@ function answerChooseFromZone(
   if (intent.cast !== undefined && (awaiting.castFree !== true || intent.cards.length === 0)) {
     return reject('notCastable', awaiting.castFree === true ? 'Casting nothing pays nothing - name the card to pay its optional costs.' : 'Only a spell being cast has optional costs to pay.');
   }
+  // D622 - THE MILL'S PICK: cards of the pool (the milled cards the noun admits - public ids) still in a graveyard, the noun
+  // re-asked of each as printed; the picks go to the hand, or onto the battlefield (tapped when the line says so); the rest
+  // stay. The fewest is clamped to what is still there: a replacement may have sent a milled card elsewhere.
+  if (awaiting.zone === 'graveyard') {
+    const live = (awaiting.pool ?? []).filter((card) => state.cards[card]?.zone.kind === 'graveyard');
+    const least = Math.min(awaiting.min ?? awaiting.count, live.length);
+    if (intent.cards.length > awaiting.count || intent.cards.length < least) {
+      return reject('invalidAmount', least === awaiting.count ? `Choose exactly ${awaiting.count} of the milled cards.` : `Choose up to ${awaiting.count} of the milled cards.`);
+    }
+    if (new Set(intent.cards).size !== intent.cards.length) return reject('noSuchCard', 'You named the same card twice.');
+    const bound = { none: awaiting.none ?? [], filter: awaiting.filter ?? null, qualifier: null };
+    for (const card of intent.cards) {
+      if (!live.includes(card)) return reject('illegalTarget', 'That card is not one of the milled cards.');
+      if (!handChoiceAdmits(state, deps.oracle, card, bound)) return reject('illegalTarget', `That card is not ${awaiting.filter?.what ?? 'one the card lets you choose'}.`);
+    }
+    const toBf = awaiting.to === 'battlefield';
+    const moves = intent.cards.map((card) => ({
+      card,
+      from: { kind: 'graveyard' as const, player: state.cards[card]?.owner ?? intent.player },
+      to: toBf ? { kind: 'battlefield' as const, player: intent.player } : { kind: 'hand' as const, player: state.cards[card]?.owner ?? intent.player },
+    }));
+    const named = intent.cards.map((card) => { const inst = state.cards[card]; const p = inst ? deps.oracle.byPrinting(inst.printingId) : undefined; return p ? faceOf(p, 0).name : 'a card'; }).join(', ');
+    const events: EventBody[] = [
+      { t: 'AwaitingSet', awaiting: null },
+      ...(moves.length > 0 ? [{ t: 'CardsMoved' as const, moves }] : []),
+      ...(toBf && awaiting.tapped === true && moves.length > 0 ? [{ t: 'PermanentsTapped' as const, cards: [...intent.cards] }] : []),
+      narrated(
+        moves.length === 0
+          ? n`${who(state, intent.player)} ${vb(intent.player, 'takes', 'take')} none of the milled cards.`
+          : toBf
+            ? n`${who(state, intent.player)} ${vb(intent.player, 'puts', 'put')} ${named} from among the milled cards onto the battlefield.`
+            : n`${who(state, intent.player)} ${vb(intent.player, 'takes', 'take')} ${named} from among the milled cards.`,
+        intent.player,
+      ),
+    ];
+    return accept(events, resumeContinuation(state, deps, events, awaiting.continuation));
+  }
   // D389 - `min` is the fewest a look with "you may" takes; every older prompt is exact.
   const min = awaiting.min ?? awaiting.count;
   if (intent.cards.length > awaiting.count || intent.cards.length < min) {

@@ -723,6 +723,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D622 - mill then pick reads; what stays is a card the row maker refuses for another reason.
+  ["Dredger's Insight", 'the row maker: a filtered head outside the closed reader (an adjective outside the list: and/or): Whenever one or more artifa - its clause reads since D622 (D622)'],
+  ['Mole Module', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: this): Whenever this Vehicle deals c - its clause reads since D622 (D622)'],
   // D621 - the ferocious and land catch-up conditions read; what stays is a card the row maker refuses for another reason.
   ["Master's Guidance", 'the row maker: trigger head not in the library: Whenever you attack with two or more legendary creatures, put a +1/+1  - its clause reads since D621 (D621)'],
   ['Bugenhagen, Wise Elder', 'the row maker: an intervening if the suite cannot stage (a ferocious power above the fixture: 7): you control a creature with - its clause reads since D621 (D621)'],

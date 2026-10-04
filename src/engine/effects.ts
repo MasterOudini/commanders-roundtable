@@ -2019,6 +2019,41 @@ export function effectResult(
         out.push(...millEvents(afterLibraryMoves(state, out), controller, effect.amount));
         break;
       }
+      // D622 - MILL, THEN A PICK FROM AMONG THE MILLED CARDS: the caster's top N into the graveyard (CR 701.13), then the
+      // milled cards the noun admits (the printed face - the hand reveal's reader) are the pool of the caster's choice:
+      // `chooseFromZone` zone `graveyard` over the PUBLIC pool, the rest staying where they lie. Nothing admitted asks nothing.
+      // ⚠️ A MANDATORY PICK ASKS EVEN OVER ONE CARD: where the milled cards land is decided by the replacement funnel AFTER
+      // this executor (a card exiled instead was never milled), and only the answer reads where they are - a move out of
+      // the graveyard in this same batch would take a card from a zone it never reached.
+      case 'millPick': {
+        const look = effect.look;
+        const milled = millEvents(afterLibraryMoves(state, out), controller, effect.amount);
+        out.push(...milled);
+        if (!look) break;
+        const pool = milled.flatMap((e) => (e.t === 'CardsMoved' ? e.moves.filter((m) => m.from.kind === 'library' && m.to.kind === 'graveyard').map((m) => m.card) : []));
+        const admitted = pool.filter((id) => handChoiceAdmits(state, deps.oracle, id, { none: look.none ?? [], filter: look.filter, qualifier: null }));
+        if (admitted.length === 0) break;
+        const toBf = look.to === 'battlefield';
+        if (out.some((e) => e.t === 'AwaitingSet')) break;
+        out.push({
+          t: 'AwaitingSet',
+          awaiting: {
+            kind: 'chooseFromZone',
+            player: controller,
+            zone: 'graveyard',
+            rest: null,
+            count: Math.min(look.take, admitted.length),
+            min: look.optional ? 0 : Math.min(look.take, admitted.length),
+            filter: look.filter,
+            ...((look.none ?? []).length > 0 ? { none: look.none } : {}),
+            ...(toBf ? { to: 'battlefield' as const } : {}),
+            ...(toBf && look.tapped === true ? { tapped: true as const } : {}),
+            pool: admitted,
+            label: obj.label,
+          },
+        });
+        break;
+      }
 
       // D514 - THE OBJECT'S STAT AS LAST KNOWN: the aimed creature's power or toughness as this step finds it - on the
       // battlefield after the clauses before it (a pump counts), or, once it has left, as it last was before this

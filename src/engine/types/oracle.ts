@@ -901,6 +901,15 @@ export type EffectKind =
    */
   | 'mill'
   /**
+   * D622 - MILL, THEN A PICK FROM AMONG THE MILLED CARDS: `Mill three cards. You may put a creature card from among them into
+   * your hand.` and its kin - the top N of the caster's library into the graveyard (CR 701.13), then, when the noun
+   * (`look` - the look's filter, negations, take, optional, destination) admits any of the milled cards, the caster chooses
+   * from among them (`chooseFromZone` zone `graveyard`, the admitted cards its PUBLIC pool) and the picks go to the hand or
+   * onto the battlefield; the rest stay. Nothing admitted asks nothing; a mandatory pick asks even over one card (the
+   * replacement funnel decides where the milled cards land, after the executor - only the answer reads it).
+   */
+  | 'millPick'
+  /**
    * D526 - MANIFEST (CR 701.34a): the top N cards of a library onto the battlefield FACE DOWN as 2/2 creatures, the
    * permanent marked `manifested` (a creature card turns face up for its mana cost, 701.34c); `libraryOf` names the
    * head's player's library. `manifestDread` (701.34e): look at the top two, one face down, the other into the

@@ -265,6 +265,12 @@ export class Projector {
       peeked.length = 0;
       for (const id of state.zones.hand[search.owner] ?? []) if (state.cards[id]?.revealedTo.includes(viewer)) peeked.push(id);
     }
+    // D622 - the mill's pick: the milled cards the noun admits (the prompt's PUBLIC pool) still in a graveyard, listed for the
+    // chooser - the panel that answers a look answers this pick too.
+    if (search?.kind === 'chooseFromZone' && search.zone === 'graveyard' && search.player === viewer) {
+      peeked.length = 0;
+      for (const id of search.pool ?? []) if (state.cards[id]?.zone.kind === 'graveyard') peeked.push(id);
+    }
     const peek = this.lastPeek && sameIds(this.lastPeek, peeked) ? this.lastPeek : peeked;
     this.lastPeek = peek;
 

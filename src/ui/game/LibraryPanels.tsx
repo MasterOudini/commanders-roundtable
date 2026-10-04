@@ -180,7 +180,8 @@ export function PeekPanel() {
    */
   const prompt =
     // D416 - the hand reveal's pick is answered on this panel too: the owner's revealed hand is the peek.
-    awaiting?.kind === 'chooseFromZone' && awaiting.player === viewer && (awaiting.zone === 'library' || awaiting.owner !== undefined)
+    // D622 - and the mill's pick: the milled cards the noun admits are the peek.
+    awaiting?.kind === 'chooseFromZone' && awaiting.player === viewer && (awaiting.zone === 'library' || awaiting.zone === 'graveyard' || awaiting.owner !== undefined)
       ? ({ kind: 'pick', count: awaiting.count, min: awaiting.min ?? awaiting.count, filter: awaiting.filter ?? null, none: awaiting.none ?? [], label: awaiting.label } as const)
       : awaiting?.kind === 'orderCards' && awaiting.player === viewer
         ? ({ kind: 'order', count: awaiting.count, label: awaiting.label, to: awaiting.destination } as const)
