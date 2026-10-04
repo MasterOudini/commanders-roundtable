@@ -7,6 +7,7 @@
 // priority — wait for her to pass" is the message.
 
 import { inPlay } from './zones';
+import { libraryTop, playsFromTop } from './topOfLibrary';
 import { askPromptFor, resumeReplacementFunnel, revealAdmits, runReplacementFunnel, withoutDiverted } from './triggers';
 import {
   legalDefenders,
@@ -383,7 +384,9 @@ function playLand(
   }
   // D417 - a land in exile under a play permission is played as though from the hand.
   const permitted = card.zone.kind === 'exile' && state.playPermissions.some((p) => p.card === intent.card && p.player === intent.player);
-  if (!permitted && (card.zone.kind !== 'hand' || card.zone.player !== intent.player)) {
+  // D623 - the top of the player's own library, under a permanent's permission (its face is asked below, once known).
+  const topCard = card.zone.kind === 'library' && card.zone.player === intent.player && libraryTop(state, intent.player) === intent.card;
+  if (!permitted && !topCard && (card.zone.kind !== 'hand' || card.zone.player !== intent.player)) {
     return reject('wrongZone', 'That card is not in your hand.');
   }
   if (p.landsPlayedThisTurn >= p.maxLandsPerTurn) {
@@ -400,6 +403,7 @@ function playLand(
   }
   const face = faceOf(oracleCard, faceIndex);
   if (!face.isLand) return reject('notALand', `${face.name} is not a land.`);
+  if (topCard && !playsFromTop(state, deps.oracle, deps.scripts, intent.player, intent.card, face)) return reject('wrongZone', `${face.name} is on top of your library, and nothing lets you play it from there.`);
 
   return accept([
     {
@@ -407,7 +411,7 @@ function playLand(
       moves: [
         {
           card: intent.card,
-          from: permitted ? { kind: 'exile' as const, player: card.zone.player } : { kind: 'hand' as const, player: intent.player },
+          from: permitted ? { kind: 'exile' as const, player: card.zone.player } : topCard ? { kind: 'library' as const, player: intent.player } : { kind: 'hand' as const, player: intent.player },
           to: { kind: 'battlefield', player: intent.player },
           // ⚠️ ON THE MOVE, so the replacement funnel — which reads the state
           // BEFORE this event — can see that `Malakir Mire` enters tapped and
@@ -1054,7 +1058,10 @@ function prepareCast(
   // D616 - a card ON AN ADVENTURE: exile is a place to cast it from, as its creature face, for the player who cast the
   // Adventure (CR 715.4 - never as the Adventure again).
   const adventurer = from.kind === 'exile' && !faceDown && !free && faceIndex === 0 && castsAdventurer(state, cardId, player);
-  if (from.kind !== 'hand' && from.kind !== 'command' && !flashback && graveyardCast === null && !harmonized && !permitted && !foretold && !madnessCast && !warped && !plotted && !adventurer) {
+  // D623 - THE TOP OF THE LIBRARY: a place to cast from while a permanent the player controls lets them (the card IS the
+  // top, the noun admits its face) - at its own speed, for its mana cost.
+  const fromTop = from.kind === 'library' && !faceDown && !free && playsFromTop(state, deps.oracle, deps.scripts, player, cardId, face);
+  if (from.kind !== 'hand' && from.kind !== 'command' && !flashback && graveyardCast === null && !harmonized && !permitted && !foretold && !madnessCast && !warped && !plotted && !adventurer && !fromTop) {
     return { error: reject('wrongZone', `${face.name} is not somewhere you can cast it from.`) };
   }
   if (from.player !== player && !permitted && !adventurer) return { error: reject('wrongZone', 'That is not your card.') };

@@ -4,6 +4,7 @@ import { CommandZone } from './CommandZone';
 import { PlayerPlate } from '../hud/PlayerPlate';
 import { podSlot, register, zoneSlot, type FrozenRect } from '../anim/rectRegistry';
 import { useDrag, type DropCheck } from '../../store/dragStore';
+import { useTable } from '../../store/tableStore';
 import { useHandDrag } from './useHandDrag';
 import { SQUEEZE_FLOOR_H } from './metrics';
 import type { PointerEvent as ReactPointerEvent } from 'react';
@@ -85,6 +86,9 @@ export function PlayerPod({
   const dragging = useDrag((s) => mine && s.phase === 'dragging');
   const dropOk = useDrag((s) => mine && s.phase === 'dragging' && s.over && s.ok);
   const dropRefused = useDrag((s) => mine && s.phase === 'dragging' && s.over && !s.ok);
+  // D623 - the library's top card a permanent's permission shows this viewer, and whether the host offers to play it.
+  const libTop = view.seats[player]?.libraryTop;
+  const libTopPlayable = useTable((s) => !!libTop && s.legal.some((a) => (a.t === 'CastSpell' || a.t === 'PlayLand') && a.card === libTop));
 
   // ⚠️ THE PILE BLOCK IS SOLVED, NOT ASSUMED.
   //
@@ -336,6 +340,8 @@ export function PlayerPod({
             kind="lib"
             height={zoneH}
             faceDown
+            {...(libTop ? { revealedTop: libTop } : {})}
+            {...(mine && onCardClick && libTop && libTopPlayable ? { onTopClick: (id: InstanceId) => onCardClick(id) } : {})}
             {...(onZoneClick ? { onClick: () => onZoneClick(player, 'lib') } : {})}
           />
           <ZonePile

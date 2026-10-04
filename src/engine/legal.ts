@@ -7,6 +7,7 @@
 // and the drift shows up as a card that lights up but cannot be cast.
 
 import { inPlay } from './zones';
+import { libraryTop, playsFromTop } from './topOfLibrary';
 import { faceOf } from './oracle';
 import { parseManaCost } from '../data/oracleParse';
 import { castReduction } from './costs';
@@ -481,6 +482,26 @@ function offeredActions(
       }
       const action = castAction(state, oracle, scripts, perm.card, faceIndex, { kind: 'exile', player: inst.zone.player ?? player }, context, sorcerySpeed);
       if (action) out.push(action);
+    }
+  }
+
+  // D623 - THE TOP OF THE LIBRARY: the top card of the player's own library, offered while a permanent they control lets
+  // them play it (`playsFromTop` - the land play's and the cast's own check) - a land with the land drop, a spell at its own
+  // speed, from the library.
+  {
+    const top = scripts.topOfLibrary().length > 0 ? libraryTop(state, player) : null;
+    const card = top !== null ? cardFor(state, oracle, top) : undefined;
+    if (top !== null && card) {
+      for (const faceIndex of castableFaces(card)) {
+        const face = faceOf(card, faceIndex);
+        if (!playsFromTop(state, oracle, scripts, player, top, face)) continue;
+        if (face.isLand) {
+          if (canLand) out.push({ t: 'PlayLand', card: top, faceIndex, label: face.name });
+          continue;
+        }
+        const action = castAction(state, oracle, scripts, top, faceIndex, { kind: 'library', player }, context, sorcerySpeed);
+        if (action) out.push(action);
+      }
     }
   }
 

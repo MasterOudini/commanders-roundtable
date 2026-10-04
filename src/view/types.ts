@@ -208,6 +208,11 @@ export interface SeatView {
   speed?: number;
   /** D620 - the city's blessing (CR 702.131c), public: shown on the plate once had. */
   citysBlessing?: boolean;
+  /**
+   * D623 - the top card of this seat's library, when this VIEWER may see it: its owner under a permanent's look (or a
+   * permission to play it), every seat under a reveal. Absent otherwise - the library stays hidden (D61).
+   */
+  libraryTop?: InstanceId;
   /** D521 - the Ring's temptations (CR 701.54): the count that gates the emblem, and the Ring-bearer, shown on the plate. */
   ringTempts: number;
   ringBearer: InstanceId | null;

@@ -11152,6 +11152,18 @@ const WANTED = [
   'Leyline Dowser',
   'Bramble Familiar // Fetch Quest',
   // D622 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D623 - THE TOP OF THE LIBRARY: the rows the whole-leftover row maker rowed once a look at, a reveal of and a permission to play the top card of the library were a def the engine consults (TopOfLibraryDef).
+  'Radha, Heart of Keld',
+  'Future Sight',
+  'Courser of Kruphix',
+  "Garruk's Horde",
+  'Sphinx of Jwar Isle',
+  'Magus of the Future',
+  'Emperor Mihail II',
+  'Korlessa, Scale Singer',
+  'Goblin Spy',
+  'Hakoda, Selfless Commander',
+  // D623 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

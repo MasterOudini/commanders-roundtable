@@ -181,6 +181,8 @@ export function lineClaims(scripts: readonly CardScript[]): ReadonlyMap<string, 
       ...(s.combat ?? []),
       // D385 - a continuous prevention effect is a line the funnel consults (CR 615).
       ...(s.prevention ?? []),
+      // D623 - a library-top permission is a line the offers, the cast and the projection consult.
+      ...(s.topOfLibrary ?? []),
       // D336 - the can't-be-countered claim is a line the funnel consults.
       ...(s.cantBeCountered ? [s.cantBeCountered] : []),
     ];

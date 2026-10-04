@@ -32,6 +32,7 @@
 
 import type { CardData, ColorLetter } from '../data/cardTypes';
 import { derive, makeDeriveCache } from './derive';
+import { libraryTop, seesTop } from './topOfLibrary';
 import { render } from './narrate';
 import type { ScriptRegistry } from './scripts/registry';
 import type { InstanceId, PlayerId } from './types/ids';
@@ -79,6 +80,8 @@ export class Projector {
   private lastPeek: InstanceId[] | null = null;
   /** Rendered log rows by line id. A narration line never changes once written. */
   private readonly lastLog = new Map<number, LogEntry>();
+  /** D623 - the library tops this viewer sees, read once per projection before any card is emitted (see `canSee`). */
+  private topSeen: ReadonlySet<InstanceId> = new Set();
 
   constructor(
     private readonly oracle: OracleDb,
@@ -89,6 +92,13 @@ export class Projector {
   project(state: GameState): PlayerView {
     const viewer = this.viewer;
     const cache = makeDeriveCache(state);
+    // D623 - the library tops a permanent's permission opens to this viewer (a look - its owner; a reveal - every seat).
+    const tops = new Map<PlayerId, InstanceId>();
+    for (const p of state.seating) {
+      const top = libraryTop(state, p);
+      if (top !== null && seesTop(state, this.oracle, this.scripts, viewer, p)) tops.set(p, top);
+    }
+    this.topSeen = new Set(tops.values());
     const base = emptyView(viewer);
 
     const cards: Record<InstanceId, CardView> = {};
@@ -221,6 +231,11 @@ export class Projector {
       if (!inst.revealedTo.includes(viewer)) continue;
       emit(inst);
     }
+    // D623 - and each library top a permission opens to this viewer (once - a card revealed to it is emitted above).
+    for (const top of tops.values()) {
+      const inst = state.cards[top];
+      if (inst && !inst.revealedTo.includes(viewer)) emit(inst);
+    }
 
     // ── What I am looking at off the top of my own library ────────────────────
     //
@@ -287,6 +302,7 @@ export class Projector {
         energy: player.energy,
         ...(player.speed !== undefined ? { speed: player.speed } : {}),
         ...(player.citysBlessing === true ? { citysBlessing: true } : {}),
+        ...(tops.has(p) ? { libraryTop: tops.get(p) as InstanceId } : {}),
         ringTempts: player.ringTempts,
         ringBearer: player.ringBearer,
         isMonarch: state.monarch === p,
@@ -381,7 +397,8 @@ export class Projector {
     if (inst.revealedTo.includes(this.viewer)) return true;
     switch (inst.zone.kind) {
       case 'library':
-        return false;
+        // D623 - a library top a permission opens to this viewer.
+        return this.topSeen.has(inst.id);
       case 'hand':
         return inst.zone.player === this.viewer;
       case 'exile':
@@ -484,6 +501,7 @@ function sameSeatView(a: SeatView, b: SeatView): boolean {
     a.energy === b.energy &&
     a.speed === b.speed &&
     a.citysBlessing === b.citysBlessing &&
+    a.libraryTop === b.libraryTop &&
     a.ringTempts === b.ringTempts &&
     a.ringBearer === b.ringBearer &&
     a.isMonarch === b.isMonarch &&

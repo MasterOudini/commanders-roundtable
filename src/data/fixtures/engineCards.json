@@ -338727,6 +338727,349 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "RADHA_HEART_OF_KELD": {
+    "scryfallId": "06659985-c6eb-4281-8ff5-8bda7d252f44",
+    "oracleId": "927fb139-0493-48be-8cc4-2c7d854d6a55",
+    "name": "Radha, Heart of Keld",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Radha, Heart of Keld",
+        "manaCost": "{1}{R}{G}",
+        "typeLine": "Legendary Creature — Elf Warrior",
+        "oracleText": "During your turn, Radha has first strike.\nYou may look at the top card of your library any time, and you may play lands from the top of your library.\n{4}{R}{G}: Radha gets +X/+X until end of turn, where X is the number of lands you control.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Chris Rahn",
+        "imageId": "06659985-c6eb-4281-8ff5-8bda7d252f44"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "pm21",
+    "collectorNumber": "224s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FUTURE_SIGHT": {
+    "scryfallId": "0856f657-6664-4e33-8615-e005cb211baf",
+    "oracleId": "93a0e938-b916-47ec-9803-369e885e253c",
+    "name": "Future Sight",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Future Sight",
+        "manaCost": "{2}{U}{U}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Play with the top card of your library revealed.\nYou may play lands and cast spells from the top of your library.",
+        "flavorText": "\"My past holds only pain and loss. I will conquer it by creating the perfect future.\"\n—Ixidor, reality sculptor",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Matt Cavotta",
+        "imageId": "0856f657-6664-4e33-8615-e005cb211baf"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "mb2",
+    "collectorNumber": "122",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COURSER_OF_KRUPHIX": {
+    "scryfallId": "08784b79-570d-495c-a05e-d5fe3e876a97",
+    "oracleId": "46779609-4fa7-4fd2-b5b4-7d4d749339e6",
+    "name": "Courser of Kruphix",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Courser of Kruphix",
+        "manaCost": "{1}{G}{G}",
+        "typeLine": "Enchantment Creature — Centaur",
+        "oracleText": "Play with the top card of your library revealed.\nYou may play lands from the top of your library.\nLandfall — Whenever a land you control enters, you gain 1 life.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Eric Deschamps",
+        "imageId": "08784b79-570d-495c-a05e-d5fe3e876a97"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Landfall"
+    ],
+    "setCode": "ea2",
+    "collectorNumber": "15",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GARRUK_S_HORDE": {
+    "scryfallId": "0ba8a33b-af5f-4442-8ba2-e83a60b9860a",
+    "oracleId": "b9da511e-a57f-43c2-aa97-902f3b4c55fb",
+    "name": "Garruk's Horde",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Garruk's Horde",
+        "manaCost": "{5}{G}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Trample\nPlay with the top card of your library revealed.\nYou may cast creature spells from the top of your library. (Do this only any time you could cast that creature spell. You still pay the spell's costs.)",
+        "flavorText": null,
+        "power": "7",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "0ba8a33b-af5f-4442-8ba2-e83a60b9860a"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "41636",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPHINX_OF_JWAR_ISLE": {
+    "scryfallId": "1304a4e9-fd62-4b97-b652-b4ebc0f6ebe8",
+    "oracleId": "3951f13e-f6dd-4d67-a088-23925baaf99b",
+    "name": "Sphinx of Jwar Isle",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sphinx of Jwar Isle",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Creature — Sphinx",
+        "oracleText": "Flying\nShroud (This creature can't be the target of spells or abilities.)\nYou may look at the top card of your library any time.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Justin Sweet",
+        "imageId": "1304a4e9-fd62-4b97-b652-b4ebc0f6ebe8"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Shroud"
+    ],
+    "setCode": "c14",
+    "collectorNumber": "126",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAGUS_OF_THE_FUTURE": {
+    "scryfallId": "27ba1ea5-c861-4bb4-a681-fc0633268bd9",
+    "oracleId": "10758aa7-0f64-499f-8010-514e8fc31b7e",
+    "name": "Magus of the Future",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Magus of the Future",
+        "manaCost": "{2}{U}{U}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Play with the top card of your library revealed.\nYou may play lands and cast spells from the top of your library.",
+        "flavorText": "Those gifted with the sight have one eye in the present and the other in the future.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Anthony Francisco",
+        "imageId": "27ba1ea5-c861-4bb4-a681-fc0633268bd9"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "tsr",
+    "collectorNumber": "75",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EMPEROR_MIHAIL_II": {
+    "scryfallId": "29048fa7-8bb7-4763-87ad-6198445add3f",
+    "oracleId": "6c901ff4-15c3-468f-9a1b-4c69a7bbc31a",
+    "name": "Emperor Mihail II",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Emperor Mihail II",
+        "manaCost": "{1}{U}{U}",
+        "typeLine": "Legendary Creature — Merfolk Noble",
+        "oracleText": "You may look at the top card of your library any time.\nYou may cast Merfolk spells from the top of your library.\nWhenever you cast a Merfolk spell, you may pay {1}. If you do, create a 1/1 blue Merfolk creature token.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "PINDURSKI",
+        "imageId": "29048fa7-8bb7-4763-87ad-6198445add3f"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "dmc",
+    "collectorNumber": "73",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KORLESSA_SCALE_SINGER": {
+    "scryfallId": "291690bd-840a-4520-9e3f-a2fd12d16a79",
+    "oracleId": "2ceac1be-32ab-4a04-ade3-852926a5ca45",
+    "name": "Korlessa, Scale Singer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Korlessa, Scale Singer",
+        "manaCost": "{G}{U}",
+        "typeLine": "Legendary Creature — Dragon Bard",
+        "oracleText": "You may look at the top card of your library any time.\nYou may cast Dragon spells from the top of your library.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "291690bd-840a-4520-9e3f-a2fd12d16a79"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "hbg",
+    "collectorNumber": "238",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_SPY": {
+    "scryfallId": "2a89a099-8805-4b26-babd-5d9f48ee406a",
+    "oracleId": "5f1e8aa2-6b85-4e2e-92e4-876470447d6f",
+    "name": "Goblin Spy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Spy",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Goblin Rogue",
+        "oracleText": "Play with the top card of your library revealed.",
+        "flavorText": "\"Isn't he on our side?\"\n\"Yep.\"\n\"Why's he spyin' on us?\"\n\"Don't ask.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Scott M. Fischer",
+        "imageId": "2a89a099-8805-4b26-babd-5d9f48ee406a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "inv",
+    "collectorNumber": "145",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HAKODA_SELFLESS_COMMANDER": {
+    "scryfallId": "3fdb2f5f-c881-4c10-8787-d37a4ee57aa4",
+    "oracleId": "de3a469a-e38b-456b-994d-abec1b010e42",
+    "name": "Hakoda, Selfless Commander",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hakoda, Selfless Commander",
+        "manaCost": "{3}{W}",
+        "typeLine": "Legendary Creature — Human Warrior Ally",
+        "oracleText": "Vigilance\nYou may look at the top card of your library any time.\nYou may cast Ally spells from the top of your library.\nSacrifice Hakoda: Creatures you control get +0/+5 and gain indestructible until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Rafater",
+        "imageId": "3fdb2f5f-c881-4c10-8787-d37a4ee57aa4"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "tla",
+    "collectorNumber": "366",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

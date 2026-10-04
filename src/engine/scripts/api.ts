@@ -15,6 +15,7 @@
 // from `state.rng` — so even a coin-flip card replays bit-exactly.
 
 import type { ColorLetter } from '../../data/cardTypes';
+import type { PermanentPredicate } from '../../data/replacementParse';
 import type { EventBody, EventKind, ResolvedDamage } from '../types/events';
 import type { AbilityRef, InstanceId, OracleId, PlayerId, ZoneKind } from '../types/ids';
 import type { ActivatedAbility, DerivedCharacteristics, EffectSpec, GrantedActivated, GrantedTriggered, Keyword, ManaProduction, ModeDecl, OracleDb, ParsedTypeLine, Protection, TargetSpec, WardCharge } from '../types/oracle';
@@ -482,6 +483,23 @@ export function defOnFace(def: { readonly face?: number }, faceIndex: number | u
   return def.face === undefined || (faceIndex ?? 0) === def.face;
 }
 
+/**
+ * D623 - PLAYING FROM THE TOP OF THE LIBRARY: a permanent's continuous permission over its controller's library top -
+ * `You may look at the top card of your library any time.` (`look`), `Play with the top card of your library revealed.`
+ * (`revealed`), `You may play lands from the top of your library.` (`lands`) and `You may cast <noun> spells from the top of your
+ * library.` (`spells`: `'any'`, or the noun's predicates - an alternative each - and its negations). A line the offers
+ * (`legal.ts`), the land play and the cast (`handlers.ts`) and the projection (`project.ts`) consult (`topOfLibrary.ts`).
+ */
+export interface TopOfLibraryDef {
+  readonly abilityId: string;
+  readonly face?: number;
+  readonly text: string;
+  readonly look?: true;
+  readonly revealed?: true;
+  readonly lands?: true;
+  readonly spells?: 'any' | { readonly predicates: readonly PermanentPredicate[]; readonly none?: readonly string[] };
+}
+
 export interface CardScript {
   readonly oracleId: OracleId;
   readonly name: string;
@@ -504,4 +522,6 @@ export interface CardScript {
    * which is why the rule lives there and nowhere else.
    */
   readonly cantBeCountered?: { readonly abilityId: string; readonly text: string };
+  /** D623 - the library-top permissions (look, reveal, play). See `TopOfLibraryDef`. */
+  readonly topOfLibrary?: readonly TopOfLibraryDef[];
 }

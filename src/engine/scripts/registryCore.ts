@@ -4,7 +4,7 @@
 // registry for a test or a game without loading the whole library - the cost
 // that made every isolated card suite pay for all 4,000 cards.
 
-import type { CardScript, CombatDef, PreventionDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
+import type { CardScript, CombatDef, PreventionDef, ReplacementDef, SpellDef, StaticDef, TopOfLibraryDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
 
@@ -40,6 +40,8 @@ export interface ScriptRegistry {
    * being non-empty is free only until the first def lands).
    */
   preventions(): readonly { readonly script: CardScript; readonly def: PreventionDef }[];
+  /** D623 - the library-top permissions. Also the GATE: empty means no game in this registry opens a library's top. */
+  topOfLibrary(): readonly { readonly script: CardScript; readonly def: TopOfLibraryDef }[];
   /** Whole-spell resolution for a resolving instant or sorcery. See `SpellDef`. */
   spell(oracleId: OracleId): SpellDef | undefined;
   readonly size: number;
@@ -54,6 +56,7 @@ class IndexedRegistry implements ScriptRegistry {
   private readonly reps: { script: CardScript; def: ReplacementDef }[] = [];
   private readonly combats: { script: CardScript; def: CombatDef }[] = [];
   private readonly prevents: { script: CardScript; def: PreventionDef }[] = [];
+  private readonly tops: { script: CardScript; def: TopOfLibraryDef }[] = [];
   private readonly spells = new Map<OracleId, SpellDef>();
 
   constructor(scripts: readonly CardScript[]) {
@@ -95,6 +98,7 @@ class IndexedRegistry implements ScriptRegistry {
       for (const def of script.replacements ?? []) this.reps.push({ script, def });
       for (const def of script.combat ?? []) this.combats.push({ script, def });
       for (const def of script.prevention ?? []) this.prevents.push({ script, def });
+      for (const def of script.topOfLibrary ?? []) this.tops.push({ script, def });
       if (script.spell) this.spells.set(script.oracleId, script.spell);
     }
   }
@@ -125,6 +129,10 @@ class IndexedRegistry implements ScriptRegistry {
 
   preventions(): readonly { readonly script: CardScript; readonly def: PreventionDef }[] {
     return this.prevents;
+  }
+
+  topOfLibrary(): readonly { readonly script: CardScript; readonly def: TopOfLibraryDef }[] {
+    return this.tops;
   }
 
   spell(oracleId: OracleId): SpellDef | undefined {

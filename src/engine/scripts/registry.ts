@@ -7,6 +7,16 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { RADHA_HEART_OF_KELD_SCRIPT } from './cards/radhaHeartOfKeld';
+import { FUTURE_SIGHT_SCRIPT } from './cards/futureSight';
+import { COURSER_OF_KRUPHIX_SCRIPT } from './cards/courserOfKruphix';
+import { GARRUKS_HORDE_SCRIPT } from './cards/garruksHorde';
+import { SPHINX_OF_JWAR_ISLE_SCRIPT } from './cards/sphinxOfJwarIsle';
+import { MAGUS_OF_THE_FUTURE_SCRIPT } from './cards/magusOfTheFuture';
+import { EMPEROR_MIHAIL_II_SCRIPT } from './cards/emperorMihailIi';
+import { KORLESSA_SCALE_SINGER_SCRIPT } from './cards/korlessaScaleSinger';
+import { GOBLIN_SPY_SCRIPT } from './cards/goblinSpy';
+import { HAKODA_SELFLESS_COMMANDER_SCRIPT } from './cards/hakodaSelflessCommander';
 import { EERIE_GRAVESTONE_SCRIPT } from './cards/eerieGravestone';
 import { SZAREKH_THE_SILENT_KING_SCRIPT } from './cards/szarekhTheSilentKing';
 import { RICK_JONES_DESTINED_SIDEKICK_SCRIPT } from './cards/rickJonesDestinedSidekick';
@@ -8979,6 +8989,16 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  RADHA_HEART_OF_KELD_SCRIPT,
+  FUTURE_SIGHT_SCRIPT,
+  COURSER_OF_KRUPHIX_SCRIPT,
+  GARRUKS_HORDE_SCRIPT,
+  SPHINX_OF_JWAR_ISLE_SCRIPT,
+  MAGUS_OF_THE_FUTURE_SCRIPT,
+  EMPEROR_MIHAIL_II_SCRIPT,
+  KORLESSA_SCALE_SINGER_SCRIPT,
+  GOBLIN_SPY_SCRIPT,
+  HAKODA_SELFLESS_COMMANDER_SCRIPT,
   EERIE_GRAVESTONE_SCRIPT,
   SZAREKH_THE_SILENT_KING_SCRIPT,
   RICK_JONES_DESTINED_SIDEKICK_SCRIPT,

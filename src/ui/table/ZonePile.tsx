@@ -4,7 +4,7 @@ import { register, zoneSlot } from '../anim/rectRegistry';
 import { useAnim } from '../../store/animStore';
 import { useDrag } from '../../store/dragStore';
 import type { CardData } from '../../data/cardTypes';
-import type { PlayerId, PlayerView, ZoneKind } from '../../view/types';
+import type { InstanceId, PlayerId, PlayerView, ZoneKind } from '../../view/types';
 import { zoneCards, zoneId } from '../../view/types';
 
 // Graveyard / exile / library / command zone. The top card plus a count.
@@ -46,6 +46,8 @@ export function ZonePile({
   sideways = false,
   onClick,
   onTopPointerDown,
+  revealedTop,
+  onTopClick,
 }: {
   view: PlayerView;
   player: PlayerId;
@@ -63,6 +65,12 @@ export function ZonePile({
    */
   sideways?: boolean;
   onClick?: () => void;
+  /**
+   * D623 - a library's top card a permanent's permission shows this viewer (`SeatView.libraryTop`): drawn face up on the
+   * pile, and - with `onTopClick` (my own, when the host offers to play it) - played from there by a click on the card.
+   */
+  revealedTop?: InstanceId;
+  onTopClick?: (id: InstanceId) => void;
   /**
    * Lets the TOP card of this pile be picked up and dragged — wired only for a
    * pile whose top card the player may actually play (their own command zone).
@@ -85,9 +93,11 @@ export function ZonePile({
 
   // The TOP of a pile is its last entry — a graveyard's newest card, the card a
   // draw takes off the library.
-  const topId = ids[ids.length - 1];
+  // D623 - a library top the view opens is the pile's top (the library's ids are never listed).
+  const topId = revealedTop ?? ids[ids.length - 1];
   const top = topId ? view.cards[topId] : undefined;
-  const topHidden = faceDown || !top?.card;
+  const topHidden = (faceDown && !revealedTop) || !top?.card;
+  const topClick = !!onTopClick && !!revealedTop && !topHidden;
   const width = Math.round(height * (745 / 1040));
 
   // A card being dragged out of this pile is drawn by the drag layer instead, so
@@ -156,7 +166,10 @@ export function ZonePile({
             )}
 
             <div
-              className={`absolute inset-0 ${draggable ? 'cursor-grab active:cursor-grabbing' : ''}`}
+              className={`absolute inset-0 ${draggable ? 'cursor-grab active:cursor-grabbing' : topClick ? 'cursor-pointer' : ''}`}
+              {...(topClick && revealedTop && onTopClick
+                ? { onClick: (e: { stopPropagation: () => void }) => { e.stopPropagation(); onTopClick(revealedTop); }, 'data-top-playable': zone }
+                : {})}
               {...(draggable
                 ? {
                   onPointerDown: (e: ReactPointerEvent) =>
