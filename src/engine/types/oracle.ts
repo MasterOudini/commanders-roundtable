@@ -183,6 +183,8 @@ export const TIER2_KEYWORDS = [
   // D310 - THE CHARACTERISTIC-DEFINING KEYWORDS: read at layer 1 by the derive.
   'changeling',
   'devoid',
+  // D615 - START YOUR ENGINES! (CR 702.179a): a player with no speed who controls a permanent with it has speed 1.
+  'startYourEngines',
 ] as const;
 
 export type Keyword = (typeof TIER2_KEYWORDS)[number];
@@ -680,6 +682,8 @@ export type CountExpr =
    * existed when the cost moved it (`StackObject.sourceCounters`, CR 608.2h). Gone with no stamp counts zero.
    */
   | { readonly kind: 'selfCounters'; readonly counter: string }
+  /** D615 - `where X is your speed`, `equal to your speed` (CR 702.179): the controller's speed; none counts zero. */
+  | { readonly kind: 'speed' }
   | { readonly kind: 'diedThisTurn' }
   | { readonly kind: 'party' }
   | { readonly kind: 'players'; readonly who: 'opponents' | 'any' }
@@ -1802,6 +1806,8 @@ export type ActivationCondition =
    * nobody's). Read off `state.monarch`, so a gated clause and an `Activate only if` line ask the same question.
    */
   | { readonly kind: 'monarch'; readonly who: 'you' | 'opponent' | 'none' }
+  /** D615 - `Max speed — <ability>` (CR 702.179): the ability exists while its controller's speed is 4. */
+  | { readonly kind: 'maxSpeed' }
   /** D527 - `if you win` (a clash, CR 701.10): the resolution's own verdict, never the board - `gateHolds` alone answers it. */
   | { readonly kind: 'clashWon' }
   /** D534 - `if you win the flip` / `if you lose the flip`: the coin flip's verdict, asked of the resolution itself. */

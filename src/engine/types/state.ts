@@ -148,6 +148,11 @@ export interface PlayerState {
    */
   readonly energy: number;
   /**
+   * D615 - SPEED (CR 702.179): absent until a permanent with start your engines! gives it (1); it rises by one once
+   * each of the player's turns when an opponent loses life, never past 4 (max speed). Absent on every older log.
+   */
+  readonly speed?: number;
+  /**
    * D521 - THE RING TEMPTS YOU (CR 701.54): how many times the Ring has tempted this player this game (0 at setup),
    * and their Ring-bearer - a creature they control, or null (a temptation with no creature still counts; the bearer
    * stops being one when another creature is chosen, when it leaves the battlefield or when another player gains
@@ -1693,6 +1698,10 @@ export interface TurnMemory {
   /** D398 - how much life each player gained / lost this turn; `gainedLife` / `lostLife` above say only WHETHER. */
   readonly lifeGained: Readonly<Record<PlayerId, number>>;
   readonly lifeLost: Readonly<Record<PlayerId, number>>;
+  /** D615 - the active player whose opponent lost life while they had speed below 4 this turn: the state check raises it. */
+  readonly speedOwed?: Readonly<Record<PlayerId, true>>;
+  /** D615 - the players whose speed already rose this turn (CR 702.179: once each turn). */
+  readonly speedRaised?: Readonly<Record<PlayerId, true>>;
   /**
    * D398 - the cards put into each player's graveyard from ANYWHERE this turn
    * ("if you descended this turn" - a permanent card put into your graveyard from

@@ -360,6 +360,8 @@ const ABILITY_WORD_RE = /^(?:Bloodrush|Channel|Threshold|Hellbent|Metalcraft|Del
 const EXHAUST_RE = /^Exhaust — /;
 /** D458 - the boast word before the cost (CR 702.142): read into `ActivatedAbility.boast` + `oncePerTurn`. */
 const BOAST_RE = /^Boast — /;
+/** D615 - `Max speed — ` before the cost (CR 702.179): the ability exists while its controller's speed is 4 - read into `activateOnly`. */
+const MAX_SPEED_RE = /^Max speed — /;
 function costParts(costText: string): string[] {
   return costText
     .replace(ABILITY_WORD_RE, '')
@@ -959,7 +961,9 @@ export function parseActivatedAbilities(
     const exhaust = EXHAUST_RE.test(line.costText);
     // D458 - and the boast word the same way (attacked this turn, once each turn - the rules ride the flags).
     const boast = BOAST_RE.test(line.costText);
-    const parts = costParts(exhaust ? line.costText.replace(EXHAUST_RE, '') : boast ? line.costText.replace(BOAST_RE, '') : line.costText);
+    // D615 - the max speed word, the exhaust word's shape: the condition rides `activateOnly`, the cost is read behind it.
+    const maxSpeed = MAX_SPEED_RE.test(line.costText);
+    const parts = costParts(exhaust ? line.costText.replace(EXHAUST_RE, '') : boast ? line.costText.replace(BOAST_RE, '') : maxSpeed ? line.costText.replace(MAX_SPEED_RE, '') : line.costText);
     const manaSymbols: string[] = [];
     const unpaidCosts: string[] = [];
     let requiresTap = false;
@@ -1291,7 +1295,7 @@ export function parseActivatedAbilities(
       oncePerTurn: ONCE_PER_TURN_RE.test(line.text) || activation.oncePerTurn || boast,
       ...(exhaust ? { exhaust: true as const } : {}),
       ...(boast ? { boast: true as const } : {}),
-      activateOnly: activation.conditions,
+      activateOnly: maxSpeed ? [{ kind: 'maxSpeed' as const }, ...activation.conditions] : activation.conditions,
       // The same clause parser the spell path uses — one grammar, not two.
       // Measured: 6,082 ability lines contain a target clause.
       targets: parseTargetClauses(line.effectText, warn),

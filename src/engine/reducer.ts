@@ -140,7 +140,18 @@ export const EMPTY_TURN_MEMORY: TurnMemory = {
  * record saw life move only through `LifeChanged`, so "an opponent lost life this
  * turn" was false after every unblocked attack.
  */
-function recordDamage(memory: TurnMemory, damages: readonly ResolvedDamage[]): TurnMemory {
+/**
+ * D615 - the speed owed: an opponent of the active player lost life while that player had speed below 4 and no rise
+ * yet this turn (CR 702.179) - the state check raises it. A player with no speed is owed nothing.
+ */
+export function oweSpeed(state: GameState, memory: TurnMemory, lost: PlayerId): TurnMemory {
+  const active = state.turn.activePlayer;
+  if (lost === active) return memory;
+  const speed = state.players[active]?.speed;
+  if (speed === undefined || speed >= 4 || memory.speedRaised?.[active] === true || memory.speedOwed?.[active] === true) return memory;
+  return { ...memory, speedOwed: { ...(memory.speedOwed ?? {}), [active]: true } };
+}
+function recordDamage(memory: TurnMemory, damages: readonly ResolvedDamage[], state?: GameState): TurnMemory {
   let m = memory;
   for (const d of damages) {
     if (d.amount <= 0) continue;
@@ -149,6 +160,7 @@ function recordDamage(memory: TurnMemory, damages: readonly ResolvedDamage[]): T
       m = { ...m, damaged: { ...m.damaged, [id]: (m.damaged[id] ?? 0) + d.amount } };
       if (d.applyAs !== 'poison') {
         m = { ...m, lostLife: { ...m.lostLife, [id]: true }, lifeLost: { ...m.lifeLost, [id]: (m.lifeLost[id] ?? 0) + d.amount } };
+        if (state) m = oweSpeed(state, m, id); // D615
       }
     }
     if (d.lifelinkTo) {
@@ -940,7 +952,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
       const m = state.turn.memory;
       const memory =
         body.delta < 0
-          ? { ...m, lostLife: { ...m.lostLife, [body.player]: true }, lifeLost: { ...m.lifeLost, [body.player]: (m.lifeLost[body.player] ?? 0) - body.delta } }
+          ? oweSpeed(state, { ...m, lostLife: { ...m.lostLife, [body.player]: true }, lifeLost: { ...m.lifeLost, [body.player]: (m.lifeLost[body.player] ?? 0) - body.delta } }, body.player)
           : body.delta > 0
             ? { ...m, gainedLife: { ...m.gainedLife, [body.player]: true }, lifeGained: { ...m.lifeGained, [body.player]: (m.lifeGained[body.player] ?? 0) + body.delta } }
             : m;
@@ -957,6 +969,15 @@ function applyBody(state: GameState, body: EventBody): GameState {
     // D519 - energy counters: the event carries the total, exactly as poison does.
     case 'EnergyChanged':
       return withPlayer(state, body.player, { energy: body.to });
+    // D615 - the speed (CR 702.179); a rise is the turn's one (`speedRaised`), the owe it answered cleared.
+    case 'SpeedChanged': {
+      const next = withPlayer(state, body.player, { speed: body.to });
+      if (body.reason !== 'raise') return next;
+      const m = next.turn.memory;
+      const owed = { ...(m.speedOwed ?? {}) };
+      delete owed[body.player];
+      return { ...next, turn: { ...next.turn, memory: { ...m, speedOwed: owed, speedRaised: { ...(m.speedRaised ?? {}), [body.player]: true } } } };
+    }
     // D521 - the Ring tempted a player: the count and the bearer the event carries (null when no creature was held).
     case 'RingTempted':
       return withPlayer(state, body.player, { ringTempts: body.times, ringBearer: body.bearer });
@@ -1497,7 +1518,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
         : null;
       // D398 - the turn remembers combat damage dealt to a player (Bloodthirst).
       // D566 - and which sources dealt it, under whose control (freerunning).
-      return { ...marked, combat, turn: { ...marked.turn, memory: recordCombatDamagers(recordDamage(marked.turn.memory, body.damages), body.damages, state.cards) } };
+      return { ...marked, combat, turn: { ...marked.turn, memory: recordCombatDamagers(recordDamage(marked.turn.memory, body.damages, state), body.damages, state.cards) } };
     }
 
     // D462 - a creature entering attacking joins the attackers as an unblocked one (the turn record's
@@ -1548,7 +1569,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
     case 'DamageDealt': {
       // D398 - the turn remembers damage dealt to a player (Bloodthirst).
       const dealt = applyDamage(state, body.damages);
-      return { ...dealt, turn: { ...dealt.turn, memory: recordDamage(dealt.turn.memory, body.damages) } };
+      return { ...dealt, turn: { ...dealt.turn, memory: recordDamage(dealt.turn.memory, body.damages, state) } };
     }
 
     // D402 - a delayed trigger armed: kept until its step begins (see `collectTriggers`).

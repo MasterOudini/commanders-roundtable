@@ -245,6 +245,8 @@ export type SbaAction =
   /** D469 - CR 122.1i: lethal damage met a shield counter: the counter removed instead, the damage still marked. */
   | { readonly t: 'shielded'; readonly card: InstanceId }
   | { readonly t: 'counterAnnihilation'; readonly card: InstanceId; readonly amount: number }
+  /** D615 - a player's speed started (the keyword) or rose (an opponent lost life on their turn). */
+  | { readonly t: 'speedChanges'; readonly player: PlayerId; readonly to: number }
   /**
    * CR 704.6d / 903.9a - a commander put into a graveyard or exile since the last check: its owner's standing answer
    * moved it to the command zone (`home`) or left it (`stays`), or the owner was asked (`asked`).
@@ -356,6 +358,8 @@ export type EventBody =
   | { readonly t: 'PoisonChanged'; readonly player: PlayerId; readonly delta: number; readonly to: number }
   /** D519 - energy counters gained or paid (CR 122.1): `to` is the player's total after, the reducer applies it. */
   | { readonly t: 'EnergyChanged'; readonly player: PlayerId; readonly delta: number; readonly to: number }
+  /** D615 - a player's speed (CR 702.179): started by the keyword, raised once a turn, or set by hand; `to` is the speed after. */
+  | { readonly t: 'SpeedChanged'; readonly player: PlayerId; readonly to: number; readonly reason: 'start' | 'raise' | 'manual' }
   /** D521 - the Ring tempted a player (CR 701.54): `times` is their count after, `bearer` the creature chosen (null when none). */
   | { readonly t: 'RingTempted'; readonly player: PlayerId; readonly times: number; readonly bearer: InstanceId | null }
   /**

@@ -212,6 +212,23 @@ function runManual(state: GameState, intent: ManualIntent, deps: EngineDeps): Ha
       ]);
     }
 
+    // D615 - a player's speed by hand (CR 702.179): 1 to 4 - speed is never lost once had, so there is no zero.
+    case 'ManualSetSpeed': {
+      const target = state.players[intent.target];
+      if (!target) return reject('noSuchPlayer', 'That player is not in this game.');
+      if (!Number.isInteger(intent.to) || intent.to < 1 || intent.to > 4) return reject('invalidAmount', 'Speed runs from 1 to 4.');
+      return accept([
+        marker(actor, 'speed', `${intent.target} ${intent.to}`),
+        { t: 'SpeedChanged', player: intent.target, to: intent.to, reason: 'manual' },
+        narrated(
+          n`${me} ${vb(actor, 'sets', 'set')} ${whoElse(state, actor, intent.target)} to speed ${intent.to}.`,
+          actor,
+          [],
+          true,
+        ),
+      ]);
+    }
+
     // D519 - energy counters, the poison tool's shape: never below zero.
     case 'ManualSetEnergy': {
       const target = state.players[intent.target];

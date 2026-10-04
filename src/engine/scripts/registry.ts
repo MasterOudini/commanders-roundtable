@@ -7,6 +7,24 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { STARTING_COLUMN_SCRIPT } from './cards/startingColumn';
+import { AVISHKAR_RACEWAY_SCRIPT } from './cards/avishkarRaceway';
+import { GAS_GUZZLER_SCRIPT } from './cards/gasGuzzler';
+import { BURNOUT_BASHTRONAUT_SCRIPT } from './cards/burnoutBashtronaut';
+import { PRIDE_OF_THE_ROAD_SCRIPT } from './cards/prideOfTheRoad';
+import { GASTAL_RAIDER_SCRIPT } from './cards/gastalRaider';
+import { AMONKHET_RACEWAY_SCRIPT } from './cards/amonkhetRaceway';
+import { RISEN_NECROREGENT_SCRIPT } from './cards/risenNecroregent';
+import { STREAKING_OILGORGER_SCRIPT } from './cards/streakingOilgorger';
+import { SWIFTWING_ASSAILANT_SCRIPT } from './cards/swiftwingAssailant';
+import { NESTING_BOT_SCRIPT } from './cards/nestingBot';
+import { MUTANT_SURVEYOR_SCRIPT } from './cards/mutantSurveyor';
+import { WALKING_SARCOPHAGUS_SCRIPT } from './cards/walkingSarcophagus';
+import { GASTAL_THRILLSEEKER_SCRIPT } from './cards/gastalThrillseeker';
+import { GLITCH_GHOST_SURVEYOR_SCRIPT } from './cards/glitchGhostSurveyor';
+import { LOXODON_SURVEYOR_SCRIPT } from './cards/loxodonSurveyor';
+import { LEONIN_SURVEYOR_SCRIPT } from './cards/leoninSurveyor';
+import { GOBLIN_SURVEYOR_SCRIPT } from './cards/goblinSurveyor';
 import { SNAKE_PIT_SCRIPT } from './cards/snakePit';
 import { VAT_OF_REBIRTH_SCRIPT } from './cards/vatOfRebirth';
 import { SKEMFAR_AVENGER_SCRIPT } from './cards/skemfarAvenger';
@@ -8860,6 +8878,24 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  STARTING_COLUMN_SCRIPT,
+  AVISHKAR_RACEWAY_SCRIPT,
+  GAS_GUZZLER_SCRIPT,
+  BURNOUT_BASHTRONAUT_SCRIPT,
+  PRIDE_OF_THE_ROAD_SCRIPT,
+  GASTAL_RAIDER_SCRIPT,
+  AMONKHET_RACEWAY_SCRIPT,
+  RISEN_NECROREGENT_SCRIPT,
+  STREAKING_OILGORGER_SCRIPT,
+  SWIFTWING_ASSAILANT_SCRIPT,
+  NESTING_BOT_SCRIPT,
+  MUTANT_SURVEYOR_SCRIPT,
+  WALKING_SARCOPHAGUS_SCRIPT,
+  GASTAL_THRILLSEEKER_SCRIPT,
+  GLITCH_GHOST_SURVEYOR_SCRIPT,
+  LOXODON_SURVEYOR_SCRIPT,
+  LEONIN_SURVEYOR_SCRIPT,
+  GOBLIN_SURVEYOR_SCRIPT,
   SNAKE_PIT_SCRIPT,
   VAT_OF_REBIRTH_SCRIPT,
   SKEMFAR_AVENGER_SCRIPT,

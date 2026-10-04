@@ -726,6 +726,14 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D615 - speed read (start your engines!, max speed); what stays is a card the row maker refuses for another reason.
+  ["Zahur, Glory's Past", 'the row maker: trigger payload not a pump: If you have max speed, create a tapped 2/2 black Zombie crea - its clause reads since D615 (D615)'],
+  ['Perilous Snare', 'the row maker: activation condition: as a sorcery. Activate only if you have max speed - its clause reads since D615 (D615)'],
+  ['Endrider Spikespitter', 'the row maker: an intervening if the upkeep head cannot carry (the turn between arming and firing clears it): maxSpeed - its clause reads since D615 (D615)'],
+  ["Racers' Scoreboard", 'the row maker: a conditional body outside the static vocabulary: spells you cast cost {1} less to cast - its clause reads since D615 (D615)'],
+  ['Embalmed Ascendant', 'the row maker: trigger payload not a pump: If you have max speed, each opponent loses 1 life and you ga - its clause reads since D615 (D615)'],
+  ['Hour of Victory', 'the row maker: activation condition: as a sorcery. Activate only if you have max speed - its clause reads since D615 (D615)'],
+  ['Aether Syphon', 'the row maker: trigger payload not a pump: If you have max speed, each opponent mills two cards. - its clause reads since D615 (D615)'],
   // D611 - the named self counter and the equal-to-the-number-of print read; what stays is a card the row maker refuses for another reason.
   ['Vent Sentinel', 'the row maker: a counted noun with a refinement the suite cannot stage: ~ deals damage to target player or planeswalker equal - its clause reads since D611 (D611)'],
   ['Graveblade Marauder', 'the row maker: a counted payload under a head whose arm sizes the board (combatDamagePlayer): Target player loses life equal  - its clause reads since D611 (D611)'],

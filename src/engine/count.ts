@@ -50,6 +50,9 @@ export function countOf(
       return Math.max(0, memo);
     case 'sacrificed':
       return Math.max(0, sacrificed?.[expr.stat] ?? 0);
+    // D615 - the controller's speed (CR 702.179); none counts zero.
+    case 'speed':
+      return Math.max(0, state.players[controller]?.speed ?? 0);
     case 'selfCounters': {
       // D611 - the source on the battlefield is read as it is; one the cost moved is read off the stamp (CR 608.2h).
       const inst = source !== null ? state.cards[source] : undefined;

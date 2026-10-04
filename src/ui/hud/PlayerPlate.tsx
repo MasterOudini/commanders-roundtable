@@ -119,6 +119,19 @@ export function PlayerPlate({
         </span>
       )}
 
+      {/* D615 - speed (CR 702.179): public, and the gate of every `Max speed` ability, so it is READABLE here (D122).
+          Shown once the player has any; max speed (4) says so. */}
+      {seat.speed !== undefined && (
+        <span
+          className="crt-num rounded px-1 text-xs tabular-nums text-crt-dim"
+          style={{ boxShadow: 'inset 0 0 0 1px currentColor' }}
+          title={seat.speed >= 4 ? 'Max speed (4)' : `Speed ${seat.speed} of 4`}
+          data-speed={player}
+        >
+          {seat.speed >= 4 ? 'MAX' : 'SPD'} {seat.speed}
+        </span>
+      )}
+
       {/* D521 - the Ring's temptations (CR 701.54): the count gates the emblem's abilities, so it is READABLE here
           (D122), with the Ring-bearer named. Shown only once the Ring has tempted the player. */}
       {seat.ringTempts > 0 && (

@@ -279,6 +279,7 @@ export class Projector {
         cmdDamage: commanderDamageByPlayer(state, p),
         poison: player.poison,
         energy: player.energy,
+        ...(player.speed !== undefined ? { speed: player.speed } : {}),
         ringTempts: player.ringTempts,
         ringBearer: player.ringBearer,
         isMonarch: state.monarch === p,
@@ -474,6 +475,7 @@ function sameSeatView(a: SeatView, b: SeatView): boolean {
     a.life === b.life &&
     a.poison === b.poison &&
     a.energy === b.energy &&
+    a.speed === b.speed &&
     a.ringTempts === b.ringTempts &&
     a.ringBearer === b.ringBearer &&
     a.isMonarch === b.isMonarch &&

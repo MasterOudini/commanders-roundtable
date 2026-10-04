@@ -333828,6 +333828,684 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "STREAKING_OILGORGER": {
+    "scryfallId": "6ff120a2-e2bb-42a2-bcb7-a48eb7a6d9b2",
+    "oracleId": "c163a95e-9414-4b8c-b5a2-1e7674530404",
+    "name": "Streaking Oilgorger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Streaking Oilgorger",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "Flying, haste\nStart your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.)\nMax speed — This creature has lifelink.",
+        "flavorText": "\"They feed on OIL? Where were they during the Phyrexian Invasion?!\"\n—Chandra Nalaar",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Campbell White",
+        "imageId": "6ff120a2-e2bb-42a2-bcb7-a48eb7a6d9b2"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Max speed",
+      "Haste",
+      "Start your engines!"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "107",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AMONKHET_RACEWAY": {
+    "scryfallId": "4f312807-ea2a-4385-8774-4e23b4a5d4a6",
+    "oracleId": "fe174586-d36b-40f6-babd-1f98e76eec22",
+    "name": "Amonkhet Raceway",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Amonkhet Raceway",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "Start your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.)\n{T}: Add {C}.\nMax speed — {T}: Target creature gains haste until end of turn.",
+        "flavorText": "Stage 2: The sands and waters of Amonkhet.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Brian Valeza",
+        "imageId": "4f312807-ea2a-4385-8774-4e23b4a5d4a6"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Max speed",
+      "Start your engines!"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "248",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THE_SPEED_DEMON": {
+    "scryfallId": "1c01f39f-0d69-4d4e-8afe-117b5763352c",
+    "oracleId": "c9fb22b4-dc22-4291-91f2-89c07cee7569",
+    "name": "The Speed Demon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "The Speed Demon",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Legendary Creature — Demon",
+        "oracleText": "Flying, trample\nStart your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.)\nAt the beginning of your end step, you draw X cards and lose X life, where X is your speed.",
+        "flavorText": "Caution is for those who falter.",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Helge C. Balzer",
+        "imageId": "1c01f39f-0d69-4d4e-8afe-117b5763352c"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Trample",
+      "Start your engines!"
+    ],
+    "setCode": "pdft",
+    "collectorNumber": "105s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STARTING_COLUMN": {
+    "scryfallId": "0530b343-98c2-440a-b32e-d1566d318c3b",
+    "oracleId": "d608a3fa-faee-44a4-9ab6-be701d3b7a49",
+    "name": "Starting Column",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Starting Column",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "Start your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.)\n{T}: Add one mana of any color.\nMax speed — {T}, Sacrifice this artifact: Draw two cards, then discard a card.",
+        "flavorText": "Ten teams. Ten dreams. One winner.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jakub Kasper",
+        "imageId": "0530b343-98c2-440a-b32e-d1566d318c3b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Max speed",
+      "Start your engines!"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "244",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AVISHKAR_RACEWAY": {
+    "scryfallId": "08a6b378-c7fa-4226-a310-4ee7e550b4d6",
+    "oracleId": "e2c35551-1ba5-4424-baf9-821b49bbcc8c",
+    "name": "Avishkar Raceway",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Avishkar Raceway",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "Start your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.)\n{T}: Add {C}.\nMax speed — {3}, {T}, Discard a card: Draw a card.",
+        "flavorText": "Stage 1: The winding streets of Ghirapur.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Julian Kok Joon Wen",
+        "imageId": "08a6b378-c7fa-4226-a310-4ee7e550b4d6"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Max speed",
+      "Start your engines!"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "249",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GAS_GUZZLER": {
+    "scryfallId": "13968f15-2cf4-49f4-991c-4bd8e75c1be0",
+    "oracleId": "7c98626b-ba97-4d1e-9be7-291480ae8d22",
+    "name": "Gas Guzzler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gas Guzzler",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Vampire Rogue",
+        "oracleText": "Start your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.)\nThis creature enters tapped.\nMax speed — {B}, Sacrifice another creature or Vehicle: Draw a card.",
+        "flavorText": "Gastal's vampires took fuel from the dead.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Yohann Schepacz",
+        "imageId": "13968f15-2cf4-49f4-991c-4bd8e75c1be0"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Max speed",
+      "Start your engines!"
+    ],
+    "setCode": "pdft",
+    "collectorNumber": "85p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BURNOUT_BASHTRONAUT": {
+    "scryfallId": "34092f45-2086-492e-ab48-fcf28c5fee95",
+    "oracleId": "1b122fbb-c2e1-42d1-bfc5-fcacacdfa0bc",
+    "name": "Burnout Bashtronaut",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Burnout Bashtronaut",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "Menace\nStart your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.)\n{2}: This creature gets +1/+0 until end of turn.\nMax speed — This creature has double strike.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Andrea Piparo",
+        "imageId": "34092f45-2086-492e-ab48-fcf28c5fee95"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Max speed",
+      "Menace",
+      "Start your engines!"
+    ],
+    "setCode": "pdft",
+    "collectorNumber": "115s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PRIDE_OF_THE_ROAD": {
+    "scryfallId": "4172222f-d871-4354-9a02-7af0001d8956",
+    "oracleId": "2af236b0-6b30-4ddc-8735-864d2ffad68e",
+    "name": "Pride of the Road",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pride of the Road",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Zombie Cat Warrior",
+        "oracleText": "Vigilance\nStart your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.)\nMax speed — At the beginning of combat on your turn, target creature or Vehicle you control gains double strike until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Alfonso Santano",
+        "imageId": "4172222f-d871-4354-9a02-7af0001d8956"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Max speed",
+      "Vigilance",
+      "Start your engines!"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GASTAL_RAIDER": {
+    "scryfallId": "4a8b12dd-2ce3-48a6-9ea7-7d5f155164c9",
+    "oracleId": "26c09127-8225-4ba2-9f97-f5558b1c41b5",
+    "name": "Gastal Raider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gastal Raider",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Vampire Rogue",
+        "oracleText": "Start your engines!\nWhen this creature enters, target opponent reveals their hand. You choose an instant or sorcery card from it. That player discards that card.\nMax speed — This creature gets +1/+1 and has menace.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Lorenzo Mastroianni",
+        "imageId": "4a8b12dd-2ce3-48a6-9ea7-7d5f155164c9"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Max speed",
+      "Start your engines!"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "418",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RISEN_NECROREGENT": {
+    "scryfallId": "5a68482a-401d-48e7-854e-46e3db07ff35",
+    "oracleId": "527cc22f-b471-4a84-93a8-be56193a9723",
+    "name": "Risen Necroregent",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Risen Necroregent",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Zombie Cat Knight",
+        "oracleText": "Start your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.)\nMax speed — At the beginning of your end step, create a 2/2 black Zombie creature token.",
+        "flavorText": "In life, she commanded the respect of her army. In death, she demands it.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Inkognit",
+        "imageId": "5a68482a-401d-48e7-854e-46e3db07ff35"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Max speed",
+      "Start your engines!"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "102",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SWIFTWING_ASSAILANT": {
+    "scryfallId": "72db9bb9-d930-40e5-b144-01ebfd377996",
+    "oracleId": "46b36d25-25bd-48c5-9a53-75230bb27dee",
+    "name": "Swiftwing Assailant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Swiftwing Assailant",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Bird Warrior",
+        "oracleText": "Flying\nStart your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.)\nMax speed — This creature gets +0/+1 and has vigilance.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Pig Hands",
+        "imageId": "72db9bb9-d930-40e5-b144-01ebfd377996"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Max speed",
+      "Start your engines!"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "32",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NESTING_BOT": {
+    "scryfallId": "7829c0ae-f72f-4195-ad43-775d7218565c",
+    "oracleId": "7ffb8c2e-1737-4df3-b310-384a5000bfa5",
+    "name": "Nesting Bot",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nesting Bot",
+        "manaCost": "{W}",
+        "typeLine": "Artifact Creature — Robot",
+        "oracleText": "Start your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.)\nWhen this creature dies, create a 1/1 colorless Servo artifact creature token.\nMax speed — This creature gets +1/+0.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Racrufi",
+        "imageId": "7829c0ae-f72f-4195-ad43-775d7218565c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Max speed",
+      "Start your engines!"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "22",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MUTANT_SURVEYOR": {
+    "scryfallId": "7cec5105-3907-40d2-8e46-95acfaaaa0cc",
+    "oracleId": "f35aace7-57b5-44b8-91d2-4710eb7d5548",
+    "name": "Mutant Surveyor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mutant Surveyor",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Mutant Scout",
+        "oracleText": "Start your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.)\n{2}: This creature gets +1/+1 until end of turn.\nMax speed — {3}, Exile this card from your graveyard: Draw a card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Nicholas Gregory",
+        "imageId": "7cec5105-3907-40d2-8e46-95acfaaaa0cc"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Max speed",
+      "Start your engines!"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "98",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WALKING_SARCOPHAGUS": {
+    "scryfallId": "89ccbd73-9414-48a3-bdcf-e838fcffc08f",
+    "oracleId": "791b8ac8-8db8-44b4-8c85-fcc9017c17ef",
+    "name": "Walking Sarcophagus",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Walking Sarcophagus",
+        "manaCost": "{2}",
+        "typeLine": "Artifact Creature — Zombie Cat",
+        "oracleText": "Start your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.)\nMax speed — This creature gets +1/+2.",
+        "flavorText": "The warrior rose in a very different world from the one he'd left behind.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Julia Metzger",
+        "imageId": "89ccbd73-9414-48a3-bdcf-e838fcffc08f"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Max speed",
+      "Start your engines!"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "246",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GASTAL_THRILLSEEKER": {
+    "scryfallId": "a8e5205d-d734-4292-a3c8-70cf5f131289",
+    "oracleId": "d185ad9f-c7fc-41f0-b852-4fe2cde0a8ae",
+    "name": "Gastal Thrillseeker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gastal Thrillseeker",
+        "manaCost": "{B}{R}",
+        "typeLine": "Creature — Lizard Berserker",
+        "oracleText": "Start your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.)\nWhen this creature enters, it deals 1 damage to target opponent and you gain 1 life.\nMax speed — This creature has deathtouch and haste.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Olivier Bernard",
+        "imageId": "a8e5205d-d734-4292-a3c8-70cf5f131289"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Max speed",
+      "Start your engines!"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "205",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GLITCH_GHOST_SURVEYOR": {
+    "scryfallId": "b9bb89b9-50dd-4b36-aa10-aba585e50246",
+    "oracleId": "f0f83ab8-6185-4139-b41e-a11500036915",
+    "name": "Glitch Ghost Surveyor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Glitch Ghost Surveyor",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Spirit Scout",
+        "oracleText": "Flying\nStart your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.)\nMax speed — {3}, Exile this card from your graveyard: Draw a card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Johan Grenier",
+        "imageId": "b9bb89b9-50dd-4b36-aa10-aba585e50246"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Max speed",
+      "Start your engines!"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "44",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LOXODON_SURVEYOR": {
+    "scryfallId": "cd1cecb1-6776-4495-be56-b7dde65453f1",
+    "oracleId": "970f26d4-c916-444a-a2d2-4c1f5bb5556b",
+    "name": "Loxodon Surveyor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Loxodon Surveyor",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elephant Scout",
+        "oracleText": "Start your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.)\nMax speed — {3}, Exile this card from your graveyard: Draw a card.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "J.P. Targete",
+        "imageId": "cd1cecb1-6776-4495-be56-b7dde65453f1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Max speed",
+      "Start your engines!"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "167",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LEONIN_SURVEYOR": {
+    "scryfallId": "e08e4107-213f-491b-a032-8e3367009ba8",
+    "oracleId": "97c29db0-b3e1-4704-afe8-5218250c044c",
+    "name": "Leonin Surveyor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Leonin Surveyor",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Cat Scout",
+        "oracleText": "Start your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.)\nDuring your turn, this creature has first strike.\nMax speed — {3}, Exile this card from your graveyard: Draw a card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Valera Lutfullina",
+        "imageId": "e08e4107-213f-491b-a032-8e3367009ba8"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Max speed",
+      "Start your engines!"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "18",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_SURVEYOR": {
+    "scryfallId": "e1efffe9-00f8-4177-a9e6-4ad62887d32f",
+    "oracleId": "237758f3-84b2-4e5b-a2c7-b28c893e2790",
+    "name": "Goblin Surveyor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Surveyor",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Goblin Scout",
+        "oracleText": "Trample\nStart your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.)\nMax speed — {3}, Exile this card from your graveyard: Draw a card.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "e1efffe9-00f8-4177-a9e6-4ad62887d32f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Max speed",
+      "Trample",
+      "Start your engines!"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "131",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

@@ -11001,6 +11001,28 @@ const WANTED = [
   'Weftstalker Ardent',
   // D614 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
   'Masterwork of Ingenuity',
+  // D615 - the speed seam's proof cards (speed.test.ts): Start your engines!, Max speed, X is your speed.
+  'Streaking Oilgorger',
+  'Amonkhet Raceway',
+  'The Speed Demon',
+  // D615 - SPEED: the rows the whole-leftover row maker rowed once start your engines! gave its controller speed, the speed rose once a turn, and a max speed ability read with its condition.
+  'Starting Column',
+  'Avishkar Raceway',
+  'Gas Guzzler',
+  'Burnout Bashtronaut',
+  'Pride of the Road',
+  'Gastal Raider',
+  'Risen Necroregent',
+  'Swiftwing Assailant',
+  'Nesting Bot',
+  'Mutant Surveyor',
+  'Walking Sarcophagus',
+  'Gastal Thrillseeker',
+  'Glitch Ghost Surveyor',
+  'Loxodon Surveyor',
+  'Leonin Surveyor',
+  'Goblin Surveyor',
+  // D615 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -65,6 +65,29 @@ export function checkStateBasedActions(
     );
   }
 
+  // D615 - SPEED (CR 702.179): a player with no speed who controls a permanent with start your engines! starts at 1;
+  // the active player owed a rise (an opponent lost life on their turn, `oweSpeed`) rises by one, once a turn, never
+  // past 4. The rise is an inherent trigger in the rules; resolved by this check at once (D615 records the simplification).
+  for (const id of state.seating) {
+    const p = state.players[id];
+    if (!p || p.hasLost || p.speed !== undefined) continue;
+    const engines = inPlay(state).some((c) => state.cards[c]?.controller === id && derive(state, oracle, scripts, c, cache).keywords.has('startYourEngines'));
+    if (!engines) continue;
+    actions.push({ t: 'speedChanges', player: id, to: 1 });
+    events.push({ t: 'SpeedChanged', player: id, to: 1, reason: 'start' });
+    events.push(narrated(n`${who(state, id)} ${vb(id, 'starts', 'start')} at speed 1.`, id));
+  }
+  {
+    const active = state.turn.activePlayer;
+    const ap = state.players[active];
+    if (ap && !ap.hasLost && ap.speed !== undefined && ap.speed < 4 && state.turn.memory.speedOwed?.[active] === true && state.turn.memory.speedRaised?.[active] !== true) {
+      const to = ap.speed + 1;
+      actions.push({ t: 'speedChanges', player: active, to });
+      events.push({ t: 'SpeedChanged', player: active, to, reason: 'raise' });
+      events.push(narrated(n`${who(state, active)} ${vb(active, 'reaches', 'reach')} speed ${to}${to === 4 ? ' - max speed' : ''}.`, active));
+    }
+  }
+
   // 2–8 — the battlefield sweep.
   const counterChanges: { card: InstanceId; kind: string; delta: number }[] = [];
   const detachments: InstanceId[] = [];

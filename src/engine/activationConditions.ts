@@ -133,6 +133,10 @@ export function activationConditionsHold(
       case 'flipLost':
         return false;
       // D523 - the crown (CR 724): who wears it, off `state.monarch` (D522's own field).
+      // D615 - max speed (CR 702.179): the activator's speed is 4.
+      case 'maxSpeed':
+        if ((state.players[player]?.speed ?? 0) < 4) return false;
+        break;
       case 'monarch':
         if (cond.who === 'you' ? state.monarch !== player : cond.who === 'opponent' ? state.monarch === null || state.monarch === player : state.monarch !== null) return false;
         break;
@@ -229,6 +233,8 @@ export function describeActivationConditions(conditions: readonly ActivationCond
           return 'if you win the flip';
         case 'flipLost':
           return 'if you lose the flip';
+        case 'maxSpeed':
+          return 'if you have max speed';
         case 'monarch':
           return cond.who === 'you' ? "if you're the monarch" : cond.who === 'opponent' ? 'if an opponent is the monarch' : 'if there is no monarch';
         case 'acrossControl':

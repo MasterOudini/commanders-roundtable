@@ -125,6 +125,8 @@ const CANON: Readonly<Record<string, Keyword>> = {
   // D310 - characteristic-defining keywords the derive reads at layer 1.
   changeling: 'changeling',
   devoid: 'devoid',
+  // D615 - start your engines! (CR 702.179a): the speed's start.
+  'start your engines!': 'startYourEngines',
 };
 
 export function canonicalKeyword(raw: string): Keyword | null {

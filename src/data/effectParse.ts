@@ -3639,7 +3639,10 @@ function matchSpellX(sentence: string): EffectSpec | null {
  * when the source is the one dealing the damage; anywhere else it stays unread.
  */
 const EQ_SELF_SUBJECT = /^(?:~|this (?:creature|permanent|artifact|enchantment|land)|it)$/i;
-function matchEqualToNumber(sentence: string): EffectSpec | null {
+function matchEqualToNumber(sentence0: string): EffectSpec | null {
+  const sentence0Speed = / equal to your speed/i.test(sentence0);
+  // D615 - `equal to your speed` (CR 702.179) is the same print with the controller's speed as its count.
+  const sentence = sentence0Speed ? sentence0.replace(/ equal to your speed/i, ' equal to the number of your speed') : sentence0;
   let base: string | null = null;
   let noun = '';
   let subject: string | null = null;
@@ -3658,16 +3661,32 @@ function matchEqualToNumber(sentence: string): EffectSpec | null {
     if (subject === null || !EQ_SELF_SUBJECT.test(subject)) return null;
     noun = noun.replace(/ on it$/i, ' on ~');
   }
-  const per = readCountNoun(singularCountNoun(noun));
+  const per: CountExpr | null = sentence0Speed && noun === 'your speed' ? { kind: 'speed' } : readCountNoun(singularCountNoun(noun));
   if (!per) return null;
   const inner = matchRule(base);
   if (!inner || !MULTIPLIABLE.has(inner.kind) || inner.per !== null) return null;
-  return { ...inner, text: sentence, per };
+  return { ...inner, text: sentence0, per };
 }
 function matchCounted(sentence: string): EffectSpec | null {
   // D611 - the `equal to the number of` print first: its nouns are the `for each` reader's.
   const eq = matchEqualToNumber(sentence);
   if (eq) return eq;
+  // D615 - `<sentence with X>, where X is your speed.` (CR 702.179): X read as one, counted as the controller's speed.
+  const ws = /^(.+?), where X is your speed\.$/i.exec(sentence);
+  if (ws) {
+    const head = (ws[1] ?? '').replace(/^then /i, '');
+    if (/\bX\/X\b/.test(head)) return null;
+    const base = head
+      .replace(/\bX cards\b/gi, 'a card')
+      .replace(/\bX life\b/gi, '1 life')
+      .replace(/\bX damage\b/gi, '1 damage')
+      .replace(/\bX \+1\/\+1 counters\b/gi, 'a +1/+1 counter')
+      .replace(/([+-])X\b/g, '$11');
+    if (/\bX\b/.test(base)) return null;
+    const inner = matchRule(base + '.');
+    if (!inner || !MULTIPLIABLE.has(inner.kind) || inner.per !== null) return null;
+    return { ...inner, text: sentence, per: { kind: 'speed' } };
+  }
   const fe = /^(.+?) for each ([^.]+)\.$/i.exec(sentence);
   if (fe) {
     const per = readCountNoun(fe[2] ?? '');

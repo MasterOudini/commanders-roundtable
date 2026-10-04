@@ -382,6 +382,8 @@ export type Intent =
   | { readonly t: 'ManualSetPoison'; readonly player: PlayerId; readonly target: PlayerId; readonly delta: number }
   /** D519 - the Tier-3 tool for energy counters (CR 122.1): a resource the engine tracks must be adjustable by hand. */
   | { readonly t: 'ManualSetEnergy'; readonly player: PlayerId; readonly target: PlayerId; readonly delta: number }
+  /** D615 - a player's speed set by hand (1 to 4; speed is never lost once had - CR 702.179). */
+  | { readonly t: 'ManualSetSpeed'; readonly player: PlayerId; readonly target: PlayerId; readonly to: number }
   /** D521 - the Tier-3 tool for the Ring (CR 701.54): the count the emblem is gated on must be adjustable by hand. */
   | { readonly t: 'ManualRingTempt'; readonly player: PlayerId; readonly target: PlayerId }
   /** D522 - the Tier-3 tool for the crown (CR 724): `target` wears it, `null` takes it off the table. */
