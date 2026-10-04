@@ -110,9 +110,10 @@ export function transformFrom(effects: readonly EffectSpec[], face: number): rea
   return effects.map((e) => (e.kind === 'transform' ? { ...e, transformFrom: face } : e));
 }
 
-export function vocabularyEffects(payload: string, name: string, opts: { readonly memo?: boolean } = {}): readonly EffectSpec[] {
+export function vocabularyEffects(payload: string, name: string, opts: { readonly memo?: boolean; readonly xCost?: boolean } = {}): readonly EffectSpec[] {
   // D476 - a def under a head that memoises a number (the damage dealt) may read `that much` / `that many`.
-  const parsed = parseEffects(recipientAsSelf(payload), name, true, undefined, false, opts.memo === true);
+  // D613 - an activation whose cost prints {X} reads a bare X as the announced X (D437's `spellX`, off `obj.xValue`).
+  const parsed = parseEffects(recipientAsSelf(payload), name, true, undefined, opts.xCost === true, opts.memo === true);
   if (parsed.mode !== 'auto' || parsed.effects.length === 0) {
     throw new Error(`${name}: the vocabulary does not read "${payload}" whole (${parsed.mode}) - a row must not claim it (D90).`);
   }

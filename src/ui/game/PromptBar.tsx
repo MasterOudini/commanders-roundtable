@@ -149,6 +149,11 @@ function describe(
         return awaiting.player === viewer
           ? `Two effects want to change the same thing — which applies first?`
           : `${nameOf(seats, awaiting.player)} is ordering two replacement effects.`;
+      // D613 - an activation whose cost prints {X} asks for X before its targets (CR 601.2b).
+      case 'chooseX':
+        return awaiting.player === viewer
+          ? `${awaiting.label} — choose X.`
+          : `${nameOf(seats, awaiting.player)} is choosing X for ${awaiting.label}.`;
       case 'chooseModes':
         return awaiting.player === viewer
           ? `${awaiting.label} — choose ${awaiting.min === awaiting.max ? awaiting.min : `${awaiting.min} to ${awaiting.max}`} mode${awaiting.max === 1 ? '' : 's'}.`
@@ -595,6 +600,25 @@ export function PromptBar() {
               </button>
             ))}
           </>
+        )}
+        {awaiting?.kind === 'chooseX' && mine('chooseX') && (
+          <button
+            type="button"
+            className={BTN}
+            data-action="choose-x"
+            onClick={() =>
+              useTable.getState().askNumber({
+                title: `Choose X for ${awaiting.label}`,
+                label: 'X',
+                initial: 0,
+                min: 0,
+                max: 99,
+                onSubmit: (x) => send({ t: 'ChooseX', player: viewer, x }),
+              })
+            }
+          >
+            Choose X…
+          </button>
         )}
         {awaiting?.kind === 'chooseModes' && mine('chooseModes') && (
           <>

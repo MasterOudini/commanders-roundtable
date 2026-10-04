@@ -10953,6 +10953,30 @@ const WANTED = [
   'Zektar Shrine Expedition',
   'Preyseizer Dragon',
   // D612 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D613 - the activation X seam's proof card (activationX.test.ts): {X}, {T}: You gain X life.
+  'Oracle of Nectars',
+  // D613 - THE ACTIVATIONS X: the rows the whole-leftover row maker rowed once an activation whose cost prints {X} announced its X and the vocabulary read the bare X as it.
+  "Belbe's Armor",
+  'Mindspring Merfolk',
+  'Silklash Spider',
+  'Kessig Wolf Run',
+  'Arashi, the Sky Asunder',
+  'Drana, Kalastria Bloodchief',
+  'Ballista Squad',
+  'Treasure Vault',
+  'Snake Basket',
+  'Pain Kami',
+  'Cinder Elemental',
+  'Jiwari, the Earth Aflame',
+  'Sands of Delirium',
+  'Puffer Extract',
+  'Goblin Dynamo',
+  'Cackling Witch',
+  'Whetwheel',
+  'Latulla, Keldon Overseer',
+  'Demonspine Whip',
+  // D613 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  'Mistcaller',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -11408,6 +11432,8 @@ const WANTED_TOKENS = [
   { name: 'Kraken', set: 'tiko', cn: '6', key: 'KRAKEN_8_8_U_CREATURE_TOKEN' },
   { name: 'Zombie Giant', set: 'ddr', cn: '73', key: 'ZOMBIE_GIANT_5_5_B_CREATURE_TOKEN' },
   { name: 'Elemental', set: 'tzen', cn: '8', key: 'ELEMENTAL_F9E12780_TOKEN' },
+  // D613 - the tokens the wave's rows create (the port's token-pin step, missing until D494).
+  { name: 'Snake', set: 'tktk', cn: '9', key: 'SNAKE_032E9F9D_TOKEN' },
 ];
 
 function constName(name) {

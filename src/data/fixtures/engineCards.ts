@@ -9766,6 +9766,27 @@ export const DUSK_URCHINS: CardData = F.DUSK_URCHINS as CardData;
 export const SUNSPRING_EXPEDITION: CardData = F.SUNSPRING_EXPEDITION as CardData;
 export const ZEKTAR_SHRINE_EXPEDITION: CardData = F.ZEKTAR_SHRINE_EXPEDITION as CardData;
 export const PREYSEIZER_DRAGON: CardData = F.PREYSEIZER_DRAGON as CardData;
+export const ORACLE_OF_NECTARS: CardData = F.ORACLE_OF_NECTARS as CardData;
+export const BELBE_S_ARMOR: CardData = F.BELBE_S_ARMOR as CardData;
+export const MINDSPRING_MERFOLK: CardData = F.MINDSPRING_MERFOLK as CardData;
+export const SILKLASH_SPIDER: CardData = F.SILKLASH_SPIDER as CardData;
+export const KESSIG_WOLF_RUN: CardData = F.KESSIG_WOLF_RUN as CardData;
+export const ARASHI_THE_SKY_ASUNDER: CardData = F.ARASHI_THE_SKY_ASUNDER as CardData;
+export const DRANA_KALASTRIA_BLOODCHIEF: CardData = F.DRANA_KALASTRIA_BLOODCHIEF as CardData;
+export const BALLISTA_SQUAD: CardData = F.BALLISTA_SQUAD as CardData;
+export const TREASURE_VAULT: CardData = F.TREASURE_VAULT as CardData;
+export const SNAKE_BASKET: CardData = F.SNAKE_BASKET as CardData;
+export const PAIN_KAMI: CardData = F.PAIN_KAMI as CardData;
+export const CINDER_ELEMENTAL: CardData = F.CINDER_ELEMENTAL as CardData;
+export const JIWARI_THE_EARTH_AFLAME: CardData = F.JIWARI_THE_EARTH_AFLAME as CardData;
+export const SANDS_OF_DELIRIUM: CardData = F.SANDS_OF_DELIRIUM as CardData;
+export const PUFFER_EXTRACT: CardData = F.PUFFER_EXTRACT as CardData;
+export const GOBLIN_DYNAMO: CardData = F.GOBLIN_DYNAMO as CardData;
+export const CACKLING_WITCH: CardData = F.CACKLING_WITCH as CardData;
+export const WHETWHEEL: CardData = F.WHETWHEEL as CardData;
+export const LATULLA_KELDON_OVERSEER: CardData = F.LATULLA_KELDON_OVERSEER as CardData;
+export const DEMONSPINE_WHIP: CardData = F.DEMONSPINE_WHIP as CardData;
+export const MISTCALLER: CardData = F.MISTCALLER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -10059,6 +10080,7 @@ export const ELEMENTAL_4_4_W_CREATURE_FLYING_TOKEN: CardData = F.ELEMENTAL_4_4_W
 export const KRAKEN_8_8_U_CREATURE_TOKEN: CardData = F.KRAKEN_8_8_U_CREATURE_TOKEN as CardData;
 export const ZOMBIE_GIANT_5_5_B_CREATURE_TOKEN: CardData = F.ZOMBIE_GIANT_5_5_B_CREATURE_TOKEN as CardData;
 export const ELEMENTAL_F9E12780_TOKEN: CardData = F.ELEMENTAL_F9E12780_TOKEN as CardData;
+export const SNAKE_032E9F9D_TOKEN: CardData = F.SNAKE_032E9F9D_TOKEN as CardData;
 
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
@@ -19810,6 +19832,27 @@ export const ENGINE_CARDS: CardData[] = [
   SUNSPRING_EXPEDITION,
   ZEKTAR_SHRINE_EXPEDITION,
   PREYSEIZER_DRAGON,
+  ORACLE_OF_NECTARS,
+  BELBE_S_ARMOR,
+  MINDSPRING_MERFOLK,
+  SILKLASH_SPIDER,
+  KESSIG_WOLF_RUN,
+  ARASHI_THE_SKY_ASUNDER,
+  DRANA_KALASTRIA_BLOODCHIEF,
+  BALLISTA_SQUAD,
+  TREASURE_VAULT,
+  SNAKE_BASKET,
+  PAIN_KAMI,
+  CINDER_ELEMENTAL,
+  JIWARI_THE_EARTH_AFLAME,
+  SANDS_OF_DELIRIUM,
+  PUFFER_EXTRACT,
+  GOBLIN_DYNAMO,
+  CACKLING_WITCH,
+  WHETWHEEL,
+  LATULLA_KELDON_OVERSEER,
+  DEMONSPINE_WHIP,
+  MISTCALLER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -20103,4 +20146,5 @@ export const ENGINE_CARDS: CardData[] = [
   KRAKEN_8_8_U_CREATURE_TOKEN,
   ZOMBIE_GIANT_5_5_B_CREATURE_TOKEN,
   ELEMENTAL_F9E12780_TOKEN,
+  SNAKE_032E9F9D_TOKEN,
 ];

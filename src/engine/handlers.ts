@@ -1659,6 +1659,25 @@ function chooseX(
   const oracleCard = card ? deps.oracle.byPrinting(card.printingId) : undefined;
   if (!card || !oracleCard) return reject('noSuchCard', 'That card is not in the game.');
   const face = faceOf(oracleCard, card.faceIndex);
+  // D613 - an ACTIVATION's X: the problem re-priced at the announced X, then its targets (CR 601.2c) or the payment.
+  if (pending.kind === 'ability') {
+    const ability = abilityOfRef(deps, face, pending.abilityRef);
+    if (!ability) return reject('notCastable', 'That permanent has no such ability.');
+    const lifeToPay = ability.lifeCost + (ability.lifeCostCommanderColors ? (state.players[intent.player]?.identity.length ?? 0) : 0);
+    const xProblem = buildPaymentProblem(ability.manaCost, intent.x, [], 0, lifeToPay);
+    const modalModes = activatedModesFor(deps, pending.abilityRef, card.faceIndex)?.modes;
+    const specs = modalModes ? modeSpecs(modalModes, pending.modes) : ability.targets;
+    if (specs.length > 0 && pending.targets.length === 0) {
+      return accept([
+        { t: 'XChosen', x: intent.x, problem: xProblem },
+        { t: 'CastStageSet', stage: 'targets' },
+        { t: 'AwaitingSet', awaiting: targetsAwaiting(intent.player, pending.stackId, pending.card, `${face.name} — ${ability.costText}: ${ability.effectText}`, specs, 'ability') },
+      ]);
+    }
+    return finishAbility(state, deps, { ...pending, xValue: intent.x, problem: xProblem, stage: 'pay' }, face, ability, oracleCard.colorIdentity, undefined, [
+      { t: 'XChosen', x: intent.x, problem: xProblem },
+    ]);
+  }
   // D403 - the kick announced with the cast stays in the problem X resizes.
   const xExtras = additionalExtras(face, pending.orPaid === true, kickVerbOf(face, pending.kicked ?? 0, pending.buyback === true));
   // D437 - a flashback cast keeps paying its FLASHBACK cost when X resizes the problem (D307): the printed cost was
@@ -2063,7 +2082,14 @@ function activateAbility(
   const lifeToPay =
     ability.lifeCost +
     (ability.lifeCostCommanderColors ? (state.players[intent.player]?.identity.length ?? 0) : 0);
-  const problem = buildPaymentProblem(ability.manaCost, 0, [], 0, lifeToPay);
+  // D613 - THE ACTIVATION'S X (CR 602.2b follows 601.2b): an {X} in the cost is announced inline (`xValue`) or asked for
+  // after the modes and before the targets; the problem is priced at the announced X, and at zero until then.
+  const xCount = ability.manaCost?.xCount ?? 0;
+  if (intent.xValue !== undefined && (!Number.isInteger(intent.xValue) || intent.xValue < 0)) {
+    return reject('invalidAmount', 'X must be zero or more.');
+  }
+  const needsX = xCount > 0 && intent.xValue === undefined;
+  const problem = buildPaymentProblem(ability.manaCost, xCount > 0 ? (intent.xValue ?? 0) : 0, [], 0, lifeToPay);
   // D519 - an energy cost (CR 122.1) is charged in the cost batch; short of the counters the activation is refused here.
   if (ability.energyCost > (state.players[intent.player]?.energy ?? 0)) {
     return reject('cannotAfford', `You do not have ${ability.energyCost} energy to pay for ${face.name}.`);
@@ -2094,13 +2120,13 @@ function activateAbility(
           ? { kind: 'hand', player: intent.player }
           : { kind: 'battlefield', player: intent.player },
     stackId,
-    stage: needsModes ? 'modes' : needsTargets ? 'targets' : 'pay',
+    stage: needsModes ? 'modes' : needsX ? 'x' : needsTargets ? 'targets' : 'pay',
     kind: 'ability',
     abilityRef,
     modes: chosenModes,
     targets: intent.targets ?? [],
     ...(abilitySlots !== undefined ? { targetSlots: abilitySlots } : {}),
-    xValue: null,
+    xValue: xCount > 0 ? (intent.xValue ?? null) : null,
     problem,
     paidSoFar: EMPTY_POOL,
     lifePaid: 0,
@@ -2124,6 +2150,13 @@ function activateAbility(
           'ability',
         ),
       },
+    ]);
+  }
+  // D613 - the X is asked for before the targets (CR 601.2b, 601.2c).
+  if (needsX) {
+    return accept([
+      { t: 'CastBegan', pending },
+      { t: 'AwaitingSet', awaiting: { kind: 'chooseX', player: intent.player, stackId, source: intent.card, label: `${face.name} — ${ability.costText}: ${ability.effectText}` } },
     ]);
   }
   if (needsTargets) {
@@ -2219,6 +2252,14 @@ function chooseModes(
     const ability = abilityOfRef(deps, face, pending.abilityRef);
     if (!ability) return reject('notCastable', 'That permanent has no such ability.');
     const specs = modeSpecs(activatedModesFor(deps, pending.abilityRef, state.cards[pending.card]?.faceIndex ?? 0)?.modes ?? [], modes);
+    // D613 - an activation's X follows its modes (CR 601.2b's order).
+    if ((ability.manaCost?.xCount ?? 0) > 0 && pending.xValue === null) {
+      return accept([
+        { t: 'ModesChosen', modes },
+        { t: 'CastStageSet', stage: 'x' },
+        { t: 'AwaitingSet', awaiting: { kind: 'chooseX', player: intent.player, stackId: pending.stackId, source: pending.card, label: awaiting.label } },
+      ]);
+    }
     if (specs.length > 0) {
       return accept([
         { t: 'ModesChosen', modes },
@@ -3022,7 +3063,8 @@ function finishAbility(
     // D586 - the clause each pick answers (D299): a counted clause resolves every pick, not its first alone.
     ...(pending.targetSlots !== undefined ? { targetSlots: pending.targetSlots } : {}),
     modes: pending.modes,
-    xValue: null,
+    // D613 - the activation's announced X (null for an ability with none, as every older log has it).
+    xValue: pending.xValue,
     label: `${face.name} — ${ability.effectText}`,
     identity,
     taxApplied: 0,
@@ -3047,7 +3089,7 @@ function finishAbility(
   events.push({ t: 'AbilityPutOnStack', obj });
   events.push(
     narrated(
-      n`${who(state, pending.player)} ${vb(pending.player, 'activates', 'activate')} ${face.name}'s ability.`,
+      n`${who(state, pending.player)} ${vb(pending.player, 'activates', 'activate')} ${face.name}'s ability${pending.xValue !== null ? ` with X = ${pending.xValue}` : ''}.`,
       pending.player,
       identity,
     ),

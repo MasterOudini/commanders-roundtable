@@ -191,6 +191,8 @@ export type Intent =
       readonly targets?: readonly TargetChoice[];
       /** D343 - the modes of a modal ability (its def declares them), named inline; absent, the host asks. */
       readonly modes?: readonly number[];
+      /** D613 - the X an `{X}` in the ability's cost announces (CR 602.2b follows 601.2b), named inline; absent, the host asks (`chooseX`). */
+      readonly xValue?: number;
       readonly plan?: PaymentPlan;
       /**
        * Which permanent pays a "Sacrifice a <predicate>" cost (D168).

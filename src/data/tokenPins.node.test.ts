@@ -46,7 +46,8 @@ describe('the tokens the shipped scripts create are fixtures (D445)', () => {
         const text = JSON.parse(m[1] as string) as string;
         if (!/token/i.test(text)) continue;
         const ids: string[] = [];
-        tokensOf(vocabularyEffects(text, f, { memo: /memo: true/.test(m[2] ?? '') }) as never, ids);
+        // D613 - and an activation whose cost prints {X} reads its bare X as the announced X (`{ xCost: true }`).
+        tokensOf(vocabularyEffects(text, f, { memo: /memo: true/.test(m[2] ?? ''), xCost: /xCost: true/.test(m[2] ?? '') }) as never, ids);
         for (const pid of ids) {
           refs++;
           if (!pinned.has(pid)) missing.push(f + ': ' + (Object.keys(table).find((k) => table[k]?.printingId === pid) ?? pid));

@@ -7,6 +7,26 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { BELBES_ARMOR_SCRIPT } from './cards/belbesArmor';
+import { MINDSPRING_MERFOLK_SCRIPT } from './cards/mindspringMerfolk';
+import { SILKLASH_SPIDER_SCRIPT } from './cards/silklashSpider';
+import { KESSIG_WOLF_RUN_SCRIPT } from './cards/kessigWolfRun';
+import { ARASHI_THE_SKY_ASUNDER_SCRIPT } from './cards/arashiTheSkyAsunder';
+import { DRANA_KALASTRIA_BLOODCHIEF_SCRIPT } from './cards/dranaKalastriaBloodchief';
+import { BALLISTA_SQUAD_SCRIPT } from './cards/ballistaSquad';
+import { TREASURE_VAULT_SCRIPT } from './cards/treasureVault';
+import { SNAKE_BASKET_SCRIPT } from './cards/snakeBasket';
+import { PAIN_KAMI_SCRIPT } from './cards/painKami';
+import { CINDER_ELEMENTAL_SCRIPT } from './cards/cinderElemental';
+import { JIWARI_THE_EARTH_AFLAME_SCRIPT } from './cards/jiwariTheEarthAflame';
+import { SANDS_OF_DELIRIUM_SCRIPT } from './cards/sandsOfDelirium';
+import { PUFFER_EXTRACT_SCRIPT } from './cards/pufferExtract';
+import { GOBLIN_DYNAMO_SCRIPT } from './cards/goblinDynamo';
+import { ORACLE_OF_NECTARS_SCRIPT } from './cards/oracleOfNectars';
+import { CACKLING_WITCH_SCRIPT } from './cards/cacklingWitch';
+import { WHETWHEEL_SCRIPT } from './cards/whetwheel';
+import { LATULLA_KELDON_OVERSEER_SCRIPT } from './cards/latullaKeldonOverseer';
+import { DEMONSPINE_WHIP_SCRIPT } from './cards/demonspineWhip';
 import { SOULSTINGER_SCRIPT } from './cards/soulstinger';
 import { OMINOUS_SEAS_SCRIPT } from './cards/ominousSeas';
 import { CHASM_SKULKER_SCRIPT } from './cards/chasmSkulker';
@@ -8819,6 +8839,26 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BELBES_ARMOR_SCRIPT,
+  MINDSPRING_MERFOLK_SCRIPT,
+  SILKLASH_SPIDER_SCRIPT,
+  KESSIG_WOLF_RUN_SCRIPT,
+  ARASHI_THE_SKY_ASUNDER_SCRIPT,
+  DRANA_KALASTRIA_BLOODCHIEF_SCRIPT,
+  BALLISTA_SQUAD_SCRIPT,
+  TREASURE_VAULT_SCRIPT,
+  SNAKE_BASKET_SCRIPT,
+  PAIN_KAMI_SCRIPT,
+  CINDER_ELEMENTAL_SCRIPT,
+  JIWARI_THE_EARTH_AFLAME_SCRIPT,
+  SANDS_OF_DELIRIUM_SCRIPT,
+  PUFFER_EXTRACT_SCRIPT,
+  GOBLIN_DYNAMO_SCRIPT,
+  ORACLE_OF_NECTARS_SCRIPT,
+  CACKLING_WITCH_SCRIPT,
+  WHETWHEEL_SCRIPT,
+  LATULLA_KELDON_OVERSEER_SCRIPT,
+  DEMONSPINE_WHIP_SCRIPT,
   SOULSTINGER_SCRIPT,
   OMINOUS_SEAS_SCRIPT,
   CHASM_SKULKER_SCRIPT,
