@@ -287,6 +287,15 @@ export function castsPlotted(state: GameState, id: InstanceId, player: PlayerId)
 /** D551 - the cost a plotted cast pays: nothing (CR 702.170a - without paying its mana cost). */
 const PLOT_FREE = parseManaCost('{0}');
 
+/**
+ * D616 - A CARD ON AN ADVENTURE (CR 715.4): exiled by its own Adventure - castable from there by the player who cast the
+ * Adventure, as its creature face only (never as the Adventure again), at its own speed, for its mana cost.
+ */
+export function castsAdventurer(state: GameState, id: InstanceId, player: PlayerId): boolean {
+  const inst = state.cards[id];
+  return inst !== undefined && inst.zone.kind === 'exile' && inst.onAdventure === player;
+}
+
 /** D547 - a WARPED card in its owner's exile, exiled on an earlier turn: castable from there for its mana cost. */
 export function castsWarped(state: GameState, id: InstanceId, player: PlayerId): boolean {
   const inst = state.cards[id];
@@ -483,6 +492,19 @@ function offeredActions(
     if (!card || !castsWarped(state, id, player)) continue;
     const action = castAction(state, oracle, scripts, id, 0, { kind: 'exile', player }, context, sorcerySpeed);
     if (action) out.push(action);
+  }
+
+  // D616 - A CARD ON AN ADVENTURE: in exile, its Adventure resolved - offered to the player who cast the Adventure, as its
+  // creature face (face 0) alone, at its own speed (a card the player also holds a play permission for is offered above).
+  for (const zone of Object.values(state.zones.exile)) {
+    for (const id of zone ?? []) {
+      if (!castsAdventurer(state, id, player)) continue;
+      if (state.playPermissions.some((perm) => perm.card === id && perm.player === player)) continue;
+      const inst = state.cards[id];
+      if (!inst || !cardFor(state, oracle, id)) continue;
+      const action = castAction(state, oracle, scripts, id, 0, { kind: 'exile', player: inst.zone.player ?? inst.owner }, context, sorcerySpeed);
+      if (action) out.push(action);
+    }
   }
 
   // D551 - A PLOTTED CARD: in its owner's exile, plotted on an earlier turn - offered free, at sorcery speed only.

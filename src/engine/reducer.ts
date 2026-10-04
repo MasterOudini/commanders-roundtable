@@ -660,6 +660,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
           ...(move.warpedTurn !== undefined ? { warpedTurn: move.warpedTurn } : card.warpedTurn !== undefined ? { warpedTurn: undefined } : {}),
           // D551 - the plot exile marks the card; any other move clears the mark.
           ...(move.plottedTurn !== undefined ? { plottedTurn: move.plottedTurn } : card.plottedTurn !== undefined ? { plottedTurn: undefined } : {}),
+          // D616 - the adventure's exile marks the card with the player who may cast it; any other move clears the mark.
+          ...(move.adventure !== undefined ? { onAdventure: move.adventure } : card.onAdventure !== undefined ? { onAdventure: undefined } : {}),
           // D541 - the discard madness exiles marks the card; any other move of it unmarks it.
           ...(move.madness === true ? { madnessExiled: true as const } : card.madnessExiled !== undefined ? { madnessExiled: undefined } : {}),
           // D407 - the entry stamp counts every entry (CR 400.7); a linked exile is set by the move that

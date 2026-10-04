@@ -25,6 +25,7 @@ import {
   canActAtSorcerySpeed,
   castableFaces,
   castsForetold,
+  castsAdventurer,
   castsWarped,
   castsPlotted,
   castTargetSpecs,
@@ -1050,10 +1051,13 @@ function prepareCast(
   if (madness && !madnessCast) return { error: reject('notCastable', `${face.name} cannot be cast for its madness cost now.`) };
   // D547 - a WARPED card: exile is a place to cast from for its owner on a turn after its warp exiled it, for its mana cost.
   const warped = from.kind === 'exile' && !faceDown && !free && castsWarped(state, cardId, player);
-  if (from.kind !== 'hand' && from.kind !== 'command' && !flashback && graveyardCast === null && !harmonized && !permitted && !foretold && !madnessCast && !warped && !plotted) {
+  // D616 - a card ON AN ADVENTURE: exile is a place to cast it from, as its creature face, for the player who cast the
+  // Adventure (CR 715.4 - never as the Adventure again).
+  const adventurer = from.kind === 'exile' && !faceDown && !free && faceIndex === 0 && castsAdventurer(state, cardId, player);
+  if (from.kind !== 'hand' && from.kind !== 'command' && !flashback && graveyardCast === null && !harmonized && !permitted && !foretold && !madnessCast && !warped && !plotted && !adventurer) {
     return { error: reject('wrongZone', `${face.name} is not somewhere you can cast it from.`) };
   }
-  if (from.player !== player && !permitted) return { error: reject('wrongZone', 'That is not your card.') };
+  if (from.player !== player && !permitted && !adventurer) return { error: reject('wrongZone', 'That is not your card.') };
   if (from.kind === 'command' && !card.isCommander) {
     return { error: reject('notCastable', 'Only a commander can be cast from the command zone.') };
   }

@@ -134,6 +134,11 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
   // D521 - a keyword's rules helper (the Ring's `The Ring Tempts You` half, type `Card`) is no face a player casts or
   // turns; its text is the rule the engine implements. Nothing to disclose (the same skip as `unaccountedLines`).
   if (card.layout === 'other' && face.typeLine === 'Card') return [];
+  // D616 - a REVERSIBLE card's back is the same card printed again: the engine casts and plays its front alone
+  // (`castableFaces`), so the back is nothing to disclose beyond the front's notes. One printing's data carries a back
+  // that is not its front (Marang River Regent's Omen face typed an instant with the creature's text) - noted as a spell
+  // whose effect the app does not run, on a card the engine runs completely.
+  if (card.layout === 'reversible_card' && faceIndex > 0) return [];
   const text = face.oracleText ?? '';
   const notes: Tier3Note[] = [];
   const seen = new Set<string>();

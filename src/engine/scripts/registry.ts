@@ -7,6 +7,43 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { MERCHANT_OF_THE_VALE_HAGGLE_SCRIPT } from './cards/merchantOfTheValeHaggle';
+import { BRAZEN_BORROWER_PETTY_THEFT_SCRIPT } from './cards/brazenBorrowerPettyTheft';
+import { FLAXEN_INTRUDER_WELCOME_HOME_SCRIPT } from './cards/flaxenIntruderWelcomeHome';
+import { KAZANDU_MAMMOTH_KAZANDU_VALLEY_SCRIPT } from './cards/kazanduMammothKazanduValley';
+import { YOUNG_RED_DRAGON_BATHE_IN_GOLD_SCRIPT } from './cards/youngRedDragonBatheInGold';
+import { HOLLOW_SCAVENGER_BAKERY_RAID_SCRIPT } from './cards/hollowScavengerBakeryRaid';
+import { GRAY_SLAAD_ENTROPIC_DECAY_SCRIPT } from './cards/graySlaadEntropicDecay';
+import { STORMSHRIEK_FERAL_FLUSH_OUT_SCRIPT } from './cards/stormshriekFeralFlushOut';
+import { DREAD_LINNORM_SCALE_DEFLECTION_SCRIPT } from './cards/dreadLinnormScaleDeflection';
+import { DISRUPTIVE_STORMBROOD_PETTY_REVENGE_SCRIPT } from './cards/disruptiveStormbroodPettyRevenge';
+import { PINNACLE_MONK_MYSTIC_PEAK_SCRIPT } from './cards/pinnacleMonkMysticPeak';
+import { TWINMAW_STORMBROOD_CHARRING_BITE_SCRIPT } from './cards/twinmawStormbroodCharringBite';
+import { GIANT_KILLER_CHOP_DOWN_SCRIPT } from './cards/giantKillerChopDown';
+import { SCALDING_VIPER_STEAM_CLEAN_SCRIPT } from './cards/scaldingViperSteamClean';
+import { RILING_DAWNBREAKER_SIGNALING_ROAR_SCRIPT } from './cards/rilingDawnbreakerSignalingRoar';
+import { BLACKBLOOM_ROGUE_BLACKBLOOM_BOG_SCRIPT } from './cards/blackbloomRogueBlackbloomBog';
+import { ORDER_OF_MIDNIGHT_ALTER_FATE_SCRIPT } from './cards/orderOfMidnightAlterFate';
+import { INTREPID_TRUFFLESNOUT_GO_HOG_WILD_SCRIPT } from './cards/intrepidTrufflesnoutGoHogWild';
+import { IMODANES_RECRUITER_TRAIN_TROOPS_SCRIPT } from './cards/imodanesRecruiterTrainTroops';
+import { TEMPEST_HART_SCAN_THE_CLOUDS_SCRIPT } from './cards/tempestHartScanTheClouds';
+import { FERAL_DEATHGORGER_DUSK_SIGHT_SCRIPT } from './cards/feralDeathgorgerDuskSight';
+import { GALVANIC_GIANT_STORM_READING_SCRIPT } from './cards/galvanicGiantStormReading';
+import { WITCH_ENCHANTER_WITCH_BLESSED_MEADOW_SCRIPT } from './cards/witchEnchanterWitchBlessedMeadow';
+import { FROLICKING_FAMILIAR_BLOW_OFF_STEAM_SCRIPT } from './cards/frolickingFamiliarBlowOffSteam';
+import { MARANG_RIVER_REGENT_COIL_AND_CATCH_SCRIPT } from './cards/marangRiverRegentCoilAndCatch';
+import { RIMROCK_KNIGHT_BOULDER_RUSH_SCRIPT } from './cards/rimrockKnightBoulderRush';
+import { BLESSED_HIPPOGRIFF_TYRS_BLESSING_SCRIPT } from './cards/blessedHippogriffTyrsBlessing';
+import { OAKHAME_RANGER_BRING_BACK_SCRIPT } from './cards/oakhameRangerBringBack';
+import { RATCATCHER_TRAINEE_PEST_PROBLEM_SCRIPT } from './cards/ratcatcherTraineePestProblem';
+import { SPELLSCORN_COVEN_TAKE_IT_BACK_SCRIPT } from './cards/spellscornCovenTakeItBack';
+import { GLASSWING_GRACE_AGE_GRACED_CHAPEL_SCRIPT } from './cards/glasswingGraceAgeGracedChapel';
+import { SHROUDED_SHEPHERD_CLEAVE_SHADOWS_SCRIPT } from './cards/shroudedShepherdCleaveShadows';
+import { SAGU_WILDLING_ROOST_SEEK_SCRIPT } from './cards/saguWildlingRoostSeek';
+import { STORMKELD_VANGUARD_BEAR_DOWN_SCRIPT } from './cards/stormkeldVanguardBearDown';
+import { SAPPHIRE_DRAGON_PSIONIC_PULSE_SCRIPT } from './cards/sapphireDragonPsionicPulse';
+import { GINGERBREAD_HUNTER_PUNY_SNACK_SCRIPT } from './cards/gingerbreadHunterPunySnack';
+import { GRABBY_GIANT_THATS_MINE_SCRIPT } from './cards/grabbyGiantThatsMine';
 import { STARTING_COLUMN_SCRIPT } from './cards/startingColumn';
 import { AVISHKAR_RACEWAY_SCRIPT } from './cards/avishkarRaceway';
 import { GAS_GUZZLER_SCRIPT } from './cards/gasGuzzler';
@@ -8878,6 +8915,43 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  MERCHANT_OF_THE_VALE_HAGGLE_SCRIPT,
+  BRAZEN_BORROWER_PETTY_THEFT_SCRIPT,
+  FLAXEN_INTRUDER_WELCOME_HOME_SCRIPT,
+  KAZANDU_MAMMOTH_KAZANDU_VALLEY_SCRIPT,
+  YOUNG_RED_DRAGON_BATHE_IN_GOLD_SCRIPT,
+  HOLLOW_SCAVENGER_BAKERY_RAID_SCRIPT,
+  GRAY_SLAAD_ENTROPIC_DECAY_SCRIPT,
+  STORMSHRIEK_FERAL_FLUSH_OUT_SCRIPT,
+  DREAD_LINNORM_SCALE_DEFLECTION_SCRIPT,
+  DISRUPTIVE_STORMBROOD_PETTY_REVENGE_SCRIPT,
+  PINNACLE_MONK_MYSTIC_PEAK_SCRIPT,
+  TWINMAW_STORMBROOD_CHARRING_BITE_SCRIPT,
+  GIANT_KILLER_CHOP_DOWN_SCRIPT,
+  SCALDING_VIPER_STEAM_CLEAN_SCRIPT,
+  RILING_DAWNBREAKER_SIGNALING_ROAR_SCRIPT,
+  BLACKBLOOM_ROGUE_BLACKBLOOM_BOG_SCRIPT,
+  ORDER_OF_MIDNIGHT_ALTER_FATE_SCRIPT,
+  INTREPID_TRUFFLESNOUT_GO_HOG_WILD_SCRIPT,
+  IMODANES_RECRUITER_TRAIN_TROOPS_SCRIPT,
+  TEMPEST_HART_SCAN_THE_CLOUDS_SCRIPT,
+  FERAL_DEATHGORGER_DUSK_SIGHT_SCRIPT,
+  GALVANIC_GIANT_STORM_READING_SCRIPT,
+  WITCH_ENCHANTER_WITCH_BLESSED_MEADOW_SCRIPT,
+  FROLICKING_FAMILIAR_BLOW_OFF_STEAM_SCRIPT,
+  MARANG_RIVER_REGENT_COIL_AND_CATCH_SCRIPT,
+  RIMROCK_KNIGHT_BOULDER_RUSH_SCRIPT,
+  BLESSED_HIPPOGRIFF_TYRS_BLESSING_SCRIPT,
+  OAKHAME_RANGER_BRING_BACK_SCRIPT,
+  RATCATCHER_TRAINEE_PEST_PROBLEM_SCRIPT,
+  SPELLSCORN_COVEN_TAKE_IT_BACK_SCRIPT,
+  GLASSWING_GRACE_AGE_GRACED_CHAPEL_SCRIPT,
+  SHROUDED_SHEPHERD_CLEAVE_SHADOWS_SCRIPT,
+  SAGU_WILDLING_ROOST_SEEK_SCRIPT,
+  STORMKELD_VANGUARD_BEAR_DOWN_SCRIPT,
+  SAPPHIRE_DRAGON_PSIONIC_PULSE_SCRIPT,
+  GINGERBREAD_HUNTER_PUNY_SNACK_SCRIPT,
+  GRABBY_GIANT_THATS_MINE_SCRIPT,
   STARTING_COLUMN_SCRIPT,
   AVISHKAR_RACEWAY_SCRIPT,
   GAS_GUZZLER_SCRIPT,

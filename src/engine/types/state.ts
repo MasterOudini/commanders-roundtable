@@ -261,6 +261,11 @@ export interface CardInstance {
   readonly warpedTurn?: number | undefined;
   /** D551 - PLOTTED (CR 702.170a): the turn the plot action exiled the card face up; castable free as a sorcery on a later turn. Cleared by the move out. */
   readonly plottedTurn?: number | undefined;
+  /**
+   * D616 - ON AN ADVENTURE (CR 715.4): its Adventure resolved and exiled it; the player who cast the Adventure may cast
+   * the card from there as its creature face, never as the Adventure again. Cleared by the move that takes it out.
+   */
+  readonly onAdventure?: PlayerId | undefined;
   /** D541 - exiled by its own discard (CR 702.35a): the madness trigger's card; cleared by the move that takes it out of exile. */
   readonly madnessExiled?: true | undefined;
   /**

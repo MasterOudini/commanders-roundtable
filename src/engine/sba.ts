@@ -546,10 +546,10 @@ function commanderZoneChoices(state: GameState, asking: boolean, moving: Readonl
 /**
  * D587 - THE USER'S CHOICE (2026-09-29): an exile its owner chose, to cast the card from there - foretold (CR 702.143a),
  * plotted (702.170a), suspended (702.62a), discarded to madness (702.35a), warped (its end-step exile). A standing "send
- * it home" asks about it instead. The engine exiles nothing "on an adventure" (CR 715.4) yet; that exile joins here.
+ * it home" asks about it instead. D616 - and an Adventure's own exile, on an adventure (CR 715.4).
  */
 function castableFromExile(card: CardInstance): boolean {
-  return card.zone.kind === 'exile' && (card.foretoldTurn !== undefined || card.plottedTurn !== undefined || card.suspended === true || card.madnessExiled === true || card.warpedTurn !== undefined);
+  return card.zone.kind === 'exile' && (card.foretoldTurn !== undefined || card.plottedTurn !== undefined || card.suspended === true || card.madnessExiled === true || card.warpedTurn !== undefined || card.onAdventure !== undefined);
 }
 
 /**

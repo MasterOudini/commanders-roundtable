@@ -78,6 +78,8 @@ export interface CardMove {
   readonly warpedTurn?: number;
   /** D551 - the exile the PLOT action made: the turn it happened, onto the card. */
   readonly plottedTurn?: number;
+  /** D616 - the exile an ADVENTURE's resolution made (CR 715.4): the player who may cast the card from there. */
+  readonly adventure?: PlayerId;
   /** D489 - the exile that SUSPENDS the card (CR 702.62a): the reducer marks it for the upkeep tick. */
   readonly suspend?: true;
   /** D489 - the entry from a suspend cast: a creature has haste while it stays (702.62e). */

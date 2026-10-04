@@ -130,6 +130,16 @@ export function exiledAsItLeaves(castFrom: { readonly kind: string } | null | un
   return !(face !== null && face !== undefined && face.flashbackCost === null && (face.graveyardCast?.kind === 'retrace' || face.graveyardCast?.kind === 'escape'));
 }
 
+/**
+ * D616 - what a card of the ADVENTURE layout was cast as, by the face: `adventure` for its Adventure (CR 715.3), `omen` for an
+ * Omen (the same two-faced layout), null for the creature face and every other layout.
+ */
+export function adventureFaceOf(card: OracleCard | null | undefined, faceIndex: number): 'adventure' | 'omen' | null {
+  if (!card || card.layout !== 'adventure' || faceIndex === 0) return null;
+  const subtypes = faceOf(card, faceIndex).typeLine.subtypes;
+  return subtypes.includes('Adventure') ? 'adventure' : subtypes.includes('Omen') ? 'omen' : null;
+}
+
 export function faceOf(card: OracleCard, faceIndex: number): OracleCard['faces'][number] {
   const face = card.faces[faceIndex] ?? card.faces[0];
   if (!face) throw new Error(`card ${card.printingId} has no faces`);

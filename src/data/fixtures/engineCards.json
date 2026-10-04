@@ -334506,6 +334506,1797 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "WHIRLWING_STORMBROOD_DYNAMIC_SOAR": {
+    "scryfallId": "56a25eb1-bdb8-4f86-8d9a-3055ad1b2a13",
+    "oracleId": "4fbfc814-df10-4d61-ada9-c96cc8ee8d8c",
+    "name": "Whirlwing Stormbrood // Dynamic Soar",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Whirlwing Stormbrood",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flash\nFlying\nYou may cast sorcery spells and Dragon spells as though they had flash.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Fajareka Setiawan",
+        "imageId": "56a25eb1-bdb8-4f86-8d9a-3055ad1b2a13"
+      },
+      {
+        "name": "Dynamic Soar",
+        "manaCost": "{2}{G}",
+        "typeLine": "Sorcery — Omen",
+        "oracleText": "Put three +1/+1 counters on target creature you control. (Then shuffle this card into its owner's library.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Fajareka Setiawan",
+        "imageId": "56a25eb1-bdb8-4f86-8d9a-3055ad1b2a13"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Flash"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "234",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MERCHANT_OF_THE_VALE_HAGGLE": {
+    "scryfallId": "039c20ab-13c4-426a-888c-9093340a85a0",
+    "oracleId": "f88a096e-7497-4297-ab65-f18769b1cc47",
+    "name": "Merchant of the Vale // Haggle",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Merchant of the Vale",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Peasant",
+        "oracleText": "{2}{R}, Discard a card: Draw a card.",
+        "flavorText": "\"Buying old, worn out junk. Selling marvels of real value.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Severin Brassell",
+        "imageId": "039c20ab-13c4-426a-888c-9093340a85a0"
+      },
+      {
+        "name": "Haggle",
+        "manaCost": "{R}",
+        "typeLine": "Instant — Adventure",
+        "oracleText": "You may discard a card. If you do, draw a card. (Then exile this card. You may cast the creature later from exile.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Severin Brassell",
+        "imageId": "039c20ab-13c4-426a-888c-9093340a85a0"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "eld",
+    "collectorNumber": "293",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BRAZEN_BORROWER_PETTY_THEFT": {
+    "scryfallId": "06251176-d20f-4960-ac73-135e44b77c83",
+    "oracleId": "c7b044c3-3cfa-407e-bf20-2875e8e04b7b",
+    "name": "Brazen Borrower // Petty Theft",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Brazen Borrower",
+        "manaCost": "{1}{U}{U}",
+        "typeLine": "Creature — Faerie Rogue",
+        "oracleText": "Flash\nFlying\nThis creature can block only creatures with flying.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alexandre Chaudret",
+        "imageId": "06251176-d20f-4960-ac73-135e44b77c83"
+      },
+      {
+        "name": "Petty Theft",
+        "manaCost": "{1}{U}",
+        "typeLine": "Instant — Adventure",
+        "oracleText": "Return target nonland permanent an opponent controls to its owner's hand.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alexandre Chaudret",
+        "imageId": "06251176-d20f-4960-ac73-135e44b77c83"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Flash"
+    ],
+    "setCode": "sld",
+    "collectorNumber": "234",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLAXEN_INTRUDER_WELCOME_HOME": {
+    "scryfallId": "06bd1ad2-fb5d-4aef-87d1-13a341c686fa",
+    "oracleId": "bacedc99-46d9-4757-8a27-8df77d7c2f02",
+    "name": "Flaxen Intruder // Welcome Home",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Flaxen Intruder",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Human Berserker",
+        "oracleText": "Whenever this creature deals combat damage to a player, you may sacrifice it. When you do, destroy target artifact or enchantment.",
+        "flavorText": "The middle blade was just right.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Gabor Szikszai",
+        "imageId": "06bd1ad2-fb5d-4aef-87d1-13a341c686fa"
+      },
+      {
+        "name": "Welcome Home",
+        "manaCost": "{5}{G}{G}",
+        "typeLine": "Sorcery — Adventure",
+        "oracleText": "Create three 2/2 green Bear creature tokens. (Then exile this card. You may cast the creature later from exile.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Gabor Szikszai",
+        "imageId": "06bd1ad2-fb5d-4aef-87d1-13a341c686fa"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "eld",
+    "collectorNumber": "155",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KAZANDU_MAMMOTH_KAZANDU_VALLEY": {
+    "scryfallId": "09c8c150-a0d8-4254-9169-7697e9c540da",
+    "oracleId": "2ac1c95c-2a9d-40bc-9cad-9cadfa3f19f7",
+    "name": "Kazandu Mammoth // Kazandu Valley",
+    "layout": "modal_dfc",
+    "faces": [
+      {
+        "name": "Kazandu Mammoth",
+        "manaCost": "{1}{G}{G}",
+        "typeLine": "Creature — Elephant",
+        "oracleText": "Landfall — Whenever a land you control enters, this creature gets +2/+2 until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Finnian MacManus",
+        "imageId": "09c8c150-a0d8-4254-9169-7697e9c540da-0"
+      },
+      {
+        "name": "Kazandu Valley",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\n{T}: Add {G}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Finnian MacManus",
+        "imageId": "09c8c150-a0d8-4254-9169-7697e9c540da-1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Landfall"
+    ],
+    "setCode": "znr",
+    "collectorNumber": "305",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "YOUNG_RED_DRAGON_BATHE_IN_GOLD": {
+    "scryfallId": "0ab0c038-318c-4801-95b3-721947d08f61",
+    "oracleId": "2f865ae9-9328-4f6f-924f-d5e0a65aaa96",
+    "name": "Young Red Dragon // Bathe in Gold",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Young Red Dragon",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying\nThis creature can't block.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Adam Vehige",
+        "imageId": "0ab0c038-318c-4801-95b3-721947d08f61"
+      },
+      {
+        "name": "Bathe in Gold",
+        "manaCost": "{1}{R}",
+        "typeLine": "Instant — Adventure",
+        "oracleText": "Create a Treasure token. (Then exile this card. You may cast the creature later from exile.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Adam Vehige",
+        "imageId": "0ab0c038-318c-4801-95b3-721947d08f61"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Treasure"
+    ],
+    "setCode": "hbg",
+    "collectorNumber": "197",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOLLOW_SCAVENGER_BAKERY_RAID": {
+    "scryfallId": "0ad345b6-7077-4dd2-b515-c774a3185fe4",
+    "oracleId": "4fad3816-41af-4fa4-85b4-ba37614ec848",
+    "name": "Hollow Scavenger // Bakery Raid",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Hollow Scavenger",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Wolf",
+        "oracleText": "{1}, Sacrifice a Food: This creature gets +2/+2 until end of turn. Activate only once each turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Michele Giorgi",
+        "imageId": "0ad345b6-7077-4dd2-b515-c774a3185fe4"
+      },
+      {
+        "name": "Bakery Raid",
+        "manaCost": "{G}",
+        "typeLine": "Sorcery — Adventure",
+        "oracleText": "Create a Food token. (Then exile this card. You may cast the creature later from exile.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Michele Giorgi",
+        "imageId": "0ad345b6-7077-4dd2-b515-c774a3185fe4"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Food"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "174",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRAY_SLAAD_ENTROPIC_DECAY": {
+    "scryfallId": "0c2b6960-ff4c-4557-ba6d-d504f87d4516",
+    "oracleId": "788897f5-d49d-4294-8006-0009a3124ad0",
+    "name": "Gray Slaad // Entropic Decay",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Gray Slaad",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Frog Horror",
+        "oracleText": "As long as there are four or more creature cards in your graveyard, this creature has menace and deathtouch.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Piotr Foksowicz",
+        "imageId": "0c2b6960-ff4c-4557-ba6d-d504f87d4516"
+      },
+      {
+        "name": "Entropic Decay",
+        "manaCost": "{1}{B}",
+        "typeLine": "Sorcery — Adventure",
+        "oracleText": "Mill four cards. (Then exile this card. You may cast the creature later from exile.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Piotr Foksowicz",
+        "imageId": "0c2b6960-ff4c-4557-ba6d-d504f87d4516"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "clb",
+    "collectorNumber": "129",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STORMSHRIEK_FERAL_FLUSH_OUT": {
+    "scryfallId": "0ec92c44-7cf0-48a5-a3ca-bc633496d887",
+    "oracleId": "e24916ff-7566-4f27-8e31-732311a4a88c",
+    "name": "Stormshriek Feral // Flush Out",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Stormshriek Feral",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying, haste\n{1}{R}: This creature gets +1/+0 until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Joshua Raphael",
+        "imageId": "0ec92c44-7cf0-48a5-a3ca-bc633496d887"
+      },
+      {
+        "name": "Flush Out",
+        "manaCost": "{1}{R}",
+        "typeLine": "Sorcery — Omen",
+        "oracleText": "Discard a card. If you do, draw two cards. (Then shuffle this card into its owner's library.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Joshua Raphael",
+        "imageId": "0ec92c44-7cf0-48a5-a3ca-bc633496d887"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Haste"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "124",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DREAD_LINNORM_SCALE_DEFLECTION": {
+    "scryfallId": "174ee9e7-8040-4b53-8d0d-177ce924521c",
+    "oracleId": "1bf04a2a-7f96-412c-9d91-034bef26e1b6",
+    "name": "Dread Linnorm // Scale Deflection",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Dread Linnorm",
+        "manaCost": "{6}{G}",
+        "typeLine": "Creature — Snake Dragon",
+        "oracleText": "This creature can't be blocked by creatures with power 3 or less.",
+        "flavorText": "A serpent's cruelty, a dragon's appetite.",
+        "power": "7",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Caio Monteiro",
+        "imageId": "174ee9e7-8040-4b53-8d0d-177ce924521c"
+      },
+      {
+        "name": "Scale Deflection",
+        "manaCost": "{3}{G}",
+        "typeLine": "Instant — Adventure",
+        "oracleText": "Put two +1/+1 counters on target creature and untap it. It gains hexproof until end of turn. (Then exile this card. You may cast the creature later from exile.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Caio Monteiro",
+        "imageId": "174ee9e7-8040-4b53-8d0d-177ce924521c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 7,
+    "keywords": [],
+    "setCode": "clb",
+    "collectorNumber": "225",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DISRUPTIVE_STORMBROOD_PETTY_REVENGE": {
+    "scryfallId": "24ca444d-f4ab-4375-a670-63f29eb863dd",
+    "oracleId": "ec74ae5d-1284-443c-9842-18954f8cf5a8",
+    "name": "Disruptive Stormbrood // Petty Revenge",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Disruptive Stormbrood",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying\nWhen this creature enters, destroy up to one target artifact or enchantment.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Dan Mumford",
+        "imageId": "24ca444d-f4ab-4375-a670-63f29eb863dd"
+      },
+      {
+        "name": "Petty Revenge",
+        "manaCost": "{1}{B}",
+        "typeLine": "Sorcery — Omen",
+        "oracleText": "Destroy target creature with power 3 or less. (Then shuffle this card into its owner's library.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Dan Mumford",
+        "imageId": "24ca444d-f4ab-4375-a670-63f29eb863dd"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "310",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PINNACLE_MONK_MYSTIC_PEAK": {
+    "scryfallId": "24d4f26e-7f96-4b38-867e-4fac819b2679",
+    "oracleId": "f3d48efa-910a-4872-a5b1-a353c5dbce99",
+    "name": "Pinnacle Monk // Mystic Peak",
+    "layout": "modal_dfc",
+    "faces": [
+      {
+        "name": "Pinnacle Monk",
+        "manaCost": "{3}{R}{R}",
+        "typeLine": "Creature — Djinn Monk",
+        "oracleText": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nWhen this creature enters, return target instant or sorcery card from your graveyard to your hand.",
+        "flavorText": "Narset brought the Jeskai djinn ancient wisdom and the promise to challenge the status quo.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason A. Engle",
+        "imageId": "24d4f26e-7f96-4b38-867e-4fac819b2679-0"
+      },
+      {
+        "name": "Mystic Peak",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "As this land enters, you may pay 3 life. If you don't, it enters tapped.\n{T}: Add {R}.",
+        "flavorText": "\"Fear not the fall. Fear never reaching the pinnacle.\"\n—Narset",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jason A. Engle",
+        "imageId": "24d4f26e-7f96-4b38-867e-4fac819b2679-1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Prowess"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "246",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "TWINMAW_STORMBROOD_CHARRING_BITE": {
+    "scryfallId": "2999e3b1-6510-42b2-9429-28c07a64a44f",
+    "oracleId": "ff812a78-3fe7-47bc-9984-1c2380cff5b1",
+    "name": "Twinmaw Stormbrood // Charring Bite",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Twinmaw Stormbrood",
+        "manaCost": "{5}{W}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying\nWhen this creature enters, you gain 5 life.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Tuan Duong Chu",
+        "imageId": "2999e3b1-6510-42b2-9429-28c07a64a44f"
+      },
+      {
+        "name": "Charring Bite",
+        "manaCost": "{1}{R}",
+        "typeLine": "Sorcery — Omen",
+        "oracleText": "Charring Bite deals 5 damage to target creature without flying. (Then shuffle this card into its owner's library.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Tuan Duong Chu",
+        "imageId": "2999e3b1-6510-42b2-9429-28c07a64a44f"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "232",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GIANT_KILLER_CHOP_DOWN": {
+    "scryfallId": "2bf6f812-6c7a-4d0a-a22d-f3fa3298eac7",
+    "oracleId": "91e71279-c9d2-4873-916a-59da03a65741",
+    "name": "Giant Killer // Chop Down",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Giant Killer",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Human Peasant",
+        "oracleText": "{1}{W}, {T}: Tap target creature.",
+        "flavorText": "\"What size advantage? They never even see me coming.\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Shawn Wood",
+        "imageId": "2bf6f812-6c7a-4d0a-a22d-f3fa3298eac7"
+      },
+      {
+        "name": "Chop Down",
+        "manaCost": "{2}{W}",
+        "typeLine": "Instant — Adventure",
+        "oracleText": "Destroy target creature with power 4 or greater. (Then exile this card. You may cast the creature later from exile.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Shawn Wood",
+        "imageId": "2bf6f812-6c7a-4d0a-a22d-f3fa3298eac7"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "prm",
+    "collectorNumber": "78794",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCALDING_VIPER_STEAM_CLEAN": {
+    "scryfallId": "3014de04-66ce-4641-b36f-6ff1cc1c116a",
+    "oracleId": "12c71296-1243-49e6-a196-8b016a7b635c",
+    "name": "Scalding Viper // Steam Clean",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Scalding Viper",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Elemental Snake",
+        "oracleText": "Whenever an opponent casts a spell with mana value 3 or less, this creature deals 1 damage to that player.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Omar Rayyan",
+        "imageId": "3014de04-66ce-4641-b36f-6ff1cc1c116a"
+      },
+      {
+        "name": "Steam Clean",
+        "manaCost": "{1}{U}",
+        "typeLine": "Sorcery — Adventure",
+        "oracleText": "Return target nonland permanent to its owner's hand. (Then exile this card. You may cast the creature later from exile.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Omar Rayyan",
+        "imageId": "3014de04-66ce-4641-b36f-6ff1cc1c116a"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "woe",
+    "collectorNumber": "295",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RILING_DAWNBREAKER_SIGNALING_ROAR": {
+    "scryfallId": "312f7072-3bf8-449f-bfb7-93727ef26c66",
+    "oracleId": "1fc31651-70fe-4a58-9b7e-7359510bba51",
+    "name": "Riling Dawnbreaker // Signaling Roar",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Riling Dawnbreaker",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying, vigilance\nAt the beginning of combat on your turn, another target creature you control gets +1/+0 until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Tuan Duong Chu",
+        "imageId": "312f7072-3bf8-449f-bfb7-93727ef26c66"
+      },
+      {
+        "name": "Signaling Roar",
+        "manaCost": "{1}{W}",
+        "typeLine": "Sorcery — Omen",
+        "oracleText": "Create a 2/2 white Soldier creature token. (Then shuffle this card into its owner's library.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Tuan Duong Chu",
+        "imageId": "312f7072-3bf8-449f-bfb7-93727ef26c66"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Vigilance"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "21",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLACKBLOOM_ROGUE_BLACKBLOOM_BOG": {
+    "scryfallId": "32779721-b021-4bd4-95d1-4a19b78d9faa",
+    "oracleId": "34320ebf-da97-44a4-bbeb-a9da06548289",
+    "name": "Blackbloom Rogue // Blackbloom Bog",
+    "layout": "modal_dfc",
+    "faces": [
+      {
+        "name": "Blackbloom Rogue",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nThis creature gets +3/+0 as long as an opponent has eight or more cards in their graveyard.",
+        "flavorText": "\"If you ever want to get back up, do what I say.\"\n—Exena, expedition rogue",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "32779721-b021-4bd4-95d1-4a19b78d9faa-0"
+      },
+      {
+        "name": "Blackbloom Bog",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\n{T}: Add {B}.",
+        "flavorText": "\"The Raimunza River flows along the branches of jaddi trees for miles before plunging down to feed Blackbloom Lake.\"\n—Exena, expedition rogue",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jesper Ejsing",
+        "imageId": "32779721-b021-4bd4-95d1-4a19b78d9faa-1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Menace"
+    ],
+    "setCode": "znr",
+    "collectorNumber": "91",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "ORDER_OF_MIDNIGHT_ALTER_FATE": {
+    "scryfallId": "330cc452-4382-401d-9432-ac27ae6e27ad",
+    "oracleId": "2db17cfc-0947-407f-bd53-d64a48eec314",
+    "name": "Order of Midnight // Alter Fate",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Order of Midnight",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Flying\nThis creature can't block.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Victor Adame Minguez",
+        "imageId": "330cc452-4382-401d-9432-ac27ae6e27ad"
+      },
+      {
+        "name": "Alter Fate",
+        "manaCost": "{1}{B}",
+        "typeLine": "Sorcery — Adventure",
+        "oracleText": "Return target creature card from your graveyard to your hand. (Then exile this card. You may cast the creature later from exile.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Victor Adame Minguez",
+        "imageId": "330cc452-4382-401d-9432-ac27ae6e27ad"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "eld",
+    "collectorNumber": "99",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INTREPID_TRUFFLESNOUT_GO_HOG_WILD": {
+    "scryfallId": "4224747e-1dbc-4a29-b5da-5916d8ca2768",
+    "oracleId": "147d1e5c-fcfd-4115-a2f9-bea9b7ad7bb6",
+    "name": "Intrepid Trufflesnout // Go Hog Wild",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Intrepid Trufflesnout",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Boar",
+        "oracleText": "Whenever this creature attacks alone, create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Kisung Koh",
+        "imageId": "4224747e-1dbc-4a29-b5da-5916d8ca2768"
+      },
+      {
+        "name": "Go Hog Wild",
+        "manaCost": "{1}{G}",
+        "typeLine": "Instant — Adventure",
+        "oracleText": "Target creature gets +2/+2 until end of turn. (Then exile this card. You may cast the creature later from exile.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Kisung Koh",
+        "imageId": "4224747e-1dbc-4a29-b5da-5916d8ca2768"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Food"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "320",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IMODANE_S_RECRUITER_TRAIN_TROOPS": {
+    "scryfallId": "4dbaa855-3f8e-42e6-8ec8-5ffbc5c8acf0",
+    "oracleId": "50bee80e-89df-48c2-b608-ba66ff3e794a",
+    "name": "Imodane's Recruiter // Train Troops",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Imodane's Recruiter",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "When this creature enters, creatures you control get +1/+0 and gain haste until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Néstor Ossandón Leal",
+        "imageId": "4dbaa855-3f8e-42e6-8ec8-5ffbc5c8acf0"
+      },
+      {
+        "name": "Train Troops",
+        "manaCost": "{4}{W}",
+        "typeLine": "Sorcery — Adventure",
+        "oracleText": "Create two 2/2 white Knight creature tokens with vigilance. (Then exile this card. You may cast the creature later from exile.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Néstor Ossandón Leal",
+        "imageId": "4dbaa855-3f8e-42e6-8ec8-5ffbc5c8acf0"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "woe",
+    "collectorNumber": "229",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TEMPEST_HART_SCAN_THE_CLOUDS": {
+    "scryfallId": "559bacc8-facc-4d93-90b5-8ac21d3246f5",
+    "oracleId": "5005df36-a100-492d-89b9-e221793cfb56",
+    "name": "Tempest Hart // Scan the Clouds",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Tempest Hart",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Elemental Elk",
+        "oracleText": "Trample\nWhenever you cast a spell with mana value 5 or greater, put a +1/+1 counter on this creature.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Aldo Domínguez",
+        "imageId": "559bacc8-facc-4d93-90b5-8ac21d3246f5"
+      },
+      {
+        "name": "Scan the Clouds",
+        "manaCost": "{1}{U}",
+        "typeLine": "Instant — Adventure",
+        "oracleText": "Draw two cards, then discard two cards. (Then exile this card. You may cast the creature later from exile.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Aldo Domínguez",
+        "imageId": "559bacc8-facc-4d93-90b5-8ac21d3246f5"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "238",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FERAL_DEATHGORGER_DUSK_SIGHT": {
+    "scryfallId": "58c446e6-8ffb-45ed-aca2-95161ac88d5c",
+    "oracleId": "1722f814-2d4e-4d59-9b74-10ef8e89def9",
+    "name": "Feral Deathgorger // Dusk Sight",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Feral Deathgorger",
+        "manaCost": "{5}{B}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying, deathtouch\nWhen this creature enters, exile up to two target cards from a single graveyard.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "DZO",
+        "imageId": "58c446e6-8ffb-45ed-aca2-95161ac88d5c"
+      },
+      {
+        "name": "Dusk Sight",
+        "manaCost": "{1}{B}",
+        "typeLine": "Sorcery — Omen",
+        "oracleText": "Put a +1/+1 counter on up to one target creature. Draw a card. (Then shuffle this card into its owner's library.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "DZO",
+        "imageId": "58c446e6-8ffb-45ed-aca2-95161ac88d5c"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Deathtouch",
+      "Flying"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "298",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GALVANIC_GIANT_STORM_READING": {
+    "scryfallId": "60976109-30ad-4f12-99eb-c5ef560fcf1b",
+    "oracleId": "48ab8ba0-0e85-4656-a798-ceb961fb02ce",
+    "name": "Galvanic Giant // Storm Reading",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Galvanic Giant",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Giant Wizard",
+        "oracleText": "Whenever you cast a spell with mana value 5 or greater, tap target creature an opponent controls and put a stun counter on it.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Borja Pindado",
+        "imageId": "60976109-30ad-4f12-99eb-c5ef560fcf1b"
+      },
+      {
+        "name": "Storm Reading",
+        "manaCost": "{5}{U}{U}",
+        "typeLine": "Instant — Adventure",
+        "oracleText": "Draw four cards, then discard two cards. (Then exile this card. You may cast the creature later from exile.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Borja Pindado",
+        "imageId": "60976109-30ad-4f12-99eb-c5ef560fcf1b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "woe",
+    "collectorNumber": "52",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WITCH_ENCHANTER_WITCH_BLESSED_MEADOW": {
+    "scryfallId": "62061e7c-cf19-4f03-b8fa-2bdba62d6b0b",
+    "oracleId": "0355249a-8e4e-41db-9cea-1b901faffbe6",
+    "name": "Witch Enchanter // Witch-Blessed Meadow",
+    "layout": "modal_dfc",
+    "faces": [
+      {
+        "name": "Witch Enchanter",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Warlock",
+        "oracleText": "When this creature enters, destroy target artifact or enchantment an opponent controls.",
+        "flavorText": "Shilgengar's famine once starved Stensia into embracing vampirism. The Dawnhart Coven would not let the same happen to Kessig.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Tyler Walpole",
+        "imageId": "62061e7c-cf19-4f03-b8fa-2bdba62d6b0b-0"
+      },
+      {
+        "name": "Witch-Blessed Meadow",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "As this land enters, you may pay 3 life. If you don't, it enters tapped.\n{T}: Add {W}.",
+        "flavorText": "\"Ghrin-Danu will not let her people go hungry.\"\n—Katilda, Dawnhart Prime",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Tyler Walpole",
+        "imageId": "62061e7c-cf19-4f03-b8fa-2bdba62d6b0b-1"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mh3",
+    "collectorNumber": "239",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "FROLICKING_FAMILIAR_BLOW_OFF_STEAM": {
+    "scryfallId": "64c432d5-4f5b-44ac-9d61-891e78460d58",
+    "oracleId": "bbb6867f-7186-41de-9828-21be469178c1",
+    "name": "Frolicking Familiar // Blow Off Steam",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Frolicking Familiar",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Otter Wizard",
+        "oracleText": "Flying\nWhenever you cast an instant or sorcery spell, this creature gets +1/+1 until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Brian Valeza",
+        "imageId": "64c432d5-4f5b-44ac-9d61-891e78460d58"
+      },
+      {
+        "name": "Blow Off Steam",
+        "manaCost": "{R}",
+        "typeLine": "Instant — Adventure",
+        "oracleText": "Blow Off Steam deals 1 damage to any target. (Then exile this card. You may cast the creature later from exile.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Brian Valeza",
+        "imageId": "64c432d5-4f5b-44ac-9d61-891e78460d58"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "226",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARANG_RIVER_REGENT_COIL_AND_CATCH": {
+    "scryfallId": "685d2b12-d45a-400b-b582-8b184a6eee13",
+    "oracleId": "099b8d2c-b482-48dd-b6bc-dedf546d66c5",
+    "name": "Marang River Regent // Coil and Catch",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Marang River Regent",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying\nWhen this creature enters, return up to two other target nonland permanents to their owners' hands.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Tedrick",
+        "imageId": "685d2b12-d45a-400b-b582-8b184a6eee13"
+      },
+      {
+        "name": "Coil and Catch",
+        "manaCost": "{3}{U}",
+        "typeLine": "Instant — Omen",
+        "oracleText": "Draw three cards, then discard a card. (Then shuffle this card into its owner's library.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Tedrick",
+        "imageId": "685d2b12-d45a-400b-b582-8b184a6eee13"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "ptdm",
+    "collectorNumber": "51p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RIMROCK_KNIGHT_BOULDER_RUSH": {
+    "scryfallId": "7111d244-9892-40f1-bb25-51521f51d46f",
+    "oracleId": "24db950b-e4fe-42d0-977b-4957eb8229d9",
+    "name": "Rimrock Knight // Boulder Rush",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Rimrock Knight",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Dwarf Knight",
+        "oracleText": "This creature can't block.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Josu Hernaiz",
+        "imageId": "7111d244-9892-40f1-bb25-51521f51d46f"
+      },
+      {
+        "name": "Boulder Rush",
+        "manaCost": "{R}",
+        "typeLine": "Instant — Adventure",
+        "oracleText": "Target creature gets +2/+0 until end of turn. (Then exile this card. You may cast the creature later from exile.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Josu Hernaiz",
+        "imageId": "7111d244-9892-40f1-bb25-51521f51d46f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "prm",
+    "collectorNumber": "78750",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLESSED_HIPPOGRIFF_TYR_S_BLESSING": {
+    "scryfallId": "724c00b7-14da-4a42-8684-c1b02bbf44c6",
+    "oracleId": "3372b994-47de-4e89-9bfc-76e1cb3f1cfa",
+    "name": "Blessed Hippogriff // Tyr's Blessing",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Blessed Hippogriff",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Hippogriff",
+        "oracleText": "Flying\nWhenever this creature attacks, target attacking creature without flying gains flying until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Leanna Crossan",
+        "imageId": "724c00b7-14da-4a42-8684-c1b02bbf44c6"
+      },
+      {
+        "name": "Tyr's Blessing",
+        "manaCost": "{W}",
+        "typeLine": "Instant — Adventure",
+        "oracleText": "Target creature gains indestructible until end of turn. (Then exile this card. You may cast the creature later from exile.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Leanna Crossan",
+        "imageId": "724c00b7-14da-4a42-8684-c1b02bbf44c6"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "hbg",
+    "collectorNumber": "85",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OAKHAME_RANGER_BRING_BACK": {
+    "scryfallId": "7d86b85b-5098-4741-a9e9-afb68e8f7d64",
+    "oracleId": "9c247a17-361c-435e-90c8-ce9c6b71f7db",
+    "name": "Oakhame Ranger // Bring Back",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Oakhame Ranger",
+        "manaCost": "{G/W}{G/W}{G/W}{G/W}",
+        "typeLine": "Creature — Elf Knight Ranger",
+        "oracleText": "{T}: Creatures you control get +1/+1 until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Omar Rayyan",
+        "imageId": "7d86b85b-5098-4741-a9e9-afb68e8f7d64"
+      },
+      {
+        "name": "Bring Back",
+        "manaCost": "{G/W}{G/W}{G/W}{G/W}",
+        "typeLine": "Sorcery — Adventure",
+        "oracleText": "Create two 1/1 white Human creature tokens. (Then exile this card. You may cast the creature later from exile.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Omar Rayyan",
+        "imageId": "7d86b85b-5098-4741-a9e9-afb68e8f7d64"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "prm",
+    "collectorNumber": "78738",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RATCATCHER_TRAINEE_PEST_PROBLEM": {
+    "scryfallId": "7f4c0959-a107-4d61-9e51-256b2955f6ba",
+    "oracleId": "ecc91e38-90fa-4d89-b262-d5f36dce5be4",
+    "name": "Ratcatcher Trainee // Pest Problem",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Ratcatcher Trainee",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Peasant",
+        "oracleText": "During your turn, this creature has first strike.",
+        "flavorText": "\"Where do they keep coming from?!\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Michele Giorgi",
+        "imageId": "7f4c0959-a107-4d61-9e51-256b2955f6ba"
+      },
+      {
+        "name": "Pest Problem",
+        "manaCost": "{2}{R}",
+        "typeLine": "Instant — Adventure",
+        "oracleText": "Create two 1/1 black Rat creature tokens with \"This token can't block.\" (Then exile this card. You may cast the creature later from exile.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Michele Giorgi",
+        "imageId": "7f4c0959-a107-4d61-9e51-256b2955f6ba"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "woe",
+    "collectorNumber": "144",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPELLSCORN_COVEN_TAKE_IT_BACK": {
+    "scryfallId": "8c112f62-6034-4636-a75b-4a45bc916a91",
+    "oracleId": "9357fc7f-c9d0-4ce2-a6dd-0ff1f24bfc56",
+    "name": "Spellscorn Coven // Take It Back",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Spellscorn Coven",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Faerie Warlock",
+        "oracleText": "Flying\nWhen this creature enters, each opponent discards a card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Uriah Voth",
+        "imageId": "8c112f62-6034-4636-a75b-4a45bc916a91"
+      },
+      {
+        "name": "Take It Back",
+        "manaCost": "{2}{U}",
+        "typeLine": "Instant — Adventure",
+        "oracleText": "Return target spell to its owner's hand. (Then exile this card. You may cast the creature later from exile.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Uriah Voth",
+        "imageId": "8c112f62-6034-4636-a75b-4a45bc916a91"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "237",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GLASSWING_GRACE_AGE_GRACED_CHAPEL": {
+    "scryfallId": "90630b20-fc83-475f-bcd5-8bcfee0cf241",
+    "oracleId": "3a3e8c9b-e458-4661-980d-0a84a4c2452b",
+    "name": "Glasswing Grace // Age-Graced Chapel",
+    "layout": "modal_dfc",
+    "faces": [
+      {
+        "name": "Glasswing Grace",
+        "manaCost": "{3}{W/B}{W/B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +2/+2 and has flying and lifelink.",
+        "flavorText": "Serra may be long gone, but Benalia's faithful still draw strength from her blessings.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Craig Elliott",
+        "imageId": "90630b20-fc83-475f-bcd5-8bcfee0cf241-0"
+      },
+      {
+        "name": "Age-Graced Chapel",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\n{T}: Add {W} or {B}.",
+        "flavorText": "\"Empires fall, cities crumble, righteousness remains.\"\n—Chapel inscription",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Maxime Minard",
+        "imageId": "90630b20-fc83-475f-bcd5-8bcfee0cf241-1"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "254",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "SHROUDED_SHEPHERD_CLEAVE_SHADOWS": {
+    "scryfallId": "ab03c342-2bf4-41bf-8bb8-472d978d238a",
+    "oracleId": "de52b262-418e-418c-b2aa-8d5a776e3a75",
+    "name": "Shrouded Shepherd // Cleave Shadows",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Shrouded Shepherd",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Spirit Warrior",
+        "oracleText": "When this creature enters, target creature you control gets +2/+2 until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Randy Vargas",
+        "imageId": "ab03c342-2bf4-41bf-8bb8-472d978d238a"
+      },
+      {
+        "name": "Cleave Shadows",
+        "manaCost": "{1}{B}",
+        "typeLine": "Sorcery — Adventure",
+        "oracleText": "Creatures your opponents control get -1/-1 until end of turn. (Then exile this card. You may cast the creature later from exile.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Randy Vargas",
+        "imageId": "ab03c342-2bf4-41bf-8bb8-472d978d238a"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "woe",
+    "collectorNumber": "236",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAGU_WILDLING_ROOST_SEEK": {
+    "scryfallId": "b72ee8f9-5e79-4f77-ae7e-e4c274f78187",
+    "oracleId": "7cee6d43-5dec-4989-85ec-c635ec783ec7",
+    "name": "Sagu Wildling // Roost Seek",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Sagu Wildling",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying\nWhen this creature enters, you gain 3 life.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Justine Jones",
+        "imageId": "b72ee8f9-5e79-4f77-ae7e-e4c274f78187"
+      },
+      {
+        "name": "Roost Seek",
+        "manaCost": "{G}",
+        "typeLine": "Sorcery — Omen",
+        "oracleText": "Search your library for a basic land card, reveal it, put it into your hand, then shuffle. (Also shuffle this card.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Justine Jones",
+        "imageId": "b72ee8f9-5e79-4f77-ae7e-e4c274f78187"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "306",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STORMKELD_VANGUARD_BEAR_DOWN": {
+    "scryfallId": "bacb1fe5-0adf-461f-b698-9d09a8728c63",
+    "oracleId": "8a31c49f-5b3f-4f84-a08e-58b30a6bff7c",
+    "name": "Stormkeld Vanguard // Bear Down",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Stormkeld Vanguard",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Creature — Giant Warrior",
+        "oracleText": "This creature can't be blocked by creatures with power 2 or less.",
+        "flavorText": "He rides like thunder and strikes like lightning.",
+        "power": "6",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Aldo Domínguez",
+        "imageId": "bacb1fe5-0adf-461f-b698-9d09a8728c63"
+      },
+      {
+        "name": "Bear Down",
+        "manaCost": "{1}{G}",
+        "typeLine": "Sorcery — Adventure",
+        "oracleText": "Destroy target artifact or enchantment. (Then exile this card. You may cast the creature later from exile.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Aldo Domínguez",
+        "imageId": "bacb1fe5-0adf-461f-b698-9d09a8728c63"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "woe",
+    "collectorNumber": "187",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAPPHIRE_DRAGON_PSIONIC_PULSE": {
+    "scryfallId": "c0deb9ea-a0d4-4c3f-888e-abd1995cf2b3",
+    "oracleId": "53015c41-af2d-43e2-a690-d8877537b8dd",
+    "name": "Sapphire Dragon // Psionic Pulse",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Sapphire Dragon",
+        "manaCost": "{5}{U}{U}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying\nWhenever this creature attacks or blocks, scry 2.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Joe Slucher",
+        "imageId": "c0deb9ea-a0d4-4c3f-888e-abd1995cf2b3"
+      },
+      {
+        "name": "Psionic Pulse",
+        "manaCost": "{2}{U}",
+        "typeLine": "Instant — Adventure",
+        "oracleText": "Counter target noncreature spell. (Then exile this card. You may cast the creature later from exile.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Joe Slucher",
+        "imageId": "c0deb9ea-a0d4-4c3f-888e-abd1995cf2b3"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Scry",
+      "Flying"
+    ],
+    "setCode": "clb",
+    "collectorNumber": "94",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GINGERBREAD_HUNTER_PUNY_SNACK": {
+    "scryfallId": "e77a8fd4-af5f-42b3-a87e-788baf2562dd",
+    "oracleId": "f762c225-1c8c-4f12-aa88-c8c89e0a7185",
+    "name": "Gingerbread Hunter // Puny Snack",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Gingerbread Hunter",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Giant",
+        "oracleText": "When this creature enters, create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Milivoj Ćeran",
+        "imageId": "e77a8fd4-af5f-42b3-a87e-788baf2562dd"
+      },
+      {
+        "name": "Puny Snack",
+        "manaCost": "{2}{B}",
+        "typeLine": "Instant — Adventure",
+        "oracleText": "Target creature gets -2/-2 until end of turn. (Then exile this card. You may cast the creature later from exile.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Milivoj Ćeran",
+        "imageId": "e77a8fd4-af5f-42b3-a87e-788baf2562dd"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Food"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "227",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRABBY_GIANT_THAT_S_MINE": {
+    "scryfallId": "fab7646a-61e8-446b-9dba-ac6e0db82f10",
+    "oracleId": "e6f59807-eaf6-4889-8c89-2ac915afefff",
+    "name": "Grabby Giant // That's Mine",
+    "layout": "adventure",
+    "faces": [
+      {
+        "name": "Grabby Giant",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Giant",
+        "oracleText": "Reach\n{2}{R}, Sacrifice an artifact or land: Draw a card.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Johann Bodin",
+        "imageId": "fab7646a-61e8-446b-9dba-ac6e0db82f10"
+      },
+      {
+        "name": "That's Mine",
+        "manaCost": "{1}{R}",
+        "typeLine": "Instant — Adventure",
+        "oracleText": "Create a Treasure token. (Then exile this card. You may cast the creature later from exile.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Johann Bodin",
+        "imageId": "fab7646a-61e8-446b-9dba-ac6e0db82f10"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Reach",
+      "Treasure"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "133",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

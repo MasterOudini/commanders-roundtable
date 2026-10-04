@@ -25,7 +25,7 @@ import { legalModes, modalEffects, modeSpecs } from './modes';
 import { checkGameOver, checkStateBasedActions } from './sba';
 import { emitted, type Emitted } from './log';
 import { apply } from './reducer';
-import { exiledAsItLeaves, faceOf } from './oracle';
+import { adventureFaceOf, exiledAsItLeaves, faceOf } from './oracle';
 import { n, narrated, tableName, their, they, vb, who } from './narrate';
 import { drawFromTop, mulligansComplete } from './setup';
 import { askPromptFor, orderTriggersApnap } from './triggers';
@@ -976,7 +976,11 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
     // alone for a source on the stack; this is the one site that moves the card. Flashback still wins (CR 702.34a:
     // exiled instead, whichever way it would leave); a fizzled spell never resolves and goes to the graveyard (above).
     const spellDef = oracleCard ? deps.scripts.spell(oracleCard.oracleId) : undefined;
-    const fate = spellDef === undefined && face !== null && !face.isPermanent && face.effectMode === 'auto' ? spellFateOf(face.modal ? modalEffects(face.modal, obj.modes) : face.effects) : undefined;
+    // D616 - AN ADVENTURE (CR 715.3) is exiled as it resolves instead of going to its owner's graveyard - on an adventure, its
+    // caster may cast the creature from there (715.4); an OMEN, the same layout, is shuffled into its owner's library
+    // instead. Only where it would go to the graveyard: flashback's exile, the spell's own fate and a buyback come first.
+    const castAs = adventureFaceOf(oracleCard, obj.faceIndex);
+    const fate = (spellDef === undefined && face !== null && !face.isPermanent && face.effectMode === 'auto' ? spellFateOf(face.modal ? modalEffects(face.modal, obj.modes) : face.effects) : undefined) ?? (castAs === 'omen' ? 'shuffle' : undefined);
     const ownFate = exiledAsItLeaves(obj.castFrom, face) ? undefined : fate;
     // D535 - BUYBACK (CR 702.27): paid, the spell goes to its owner's hand instead of the graveyard as it resolves - only
     // where it would go to the graveyard (flashback's exile and the spell's own fate are not the graveyard).
@@ -984,6 +988,7 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
     // D538 - REBOUND (CR 702.88a): cast from the HAND, the spell is exiled as it resolves - where it would go to the
     // graveyard - and a delayed trigger at its controller's next upkeep offers the free cast (armed below, after the move).
     const rebounds = face !== null && face.rebound && obj.castFrom?.kind === 'hand' && !exiledAsItLeaves(obj.castFrom, face) && ownFate === undefined && !bought;
+    const adventures = castAs === 'adventure' && !exiledAsItLeaves(obj.castFrom, face) && ownFate === undefined && !bought && !rebounds;
     const to = face?.isPermanent
       ? { kind: 'battlefield' as const, player: obj.controller }
       : exiledAsItLeaves(obj.castFrom, face)
@@ -997,7 +1002,7 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
             ? { kind: 'library' as const, player: card.owner }
             : bought
               ? { kind: 'hand' as const, player: card.owner }
-              : rebounds
+              : rebounds || adventures
                 ? { kind: 'exile' as const, player: card.owner }
                 : { kind: 'graveyard' as const, player: card.owner };
     events.push({ t: 'StackResolved', stackId: obj.id, card: obj.card, to, targets: obj.targets, controller: obj.controller, ...(ownFate !== undefined ? { fate: ownFate } : {}), ...(bought ? { buyback: true as const } : {}) });
@@ -1076,6 +1081,8 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
           ...(obj.alternativePaid && face?.alternativeCost?.keyword !== undefined ? { altKeyword: face.alternativeCost.keyword } : {}),
           // D489 - a suspend cast's entry: a creature has haste while it stays (CR 702.62e).
           ...(obj.suspended ? { suspendHaste: true as const } : {}),
+          // D616 - an Adventure's exile marks the card for its caster (CR 715.4).
+          ...(adventures ? { adventure: obj.controller } : {}),
         },
       ],
     });
@@ -1097,6 +1104,7 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
       events.push(narrated(ownFate === 'exile' ? `${obj.label} is exiled as it resolves.` : ownFate === 'shuffle' ? `${obj.label} is shuffled into its owner's library.` : ownFate === 'hand' ? `${obj.label} returns to its owner's hand as it resolves.` : `${obj.label} is put on the bottom of its owner's library.`, obj.controller, obj.identity));
     }
     if (bought) events.push(narrated(`${obj.label} returns to its owner's hand - its buyback was paid.`, obj.controller, obj.identity));
+    if (adventures) events.push(narrated(`${obj.label} goes on an adventure - exiled; its caster may cast the creature from there.`, obj.controller, obj.identity));
     // D449 - DASH (CR 702.109a): a dashed permanent returns to its owner's hand at the beginning of the next
     // end step - a delayed trigger armed as the spell resolves, its one effect the self return (a source that
     // has left the battlefield by then is a subject that is gone, and the fire says so).

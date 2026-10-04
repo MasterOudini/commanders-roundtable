@@ -2073,7 +2073,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Rootha, Mercurial Artist', 'a vocabulary effect the suite cannot assert: copySpell (D509)'],
   ['Sea Drake', 'a vocabulary clause the suite has no fixture for: a counted clause (2..2) (D509)'],
   ["Silvanus's Invoker", 'ability-word activated line: Conjure Elemental — {8}: Untap target la (D509)'],
-  ['Witch Enchanter // Witch-Blessed Meadow', 'multi-face or unusual layout (D509)'],
   ['Fey Steed', 'trigger head not in the library: Whenever a creature or planeswalker you control becomes the target of (D509)'],
   ['Geistblast', 'a spell with a line outside the vocabulary: Geistblast deals 2 damage to any target. (D509)'],
   ['Mirrorpool', 'a vocabulary effect the suite cannot assert: copySpell (D509)'],
@@ -2278,7 +2277,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['General Thunderbolt Ross', 'a scope read off the live combat (attacking creatures get +1/+0 - the suite must attack) under its Battalion head'],
   ['God-Favored General', 'a payment branch the suite cannot assert (a token) under its Inspired head'],
   ['Gremlin Tamer', 'a trigger head outside the library (Eerie - whenever an enchantment you control enters and whenever you fully unlock a Room)'],
-  ['Kazandu Mammoth // Kazandu Valley', 'a modal double-faced layout beside its Landfall line'],
   ['Kraul Foragers', 'a board-sized life gain the suite cannot pin (for each creature card in your graveyard) under its Undergrowth head'],
   ['Optimistic Scavenger', 'a trigger head outside the library (Eerie - whenever an enchantment you control enters and whenever you fully unlock a Room)'],
   ['Pheres-Band Raiders', 'a payment branch the suite cannot assert (a token) under its Inspired head'],
@@ -3649,7 +3647,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Duergar Mine-Captain', 'untap-symbol cost'],
   ['Rift Elemental', 'remove-counter cost'],
   ['Orc General', 'multi-type sacrifice cost'],
-  ['Oakhame Ranger // Bring Back', 'adventure (two faces)'],
   ['Goro-Goro and Satoru', 'entered-this-turn combat-damage trigger'],
 
   // D301 part B — the pool the classifier offered beyond the probe: the trigger
@@ -3684,7 +3681,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Sinister Possession', 'an Aura line outside the row shapes (Whenever enchanted creature attacks or blocks, i)'],
   ['Betrayal', 'an Aura line outside the row shapes (Whenever enchanted creature becomes tapped, you )'],
   ['Valor of the Worthy', 'an Aura line outside the row shapes (When enchanted creature leaves the battlefield, )'],
-  ['Glasswing Grace // Age-Graced Chapel', 'multi-face card'],
   ['Fate Foretold', 'an Aura line outside the row shapes (When enchanted creature dies, its controller dra)'],
   ['Corrupted Roots', 'an Aura line outside the row shapes (Enchant Forest or Plains)'],
   ['Favor of the Woods', 'an Aura line outside the row shapes (Whenever enchanted creature blocks, you gain N l)'],
@@ -3749,7 +3745,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D308 (M6.4es) — the keyword-trigger pool: the carriers whose other
   // lines the vocabulary does not read yet - their keyword trigger runs.
   ['Glen Elendra Archmage', 'a creature line outside the vocabulary (its persist runs)'],
-  ['Pinnacle Monk // Mystic Peak', 'a creature line outside the vocabulary (its prowess runs)'],
   ['Pollywog Prodigy', 'a creature line outside the vocabulary (its evolve runs)'],
   ['Ray Fillet, Wave Warrior', 'a creature line outside the vocabulary (its evolve runs)'],
   ['River Kelpie', 'a creature line outside the vocabulary (its persist runs)'],
@@ -3852,7 +3847,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
 
   // D401 - the conditional statics: the nine the selector offered after the classifier admitted
   // them that the row maker refused (or the draft pulled), by reason.
-  ['Blackbloom Rogue // Blackbloom Bog', 'a modal double-faced card offered for its front face (multi-face layout)'],
   ['Crew Captain', 'a static gated by the source entering this turn (it entered this turn) - the suite cannot stage the entry turn as the broken state'],
   ['Twinblade Paladin', 'a life condition beside a gain-life head on the same card - the stage that meets the condition is a life gain the head answers with a counter (a draft-time pull)'],
 
