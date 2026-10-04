@@ -397,7 +397,8 @@ function readShieldRecipient(raw: string): 'target' | 'creatures' | 'creaturesYo
 // D425 - `you`: the controller alone (`~ deals 1 damage to you.` - Serendib Efreet, City of Brass, the pain family; 61
 // cards carry it, 17 with nothing else unread). A player scope the executor reads as the resolving object's
 // controller; a verb that refuses player scopes (destroy, exile, bounce) refuses it as it refuses `each player`.
-const SCOPE = `(each creature(?: (?:with|without) (?:${KW}))?|each opponent|each player|you|all creatures|all artifacts|all enchantments|all lands|creatures your opponents control|creatures you control|attacking creatures)`;
+// D624 - and the controller phrases on `each creature`, `creatures you don't control`, `creature tokens` and `all planeswalkers`.
+const SCOPE = `(each creature(?: (?:with|without) (?:${KW})| your opponents control| you don't control| an opponent controls)?|each opponent|each player|you|all creatures|all artifacts|all enchantments|all lands|all planeswalkers|creatures your opponents control|creatures you don't control|creatures you control|creature tokens|attacking creatures)`;
 function readScope(raw: string | undefined): BoardScope | null {
   if (raw === undefined) return null;
   const s = raw.toLowerCase();
@@ -406,6 +407,10 @@ function readScope(raw: string | undefined): BoardScope | null {
   if (s === 'each player') return { kind: 'player', controller: 'any' };
   if (s === 'creatures you control') return { kind: 'creature', controller: 'you' };
   if (s === 'creatures your opponents control') return { kind: 'creature', controller: 'opponents' };
+  // D624 - the opponents' creatures in the other spellings, the tokens, the planeswalkers.
+  if (s === 'each creature your opponents control' || s === "each creature you don't control" || s === 'each creature an opponent controls' || s === "creatures you don't control") return { kind: 'creature', controller: 'opponents' };
+  if (s === 'creature tokens') return { kind: 'creature', controller: 'any', token: true };
+  if (s === 'all planeswalkers') return { kind: 'permanent', controller: 'any', type: 'Planeswalker' };
   if (s === 'attacking creatures') return { kind: 'creature', controller: 'any', attacking: true };
   if (s === 'all creatures' || s === 'each creature') return { kind: 'creature', controller: 'any' };
   if (s === 'all artifacts') return { kind: 'permanent', controller: 'any', type: 'Artifact' };
@@ -453,6 +458,14 @@ function readWideScope(raw: string): BoardScope | null {
   m = /^(?:all |each )?creatures(?: (you control))? that attacked this turn$/i.exec(s);
   if (m) return { kind: 'creature', controller: m[1] !== undefined ? 'you' : 'any', attackedThisTurn: true };
   return readScope(s.toLowerCase());
+}
+
+/** D624 - the multi-type sweep's scopes: one per type named, in the printed order. */
+function multiTypeScopes(raw: string): BoardScope[] {
+  const words = raw.toLowerCase().split(/,? and |, /).map((w) => w.trim()).filter((w) => w !== '');
+  return words.map((w): BoardScope =>
+    w === 'creatures' ? { kind: 'creature', controller: 'any' } : { kind: 'permanent', controller: 'any', type: w === 'artifacts' ? 'Artifact' : w === 'enchantments' ? 'Enchantment' : 'Planeswalker' },
+  );
 }
 
 function grantedKeywords(...raw: (string | undefined)[]): readonly Keyword[] | null {
@@ -1212,6 +1225,18 @@ const RULES: readonly Rule[] = [
    * and stays unread, which is why the anchored count (29) is a third of the 247
    * cards that merely CARRY a scoped sentence.
    */
+  // D624 - every creature and every planeswalker (a controller phrase too): two scopes, one board walk (a creature
+  // planeswalker is dealt the damage once - the walk keeps one entry per card).
+  {
+    kind: 'damageEach',
+    re: new RegExp(`^~ deals (${NUM}) damage to each creature and (?:each )?planeswalker(?: (your opponents control|you don't control))?\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      if (n === null) return null;
+      const c = m[2] === undefined ? 'any' as const : 'opponents' as const;
+      return { ...BASE, amount: n, targetIndex: -1, self: true, scopes: [{ kind: 'creature', controller: c }, { kind: 'permanent', controller: c, type: 'Planeswalker' }] };
+    },
+  },
   {
     kind: 'damageEach',
     re: new RegExp(`^~ deals (${NUM}) damage to ${SCOPE}(?: and ${SCOPE})?\.$`, 'i'),
@@ -1222,6 +1247,17 @@ const RULES: readonly Rule[] = [
       if (n === null || a === null || (m[3] !== undefined && b === null)) return null;
       return { ...BASE, amount: n, targetIndex: -1, self: true, scopes: b === null ? [a] : [a, b] };
     },
+  },
+  // D624 - THE MULTI-TYPE SWEEPS: one scope per type the sentence names (a permanent of two of them is destroyed once).
+  {
+    kind: 'destroyAll',
+    re: /^destroy all (artifacts and enchantments|artifacts, creatures, and enchantments|creatures and planeswalkers|artifacts and creatures)[.]$/i,
+    build: (m) => ({ ...BASE, targetIndex: -1, self: true, scopes: multiTypeScopes(m[1] ?? '') }),
+  },
+  {
+    kind: 'exileAll',
+    re: /^exile all (artifacts and enchantments|artifacts, creatures, and enchantments|creatures and planeswalkers|artifacts and creatures)[.]$/i,
+    build: (m) => ({ ...BASE, targetIndex: -1, self: true, scopes: multiTypeScopes(m[1] ?? '') }),
   },
   {
     kind: 'destroyAll',
@@ -1265,6 +1301,37 @@ const RULES: readonly Rule[] = [
     build: (m) => {
       const s = readScope(m[1]);
       return s === null || s.kind === 'player' ? null : { ...BASE, targetIndex: -1, self: true, scopes: [s] };
+    },
+  },
+  // D624 - `Permanents you control gain <kw> until end of turn`: the grant over every permanent the controller controls
+  // (a noncreature's power and toughness stay null - the carrier's keywords are what it gets).
+  {
+    kind: 'massPump',
+    re: new RegExp(`^permanents you control gain (${KW})(?: and (${KW}))? until end of turn\.$`, 'i'),
+    build: (m) => {
+      const kws = grantedKeywords(m[1], m[2]);
+      return kws !== null ? { ...BASE, keywords: kws, targetIndex: -1, self: true, scopes: [{ kind: 'permanent', controller: 'you' }] } : null;
+    },
+  },
+  // D624 - THE AIMED PLAYER'S CREATURES: `Creatures target player / opponent controls get ... / gain ...` - the player target slot (the
+  // sentence's own `target player`), the scope's controller the aimed player (`target`, read off the aim by the executor).
+  {
+    kind: 'massPump',
+    re: new RegExp(`^creatures target (?:player|opponent) controls get ([+-]${NUM})/([+-]${NUM})(?: and gain (${KW})(?: and (${KW}))?)? until end of turn\.$`, 'i'),
+    build: (m) => {
+      const p = Number(m[1]);
+      const t = Number(m[2]);
+      const kws = m[3] === undefined ? [] : grantedKeywords(m[3], m[4]);
+      if (!Number.isFinite(p) || !Number.isFinite(t) || kws === null) return null;
+      return { ...BASE, power: p, toughness: t, keywords: kws, targetIndex: 0, scopes: [{ kind: 'creature', controller: 'target' }] };
+    },
+  },
+  {
+    kind: 'massPump',
+    re: new RegExp(`^creatures target (?:player|opponent) controls gain (${KW})(?: and (${KW}))? until end of turn\.$`, 'i'),
+    build: (m) => {
+      const kws = grantedKeywords(m[1], m[2]);
+      return kws !== null ? { ...BASE, keywords: kws, targetIndex: 0, scopes: [{ kind: 'creature', controller: 'target' }] } : null;
     },
   },
   {

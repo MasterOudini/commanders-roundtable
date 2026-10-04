@@ -7,6 +7,13 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { NEVINYRRALS_DISK_SCRIPT } from './cards/nevinyrralsDisk';
+import { SERENITY_SCRIPT } from './cards/serenity';
+import { KALEMNES_CAPTAIN_SCRIPT } from './cards/kalemnesCaptain';
+import { DRAGONBACK_ASSAULT_SCRIPT } from './cards/dragonbackAssault';
+import { MAGUS_OF_THE_DISK_SCRIPT } from './cards/magusOfTheDisk';
+import { NOVA_CLERIC_SCRIPT } from './cards/novaCleric';
+import { DAGGER_CASTER_SCRIPT } from './cards/daggerCaster';
 import { RADHA_HEART_OF_KELD_SCRIPT } from './cards/radhaHeartOfKeld';
 import { FUTURE_SIGHT_SCRIPT } from './cards/futureSight';
 import { COURSER_OF_KRUPHIX_SCRIPT } from './cards/courserOfKruphix';
@@ -7230,7 +7237,6 @@ import { MARKER_BEETLES_SCRIPT } from './cards/markerBeetles';
 import { MIGHT_OF_THE_OLD_WAYS_SCRIPT } from './cards/mightOfTheOldWays';
 import { HALIYA_ASCENDANT_CADET_SCRIPT } from './cards/haliyaAscendantCadet';
 import { HERMES_OVERSEER_OF_ELPIS_SCRIPT } from './cards/hermesOverseerOfElpis';
-import { HOW_TO_START_ARIOT_SCRIPT } from './cards/howToStartARiot';
 import { HYDROLASH_SCRIPT } from './cards/hydrolash';
 import { IMPLEMENT_OF_EXAMINATION_SCRIPT } from './cards/implementOfExamination';
 import { IMPLEMENT_OF_IMPROVEMENT_SCRIPT } from './cards/implementOfImprovement';
@@ -8028,7 +8034,6 @@ import { NEFARIOUS_IMP_SCRIPT } from './cards/nefariousImp';
 import { NEIGHBORHOOD_GUARDIAN_SCRIPT } from './cards/neighborhoodGuardian';
 import { NETWORK_DISRUPTOR_SCRIPT } from './cards/networkDisruptor';
 import { NEUROK_REPLICA_SCRIPT } from './cards/neurokReplica';
-import { NEUTRALIZE_THE_GUARDS_SCRIPT } from './cards/neutralizeTheGuards';
 import { NEW_BENALIA_SCRIPT } from './cards/newBenalia';
 import { NEWS_HELICOPTER_SCRIPT } from './cards/newsHelicopter';
 import { NIGHTHAWK_DARK_DEFENDER_SCRIPT } from './cards/nighthawkDarkDefender';
@@ -8383,7 +8388,6 @@ import { BRIGHTFLAME_SCRIPT } from './cards/brightflame';
 import { BRIGHTSTONE_RITUAL_SCRIPT } from './cards/brightstoneRitual';
 import { BIORHYTHM_SCRIPT } from './cards/biorhythm';
 import { BLASTFIRE_BOLT_SCRIPT } from './cards/blastfireBolt';
-import { BLAZING_VOLLEY_SCRIPT } from './cards/blazingVolley';
 import { BLESSED_REVERSAL_SCRIPT } from './cards/blessedReversal';
 import { BLESSED_WIND_SCRIPT } from './cards/blessedWind';
 import { BLINDING_LIGHT_SCRIPT } from './cards/blindingLight';
@@ -8424,7 +8428,6 @@ import { AUSPICIOUS_ARRIVAL_SCRIPT } from './cards/auspiciousArrival';
 import { ASHEN_POWDER_SCRIPT } from './cards/ashenPowder';
 import { ARBOREA_PEGASUS_SCRIPT } from './cards/arboreaPegasus';
 import { APOCALYPSE_SCRIPT } from './cards/apocalypse';
-import { ARMS_OF_HADAR_SCRIPT } from './cards/armsOfHadar';
 import { ALABASTER_MAGE_SCRIPT } from './cards/alabasterMage';
 import { AKKI_DRILLMASTER_SCRIPT } from './cards/akkiDrillmaster';
 import { AETHERIZE_SCRIPT } from './cards/aetherize';
@@ -8989,6 +8992,13 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  NEVINYRRALS_DISK_SCRIPT,
+  SERENITY_SCRIPT,
+  KALEMNES_CAPTAIN_SCRIPT,
+  DRAGONBACK_ASSAULT_SCRIPT,
+  MAGUS_OF_THE_DISK_SCRIPT,
+  NOVA_CLERIC_SCRIPT,
+  DAGGER_CASTER_SCRIPT,
   RADHA_HEART_OF_KELD_SCRIPT,
   FUTURE_SIGHT_SCRIPT,
   COURSER_OF_KRUPHIX_SCRIPT,
@@ -16212,7 +16222,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   MIGHT_OF_THE_OLD_WAYS_SCRIPT,
   HALIYA_ASCENDANT_CADET_SCRIPT,
   HERMES_OVERSEER_OF_ELPIS_SCRIPT,
-  HOW_TO_START_ARIOT_SCRIPT,
   HYDROLASH_SCRIPT,
   IMPLEMENT_OF_EXAMINATION_SCRIPT,
   IMPLEMENT_OF_IMPROVEMENT_SCRIPT,
@@ -17009,7 +17018,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   NEIGHBORHOOD_GUARDIAN_SCRIPT,
   NETWORK_DISRUPTOR_SCRIPT,
   NEUROK_REPLICA_SCRIPT,
-  NEUTRALIZE_THE_GUARDS_SCRIPT,
   NEW_BENALIA_SCRIPT,
   NEWS_HELICOPTER_SCRIPT,
   NIGHTHAWK_DARK_DEFENDER_SCRIPT,
@@ -17364,7 +17372,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   BRIGHTSTONE_RITUAL_SCRIPT,
   BIORHYTHM_SCRIPT,
   BLASTFIRE_BOLT_SCRIPT,
-  BLAZING_VOLLEY_SCRIPT,
   BLESSED_REVERSAL_SCRIPT,
   BLESSED_WIND_SCRIPT,
   BLINDING_LIGHT_SCRIPT,
@@ -17405,7 +17412,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   ASHEN_POWDER_SCRIPT,
   ARBOREA_PEGASUS_SCRIPT,
   APOCALYPSE_SCRIPT,
-  ARMS_OF_HADAR_SCRIPT,
   ALABASTER_MAGE_SCRIPT,
   AKKI_DRILLMASTER_SCRIPT,
   AETHERIZE_SCRIPT,

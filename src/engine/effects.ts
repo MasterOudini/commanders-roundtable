@@ -787,7 +787,13 @@ export function effectResult(
         // One carrier entry per creature, the same shape the targeted pump emits.
         // D383 - and any other scope the closed reader names; absent means the
         // D301 one, so every spec shipped before means exactly what it meant.
-        for (const id of scopeMembers(state, deps, controller, effect.scopes ?? [MASS_PUMP_SCOPE], cache).cards) {
+        // D624 - the aimed player's creatures (`Creatures target player controls ...`): the scope read as that player's own; no
+        // player aimed (the target left), no member.
+        const aimedScope = (effect.scopes ?? []).some((s) => s.controller === 'target');
+        if (aimedScope && aim?.kind !== 'player') break;
+        const pumpWho = aimedScope && aim?.kind === 'player' ? aim.id : controller;
+        const pumpScopes = aimedScope ? (effect.scopes ?? []).map((s) => (s.controller === 'target' ? { ...s, controller: 'you' as const } : s)) : (effect.scopes ?? [MASS_PUMP_SCOPE]);
+        for (const id of scopeMembers(state, deps, pumpWho, pumpScopes, cache).cards) {
           out.push({
             t: 'PtModifiedUntilEndOfTurn',
             card: id,
@@ -3367,6 +3373,8 @@ function scopeMembers(
       if (scope.nonland === true && d.typeLine.types.includes('Land')) continue;
       // D512 - `creatures that attacked this turn`: the turn record's declared attackers.
       if (scope.attackedThisTurn === true && !state.turn.memory.attackerIds.includes(id)) continue;
+      // D624 - `creature tokens`: a token member only.
+      if (scope.token === true && inst.isToken !== true) continue;
       cards.push(id);
     }
   }

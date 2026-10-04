@@ -696,7 +696,8 @@ export interface BoardScope {
   /** Whose. `any` is every player's, which is what "each creature" means. D482 - `target`: the player the effect aimed at. */
   readonly controller: 'you' | 'opponents' | 'any' | 'target';
   /** `permanent` only: the card type the sentence names. */
-  readonly type?: 'Creature' | 'Artifact' | 'Enchantment' | 'Land';
+  // D624 - and `Planeswalker` (`all planeswalkers`, `each creature and each planeswalker`).
+  readonly type?: 'Creature' | 'Artifact' | 'Enchantment' | 'Land' | 'Planeswalker';
   /** `creature` only: a Tier-2 keyword the member must have, or must not. */
   readonly keyword?: Keyword;
   readonly keywordAbsent?: boolean;
@@ -710,6 +711,8 @@ export interface BoardScope {
   readonly nonland?: true;
   /** D512 - `creature` only: the member attacked this turn (`all creatures that attacked this turn` - TurnMemory.attackerIds). */
   readonly attackedThisTurn?: true;
+  /** D624 - `creature` only: the member is a token (`creature tokens` - CardInstance.isToken). */
+  readonly token?: true;
 }
 
 export type EffectKind =

@@ -39,14 +39,15 @@ describe("Telim'Tor's Darts", () => {
     expect(g.state.cards[darts]?.tapped).toBe(true);
   });
 
-  // ⚠️ Damage to a planeswalker is MARKED and does not remove loyalty in
-  // this engine (see tasteOfBlood.test.ts for the measurement).
-  test('a PLANESWALKER is the other arm — the damage is marked, the player is untouched', () => {
+  // Damage to a planeswalker removes that much loyalty (CR 120.3c, D624) and
+  // marks none.
+  test('a PLANESWALKER is the other arm — it loses the loyalty, the player is untouched', () => {
     const { g, darts, walker } = game();
     must(g.submit({ t: 'ActivateAbility', player: 'p1', card: darts, abilityIndex: 0 }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: walker }] }));
     settle(g);
-    expect(g.state.cards[walker]?.damage).toBe(1);
+    expect(g.state.cards[walker]?.counters['loyalty']).toBe(2);
+    expect(g.state.cards[walker]?.damage ?? 0).toBe(0);
     expect(g.state.players.p2?.life).toBe(40);
   });
 

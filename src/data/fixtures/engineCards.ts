@@ -9948,6 +9948,13 @@ export const EMPEROR_MIHAIL_II: CardData = F.EMPEROR_MIHAIL_II as CardData;
 export const KORLESSA_SCALE_SINGER: CardData = F.KORLESSA_SCALE_SINGER as CardData;
 export const GOBLIN_SPY: CardData = F.GOBLIN_SPY as CardData;
 export const HAKODA_SELFLESS_COMMANDER: CardData = F.HAKODA_SELFLESS_COMMANDER as CardData;
+export const DAGGER_CASTER: CardData = F.DAGGER_CASTER as CardData;
+export const NEVINYRRAL_S_DISK: CardData = F.NEVINYRRAL_S_DISK as CardData;
+export const SERENITY: CardData = F.SERENITY as CardData;
+export const KALEMNE_S_CAPTAIN: CardData = F.KALEMNE_S_CAPTAIN as CardData;
+export const DRAGONBACK_ASSAULT: CardData = F.DRAGONBACK_ASSAULT as CardData;
+export const MAGUS_OF_THE_DISK: CardData = F.MAGUS_OF_THE_DISK as CardData;
+export const NOVA_CLERIC: CardData = F.NOVA_CLERIC as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -20176,6 +20183,13 @@ export const ENGINE_CARDS: CardData[] = [
   KORLESSA_SCALE_SINGER,
   GOBLIN_SPY,
   HAKODA_SELFLESS_COMMANDER,
+  DAGGER_CASTER,
+  NEVINYRRAL_S_DISK,
+  SERENITY,
+  KALEMNE_S_CAPTAIN,
+  DRAGONBACK_ASSAULT,
+  MAGUS_OF_THE_DISK,
+  NOVA_CLERIC,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

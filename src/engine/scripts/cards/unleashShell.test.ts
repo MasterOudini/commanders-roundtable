@@ -1,8 +1,8 @@
 // `Unleash Shell` — 5 at the permanent and 2 at its CONTROLLER, on both arms
 // of the compound.
 //
-// ⚠️ Damage to a planeswalker is only MARKED in this engine (D257), so the
-// planeswalker case asserts `damage` and never a loyalty delta.
+// Damage to a planeswalker removes that much loyalty (CR 120.3c, D624): the 5
+// takes Grist's 3, and the state-based action puts it in the graveyard.
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
@@ -50,9 +50,9 @@ describe('Unleash Shell', () => {
     expect(g.state.players.p1?.life).toBe(40);
   });
 
-  test('a PLANESWALKER is the other arm — damage is MARKED, not loyalty (D257)', () => {
+  test('a PLANESWALKER is the other arm — the 5 takes its loyalty and it dies (CR 120.3c)', () => {
     const { g, victim } = fired(WALKER);
-    expect(g.state.cards[victim]?.damage).toBe(5);
+    expect(g.state.cards[victim]?.zone.kind).toBe('graveyard');
     expect(g.state.players.p2?.life).toBe(38);
   });
 

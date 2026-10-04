@@ -354,9 +354,14 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   { names: ['Final Flourish', 'Thornscape Battlemage'], copiesPerSeat: 2, counterKeys: ['kickerVerbCasts', 'secondKickerCasts'], rotHistory: 'D530' },
   // D531 - CONTROL WITH A DURATION AND THE EXCHANGE: two Political Trickeries (the exchange of two lands) and two Sowers
   // of Temptation (a creature held for as long as Sower stays) a seat.
-  { names: ['Political Trickery', 'Sower of Temptation'], copiesPerSeat: 2, counterKeys: ['controlGained', 'controlHeld'], rotHistory: 'D531' },
+  // D624 - one of each a seat: the second slots went to the monstrosity pair below (the swap; neither counter here
+  // carries a floor - controlGained 62 over D624's first gate).
+  { names: ['Political Trickery', 'Sower of Temptation'], copiesPerSeat: 1, counterKeys: ['controlGained', 'controlHeld'], rotHistory: 'D531, D624' },
   // D533 - MONSTROSITY: two Fleecemane Lions and two Sinuous Vermin a seat (the cheapest Monstrosity activations rowed).
-  { names: ['Fleecemane Lion', 'Sinuous Vermin'], copiesPerSeat: 2, counterKeys: ['monstrosities'], rotHistory: 'D533' },
+  // D624 - ROTTED to 0 over 500 seeds (3 at D623's gate) once the scope words and CR 120.3c reshaped the games:
+  // three of each a seat, the third in the pair above's second slots (the seat's card count and the shuffle kept,
+  // D553's rule).
+  { names: ['Fleecemane Lion', 'Sinuous Vermin'], copiesPerSeat: 3, counterKeys: ['monstrosities'], rotHistory: 'D533, D624' },
   // D534 - COIN FLIP: two Winter Skies a seat (a flip, and a branch either way).
   { names: ['Winter Sky'], copiesPerSeat: 2, counterKeys: ['rulesFlips'], rotHistory: 'D534' },
   // D535 - BUYBACK: two Searing Touches a seat (a one-mana ping, bought back for {4} more).

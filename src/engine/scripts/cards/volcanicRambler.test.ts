@@ -1,8 +1,8 @@
 // `Volcanic Rambler` — the ping at a player and at a PLANESWALKER, twice in
 // one turn because no {T} is in the cost.
 //
-// ⚠️ Damage to a planeswalker is only MARKED in this engine (D257), so the
-// walker case asserts `damage` and never a loyalty delta.
+// Damage to a planeswalker removes that much loyalty (CR 120.3c, D624) and
+// marks none.
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
@@ -46,12 +46,13 @@ describe('Volcanic Rambler', () => {
     expect(g.state.cards[rambler]?.tapped).toBe(false);
   });
 
-  test('a PLANESWALKER is marked with the damage', () => {
+  test('a PLANESWALKER loses the loyalty (CR 120.3c)', () => {
     const { g, rambler, walker } = board();
     must(g.submit({ t: 'ActivateAbility', player: 'p1', card: rambler, abilityIndex: 0 }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: walker }] }));
     settle(g);
-    expect(g.state.cards[walker]?.damage).toBe(1);
+    expect(g.state.cards[walker]?.counters['loyalty']).toBe(2);
+    expect(g.state.cards[walker]?.damage ?? 0).toBe(0);
     expect(g.state.players['p2']?.life).toBe(40);
   });
 

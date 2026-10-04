@@ -723,6 +723,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D624 - the scope words read; what stays is a card the row maker refuses for another reason.
+  ['Great Oak Guardian', 'the row maker: an object verb after a clause whose objects the suite does not enumerate (a scoped clause; not this wave): Unt - its clause reads since D624 (D624)'],
+  ['Soul of New Phyrexia', 'the row maker: a mass pump over a scope outside the subtype table: Permanents you control - its clause reads since D624 (D624)'],
+  ['Orzhov Pontiff', 'the generator: no entersOrHauntedDies head (the row maker rows the haunt line, gen-oneshot has no HEAD for it) - its modes read since D624 (D624)'],
+  ['Primaris Eliminator', 'the row maker: a mode payload: Creatures target player controls get -2/-2 until end of turn - its clause reads since D624 (D624)'],
   // D622 - mill then pick reads; what stays is a card the row maker refuses for another reason.
   ["Dredger's Insight", 'the row maker: a filtered head outside the closed reader (an adjective outside the list: and/or): Whenever one or more artifa - its clause reads since D622 (D622)'],
   ['Mole Module', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: this): Whenever this Vehicle deals c - its clause reads since D622 (D622)'],
@@ -910,7 +915,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Sudden Spoiling', 'a spell with a line outside the vocabulary: Until end of turn, creatures target player controls lose all abilities and have base power and toughness 0/2 - an ability loss over a player scope (D550)'],
   ['Inventory Management', 'a spell with a line outside the vocabulary: For each Aura and Equipment you control, you may attach it to a creature you control - a per-attachment choice (D550)'],
   // D548 - awaken: the Awaken line is the engine's now (the alternative cost, the added land target, the rider); what stays is an awaken spell whose own sentence the vocabulary does not read.
-  ['Boiling Earth', 'a spell with a line outside the vocabulary: Boiling Earth deals 1 damage to each creature your opponents control - a damage sweep over an each-opponent scope (D548)'],
   ['Planar Outburst', 'a spell with a line outside the vocabulary: Destroy all nonland creatures - a destroy sweep over a nonland noun (D548)'],
   // D547 - warp: the Warp line is the engine's now (the cast from hand, the end-step exile, the later cast from exile); what stays is a warp card the row maker refuses for another line.
   ['Pinnacle Emissary', 'the row maker: a leftover line not among the printed lines: Whenever you cast an artifact spell, create a 1/1 colorless Drone artifact creature token with flying and ... (the quoted ability of the token cut the line) (D547)'],
@@ -1057,7 +1061,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Stormbreath Dragon', 'the row maker: trigger payload not a pump: ~ deals damage to each opponent equal to the number of cards (D533)'],
   ['Clay Golem', 'an X amount on the keyword action (`Monstrosity X` / `Adapt X`) - the activation\'s X is not read (D533)'],
   ['Etherium Pteramander', 'a cost-reduction sentence on the activation (`This ability costs {1} less to activate for each ...`) - the row maker reads no activation discount (D533)'],
-  ["Kalemne's Captain", 'the row maker: trigger payload not a pump: Exile all artifacts and enchantments. (D533)'],
   ['Protector of the Wastes', 'a compound head (`When ~ enters or becomes monstrous`) - the library holds the two heads apart (D533)'],
   ['Colossus of Akros', 'the row maker: a conditional body outside the static vocabulary: ~ has trample and can attack as though it didn\'t h (D533)'],
   ['Ember Swallower', 'the row maker: a queued sacrifice of more than one: Each player sacrifices three lands of their choice. (D533)'],
@@ -1346,7 +1349,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Verdeloth the Ancient', 'the row maker: a line that is neither an activated ability nor a library trigger: Saproling creatures and other Treefolk creatures get +1/+1. (D529)'],
   ['Comet Storm', 'the row maker: a spell with a line outside the vocabulary: Choose any target, then choose another target for each time (D529)'],
   ['Thieving Skydiver', 'the row maker: a line that is neither an activated ability nor a library trigger: Kicker {X}. X can\'t be 0. (D529)'],
-  ['Marsh Casualties', 'the row maker: a spell with a line outside the vocabulary: Creatures target player controls get -1/-1 until end of turn (D529)'],
   ['Prohibit', 'the row maker: a spell with a line outside the vocabulary: Counter target spell if its mana value is 2 or less. If this (D529)'],
   ['Josu Vess, Lich Knight', 'the row maker: trigger payload not a pump: Create eight 2/2 black Zombie Knight creature tokens with me (D529)'],
   ['Blood Beckoning', 'the row maker: a spell with a line outside the vocabulary: Return target creature card from your graveyard to your hand (D529)'],
@@ -3692,7 +3694,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D306 (M6.4eq) — the cycling pool: the cyclers whose other text the engine
   // cannot run yet - their cycling does (a spell outside the vocabulary, the
   // when-you-cycle triggers, a cycle-or-discard head).
-  ['Akroma\'s Vengeance', 'a spell line outside the vocabulary (its cycling runs)'],
 
   ['Pest Control', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Spectacular Pileup', 'a spell line outside the vocabulary (its cycling runs)'],
@@ -4119,7 +4120,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Dwarven Priest', 'a board-sized life gain the suite cannot pin: You gain 1 life for each creature you control.'],
   ['Intruding Soulrager', 'cost: a sacrifice cost with no fixture the suite can put: Room'],
   ['Iroh, Firebending Instructor', 'a scope read off the live combat (the suite must attack): Attacking creatures get +1/+1 until end of turn.'],
-  ['Nova Cleric', 'a scope with no witness the suite can put: Destroy all enchantments.'],
   ['Pianna, Nomad Captain', 'a scope read off the live combat (the suite must attack): Attacking creatures get +1/+1 until end of turn.'],
   ['Sting-Slinger', 'cost: Blight 1'],
   ['Whirling Catapult', 'cost: Exile the top two cards of your library'],

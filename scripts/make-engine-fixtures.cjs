@@ -11164,6 +11164,17 @@ const WANTED = [
   'Goblin Spy',
   'Hakoda, Selfless Commander',
   // D623 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D624 - THE SCOPE WORDS: the rows the whole-leftover row maker rowed once the opponents creatures, every creature and planeswalker, the creatures a player does not control, the tokens, the permanents gaining a keyword, the aimed players creatures and the multi-type sweeps were scopes the engine reads.
+  'Dagger Caster',
+  // D624 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D624 - THE SCOPE WORDS: the rows the whole-leftover row maker rowed once the opponents creatures, every creature and planeswalker, the creatures a player does not control, the tokens, the permanents gaining a keyword, the aimed players creatures and the multi-type sweeps were scopes the engine reads.
+  "Nevinyrral's Disk",
+  'Serenity',
+  "Kalemne's Captain",
+  'Dragonback Assault',
+  'Magus of the Disk',
+  'Nova Cleric',
+  // D624 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

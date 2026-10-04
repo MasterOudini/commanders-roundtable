@@ -215,6 +215,13 @@ export interface ResolvedDamage {
    * it rides alongside `applyAs: 'normal'`.
    */
   readonly toxic: number;
+  /**
+   * D624 - CR 120.3c / 120.3h: the damage is dealt to a PLANESWALKER (that many loyalty counters removed) or a BATTLE
+   * (that many defense counters); `mark` - the permanent is a creature too, so the damage is also marked (or wither's
+   * counters put, CR 120.3e). Set by the funnel's built-ins (`withCounterLoss` - the permanent derived as it stands); absent on
+   * every other damage.
+   */
+  readonly counterLoss?: { readonly kind: 'loyalty' | 'defense'; readonly mark: boolean };
 }
 
 export type SbaAction =

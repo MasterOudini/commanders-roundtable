@@ -275,20 +275,27 @@ function applyDamage(state: GameState, damages: readonly ResolvedDamage[]): Game
         // with −1/−1 counters. The difference is not cosmetic: a damage mark
         // is wiped at cleanup, a counter is permanent, and deathtouch still
         // applies on top of either.
-        cards[d.target.id] =
-          d.applyAs === 'wither'
+        // D624 - CR 120.3c / 120.3h: a planeswalker loses that many loyalty counters, a battle that many defense counters
+        // (never below zero); the mark (or wither's counters) only on one that is a creature too.
+        const loss = d.counterLoss;
+        // A count that reaches zero leaves the map (the invariant: no counter is stored at zero).
+        const left = loss === undefined ? 0 : Math.max(0, (card.counters[loss.kind] ?? 0) - d.amount);
+        const counted = loss === undefined ? card : { ...card, counters: left > 0 ? { ...card.counters, [loss.kind]: left } : Object.fromEntries(Object.entries(card.counters).filter(([k]) => k !== loss.kind)) };
+        cards[d.target.id] = loss !== undefined && !loss.mark
+          ? counted
+          : d.applyAs === 'wither'
             ? {
-                ...card,
+                ...counted,
                 counters: {
-                  ...card.counters,
-                  '-1/-1': (card.counters['-1/-1'] ?? 0) + d.amount,
+                  ...counted.counters,
+                  '-1/-1': (counted.counters['-1/-1'] ?? 0) + d.amount,
                 },
-                deathtouchDamage: card.deathtouchDamage || (d.deathtouch && d.amount > 0),
+                deathtouchDamage: counted.deathtouchDamage || (d.deathtouch && d.amount > 0),
               }
             : {
-                ...card,
-                damage: card.damage + d.amount,
-                deathtouchDamage: card.deathtouchDamage || (d.deathtouch && d.amount > 0),
+                ...counted,
+                damage: counted.damage + d.amount,
+                deathtouchDamage: counted.deathtouchDamage || (d.deathtouch && d.amount > 0),
               };
       }
     } else {

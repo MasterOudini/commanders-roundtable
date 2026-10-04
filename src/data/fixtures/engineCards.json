@@ -339070,6 +339070,242 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "DAGGER_CASTER": {
+    "scryfallId": "48a7ac34-ec4a-4571-abb1-bff1fb67c78f",
+    "oracleId": "f1352a81-6fd5-4c4d-ada4-b81d3a9f74c0",
+    "name": "Dagger Caster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dagger Caster",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Lizard Rogue",
+        "oracleText": "When this creature enters, it deals 1 damage to each opponent and 1 damage to each creature your opponents control.",
+        "flavorText": "\"Keep coming. I have knives enough for everyone.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Viktor Titov",
+        "imageId": "48a7ac34-ec4a-4571-abb1-bff1fb67c78f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "rna",
+    "collectorNumber": "97",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NEVINYRRAL_S_DISK": {
+    "scryfallId": "07011574-e1c8-443b-8f74-e4ced09f10ae",
+    "oracleId": "96230edf-568a-47dd-b877-9d92aa58fac8",
+    "name": "Nevinyrral's Disk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nevinyrral's Disk",
+        "manaCost": "{4}",
+        "typeLine": "Artifact",
+        "oracleText": "This artifact enters tapped.\n{1}, {T}: Destroy all artifacts, creatures, and enchantments.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mark Tedin",
+        "imageId": "07011574-e1c8-443b-8f74-e4ced09f10ae"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ptc",
+    "collectorNumber": "et338sb",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SERENITY": {
+    "scryfallId": "3b37593d-13e7-4489-84bc-7074032b6f05",
+    "oracleId": "f4f751c0-02dc-45a2-a4b0-980592509944",
+    "name": "Serenity",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Serenity",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "At the beginning of your upkeep, destroy all artifacts and enchantments. They can't be regenerated.",
+        "flavorText": "\"Just think of me as the storm before the calm.\"\n—Gerrard of the *Weatherlight*",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Cliff Nielsen",
+        "imageId": "3b37593d-13e7-4489-84bc-7074032b6f05"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "6ed",
+    "collectorNumber": "41",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KALEMNE_S_CAPTAIN": {
+    "scryfallId": "3c8cfcc3-55c6-4011-ae13-dff1ddaed37a",
+    "oracleId": "663e6ab0-ed99-4cec-86f7-843207c31e17",
+    "name": "Kalemne's Captain",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kalemne's Captain",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Giant Soldier",
+        "oracleText": "Vigilance\n{5}{W}{W}: Monstrosity 3. (If this creature isn't monstrous, put three +1/+1 counters on it and it becomes monstrous.)\nWhen this creature becomes monstrous, exile all artifacts and enchantments.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Tomasz Jedruszek",
+        "imageId": "3c8cfcc3-55c6-4011-ae13-dff1ddaed37a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Vigilance",
+      "Monstrosity"
+    ],
+    "setCode": "cm2",
+    "collectorNumber": "31",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DRAGONBACK_ASSAULT": {
+    "scryfallId": "50e648a6-5f98-4ab8-96eb-9f788b32cb29",
+    "oracleId": "413fb2db-f1a1-4d22-ac37-a52821d35ca2",
+    "name": "Dragonback Assault",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dragonback Assault",
+        "manaCost": "{3}{G}{U}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "When this enchantment enters, it deals 3 damage to each creature and each planeswalker.\nLandfall — Whenever a land you control enters, create a 4/4 red Dragon creature token with flying.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R",
+          "U"
+        ],
+        "artist": "Ryan Pancoast",
+        "imageId": "50e648a6-5f98-4ab8-96eb-9f788b32cb29"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R",
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Landfall"
+    ],
+    "setCode": "ptdm",
+    "collectorNumber": "179p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAGUS_OF_THE_DISK": {
+    "scryfallId": "70cdad7a-f041-4bbe-87ed-876ac6d0c31b",
+    "oracleId": "3996aa0c-3322-43be-bbaf-7b66836a8ff4",
+    "name": "Magus of the Disk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Magus of the Disk",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "This creature enters tapped.\n{1}, {T}: Destroy all artifacts, creatures, and enchantments.",
+        "flavorText": "Studying the journals of the necromage Nevinyrral leaves disciples gripped with the urge to exercise his draconian judgment.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jeremy Jarvis",
+        "imageId": "70cdad7a-f041-4bbe-87ed-876ac6d0c31b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "c20",
+    "collectorNumber": "94",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NOVA_CLERIC": {
+    "scryfallId": "11ba6d6b-5f8e-4745-9b57-531385c6e125",
+    "oracleId": "d71bc551-3fd9-43a9-9477-2acc8683a784",
+    "name": "Nova Cleric",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nova Cleric",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "{2}{W}, {T}, Sacrifice this creature: Destroy all enchantments.",
+        "flavorText": "\"Our noblest thoughts are our very first and our very last.\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Alan Pollack",
+        "imageId": "11ba6d6b-5f8e-4745-9b57-531385c6e125"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "ONS-45",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

@@ -46,6 +46,26 @@ import {
  * One funnel means a replacement effect sees every candidate exactly once —
  * with N call sites it would see some of them twice and others never.
  */
+/**
+ * D624 - CR 120.3c / 120.3h: each damage to a battlefield planeswalker or battle carries the counters it removes
+ * (`ResolvedDamage.counterLoss`), read off the DERIVED permanent as the batch finds it - a creature too keeps its mark.
+ */
+function withCounterLoss<E extends Extract<EventBody, { t: 'DamageDealt' | 'CombatDamageDealt' }>>(state: GameState, oracle: OracleDb, scripts: ScriptRegistry, ev: E): E {
+  let changed = false;
+  const cache = makeDeriveCache(state);
+  const damages = ev.damages.map((d) => {
+    if (d.target.kind !== 'card' || d.counterLoss !== undefined) return d;
+    const inst = state.cards[d.target.id];
+    if (!inst || inst.zone.kind !== 'battlefield') return d;
+    const chars = derive(state, oracle, scripts, d.target.id, cache);
+    const kind = chars.typeLine.types.includes('Planeswalker') ? 'loyalty' as const : chars.typeLine.types.includes('Battle') ? 'defense' as const : null;
+    if (kind === null) return d;
+    changed = true;
+    return { ...d, counterLoss: { kind, mark: chars.isCreature } };
+  });
+  return changed ? { ...ev, damages } : ev;
+}
+
 export function applyReplacements(
   state: GameState,
   oracle: OracleDb,
@@ -84,6 +104,11 @@ export function applyReplacements(
     events = withUnearthedLeavingToExile(state, oracle, scripts, events);
     // D541 - a discarded madness card goes to exile instead of the graveyard (CR 702.35a) - still a discard.
     events = withMadnessToExile(state, oracle, events);
+  }
+
+  // D624 - CR 120.3c / 120.3h: damage to a planeswalker or a battle removes counters, marked on the damage here.
+  if (ev.t === 'DamageDealt' || ev.t === 'CombatDamageDealt') {
+    events = events.map((e) => (e.t === 'DamageDealt' || e.t === 'CombatDamageDealt' ? withCounterLoss(state, oracle, scripts, e) : e));
   }
 
   // Built-in: the other half of CR 306.5b. A permanent already on the
