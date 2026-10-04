@@ -7,6 +7,13 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ZACAMA_PRIMAL_CALAMITY_SCRIPT } from './cards/zacamaPrimalCalamity';
+import { SIGARDIAN_SAVIOR_SCRIPT } from './cards/sigardianSavior';
+import { FEASTING_TROLL_KING_SCRIPT } from './cards/feastingTrollKing';
+import { PATCHED_PLAYTHING_SCRIPT } from './cards/patchedPlaything';
+import { FURNACE_DRAGON_SCRIPT } from './cards/furnaceDragon';
+import { GEOLOGICAL_APPRAISER_SCRIPT } from './cards/geologicalAppraiser';
+import { MYOJIN_OF_LIFES_WEB_SCRIPT } from './cards/myojinOfLifesWeb';
 import { FELDONS_CANE_SCRIPT } from './cards/feldonsCane';
 import { SENTINEL_TOTEM_SCRIPT } from './cards/sentinelTotem';
 import { QUEST_FOR_ANCIENT_SECRETS_SCRIPT } from './cards/questForAncientSecrets';
@@ -8937,6 +8944,13 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ZACAMA_PRIMAL_CALAMITY_SCRIPT,
+  SIGARDIAN_SAVIOR_SCRIPT,
+  FEASTING_TROLL_KING_SCRIPT,
+  PATCHED_PLAYTHING_SCRIPT,
+  FURNACE_DRAGON_SCRIPT,
+  GEOLOGICAL_APPRAISER_SCRIPT,
+  MYOJIN_OF_LIFES_WEB_SCRIPT,
   FELDONS_CANE_SCRIPT,
   SENTINEL_TOTEM_SCRIPT,
   QUEST_FOR_ANCIENT_SECRETS_SCRIPT,

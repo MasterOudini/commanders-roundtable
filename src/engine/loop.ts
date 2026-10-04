@@ -1068,6 +1068,8 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
           ...(obj.faceDown ? { faceDown: true } : {}),
           // D403 - the kick the spell was cast with rides onto the permanent it becomes.
           ...(obj.kicked !== undefined && obj.kicked > 0 ? { kicked: obj.kicked } : {}),
+          // D619 - and the zone it was cast from, onto the permanent (CR 603.4's `if you cast it`).
+          ...(obj.castFrom !== null && to.kind === 'battlefield' ? { castFromZone: obj.castFrom.kind } : {}),
           ...(obj.kickedWith !== undefined && obj.kickedWith.length > 0 ? { kickedWith: obj.kickedWith } : {}),
           // D558 - and the offspring it paid (the permanent's enters trigger makes its 1/1 copy).
           ...(obj.offspring === true ? { offspring: true as const } : {}),

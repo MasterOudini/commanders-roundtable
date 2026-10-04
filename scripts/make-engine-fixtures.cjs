@@ -11102,6 +11102,14 @@ const WANTED = [
   'Brittle Effigy',
   'Amulet of Unmaking',
   // D618 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D619 - IF YOU CAST IT: the rows the whole-leftover row maker rowed once a permanent remembered the zone its spell was cast from.
+  'Zacama, Primal Calamity',
+  'Sigardian Savior',
+  'Feasting Troll King',
+  'Patched Plaything',
+  'Furnace Dragon',
+  "Myojin of Life's Web",
+  // D619 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

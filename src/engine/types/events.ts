@@ -62,6 +62,8 @@ export interface CardMove {
   readonly manifested?: true;
   /** D403 - the kicker count the resolving spell was cast with, onto the permanent it becomes. */
   readonly kicked?: number;
+  /** D619 - the zone the resolving permanent spell was cast from, onto the permanent it becomes. */
+  readonly castFromZone?: ZoneRef['kind'];
   /** D530 - and which of a two-kicker face's costs it was kicked with. */
   readonly kickedWith?: readonly number[];
   /** D558 - the resolving spell's offspring cost was paid (CR 702.175a): the permanent's enters trigger makes its 1/1 copy. */

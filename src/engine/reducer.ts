@@ -357,6 +357,8 @@ function clearBattlefieldFields(owner: PlayerId): Partial<CardInstance> {
     // D403 - a permanent remembers its kick only from the spell it entered as.
     kicked: undefined,
     kickedWith: undefined,
+    // D619 - and the zone its spell was cast from.
+    castFromZone: undefined,
     // D449 - and its evoke or dash the same way.
     evoked: undefined,
     dashed: undefined,
@@ -642,6 +644,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
           ...(move.faceIndex === undefined ? {} : { faceIndex: move.faceIndex }),
           // D403 - after the reset too: the kick the entering spell was cast with.
           ...(move.kicked === undefined ? {} : { kicked: move.kicked }),
+          // D619 - after the reset too: the zone the entering spell was cast from.
+          ...(move.castFromZone === undefined ? {} : { castFromZone: move.castFromZone }),
           // D530 - and which of its two kickers.
           ...(move.kickedWith === undefined ? {} : { kickedWith: move.kickedWith }),
           // D449 - the keyword alternative the entering spell was cast for.

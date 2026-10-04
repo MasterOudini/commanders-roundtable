@@ -337298,6 +337298,223 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "ZACAMA_PRIMAL_CALAMITY": {
+    "scryfallId": "05c5a9a8-badd-43ab-8408-a13e75407681",
+    "oracleId": "23270e4a-a222-4ffb-a946-d0e20d665187",
+    "name": "Zacama, Primal Calamity",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Zacama, Primal Calamity",
+        "manaCost": "{6}{R}{G}{W}",
+        "typeLine": "Legendary Creature — Elder Dinosaur",
+        "oracleText": "Vigilance, reach, trample\nWhen Zacama enters, if you cast it, untap all lands you control.\n{2}{R}: Zacama deals 3 damage to target creature.\n{2}{G}: Destroy target artifact or enchantment.\n{2}{W}: You gain 3 life.",
+        "flavorText": null,
+        "power": "9",
+        "toughness": "9",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R",
+          "W"
+        ],
+        "artist": "Jaime Jones",
+        "imageId": "05c5a9a8-badd-43ab-8408-a13e75407681"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R",
+      "W"
+    ],
+    "cmc": 9,
+    "keywords": [
+      "Reach",
+      "Vigilance",
+      "Trample"
+    ],
+    "setCode": "lcc",
+    "collectorNumber": "296",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIGARDIAN_SAVIOR": {
+    "scryfallId": "1ab1b95e-7f1a-4918-85f6-41df3f7d3cce",
+    "oracleId": "14bc9e20-a6ad-4eca-8c5c-5459ce078d9a",
+    "name": "Sigardian Savior",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sigardian Savior",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Angel",
+        "oracleText": "Flying\nWhen this creature enters, if you cast it, return up to two target creature cards with mana value 2 or less from your graveyard to the battlefield.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "David Rapoza",
+        "imageId": "1ab1b95e-7f1a-4918-85f6-41df3f7d3cce"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "mid",
+    "collectorNumber": "331",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FEASTING_TROLL_KING": {
+    "scryfallId": "2f907f50-c02e-4348-a2d0-6697705e4047",
+    "oracleId": "6f0c6876-dcae-46e5-8c62-6929733c3525",
+    "name": "Feasting Troll King",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Feasting Troll King",
+        "manaCost": "{2}{G}{G}{G}{G}",
+        "typeLine": "Creature — Troll Noble",
+        "oracleText": "Vigilance, trample\nWhen this creature enters, if you cast it from your hand, create three Food tokens. (They're artifacts with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")\nSacrifice three Foods: Return this card from your graveyard to the battlefield. Activate only during your turn.",
+        "flavorText": null,
+        "power": "7",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Nicholas Gregory",
+        "imageId": "2f907f50-c02e-4348-a2d0-6697705e4047"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Vigilance",
+      "Food",
+      "Trample"
+    ],
+    "setCode": "eld",
+    "collectorNumber": "368",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PATCHED_PLAYTHING": {
+    "scryfallId": "513da431-4f3a-4f4a-8be4-7e162dd93307",
+    "oracleId": "0b7e950a-89e1-4ec4-94af-5af2f1252b12",
+    "name": "Patched Plaything",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Patched Plaything",
+        "manaCost": "{2}{W}",
+        "typeLine": "Artifact Creature — Toy",
+        "oracleText": "Double strike\nThis creature enters with two -1/-1 counters on it if you cast it from your hand.",
+        "flavorText": "When it ripped, its owner attempted to fix it. Something went... wrong.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Domenico Cava",
+        "imageId": "513da431-4f3a-4f4a-8be4-7e162dd93307"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Double strike"
+    ],
+    "setCode": "dsk",
+    "collectorNumber": "24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FURNACE_DRAGON": {
+    "scryfallId": "5a659b4f-094d-4554-9609-8313be7734eb",
+    "oracleId": "13d92af9-a6e2-4847-b2e9-179fe0cc840e",
+    "name": "Furnace Dragon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Furnace Dragon",
+        "manaCost": "{6}{R}{R}{R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Affinity for artifacts (This spell costs {1} less to cast for each artifact you control.)\nFlying\nWhen this creature enters, if you cast it from your hand, exile all artifacts.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Matthew D. Wilson",
+        "imageId": "5a659b4f-094d-4554-9609-8313be7734eb"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 9,
+    "keywords": [
+      "Flying",
+      "Affinity"
+    ],
+    "setCode": "aa4",
+    "collectorNumber": "19",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MYOJIN_OF_LIFE_S_WEB": {
+    "scryfallId": "bd61a4de-4b3a-4098-80d9-69f4f4f1b791",
+    "oracleId": "8e3eafd7-5823-4cc1-bdb8-c456580e395a",
+    "name": "Myojin of Life's Web",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Myojin of Life's Web",
+        "manaCost": "{6}{G}{G}{G}",
+        "typeLine": "Legendary Creature — Spirit",
+        "oracleText": "Myojin of Life's Web enters with a divinity counter on it if you cast it from your hand.\nMyojin of Life's Web has indestructible as long as it has a divinity counter on it.\nRemove a divinity counter from Myojin of Life's Web: Put any number of creature cards from your hand onto the battlefield.",
+        "flavorText": null,
+        "power": "8",
+        "toughness": "8",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "bd61a4de-4b3a-4098-80d9-69f4f4f1b791"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 9,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "CHK-229",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

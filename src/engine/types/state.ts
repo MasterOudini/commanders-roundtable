@@ -242,6 +242,11 @@ export interface CardInstance {
    * (`undefined` is admitted explicitly: the reset writes it, and the hash drops it.)
    */
   readonly kicked?: number | undefined;
+  /**
+   * D619 - THE CAST RECORD: the zone this permanent's spell was cast from (CR 603.4's `if you cast it`, `if you cast it from
+   * your hand`), off the resolution move; cleared on entry like `kicked`, so a permanent put onto the battlefield reads nothing.
+   */
+  readonly castFromZone?: ZoneRef['kind'] | undefined;
   /** D530 - which of a two-kicker face's costs its spell was kicked with (0 the first, 1 the second); cleared on entry like `kicked`. */
   readonly kickedWith?: readonly number[] | undefined;
   /** D489 - suspended in exile (CR 702.62): the upkeep tick reads it; cleared by the move that takes the card out of exile. */
