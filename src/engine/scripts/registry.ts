@@ -7,6 +7,27 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { SNAKE_PIT_SCRIPT } from './cards/snakePit';
+import { VAT_OF_REBIRTH_SCRIPT } from './cards/vatOfRebirth';
+import { SKEMFAR_AVENGER_SCRIPT } from './cards/skemfarAvenger';
+import { RISING_POPULACE_SCRIPT } from './cards/risingPopulace';
+import { MARIONETTE_APPRENTICE_SCRIPT } from './cards/marionetteApprentice';
+import { CHARFORGER_SCRIPT } from './cards/charforger';
+import { MOLD_ADDER_SCRIPT } from './cards/moldAdder';
+import { ARMORY_PALADIN_SCRIPT } from './cards/armoryPaladin';
+import { RAVENOUS_SQUIRREL_SCRIPT } from './cards/ravenousSquirrel';
+import { AL_BHED_SALVAGERS_SCRIPT } from './cards/alBhedSalvagers';
+import { AGENT_OF_THE_IRON_THRONE_SCRIPT } from './cards/agentOfTheIronThrone';
+import { TARRIANS_SOULCLEAVER_SCRIPT } from './cards/tarriansSoulcleaver';
+import { LIGHTLESS_EVANGEL_SCRIPT } from './cards/lightlessEvangel';
+import { MISTER_GUTSY_SCRIPT } from './cards/misterGutsy';
+import { NECROSQUITO_SCRIPT } from './cards/necrosquito';
+import { CRUEL_CELEBRANT_SCRIPT } from './cards/cruelCelebrant';
+import { ISHI_ISHI_AKKI_CRACKSHOT_SCRIPT } from './cards/ishiIshiAkkiCrackshot';
+import { EXUBERANT_FUSELING_SCRIPT } from './cards/exuberantFuseling';
+import { JUDGE_MAGISTER_GABRANTH_SCRIPT } from './cards/judgeMagisterGabranth';
+import { SUSURIAN_VOIDBORN_SCRIPT } from './cards/susurianVoidborn';
+import { WEFTSTALKER_ARDENT_SCRIPT } from './cards/weftstalkerArdent';
 import { BELBES_ARMOR_SCRIPT } from './cards/belbesArmor';
 import { MINDSPRING_MERFOLK_SCRIPT } from './cards/mindspringMerfolk';
 import { SILKLASH_SPIDER_SCRIPT } from './cards/silklashSpider';
@@ -8839,6 +8860,27 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SNAKE_PIT_SCRIPT,
+  VAT_OF_REBIRTH_SCRIPT,
+  SKEMFAR_AVENGER_SCRIPT,
+  RISING_POPULACE_SCRIPT,
+  MARIONETTE_APPRENTICE_SCRIPT,
+  CHARFORGER_SCRIPT,
+  MOLD_ADDER_SCRIPT,
+  ARMORY_PALADIN_SCRIPT,
+  RAVENOUS_SQUIRREL_SCRIPT,
+  AL_BHED_SALVAGERS_SCRIPT,
+  AGENT_OF_THE_IRON_THRONE_SCRIPT,
+  TARRIANS_SOULCLEAVER_SCRIPT,
+  LIGHTLESS_EVANGEL_SCRIPT,
+  MISTER_GUTSY_SCRIPT,
+  NECROSQUITO_SCRIPT,
+  CRUEL_CELEBRANT_SCRIPT,
+  ISHI_ISHI_AKKI_CRACKSHOT_SCRIPT,
+  EXUBERANT_FUSELING_SCRIPT,
+  JUDGE_MAGISTER_GABRANTH_SCRIPT,
+  SUSURIAN_VOIDBORN_SCRIPT,
+  WEFTSTALKER_ARDENT_SCRIPT,
   BELBES_ARMOR_SCRIPT,
   MINDSPRING_MERFOLK_SCRIPT,
   SILKLASH_SPIDER_SCRIPT,

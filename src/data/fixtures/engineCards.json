@@ -333088,6 +333088,746 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "SNAKE_PIT": {
+    "scryfallId": "059a70a5-d4fb-445e-af98-e81821df2c59",
+    "oracleId": "115bd33d-4875-4014-ae9f-0052f5acdbb2",
+    "name": "Snake Pit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Snake Pit",
+        "manaCost": "{3}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever an opponent casts a blue or black spell, you may create a 1/1 green Snake creature token.",
+        "flavorText": "If the ground is smooth, the way will be rough.\n—Deepwood saying",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "059a70a5-d4fb-445e-af98-e81821df2c59"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mmq",
+    "collectorNumber": "271",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VAT_OF_REBIRTH": {
+    "scryfallId": "20a961ea-0639-4f5d-8cf4-f909c59a4ae1",
+    "oracleId": "10c31317-71e8-42e0-85e0-3e64bd0c3dd3",
+    "name": "Vat of Rebirth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vat of Rebirth",
+        "manaCost": "{B}",
+        "typeLine": "Artifact",
+        "oracleText": "Whenever another artifact or creature you control is put into a graveyard from the battlefield, put an oil counter on this artifact.\n{2}{B}, {T}, Remove four oil counters from this artifact: Return target creature card from your graveyard to the battlefield. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Peter Polach",
+        "imageId": "20a961ea-0639-4f5d-8cf4-f909c59a4ae1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "one",
+    "collectorNumber": "113",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKEMFAR_AVENGER": {
+    "scryfallId": "21b5346e-b9d1-4214-a15e-c082fb0e0949",
+    "oracleId": "47c67df1-52f5-459f-b83e-6b971be9b294",
+    "name": "Skemfar Avenger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skemfar Avenger",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Elf Berserker",
+        "oracleText": "Whenever another nontoken Elf or Berserker you control dies, you draw a card and you lose 1 life.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Randy Vargas",
+        "imageId": "21b5346e-b9d1-4214-a15e-c082fb0e0949"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "khm",
+    "collectorNumber": "355",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RISING_POPULACE": {
+    "scryfallId": "2213e75d-0068-4a0a-979a-c6055c3525a1",
+    "oracleId": "340de754-9d64-4824-936f-643be4a939db",
+    "name": "Rising Populace",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rising Populace",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human",
+        "oracleText": "Whenever another creature or planeswalker you control dies, put a +1/+1 counter on this creature.",
+        "flavorText": "Grief is a crucible where resolve is tempered.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Néstor Ossandón Leal",
+        "imageId": "2213e75d-0068-4a0a-979a-c6055c3525a1"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "rvr",
+    "collectorNumber": "25",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARIONETTE_APPRENTICE": {
+    "scryfallId": "22b5a3dd-0b5a-434e-afee-a83b0279fd15",
+    "oracleId": "726d9d2c-736a-4852-9938-a0f50d8fd89f",
+    "name": "Marionette Apprentice",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Marionette Apprentice",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "Fabricate 1 (When this creature enters, put a +1/+1 counter on it or create a 1/1 colorless Servo artifact creature token.)\nWhenever another creature or artifact you control is put into a graveyard from the battlefield, each opponent loses 1 life.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Steve Ellis",
+        "imageId": "22b5a3dd-0b5a-434e-afee-a83b0279fd15"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Fabricate"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "410",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHARFORGER": {
+    "scryfallId": "45db6b46-c4b4-4684-8a49-53a64ffc82f2",
+    "oracleId": "d6ded5b0-1309-4f1e-be10-d84ca0a5dd20",
+    "name": "Charforger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Charforger",
+        "manaCost": "{1}{B}{R}",
+        "typeLine": "Creature — Phyrexian Beast",
+        "oracleText": "When this creature enters, create a 1/1 red Phyrexian Goblin creature token.\nWhenever another creature or artifact you control is put into a graveyard from the battlefield, put an oil counter on this creature.\nRemove three oil counters from this creature: Exile the top card of your library. You may play that card this turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "45db6b46-c4b4-4684-8a49-53a64ffc82f2"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "one",
+    "collectorNumber": "199",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOLD_ADDER": {
+    "scryfallId": "48d665cd-a2c6-4b81-8032-379e476b5ea5",
+    "oracleId": "2091eb7e-2357-4ef8-b15e-1e6f82176340",
+    "name": "Mold Adder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mold Adder",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Fungus Snake",
+        "oracleText": "Whenever an opponent casts a blue or black spell, you may put a +1/+1 counter on this creature.",
+        "flavorText": "The more you struggle against its coils, the tighter they get.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Matt Cavotta",
+        "imageId": "48d665cd-a2c6-4b81-8032-379e476b5ea5"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "fdn",
+    "collectorNumber": "640",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARMORY_PALADIN": {
+    "scryfallId": "4e5ffa95-5c5f-449b-820a-7d5bc1688d29",
+    "oracleId": "360f7bfd-3b4c-4e87-a251-fd55c8a62320",
+    "name": "Armory Paladin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Armory Paladin",
+        "manaCost": "{1}{R}{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Trample\nWhenever you cast an Aura or Equipment spell, exile the top card of your library. You may play that card until the end of your next turn.",
+        "flavorText": "\"Ad victoriam!\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Javier Charro",
+        "imageId": "4e5ffa95-5c5f-449b-820a-7d5bc1688d29"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "pip",
+    "collectorNumber": "93",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAVENOUS_SQUIRREL": {
+    "scryfallId": "505b77d0-8651-4b40-a2e9-6dd00ac3c575",
+    "oracleId": "8fb48d65-406b-4231-83ea-9cf3bb8dff76",
+    "name": "Ravenous Squirrel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ravenous Squirrel",
+        "manaCost": "{B/G}",
+        "typeLine": "Creature — Squirrel",
+        "oracleText": "Whenever you sacrifice an artifact or creature, put a +1/+1 counter on this creature.\n{1}{B}{G}, Sacrifice an artifact or creature: You gain 1 life and draw a card.",
+        "flavorText": "Action: This is a squirrel who eats everything.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "505b77d0-8651-4b40-a2e9-6dd00ac3c575"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "mh2",
+    "collectorNumber": "375",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AL_BHED_SALVAGERS": {
+    "scryfallId": "58ccdcfc-a669-480f-bded-4273cfaf2045",
+    "oracleId": "43f81514-e812-4e17-9b1a-704c136d8ffd",
+    "name": "Al Bhed Salvagers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Al Bhed Salvagers",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Artificer Warrior",
+        "oracleText": "Whenever this creature or another creature or artifact you control dies, target opponent loses 1 life and you gain 1 life.",
+        "flavorText": "\"We found the airship! The records were right.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Masateru Ikeda",
+        "imageId": "58ccdcfc-a669-480f-bded-4273cfaf2045"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "fin",
+    "collectorNumber": "88",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AGENT_OF_THE_IRON_THRONE": {
+    "scryfallId": "5a5984d3-1e76-4d97-9373-b59cfa9c38ae",
+    "oracleId": "325032d5-c452-4454-8976-82f86fee5ab8",
+    "name": "Agent of the Iron Throne",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Agent of the Iron Throne",
+        "manaCost": "{2}{B}",
+        "typeLine": "Legendary Enchantment — Background",
+        "oracleText": "Commander creatures you own have \"Whenever an artifact or creature you control is put into a graveyard from the battlefield, each opponent loses 1 life.\"",
+        "flavorText": "You give your clients what they want at a fair price. What happens after that is none of your concern.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Josh Hass",
+        "imageId": "5a5984d3-1e76-4d97-9373-b59cfa9c38ae"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "clb",
+    "collectorNumber": "107",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TARRIAN_S_SOULCLEAVER": {
+    "scryfallId": "665a61c9-ffdf-4e60-9a35-2176279d8b3c",
+    "oracleId": "2ffb38ec-5852-4e91-85a5-cfccd1f23556",
+    "name": "Tarrian's Soulcleaver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tarrian's Soulcleaver",
+        "manaCost": "{1}",
+        "typeLine": "Legendary Artifact — Equipment",
+        "oracleText": "Equipped creature has vigilance.\nWhenever another artifact or creature is put into a graveyard from the battlefield, put a +1/+1 counter on equipped creature.\nEquip {2}",
+        "flavorText": "\"I will paint this hallowed soil with your blood!\"\n—Regalla",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Gaboleps",
+        "imageId": "665a61c9-ffdf-4e60-9a35-2176279d8b3c"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "sld",
+    "collectorNumber": "2224",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LIGHTLESS_EVANGEL": {
+    "scryfallId": "6860556a-6c34-4c41-89ea-f0bc495a159c",
+    "oracleId": "b162ccf8-e0c2-46ae-84e7-dff2b6fceec1",
+    "name": "Lightless Evangel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lightless Evangel",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Vampire Cleric",
+        "oracleText": "Whenever you sacrifice another creature or artifact, put a +1/+1 counter on this creature.",
+        "flavorText": "\"You have been given great purpose. Your matter will feed the singularity.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Viko Menezes",
+        "imageId": "6860556a-6c34-4c41-89ea-f0bc495a159c"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "eoe",
+    "collectorNumber": "109",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MISTER_GUTSY": {
+    "scryfallId": "69e1ad95-4587-49b0-ac26-ba788b55a847",
+    "oracleId": "09763d9a-056f-49db-a72b-1c7325075789",
+    "name": "Mister Gutsy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mister Gutsy",
+        "manaCost": "{2}",
+        "typeLine": "Artifact Creature — Robot Soldier",
+        "oracleText": "Whenever you cast an Aura or Equipment spell, put a +1/+1 counter on this creature.\nWhen this creature dies, create X Junk tokens, where X is the number of +1/+1 counters on it. (They're artifacts with \"{T}, Sacrifice this token: Exile the top card of your library. You may play that card this turn. Activate only as a sorcery.\")",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Zezhou Chen",
+        "imageId": "69e1ad95-4587-49b0-ac26-ba788b55a847"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "pip",
+    "collectorNumber": "433",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NECROSQUITO": {
+    "scryfallId": "72af72d2-5995-4cad-82f1-e2d0c465d6f1",
+    "oracleId": "41dd7ec7-a238-4723-a244-9a112d4fbfd2",
+    "name": "Necrosquito",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Necrosquito",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Phyrexian Insect",
+        "oracleText": "Flying\nThis creature enters with two oil counters on it.\nThis creature gets +1/+1 for each oil counter on it.\nWhenever another creature or artifact you control is put into a graveyard from the battlefield, put an oil counter on this creature.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Abz J Harding",
+        "imageId": "72af72d2-5995-4cad-82f1-e2d0c465d6f1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "one",
+    "collectorNumber": "100",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRUEL_CELEBRANT": {
+    "scryfallId": "87ead6ac-b1c5-4852-8413-7fa43c6cfc57",
+    "oracleId": "3ee78cfc-0e9e-4737-a7e2-b42f94228040",
+    "name": "Cruel Celebrant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cruel Celebrant",
+        "manaCost": "{W}{B}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "Whenever this creature or another creature or planeswalker you control dies, each opponent loses 1 life and you gain 1 life.",
+        "flavorText": "\"Whichever side wins, I'm sure the banquet will be superb.\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Bastien L. Deharme",
+        "imageId": "87ead6ac-b1c5-4852-8413-7fa43c6cfc57"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "war",
+    "collectorNumber": "188",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ISHI_ISHI_AKKI_CRACKSHOT": {
+    "scryfallId": "8e94fec2-dc56-4961-ba80-b9c904a345ab",
+    "oracleId": "30265fce-28e6-4994-83f7-0e4c4b22df35",
+    "name": "Ishi-Ishi, Akki Crackshot",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ishi-Ishi, Akki Crackshot",
+        "manaCost": "{1}{R}",
+        "typeLine": "Legendary Creature — Goblin Warrior",
+        "oracleText": "Whenever an opponent casts a Spirit or Arcane spell, Ishi-Ishi deals 2 damage to that player.",
+        "flavorText": "\"Here fell Ishi-Ishi, King of the Flaming Pebbles, Scourge of the Mountain Kami, Lover of Goats. May his shell never burn.\"\n—Cave inscription",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Christopher Rush",
+        "imageId": "8e94fec2-dc56-4961-ba80-b9c904a345ab"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "bok",
+    "collectorNumber": "110",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXUBERANT_FUSELING": {
+    "scryfallId": "a6e8d7b9-ff5e-48ae-9e38-d2b6a45b119b",
+    "oracleId": "754e5238-00a2-45fa-9b20-40980b73f1cc",
+    "name": "Exuberant Fuseling",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Exuberant Fuseling",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Phyrexian Goblin Warrior",
+        "oracleText": "Trample\nThis creature gets +1/+0 for each oil counter on it.\nWhen this creature enters and whenever another creature or artifact you control is put into a graveyard from the battlefield, put an oil counter on this creature.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Billy Christian",
+        "imageId": "a6e8d7b9-ff5e-48ae-9e38-d2b6a45b119b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "one",
+    "collectorNumber": "129",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JUDGE_MAGISTER_GABRANTH": {
+    "scryfallId": "ab39a24e-c73b-4d62-b7a0-c4ea968768c9",
+    "oracleId": "1a846ad6-15c9-4bf9-9127-612018a557b9",
+    "name": "Judge Magister Gabranth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Judge Magister Gabranth",
+        "manaCost": "{W}{B}",
+        "typeLine": "Legendary Creature — Human Advisor Knight",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nWhenever another creature or artifact you control dies, put a +1/+1 counter on Judge Magister Gabranth.",
+        "flavorText": "\"I slew your king. I slew your country. Do these deeds not demand vengeance?\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Josu Hernaiz",
+        "imageId": "ab39a24e-c73b-4d62-b7a0-c4ea968768c9"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Menace"
+    ],
+    "setCode": "fin",
+    "collectorNumber": "495",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUSURIAN_VOIDBORN": {
+    "scryfallId": "beb97e7b-0ae7-4b08-9ceb-6a7f825bcd49",
+    "oracleId": "4f754f11-3b6d-4a4e-86d7-7495e475ef74",
+    "name": "Susurian Voidborn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Susurian Voidborn",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Vampire Soldier",
+        "oracleText": "Whenever this creature or another creature or artifact you control dies, target opponent loses 1 life and you gain 1 life.\nWarp {B} (You may cast this card from your hand for its warp cost. Exile this creature at the beginning of the next end step, then you may cast it from exile on a later turn.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jehan Choo",
+        "imageId": "beb97e7b-0ae7-4b08-9ceb-6a7f825bcd49"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Warp"
+    ],
+    "setCode": "eoe",
+    "collectorNumber": "118",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WEFTSTALKER_ARDENT": {
+    "scryfallId": "cddb48cc-8eb1-47ce-90f0-7aad1e93e2c4",
+    "oracleId": "926d52a5-4db1-46ce-9567-17c28bf56ae7",
+    "name": "Weftstalker Ardent",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Weftstalker Ardent",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Drix Artificer",
+        "oracleText": "Whenever another creature or artifact you control enters, this creature deals 1 damage to each opponent.\nWarp {R} (You may cast this card from your hand for its warp cost. Exile this creature at the beginning of the next end step, then you may cast it from exile on a later turn.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Valera Lutfullina",
+        "imageId": "cddb48cc-8eb1-47ce-90f0-7aad1e93e2c4"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Warp"
+    ],
+    "setCode": "eoe",
+    "collectorNumber": "169",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MASTERWORK_OF_INGENUITY": {
+    "scryfallId": "09686fb3-ae0f-481a-aee6-3fd75fa43557",
+    "oracleId": "35d458fb-dfdb-41e4-92e3-f0fd392e1c69",
+    "name": "Masterwork of Ingenuity",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Masterwork of Ingenuity",
+        "manaCost": "{1}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "You may have this Equipment enter as a copy of any Equipment on the battlefield.",
+        "flavorText": "\"The crucible yields what you have forged in your mind. You need only reach in and draw the masterwork forth.\"\n—Wahara, Keeper of the Crucible",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Ulrich Brunin",
+        "imageId": "09686fb3-ae0f-481a-aee6-3fd75fa43557"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "c14",
+    "collectorNumber": "57",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

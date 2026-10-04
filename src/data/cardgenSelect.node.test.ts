@@ -263,7 +263,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // beside a life gain.
   // D459 - fabricate is the engine's now, and the mirror offered one the row maker refused: a compound subject
   // (creature or artifact) the filtered-head reader does not split.
-  ['Marionette Apprentice', 'a filtered head outside the closed reader (an adjective outside the list: or): Whenever another creature or artifact you control is put into a graveyard from the battlefield'],
   // D453 - the control Auras are the engine's now, and the mirror offered two the row maker refused: an additional
   // chooser cost the cast arm cannot pay, an intervening if the armed board already meets (the wide run's reason).
   ['Grafted Identity', 'an additional cost with a chooser verb the cast arm cannot pay: As an additional cost to cast this spell, sacrifice a creature.'],
@@ -387,7 +386,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // wide run's reason (a power CDA on a Vehicle, an attack head on a non-creature, a filtered head's adjective, a cost,
   // a search payload).
   ['Brotherhood Vertibird', 'a power CDA on a non-creature'],
-  ['Exuberant Fuseling', 'a filtered head outside the closed reader (an adjective outside the list: this): When this creature enters and whenever another creature or a'],
   ["Geralf's Masterpiece", 'cost: Discard three cards'],
   ['Pride Sovereign', 'cost: Exert this creature'],
   // D428 - the triggering player: the 4 the selector offered once a payload could name the player its head named,
@@ -460,7 +458,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // a queued discard the scaffold hand may not hold 4, a static line 4), the generator's two (a hand-size condition
   // beside a hand fixture, a tap cost beside a vocabulary self bounce); eight stale spell rows the guard named deleted.
   ['Wildgrowth Walker', 'trigger head not in the library: Whenever a creature you control explores, put a +1/+1 counter on this '],
-  ['Al Bhed Salvagers', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature or another creature or artifact you c'],
   ['Archivist of Oghma', 'trigger head not in the library: Whenever an opponent searches their library, you gain 1 life and draw '],
   ['Arnyn, Deathbloom Botanist', 'a filtered head outside the closed reader (an adjective outside the list: you): Whenever a creature you control with power or toughness 1 or'],
   ['Attunement', 'a queued discard the scaffold hand may not hold: Discard four cards.'],
@@ -489,7 +486,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['HYDRA Infiltration', 'an attack head on a card with no creature body: aCreatureAttacksAlone'],
   ['Market Gnome', "trigger head not in the library: When this creature is exiled from the battlefield while you're activat"],
   ['Nihilistic Glee', 'a hand-size condition beside a hand fixture (the generator cannot stage both)'],
-  ['Ravenous Squirrel', 'a filtered head outside the closed reader (an adjective outside the list: or): Whenever you sacrifice an artifact or creature, put a +1/+1 '],
   ['Serum Sovereign', 'effect not a row kind: Draw a card, then scry 2.'],
   ['Slimefoot, the Stowaway', 'a filtered head no fixture satisfies: a Saproling you control'],
   ['Syr Vondam, Sunstar Exemplar', 'trigger head not in the library: Whenever another creature you control dies or is put into exile, put a'],
@@ -527,7 +523,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Compost', 'a put-into-graveyard head from anywhere with a filter no zone can answer: a black card'],
   ['Corpse Cur', 'trigger payload not a pump: Return target creature card with infect from your graveyard '],
   ["Cosi's Trickster", 'trigger head not in the library: Whenever an opponent shuffles their library, you may put a +1/+1 count'],
-  ['Cruel Celebrant', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature or another creature or planeswalker y'],
   ['Curator of Mysteries', "a scry under the cycle-or-discard head: the cycling's own draw moves the library count the suite pins (D424)"],
   // D478 - the search row restored: the two the mirror offers that the wave cannot row.
   ['Shefet Monitor', 'an asking payload under the cycle head (the cycling ability sits under the trigger; the settle answers the ask) (D478)'],
@@ -596,7 +591,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Mirkwood Bats', 'trigger head not in the library: Whenever you create or sacrifice a token, each opponent loses 1 life.'],
   ["Mirri's Guile", 'trigger payload not a pump: Look at the top three cards of your library, then put them b'],
   ['Mister Fantastic, Reed Richards', 'trigger head not in the library: Whenever one or more tokens you control enter, you may draw a card.'],
-  ['Mold Adder', 'a filtered head outside the closed reader (an adjective outside the list: or): Whenever an opponent casts a blue or black spell, you may pu'],
   ['Mortician Beetle', 'trigger head not in the library: Whenever a player sacrifices a creature, you may put a +1/+1 counter o'],
   ["Nadier's Nightblade", 'a leaves head whose subject is a token the arm cannot make: a token you control'],
   ['Naya Sojourners', 'a filtered head outside the closed reader (an adjective outside the list: you): When you cycle this card and when this creature dies, you ma'],
@@ -612,9 +606,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Setessan Starbreaker', 'trigger payload not a pump: Destroy target Aura.'],
   ["Shapers' Sanctuary", 'trigger head not in the library: Whenever a creature you control becomes the target of a spell or abili'],
   ['Sharuum the Hegemon', 'a filtered head no fixture satisfies: Sharuum'],
-  ['Skemfar Avenger', 'a filtered head outside the closed reader (an adjective outside the list: or): Whenever another nontoken Elf or Berserker you control dies,'],
   ['Skyfire Phoenix', 'a filtered head outside the closed reader (an adjective outside the list: your): When you cast your commander, return this card from your gra'],
-  ['Snake Pit', 'a filtered head outside the closed reader (an adjective outside the list: or): Whenever an opponent casts a blue or black spell, you may cr'],
   ['Sneaky Snacker', 'trigger head not in the library: When you draw your third card in a turn, return this card from your gr'],
   ['Spirit Mantle', 'a protection quality the derive does not read (protection from creatures) (D424)'],
   ['Squee, Goblin Nabob', 'trigger payload not a pump: Return this card from your graveyard to your hand.'],
@@ -674,10 +666,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Thrull Retainer', 'an enchanted-creature payload after sacrificing the Aura (last known information)'],
   ['Ultron the Annihilator', 'trigger head not in the library: Whenever Ultron enters or attacks, create a 2/2 colorless Robot Villai'],
   ['Unquestioned Authority', 'a protection quality the derive does not read (protection from creatures) (D424)'],
-  ['Vat of Rebirth', 'a filtered head outside the closed reader (an adjective outside the list: or): Whenever another artifact or creature you control is put int'],
   ['Vela the Night-Clad', 'a filtered head outside the closed reader (an adjective outside the list: or): Whenever Vela or another creature you control leaves the bat'],
   ['Vraska Joins Up', 'trigger head not in the library: Whenever a legendary creature you control deals combat damage to a pla'],
-  ['Charforger', 'a filtered head outside the closed reader (an adjective outside the list: or): Whenever another creature or artifact you control is put int'],
   ['Glass-Cast Heart', 'trigger head not in the library: Whenever one or more Vampires you control attack, create a Blood token'],
   ['Lead Pipe', 'a filtered head outside the closed reader (an adjective outside the list: equipped): Whenever equipped creature dies, each opponent loses 1 life.'],
   ['Staff of the Storyteller', 'trigger head not in the library: Whenever you create one or more creature tokens, put a story counter o'],
@@ -751,7 +741,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['The Royal Scions', 'the row maker: a counted noun the suite cannot stage (cardsInHand): ~ deals damage to any target equal to the number of cards - its clause reads since D611 (D611)'],
   ['Phyrexian Etchings', 'the row maker: a self-counter count under a head that moves the card (not this wave): You lose 2 life for each age counter on - its clause reads since D611 (D611)'],
   ["Sierra, Nuka's Biggest Fan", 'the row maker: a sacrifice head no fixture the suite can sacrifice satisfies: a Food - its clause reads since D611 (D611)'],
-  ['Mister Gutsy', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: or): Whenever you cast an Aura or Eq - its clause reads since D611 (D611)'],
   ['Omnath, Locus of the Roil', 'the row maker: a payload gate whose recipe fires the rows own trigger (the permanents the gate needs are the very enters the - its clause reads since D611 (D611)'],
   ['Goliath, Mass Manipulator', 'the row maker: a line that is neither an activated ability nor a library trigger: Power-up — {4}{G}: Put two +1/+1 counters o - its clause reads since D611 (D611)'],
   ['Surrakar Spellblade', 'the row maker: trigger payload not a pump: Draw X cards, where X is the number of charge counters on ~. - its clause reads since D611 (D611)'],
@@ -797,7 +786,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Locked in the Cemetery', 'the row maker: an intervening if on a head the suite does not fire twice: etb - the host clause reads since D598 (D598)'],
   ['Betrothed of Fire', 'the row maker: cost: a sacrifice cost with no fixture the suite can put: untapped creature - the host clause reads since D598 (D598)'],
   ["Nature's Kiss", 'the row maker: cost: Exile the top card of your graveyard - the host clause reads since D598 (D598)'],
-  ["Tarrian's Soulcleaver", 'the row maker: a filtered head outside the closed reader (an adjective outside the list: or): Whenever another artifact or cr - the host clause reads since D598 (D598)'],
   ['Briar Shield', 'the row maker: an enchanted-creature payload after sacrificing the Aura (last known information) - the host clause reads since D598 (D598)'],
   ['Phantom Wings', 'the row maker: a host clause behind a cost that moves the source (last known information; not this wave) - the host clause reads since D598 (D598)'],
   ['Roots', 'the row maker: an Aura that enchants something other than a creature - the host clause reads since D598 (D598)'],
@@ -909,9 +897,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Planar Outburst', 'a spell with a line outside the vocabulary: Destroy all nonland creatures - a destroy sweep over a nonland noun (D548)'],
   // D547 - warp: the Warp line is the engine's now (the cast from hand, the end-step exile, the later cast from exile); what stays is a warp card the row maker refuses for another line.
   ['Pinnacle Emissary', 'the row maker: a leftover line not among the printed lines: Whenever you cast an artifact spell, create a 1/1 colorless Drone artifact creature token with flying and ... (the quoted ability of the token cut the line) (D547)'],
-  ['Susurian Voidborn', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature or another creature or artifact you control dies, target opponent loses 1 life and you gain 1 life. (D547)'],
   ['Rayblade Trooper', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: you): Whenever a nontoken creature you control with a +1/+1 counter on it dies, create a 1/1 white Human Soldier creature token. (D547)'],
-  ['Weftstalker Ardent', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: or): Whenever another creature or artifact you control enters, this creature deals 1 damage to each opponent. (D547)'],
   // D546 - embalm and eternalize: the Embalm and Eternalize lines are the engine's now (the graveyard activation, the Zombie token copy); what stays is an embalm card the row maker refuses for another line.
   ['Labyrinth Guardian', 'the row maker: trigger head not in the library: When this creature becomes the target of a spell, sacrifice it. (D546)'],
   ['Anointer Priest', 'the row maker: a filtered head no fixture satisfies: a creature token you control (D546)'],
@@ -2016,7 +2002,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Dragon Cultist', 'an intervening if outside the closed reader: a source you controlled dealt 5 or more damage this tur (D517)'],
   ['Cloakwood Hermit', 'an intervening if outside the closed reader: a creature card was put into your graveyard from anywhe (D517)'],
   ['Guild Artisan', 'trigger head not in the library: Whenever ~ attacks a player, if no opponent has more life than that (D517)'],
-  ['Agent of the Iron Throne', 'a filtered head outside the closed reader (an adjective outside the list: or): Whenever an artifact (D517)'],
   ['Sword Coast Sailor', 'trigger head not in the library: Whenever ~ attacks a player, if no opponent has more life than that (D517)'],
   ['Folk Hero', 'a filtered head outside the closed reader (an adjective outside the list: spell): Whenever you cast (D517)'],
   ['Dungeon Delver', 'a quoted grant that is not an activated ability: Room abilities of dungeons you own trigger an addi (D517)'],
@@ -2351,7 +2336,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Wingmate Roc', 'a counted payload under an attacks head (attacking creature) beside its raid trigger'],
   // D417 - the play permission reads: the 16 the selector offered once `exile the top card ... you may play it` read
   // that the row maker refused, by reason (seven trigger heads outside the library among them).
-  ['Armory Paladin', 'a filtered head outside the closed reader (whenever you cast an Aura or Equipment spell) beside its permission line'],
   ['Molly Hayes, Runaway', 'a line that is neither an activated ability nor a library trigger (Power-up, an ability word) beside its permission line'],
   ['Ob Nixilis, Captive Kingpin', 'a trigger head outside the library (whenever one or more opponents each lose exactly 1 life) beside its permission line'],
   ['Tempered in Solitude', 'an attack head on a card with no creature body (whenever a creature you control attacks alone) beside its permission line'],
@@ -4065,10 +4049,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Diamond Knight', 'filtered head: an adjective outside the closed reader'],
   ['Garenbrig Squire', 'filtered head: an adjective outside the closed reader'],
   ['Hawkeye, Bowslinger', 'filtered head: an adjective outside the closed reader'],
-  ['Judge Magister Gabranth', 'filtered head: an adjective outside the closed reader'],
   ['Mockingbird, Ace Agent', 'filtered head: an adjective outside the closed reader'],
   ['Predator Ooze', 'filtered head: an adjective outside the closed reader'],
-  ['Rising Populace', 'filtered head: an adjective outside the closed reader'],
   ['Sengir Bats', 'filtered head: an adjective outside the closed reader'],
   ['Sengir Vampire', 'filtered head: an adjective outside the closed reader'],
   ['Vampiric Dragon', 'filtered head: an adjective outside the closed reader'],
@@ -4098,7 +4080,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Innocent Bystander', 'trigger head not in the library'],
   ['Junkblade Bruiser', 'trigger head not in the library'],
   ['Kazarov, Sengir Pureblood', 'trigger head not in the library'],
-  ['Lightless Evangel', 'a filtered head whose subject names two types with an or'],
   ['Marvel Boy, Noh-Varr', 'compound trigger head'],
   ['Meddling Youths', 'trigger head not in the library'],
   ['Overzealous Muscle', 'trigger head not in the library'],

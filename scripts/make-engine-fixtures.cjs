@@ -10977,6 +10977,30 @@ const WANTED = [
   'Demonspine Whip',
   // D613 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
   'Mistcaller',
+  // D614 - THE OR-JOINED HEAD: the rows the whole-leftover row maker rowed once a trigger head subject joining two card types, two colours or two subtypes with or was read (either admits).
+  'Snake Pit',
+  'Vat of Rebirth',
+  'Skemfar Avenger',
+  'Rising Populace',
+  'Marionette Apprentice',
+  'Charforger',
+  'Mold Adder',
+  'Armory Paladin',
+  'Ravenous Squirrel',
+  'Al Bhed Salvagers',
+  'Agent of the Iron Throne',
+  "Tarrian's Soulcleaver",
+  'Lightless Evangel',
+  'Mister Gutsy',
+  'Necrosquito',
+  'Cruel Celebrant',
+  'Ishi-Ishi, Akki Crackshot',
+  'Exuberant Fuseling',
+  'Judge Magister Gabranth',
+  'Susurian Voidborn',
+  'Weftstalker Ardent',
+  // D614 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  'Masterwork of Ingenuity',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
