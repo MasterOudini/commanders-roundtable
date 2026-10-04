@@ -185,6 +185,8 @@ export const TIER2_KEYWORDS = [
   'devoid',
   // D615 - START YOUR ENGINES! (CR 702.179a): a player with no speed who controls a permanent with it has speed 1.
   'startYourEngines',
+  // D620 - ASCEND (CR 702.131): ten or more permanents and a permanent with it (or the spell as it resolves) - the city's blessing.
+  'ascend',
 ] as const;
 
 export type Keyword = (typeof TIER2_KEYWORDS)[number];
@@ -1815,6 +1817,8 @@ export type ActivationCondition =
   | { readonly kind: 'monarch'; readonly who: 'you' | 'opponent' | 'none' }
   /** D615 - `Max speed — <ability>` (CR 702.179): the ability exists while its controller's speed is 4. */
   | { readonly kind: 'maxSpeed' }
+  // D620 - the city's blessing (CR 702.131c): the activator has it.
+  | { readonly kind: 'citysBlessing' }
   /** D527 - `if you win` (a clash, CR 701.10): the resolution's own verdict, never the board - `gateHolds` alone answers it. */
   | { readonly kind: 'clashWon' }
   /** D534 - `if you win the flip` / `if you lose the flip`: the coin flip's verdict, asked of the resolution itself. */

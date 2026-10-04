@@ -11110,6 +11110,20 @@ const WANTED = [
   'Furnace Dragon',
   "Myojin of Life's Web",
   // D619 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D620 - ascend and the city's blessing the seam's test reads and plays (ascend.test.ts)
+  'Dusk Charger',
+  'Arch of Orazca',
+  'Secrets of the Golden City',
+  // D620 - ASCEND AND THE CITY BLESSING: the rows the whole-leftover row maker rowed once ascend gave its controller the city blessing at ten permanents and a blessing ability read its condition.
+  'Mausoleum Harpy',
+  'Andúril, Narsil Reforged',
+  'Orazca Relic',
+  'Storm Fleet Swashbuckler',
+  'Resplendent Griffin',
+  'Skymarcher Aspirant',
+  'Spire Winder',
+  'Deadeye Brawler',
+  // D620 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -132,6 +132,19 @@ export function PlayerPlate({
         </span>
       )}
 
+      {/* D620 - the city's blessing (CR 702.131c): public, and the gate of every blessing ability, so it is READABLE here
+          (D122). Shown once the player has it. */}
+      {seat.citysBlessing === true && (
+        <span
+          className="crt-num rounded px-1 text-xs tabular-nums text-crt-dim"
+          style={{ boxShadow: 'inset 0 0 0 1px currentColor' }}
+          title="The city's blessing"
+          data-blessing={player}
+        >
+          CITY
+        </span>
+      )}
+
       {/* D521 - the Ring's temptations (CR 701.54): the count gates the emblem's abilities, so it is READABLE here
           (D122), with the Ring-bearer named. Shown only once the Ring has tempted the player. */}
       {seat.ringTempts > 0 && (

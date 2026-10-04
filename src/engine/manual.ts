@@ -229,6 +229,22 @@ function runManual(state: GameState, intent: ManualIntent, deps: EngineDeps): Ha
       ]);
     }
 
+    // D620 - the city's blessing by hand (CR 702.131c): on, or off as a correction.
+    case 'ManualSetBlessing': {
+      const target = state.players[intent.target];
+      if (!target) return reject('noSuchPlayer', 'That player is not in this game.');
+      return accept([
+        marker(actor, 'blessing', `${intent.target} ${intent.has ? 'on' : 'off'}`),
+        { t: 'CitysBlessingChanged', player: intent.target, has: intent.has, reason: 'manual' },
+        narrated(
+          n`${me} ${vb(actor, 'gives', 'give')} ${whoElse(state, actor, intent.target)} ${intent.has ? 'the city' + String.fromCharCode(39) + 's blessing' : 'no city' + String.fromCharCode(39) + 's blessing'}.`,
+          actor,
+          [],
+          true,
+        ),
+      ]);
+    }
+
     // D519 - energy counters, the poison tool's shape: never below zero.
     case 'ManualSetEnergy': {
       const target = state.players[intent.target];

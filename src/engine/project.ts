@@ -280,6 +280,7 @@ export class Projector {
         poison: player.poison,
         energy: player.energy,
         ...(player.speed !== undefined ? { speed: player.speed } : {}),
+        ...(player.citysBlessing === true ? { citysBlessing: true } : {}),
         ringTempts: player.ringTempts,
         ringBearer: player.ringBearer,
         isMonarch: state.monarch === p,
@@ -476,6 +477,7 @@ function sameSeatView(a: SeatView, b: SeatView): boolean {
     a.poison === b.poison &&
     a.energy === b.energy &&
     a.speed === b.speed &&
+    a.citysBlessing === b.citysBlessing &&
     a.ringTempts === b.ringTempts &&
     a.ringBearer === b.ringBearer &&
     a.isMonarch === b.isMonarch &&

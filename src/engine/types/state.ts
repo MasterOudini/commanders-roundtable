@@ -153,6 +153,11 @@ export interface PlayerState {
    */
   readonly speed?: number;
   /**
+   * D620 - THE CITY'S BLESSING (CR 702.131c): got by ascend (ten or more permanents and a permanent with it, or an
+   * ascend spell as it resolves) and kept for the rest of the game; public. Absent on every older log.
+   */
+  readonly citysBlessing?: true | undefined;
+  /**
    * D521 - THE RING TEMPTS YOU (CR 701.54): how many times the Ring has tempted this player this game (0 at setup),
    * and their Ring-bearer - a creature they control, or null (a temptation with no creature still counts; the bearer
    * stops being one when another creature is chosen, when it leaves the battlefield or when another player gains

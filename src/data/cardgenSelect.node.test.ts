@@ -723,6 +723,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D620 - ascend and the city blessing read; what stays is a card the row maker refuses for another reason.
+  ['Secrets of the Golden City', 'the row maker: a spell with a line outside the vocabulary: Ascend (If you control ten or more permanents, you get the c - its clause reads since D620 (D620)'],
   // D617 - the graveyard exile and the mass exile read; what stays is a card the row maker refuses for another reason.
   ['Scavenger Grounds', 'the row maker: a graveyard exile over the controllers graveyard behind a cost that feeds it (not this wave) - its clause reads since D617 (D617)'],
   ['Perilous Vault', 'the row maker: cost: Exile this artifact - its clause reads since D617 (D617)'],

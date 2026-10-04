@@ -7,6 +7,17 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { DUSK_CHARGER_SCRIPT } from './cards/duskCharger';
+import { ARCH_OF_ORAZCA_SCRIPT } from './cards/archOfOrazca';
+import { SNUBHORN_SENTRY_SCRIPT } from './cards/snubhornSentry';
+import { MAUSOLEUM_HARPY_SCRIPT } from './cards/mausoleumHarpy';
+import { AND_RIL_NARSIL_REFORGED_SCRIPT } from './cards/andRilNarsilReforged';
+import { ORAZCA_RELIC_SCRIPT } from './cards/orazcaRelic';
+import { STORM_FLEET_SWASHBUCKLER_SCRIPT } from './cards/stormFleetSwashbuckler';
+import { RESPLENDENT_GRIFFIN_SCRIPT } from './cards/resplendentGriffin';
+import { SKYMARCHER_ASPIRANT_SCRIPT } from './cards/skymarcherAspirant';
+import { SPIRE_WINDER_SCRIPT } from './cards/spireWinder';
+import { DEADEYE_BRAWLER_SCRIPT } from './cards/deadeyeBrawler';
 import { ZACAMA_PRIMAL_CALAMITY_SCRIPT } from './cards/zacamaPrimalCalamity';
 import { SIGARDIAN_SAVIOR_SCRIPT } from './cards/sigardianSavior';
 import { FEASTING_TROLL_KING_SCRIPT } from './cards/feastingTrollKing';
@@ -8944,6 +8955,17 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  DUSK_CHARGER_SCRIPT,
+  ARCH_OF_ORAZCA_SCRIPT,
+  SNUBHORN_SENTRY_SCRIPT,
+  MAUSOLEUM_HARPY_SCRIPT,
+  AND_RIL_NARSIL_REFORGED_SCRIPT,
+  ORAZCA_RELIC_SCRIPT,
+  STORM_FLEET_SWASHBUCKLER_SCRIPT,
+  RESPLENDENT_GRIFFIN_SCRIPT,
+  SKYMARCHER_ASPIRANT_SCRIPT,
+  SPIRE_WINDER_SCRIPT,
+  DEADEYE_BRAWLER_SCRIPT,
   ZACAMA_PRIMAL_CALAMITY_SCRIPT,
   SIGARDIAN_SAVIOR_SCRIPT,
   FEASTING_TROLL_KING_SCRIPT,

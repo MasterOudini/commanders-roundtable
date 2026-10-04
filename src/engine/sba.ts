@@ -88,6 +88,19 @@ export function checkStateBasedActions(
     }
   }
 
+  // D620 - THE CITY'S BLESSING (CR 702.131b): a player with no blessing who controls a permanent with ascend and ten or
+  // more permanents gets it, for the rest of the game - a static ability, so the check applies it at once.
+  for (const id of state.seating) {
+    const p = state.players[id];
+    if (!p || p.hasLost || p.citysBlessing === true) continue;
+    const mine = inPlay(state).filter((c) => state.cards[c]?.controller === id);
+    if (mine.length < 10) continue;
+    if (!mine.some((c) => derive(state, oracle, scripts, c, cache).keywords.has('ascend'))) continue;
+    actions.push({ t: 'blessingGained', player: id });
+    events.push({ t: 'CitysBlessingChanged', player: id, has: true, reason: 'ascend' });
+    events.push(narrated(n`${who(state, id)} ${vb(id, 'gets', 'get')} the city's blessing.`, id));
+  }
+
   // 2–8 — the battlefield sweep.
   const counterChanges: { card: InstanceId; kind: string; delta: number }[] = [];
   const detachments: InstanceId[] = [];

@@ -1006,6 +1006,12 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
                 ? { kind: 'exile' as const, player: card.owner }
                 : { kind: 'graveyard' as const, player: card.owner };
     events.push({ t: 'StackResolved', stackId: obj.id, card: obj.card, to, targets: obj.targets, controller: obj.controller, ...(ownFate !== undefined ? { fate: ownFate } : {}), ...(bought ? { buyback: true as const } : {}) });
+    // D620 - ASCEND on an instant or sorcery (CR 702.131a): as it resolves, its controller - ten or more permanents and no
+    // blessing - gets the city's blessing, before the spell's own effect.
+    if (face !== null && !face.isPermanent && face.keywords.includes('ascend') && state.players[obj.controller]?.citysBlessing !== true && state.zones.battlefield.filter((c) => state.cards[c]?.controller === obj.controller).length >= 10) {
+      events.push({ t: 'CitysBlessingChanged', player: obj.controller, has: true, reason: 'ascend' });
+      events.push(narrated(n`${who(state, obj.controller)} ${vb(obj.controller, 'gets', 'get')} the city's blessing.`, obj.controller));
+    }
     // ⚠️ THE EFFECT RUNS BEFORE THE CARD MOVES. A spell is still on the stack
     // while it resolves (CR 608.2), so its own text can point at the board it is
     // about to leave — and, concretely, a Bolt that had already been put into the

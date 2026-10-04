@@ -984,6 +984,9 @@ function applyBody(state: GameState, body: EventBody): GameState {
       delete owed[body.player];
       return { ...next, turn: { ...next.turn, memory: { ...m, speedOwed: owed, speedRaised: { ...(m.speedRaised ?? {}), [body.player]: true } } } };
     }
+    // D620 - the city's blessing (CR 702.131c).
+    case 'CitysBlessingChanged':
+      return withPlayer(state, body.player, { citysBlessing: body.has ? true : undefined });
     // D521 - the Ring tempted a player: the count and the bearer the event carries (null when no creature was held).
     case 'RingTempted':
       return withPlayer(state, body.player, { ringTempts: body.times, ringBearer: body.bearer });

@@ -337515,6 +337515,388 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "DUSK_CHARGER": {
+    "scryfallId": "012bdc02-fe5f-4e87-b840-53090f78c649",
+    "oracleId": "e0190e13-89f6-4b51-a277-bf3eb842963e",
+    "name": "Dusk Charger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dusk Charger",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Horse",
+        "oracleText": "Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)\nThis creature gets +2/+2 as long as you have the city's blessing.",
+        "flavorText": "Stories say demon blood runs in its veins, making it fearless and bloodthirsty.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Lucas Graciano",
+        "imageId": "012bdc02-fe5f-4e87-b840-53090f78c649"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Ascend"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "RIX-69",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARCH_OF_ORAZCA": {
+    "scryfallId": "0b4046d8-9f53-4b33-b76c-54bc5e83f496",
+    "oracleId": "3bb518ff-399b-4ce7-b9ad-a1d563dd7792",
+    "name": "Arch of Orazca",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arch of Orazca",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)\n{T}: Add {C}.\n{5}, {T}: Draw a card. Activate only if you have the city's blessing.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Titus Lunter",
+        "imageId": "0b4046d8-9f53-4b33-b76c-54bc5e83f496"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Ascend"
+    ],
+    "setCode": "cmm",
+    "collectorNumber": "986",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SECRETS_OF_THE_GOLDEN_CITY": {
+    "scryfallId": "2a08f978-380c-4443-bbb8-3eb8ad2f513a",
+    "oracleId": "c0dda0d0-1fae-4777-ba86-9fe7990bf3a8",
+    "name": "Secrets of the Golden City",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Secrets of the Golden City",
+        "manaCost": "{1}{U}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)\nDraw two cards. If you have the city's blessing, draw three cards instead.",
+        "flavorText": "Stolen knowledge can never be stolen back.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jason Felix",
+        "imageId": "2a08f978-380c-4443-bbb8-3eb8ad2f513a"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Ascend"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "RIX-52",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAUSOLEUM_HARPY": {
+    "scryfallId": "54b40f3c-d75e-483f-b978-8b3bf30cc7ce",
+    "oracleId": "ba682da8-50f5-478f-99cc-60a57d229a04",
+    "name": "Mausoleum Harpy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mausoleum Harpy",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Harpy",
+        "oracleText": "Flying\nAscend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)\nWhenever another creature you control dies, if you have the city's blessing, put a +1/+1 counter on this creature.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Randy Vargas",
+        "imageId": "54b40f3c-d75e-483f-b978-8b3bf30cc7ce"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Ascend"
+    ],
+    "setCode": "rix",
+    "collectorNumber": "78",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AND_RIL_NARSIL_REFORGED": {
+    "scryfallId": "5c495189-451e-46ca-9a71-825dab50a0e7",
+    "oracleId": "b7d7c131-b628-4b35-b40b-1087589ebdd0",
+    "name": "Andúril, Narsil Reforged",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Andúril, Narsil Reforged",
+        "manaCost": "{2}",
+        "typeLine": "Legendary Artifact — Equipment",
+        "oracleText": "Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)\nWhenever equipped creature attacks, put a +1/+1 counter on each creature you control. If you have the city's blessing, put two +1/+1 counters on each creature you control instead.\nEquip {3}",
+        "flavorText": "The Sword of Elendil was forged anew by Elvish smiths.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jeff Miracola",
+        "imageId": "5c495189-451e-46ca-9a71-825dab50a0e7"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Ascend",
+      "Equip"
+    ],
+    "setCode": "hoc",
+    "collectorNumber": "40",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORAZCA_RELIC": {
+    "scryfallId": "6ed70bc5-8ea9-404e-a8cd-04322c8bc689",
+    "oracleId": "48b84b58-1a06-4bb4-be1f-ad3ca69e66dc",
+    "name": "Orazca Relic",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Orazca Relic",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)\n{T}: Add {C}.\n{T}, Sacrifice this artifact: You gain 3 life and draw a card. Activate only if you have the city's blessing.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Kieran Yanner",
+        "imageId": "6ed70bc5-8ea9-404e-a8cd-04322c8bc689"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Ascend"
+    ],
+    "setCode": "rix",
+    "collectorNumber": "181",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STORM_FLEET_SWASHBUCKLER": {
+    "scryfallId": "7093bd0e-3b98-4f46-9717-202ddd277bf5",
+    "oracleId": "6640bcfc-4bdc-4380-8b51-61b906f9aee6",
+    "name": "Storm Fleet Swashbuckler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Storm Fleet Swashbuckler",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Pirate",
+        "oracleText": "Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)\nThis creature has double strike as long as you have the city's blessing.",
+        "flavorText": "\"A bolt to the eye, a blade to the neck. That's the way to clear the deck!\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Kieran Yanner",
+        "imageId": "7093bd0e-3b98-4f46-9717-202ddd277bf5"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Ascend"
+    ],
+    "setCode": "rix",
+    "collectorNumber": "117",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RESPLENDENT_GRIFFIN": {
+    "scryfallId": "915f2ad9-fd39-465c-8261-bfa34116cbcc",
+    "oracleId": "f8bf5df2-b783-4796-b2c6-eb4dd4167d62",
+    "name": "Resplendent Griffin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Resplendent Griffin",
+        "manaCost": "{1}{W}{U}",
+        "typeLine": "Creature — Griffin",
+        "oracleText": "Flying\nAscend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)\nWhenever this creature attacks, if you have the city's blessing, put a +1/+1 counter on it.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Sam Rowan",
+        "imageId": "915f2ad9-fd39-465c-8261-bfa34116cbcc"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Ascend"
+    ],
+    "setCode": "rix",
+    "collectorNumber": "170",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKYMARCHER_ASPIRANT": {
+    "scryfallId": "9473190f-5e96-4cf7-a0fa-a77d916acc2e",
+    "oracleId": "0b6db929-1b6a-4372-8146-aa047258b552",
+    "name": "Skymarcher Aspirant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skymarcher Aspirant",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Vampire Soldier",
+        "oracleText": "Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)\nThis creature has flying as long as you have the city's blessing.",
+        "flavorText": "\"I was born to glory.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Winona Nelson",
+        "imageId": "9473190f-5e96-4cf7-a0fa-a77d916acc2e"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Ascend"
+    ],
+    "setCode": "rix",
+    "collectorNumber": "21",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPIRE_WINDER": {
+    "scryfallId": "aca438d7-1134-4fee-9fad-85c3b1abe8ed",
+    "oracleId": "e8cfb24a-7e52-4e39-a9e1-969b4a65b62e",
+    "name": "Spire Winder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spire Winder",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Snake",
+        "oracleText": "Flying\nAscend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)\nThis creature gets +1/+1 as long as you have the city's blessing.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Titus Lunter",
+        "imageId": "aca438d7-1134-4fee-9fad-85c3b1abe8ed"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Ascend"
+    ],
+    "setCode": "rix",
+    "collectorNumber": "57",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEADEYE_BRAWLER": {
+    "scryfallId": "acb1ab66-f2ce-4094-b2dd-1fc63d78eea2",
+    "oracleId": "a7c36b66-4f58-41af-b1c5-704ff0d9eac8",
+    "name": "Deadeye Brawler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deadeye Brawler",
+        "manaCost": "{2}{U}{B}",
+        "typeLine": "Creature — Human Pirate",
+        "oracleText": "Deathtouch\nAscend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)\nWhenever this creature deals combat damage to a player, if you have the city's blessing, draw a card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "acb1ab66-f2ce-4094-b2dd-1fc63d78eea2"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Ascend",
+      "Deathtouch"
+    ],
+    "setCode": "rix",
+    "collectorNumber": "155",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

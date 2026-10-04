@@ -260,6 +260,8 @@ export function parseActivationConditions(text: string, selfName?: string): Acti
     else if (/^if you(?:'re| are) the monarch$/i.test(c)) conditions.push({ kind: 'monarch', who: 'you' });
     else if (/^if an opponent is the monarch$/i.test(c)) conditions.push({ kind: 'monarch', who: 'opponent' });
     else if (/^if there is no monarch$/i.test(c)) conditions.push({ kind: 'monarch', who: 'none' });
+    // D620 - the city's blessing (CR 702.131c).
+    else if (/^if you have the city(?:'|’)s blessing$/i.test(c)) conditions.push({ kind: 'citysBlessing' });
     // D527 - the clash's verdict (CR 701.10), asked of the resolution itself: `If you win, ...` / `If you won, ...`.
     else if (/^if you (?:win|won)$/i.test(c)) conditions.push({ kind: 'clashWon' });
     // D534 - the coin flip's verdict (CR 705), asked of the resolution: `If you win the flip, ...` / `If you lose the flip, ...`.

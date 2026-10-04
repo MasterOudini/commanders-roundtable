@@ -127,6 +127,8 @@ const CANON: Readonly<Record<string, Keyword>> = {
   devoid: 'devoid',
   // D615 - start your engines! (CR 702.179a): the speed's start.
   'start your engines!': 'startYourEngines',
+  // D620 - ascend (CR 702.131).
+  ascend: 'ascend',
 };
 
 export function canonicalKeyword(raw: string): Keyword | null {

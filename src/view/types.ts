@@ -206,6 +206,8 @@ export interface SeatView {
   energy: number;
   /** D615 - speed (CR 702.179), public: absent until the player has any; shown on the plate. */
   speed?: number;
+  /** D620 - the city's blessing (CR 702.131c), public: shown on the plate once had. */
+  citysBlessing?: boolean;
   /** D521 - the Ring's temptations (CR 701.54): the count that gates the emblem, and the Ring-bearer, shown on the plate. */
   ringTempts: number;
   ringBearer: InstanceId | null;

@@ -137,6 +137,10 @@ export function activationConditionsHold(
       case 'maxSpeed':
         if ((state.players[player]?.speed ?? 0) < 4) return false;
         break;
+      // D620 - the city's blessing (CR 702.131c).
+      case 'citysBlessing':
+        if (state.players[player]?.citysBlessing !== true) return false;
+        break;
       case 'monarch':
         if (cond.who === 'you' ? state.monarch !== player : cond.who === 'opponent' ? state.monarch === null || state.monarch === player : state.monarch !== null) return false;
         break;
@@ -235,6 +239,8 @@ export function describeActivationConditions(conditions: readonly ActivationCond
           return 'if you lose the flip';
         case 'maxSpeed':
           return 'if you have max speed';
+        case 'citysBlessing':
+          return "if you have the city's blessing";
         case 'monarch':
           return cond.who === 'you' ? "if you're the monarch" : cond.who === 'opponent' ? 'if an opponent is the monarch' : 'if there is no monarch';
         case 'acrossControl':
