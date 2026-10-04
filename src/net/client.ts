@@ -843,19 +843,20 @@ export class ClientSession {
       const script = SHIPPED_REGISTRY.get(grantRef.slice(0, grantRef.indexOf('#')));
       return script?.activated?.find((d) => d.ref === grantRef)?.granted?.targets ?? [];
     }
-    const face = this.faceFor(cardId);
+    // D625 - a PREPARED permanent is cast as its spell (face 1 - the one cast a permanent on the battlefield offers).
+    const face = this.faceFor(cardId, abilityIndex === undefined && this.view.cards[cardId]?.prepared === true ? 1 : undefined);
     if (!face) return [];
     // D576 - a cast with cards spliced onto it aims at their clauses after its own (the host's castTargetSpecs).
     if (abilityIndex === undefined) return spliced.length > 0 ? [...face.targets, ...spliced.flatMap((id) => this.faceFor(id)?.targets ?? [])] : face.targets;
     return face.activated[abilityIndex]?.targets ?? [];
   }
 
-  private faceFor(cardId: InstanceId): OracleFace | null {
+  private faceFor(cardId: InstanceId, faceIndex?: number): OracleFace | null {
     const data = this.view.cards[cardId]?.card;
     if (!data) return null;
     const oracleCard = this.pool.oracle().byPrinting(data.scryfallId);
     if (!oracleCard) return null;
-    return faceOf(oracleCard, this.view.cards[cardId]?.faceIndex ?? 0);
+    return faceOf(oracleCard, faceIndex ?? this.view.cards[cardId]?.faceIndex ?? 0);
   }
 
   /**

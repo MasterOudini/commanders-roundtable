@@ -394,6 +394,8 @@ function clearBattlefieldFields(owner: PlayerId): Partial<CardInstance> {
     suspected: undefined,
     // D526 - a new object was not manifested.
     manifested: undefined,
+    // D625 - nor prepared.
+    prepared: undefined,
   };
 }
 
@@ -792,6 +794,25 @@ function applyBody(state: GameState, body: EventBody): GameState {
           instance: Math.max(state.counters.instance, Number(body.card.slice(1)) || 0),
         },
       };
+    }
+
+    // D625 - A COPY OF A CARD (CR 707.12): a new object on the stack, its caster's (no zone array holds a card there - the
+    // stack's objects do, `SpellCast`); the face it is cast as, and the permanent it came from.
+    case 'CardCopyMade': {
+      const cards = { ...state.cards };
+      cards[body.card] = { ...newInstance(body.card, body.oracleId, body.printingId, body.owner, { kind: 'stack', player: null }), faceIndex: body.faceIndex, copyCard: true, preparedFrom: body.preparedFrom };
+      return { ...state, cards, counters: { ...state.counters, instance: Math.max(state.counters.instance, Number(body.card.slice(1)) || 0) } };
+    }
+
+    // D625 - PREPARED: set or cleared on permanents still on the battlefield (a card elsewhere is a new object, CR 400.7).
+    case 'PreparedChanged': {
+      const cards = { ...state.cards };
+      for (const id of body.cards) {
+        const c = cards[id];
+        if (!c || c.zone.kind !== 'battlefield') continue;
+        cards[id] = body.prepared ? { ...c, prepared: true } : { ...c, prepared: undefined };
+      }
+      return { ...state, cards };
     }
 
     case 'EmblemCreated': {

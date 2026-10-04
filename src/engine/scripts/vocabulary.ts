@@ -85,7 +85,8 @@ function rewriteSelf(text: string, opening: boolean): string {
   const unanchored = text.replace(/\bthis (?:creature|permanent|artifact|enchantment|land)\b/g, '~');
   const anchored = opening
     ? unanchored
-        .replace(/^it (deals|gets|gains|explores|doesn't|connives)\b/i, '~ $1')
+        // D625 - and `it becomes prepared` (Encouraging Aviator's attack).
+        .replace(/^it (deals|gets|gains|explores|doesn't|connives|becomes (?:un)?prepared)\b/i, '~ $1')
         .replace(/^(return|regenerate|untap|tap) it\b/i, '$1 ~')
         // D584 - a reflexive payload's leading `it` after a MANA price (`you may pay {2}{R}. When you do, it deals 3 damage`,
         // Sparktongue Dragon) is the source: the price names no object for it to be.

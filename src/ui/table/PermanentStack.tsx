@@ -171,6 +171,17 @@ export function PermanentStack({
           : {})}
       />
 
+      {/* D625 - a PREPARED permanent: its controller may cast a copy of its spell (a click on the permanent offers it). */}
+      {card?.prepared && (
+        <div
+          className="pointer-events-none absolute bottom-1 left-1 z-30 rounded bg-crt-accent px-1 text-[9px] font-semibold uppercase tracking-wide text-crt-on-accent"
+          data-prepared={packed.instanceId}
+          title="Prepared - you may cast a copy of its spell"
+        >
+          Prepared
+        </div>
+      )}
+
       {count > 1 && (
         <>
           <div

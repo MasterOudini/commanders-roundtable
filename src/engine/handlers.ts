@@ -29,6 +29,7 @@ import {
   castsAdventurer,
   castsWarped,
   castsPlotted,
+  castsPrepared,
   castTargetSpecs,
   splitSecondOnStack,
   FORETELL_COST,
@@ -1061,10 +1062,12 @@ function prepareCast(
   // D623 - THE TOP OF THE LIBRARY: a place to cast from while a permanent the player controls lets them (the card IS the
   // top, the noun admits its face) - at its own speed, for its mana cost.
   const fromTop = from.kind === 'library' && !faceDown && !free && playsFromTop(state, deps.oracle, deps.scripts, player, cardId, face);
-  if (from.kind !== 'hand' && from.kind !== 'command' && !flashback && graveyardCast === null && !harmonized && !permitted && !foretold && !madnessCast && !warped && !plotted && !adventurer && !fromTop) {
+  // D625 - A PREPARED SPELL'S COPY (CR 707.12): made on the stack to be cast - its own caster's, at the spell's speed, for its mana cost.
+  const preparedCopy = from.kind === 'stack' && card.copyCard === true && card.owner === player && !faceDown && !free && !madness;
+  if (from.kind !== 'hand' && from.kind !== 'command' && !flashback && graveyardCast === null && !harmonized && !permitted && !foretold && !madnessCast && !warped && !plotted && !adventurer && !fromTop && !preparedCopy) {
     return { error: reject('wrongZone', `${face.name} is not somewhere you can cast it from.`) };
   }
-  if (from.player !== player && !permitted && !adventurer) return { error: reject('wrongZone', 'That is not your card.') };
+  if (from.player !== player && !permitted && !adventurer && !preparedCopy) return { error: reject('wrongZone', 'That is not your card.') };
   if (from.kind === 'command' && !card.isCommander) {
     return { error: reject('notCastable', 'Only a commander can be cast from the command zone.') };
   }
@@ -1362,13 +1365,30 @@ function castSpell(
   if (state.pendingCast) {
     return reject('wrongCastStage', 'Finish or cancel the spell you are already casting.');
   }
+  // D625 - A PREPARED SPELL (the prepare reminder: "While it's prepared, you may cast a copy of its spell. Doing so unprepares
+  // it."): the offer names the prepared PERMANENT and its spell's face. The cast makes a COPY OF THE CARD on the stack (CR 707.12 -
+  // its caster's, face 1) and casts that, over the state the copy is made in; the permanent stays where it is, unprepared once
+  // the cast is done (a back-out leaves it prepared, and the copy ceases). A cast naming the permanent with no face is its
+  // spell's (the table's click names no face for a one-face offer, D155).
+  const preparedSource = state.cards[intent.card];
+  if (preparedSource !== undefined && preparedSource.zone.kind === 'battlefield') {
+    if ((intent.faceIndex ?? 1) !== 1 || !castsPrepared(state, deps.oracle, intent.card, intent.player)) {
+      return reject('wrongZone', 'That permanent has no prepared spell you can cast.');
+    }
+    const copyId = `c${state.counters.instance + 1}` as InstanceId;
+    const made: EventBody = { t: 'CardCopyMade', card: copyId, oracleId: preparedSource.oracleId, printingId: preparedSource.printingId, owner: intent.player, faceIndex: 1, preparedFrom: intent.card };
+    const scratch = apply(state, { seq: state.eventCount, body: made, cause: { kind: 'system' } } as never);
+    const inner = castSpell(scratch, { ...intent, card: copyId, faceIndex: 1 }, deps);
+    return inner.ok ? { ...inner, events: [made, ...inner.events] } : inner;
+  }
   // ⚠️ CR 712 — WHICH FACE. This was `const faceIndex = 0` until D155, so a
   // modal DFC's back face was offered by `legalActions`, clickable in the UI,
   // and cast as the FRONT face. `castableFaces` is the same function the offer
   // is built from, asked again here because the host decides legality (D139).
   const faceIndex = intent.faceIndex ?? 0;
   const printing = deps.oracle.byPrinting(state.cards[intent.card]?.printingId ?? '');
-  if (printing && !castableFaces(printing).includes(faceIndex)) {
+  // D625 - a prepared spell's copy is cast as its spell's face, which no hand casts.
+  if (printing && !castableFaces(printing).includes(faceIndex) && !(faceIndex === 1 && state.cards[intent.card]?.copyCard === true)) {
     return reject('noSuchCard', `${printing.name} has no face ${faceIndex} you can cast.`);
   }
   const setup = prepareCast(
@@ -1494,7 +1514,8 @@ function castSpell(
       ...(setup.alternative ? { alternative: true as const } : {}),
       ...(setup.picks.exileFromHand.length > 0 ? { exileFromHand: setup.picks.exileFromHand } : {}),
     };
-    return accept([
+    // D625 - a prepared spell's copy is made ON the stack (CR 707.12): nothing moves there.
+    const moveIn: EventBody[] = setup.from.kind === 'stack' ? [] : [
       {
         t: 'CardsMoved',
         // ⚠️ The face goes ONTO THE STACK with the card, so the object there IS
@@ -1510,6 +1531,9 @@ function castSpell(
           },
         ],
       },
+    ];
+    return accept([
+      ...moveIn,
       { t: 'CastBegan', pending },
       // ⚠️ A STAGE THAT STOPS MUST SAY SO. Without this the X stage halted
       // invisibly: `advance()` fell through to `priority()`, the caster could
@@ -2537,7 +2561,10 @@ function cancelPendingCast(state: GameState, player: PlayerId, deps: EngineDeps)
   // permanent out of the stack zone it was never in — and because
   // `checkInvariants` skips stack-zone cards, nothing downstream would notice.
   const events: EventBody[] = [];
-  if (pending.kind === 'spell') {
+  // D625 - a prepared spell's copy backed out of ceases to exist (CR 707.12 - it was never a card) once the cast is
+  // cancelled, so no pending cast names a card that is gone; its permanent stays prepared.
+  const backedCopy = pending.kind === 'spell' && state.cards[pending.card]?.copyCard === true;
+  if (pending.kind === 'spell' && !backedCopy) {
     events.push({
       t: 'CardsMoved',
       // D540 - a foretold card backed out of goes back as it was: face down, foretold on the turn it was.
@@ -2549,6 +2576,7 @@ function cancelPendingCast(state: GameState, player: PlayerId, deps: EngineDeps)
     });
   }
   events.push({ t: 'CastCancelled', stackId: pending.stackId });
+  if (backedCopy) events.push({ t: 'TokensCeased', cards: [pending.card] });
   // D587 - BACKING OUT OF A GRANTED CAST returns the game to the moment before the cast began (CR 601.2): the card back
   // where the grant found it (the move above), the play permission it held there restored, and the prompt it answered
   // up again - answered anew (plain, other elections, another card, or nothing), the granting effect's rest riding it.
@@ -2607,8 +2635,11 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
   if ('error' in paid) return paid.error;
 
   const stackId = `s${state.counters.stack + 1}`;
-  const events: EventBody[] = [
-    ...(args.lead ?? []),
+  // D625 - a prepared spell's copy is made ON the stack (CR 707.12): nothing moves there; the permanent it came from is
+  // unprepared by the cast (below), and the copy is cast from no zone.
+  const copied = state.cards[args.card];
+  const preparedFrom = copied?.copyCard === true ? copied.preparedFrom : undefined;
+  const moveIn: EventBody[] = setup.from.kind === 'stack' ? [] : [
     {
       t: 'CardsMoved',
       moves: [
@@ -2622,6 +2653,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
       ],
     },
   ];
+  const events: EventBody[] = [...(args.lead ?? []), ...moveIn];
   // D405 - the taps and the exiles of convoke, improvise and delve, then the mana.
   events.push(...paid.events);
   events.push(...altEvents(state, args.player, setup.alt));
@@ -2643,11 +2675,11 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
     ...(args.targetSlots !== undefined ? { targetSlots: args.targetSlots } : {}),
     modes: args.modes ?? [],
     xValue: args.xValue > 0 ? args.xValue : null,
-    label: setup.faceDown ? 'a face-down creature' : setup.face.name,
+    label: setup.faceDown ? 'a face-down creature' : preparedFrom !== undefined ? `${setup.face.name} (copy)` : setup.face.name,
     identity: setup.identity,
     taxApplied: setup.tax,
     isCommanderCast: setup.from.kind === 'command',
-    castFrom: setup.from,
+    castFrom: preparedFrom !== undefined ? null : setup.from,
     ...(setup.faceDown ? { faceDown: true as const } : {}),
     ...(setup.kicked > 0 ? { kicked: setup.kicked } : {}),
     ...(setup.kickedWith.length > 0 ? { kickedWith: setup.kickedWith } : {}),
@@ -2667,8 +2699,10 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
     ...(setup.free ? { freeCast: true as const } : {}),
     // D607 - the additional cost's sacrificed permanents as they last existed (CR 608.2h), read before the cost batch moved them.
     ...(setup.picks.sacrifice.length > 0 ? { sacrificed: sacrificedOf(state, deps, setup.picks.sacrifice) } : {}),
+    ...(preparedFrom !== undefined ? { preparedFrom } : {}),
   };
   events.push({ t: 'SpellCast', obj });
+  if (preparedFrom !== undefined) events.push({ t: 'PreparedChanged', cards: [preparedFrom], prepared: false });
   if (setup.from.kind === 'command' && card?.isCommander) {
     events.push({
       t: 'CommanderCastCountIncreased',
@@ -3190,6 +3224,8 @@ function finishFromPending(
   events.push(...payEvents(state, deps, pending.player, chosen, setup, purpose));
 
   const card = state.cards[pending.card];
+  // D625 - a prepared spell's copy: the permanent it came from, unprepared by the cast (a back-out never gets here).
+  const preparedFrom = card?.copyCard === true ? card.preparedFrom : undefined;
   const obj: StackObject = {
     id: pending.stackId,
     kind: 'spell',
@@ -3202,11 +3238,11 @@ function finishFromPending(
     ...(pending.targetSlots !== undefined ? { targetSlots: pending.targetSlots } : {}),
     modes: pending.modes,
     xValue: pending.xValue,
-    label: face.name,
+    label: preparedFrom !== undefined ? `${face.name} (copy)` : face.name,
     identity,
     taxApplied: pending.taxApplied,
     isCommanderCast: pending.isCommanderCast,
-    castFrom: pending.from,
+    castFrom: preparedFrom !== undefined ? null : pending.from,
     ...(pending.kicked !== undefined && pending.kicked > 0 ? { kicked: pending.kicked } : {}),
     ...(pending.kickedWith !== undefined && pending.kickedWith.length > 0 ? { kickedWith: pending.kickedWith } : {}),
     ...(pending.buyback === true ? { buyback: true as const } : {}),
@@ -3222,8 +3258,10 @@ function finishFromPending(
     ...(pending.free === true ? { freeCast: true as const } : {}),
     // D607 - the additional cost's sacrificed permanents as they last existed (CR 608.2h), read before the cost batch moved them.
     ...(picks.sacrifice.length > 0 ? { sacrificed: sacrificedOf(state, deps, picks.sacrifice) } : {}),
+    ...(preparedFrom !== undefined ? { preparedFrom } : {}),
   };
   events.push({ t: 'SpellCast', obj });
+  if (preparedFrom !== undefined) events.push({ t: 'PreparedChanged', cards: [preparedFrom], prepared: false });
   if (pending.isCommanderCast && card?.isCommander) {
     events.push({ t: 'CommanderCastCountIncreased', card: pending.card, to: card.commanderCastCount + 1 });
   }

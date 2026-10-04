@@ -1792,6 +1792,20 @@ export function effectResult(
         break;
       }
 
+      // D625 - BECOMES PREPARED / UNPREPARED (the prepare reminder): only a creature with a prepare spell becomes prepared - its
+      // card a `prepare` printing, face up; on the battlefield and phased in. Already so, nothing happens.
+      case 'prepare': {
+        if (aim?.kind !== 'card') break;
+        const inst = state.cards[aim.id];
+        if (!inst || inst.zone.kind !== 'battlefield' || inst.phasedOut) break;
+        const on = effect.unprepare !== true;
+        if (on && (inst.faceDown || deps.oracle.byPrinting(inst.printingId)?.layout !== 'prepare')) break;
+        if ((inst.prepared === true) === on) break;
+        out.push({ t: 'PreparedChanged', cards: [aim.id], prepared: on });
+        out.push(narrated(`${obj.label}: ${tableName(inst, derive(state, deps.oracle, deps.scripts, aim.id, cache))} becomes ${on ? 'prepared' : 'unprepared'}.`, obj.controller, obj.identity));
+        break;
+      }
+
       // D579 - TRANSFORM (CR 701.28): the source turned to its other face - a transforming double-faced card only (701.28b),
       // on the battlefield and face up; a daybound or nightbound permanent turns with the day and the night alone (702.145);
       // an ability's own transform only while the face that prints it is up (701.28c - `transformFrom`).

@@ -1507,6 +1507,12 @@ const RULES: readonly Rule[] = [
   // D573 - PHASES OUT (CR 702.26): a target, or the source (self-aimed - a source already gone phases nothing).
   { kind: 'phaseOut', re: new RegExp(`^(?:then )?${TARGET} phases out\\.$`, 'i'), build: () => ({ ...BASE }) },
   { kind: 'phaseOut', re: new RegExp(`^(?:then )?${SELF} phases out\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, self: true }) },
+  // D625 - BECOMES PREPARED / UNPREPARED (the prepare reminder): a target creature, or the source (self-aimed). Only a creature
+  // with a prepare spell becomes prepared - the executor asks the printing.
+  { kind: 'prepare', re: new RegExp(`^(?:then )?${TARGET} becomes prepared\\.$`, 'i'), build: () => ({ ...BASE }) },
+  { kind: 'prepare', re: new RegExp(`^(?:then )?${TARGET} becomes unprepared\\.$`, 'i'), build: () => ({ ...BASE, unprepare: true as const }) },
+  { kind: 'prepare', re: new RegExp(`^(?:then )?${SELF} becomes prepared\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, self: true }) },
+  { kind: 'prepare', re: new RegExp(`^(?:then )?${SELF} becomes unprepared\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, self: true, unprepare: true as const }) },
   // D594 - THE SOURCE ATTACHES ITSELF: an Equipment's (or an Aura's) own `attach it to target creature you control` (the row
   // maker spells the `it` of its own head as `~`); the executor asks the source and the aim again as it resolves.
   { kind: 'attachSource', re: new RegExp(`^attach (?:this (?:equipment|aura)|${SELF}) to ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },

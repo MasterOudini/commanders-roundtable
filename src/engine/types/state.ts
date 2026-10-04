@@ -284,6 +284,18 @@ export interface CardInstance {
    */
   readonly manifested?: true | undefined;
   /**
+   * D625 - PREPARED (the prepare reminder: "While it's prepared, you may cast a copy of its spell. Doing so unprepares
+   * it."): a permanent whose card is a `prepare` printing offers its controller a copy of that spell (face 1, `castsPrepared`).
+   * Set as it enters prepared or becomes prepared; cleared by the cast and with the battlefield fields as it leaves.
+   */
+  readonly prepared?: true | undefined;
+  /**
+   * D625 - A COPY OF A CARD (CR 707.12): made on the stack to be cast - a prepared spell's copy (`preparedFrom` the permanent
+   * whose spell it is). It is no card: outside the stack it ceases to exist (CR 704.5e - the token rule's state-based action).
+   */
+  readonly copyCard?: true | undefined;
+  readonly preparedFrom?: InstanceId | undefined;
+  /**
    * D494 - Tier-2 keywords the permanent GAINED for as long as it stays (CR 611.2c: `It gains haste.` with no duration
    * printed - a resolving effect's grant lasts until the object leaves). Read at layer 6 in `derive.ts`; cleared as it
    * leaves the battlefield (a new object gained nothing).
@@ -616,6 +628,8 @@ export interface StackObject {
    * sacrificed, so every older log replays untouched.
    */
   readonly sacrificed?: readonly { readonly card: InstanceId; readonly power: number | null; readonly toughness: number | null; readonly manaValue: number }[];
+  /** D625 - a PREPARED spell's copy (CR 707.12): the permanent whose spell it is, unprepared by the cast. Absent on every other spell. */
+  readonly preparedFrom?: InstanceId;
   /**
    * D611 - the SOURCE's counters as it last existed, stamped by the activation's cost batch when that batch moved it (a
    * sacrifice, a return to the hand - CR 608.2h): `where X is the number of charge counters on this artifact` reads them.

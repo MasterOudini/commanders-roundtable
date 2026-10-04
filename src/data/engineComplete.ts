@@ -66,7 +66,7 @@ import { KEYWORD_TRIGGERS } from '../engine/keywordTriggers';
 // D570 - devour: the number is the counters each creature eaten buys, asked as it enters (`withEntersTapped`).
 const NUMBERED_TRIGGER_KEYWORDS: ReadonlySet<string> = new Set(['bushido', 'soulshift', 'afterlife', 'afflict', 'modular', 'backup', 'vanishing', 'fading', 'fabricate', 'mobilize', 'devour']);
 import { parseEnchant, scrub, splitAbilityLines } from './targetParse';
-import { parseEntersAsCopyLine, parseEntersTappedLine, parseChoosesColorOnEntry, parseChoosesTypeOnEntry } from './replacementParse';
+import { parseEntersAsCopyLine, parseEntersPreparedLine, parseEntersTappedLine, parseChoosesColorOnEntry, parseChoosesTypeOnEntry } from './replacementParse';
 
 export interface Completeness {
   readonly complete: boolean;
@@ -559,6 +559,8 @@ export function linesUnaccounted(
     if (face.choosesColorOnEntry && parseChoosesColorOnEntry(line)) continue;
     // D465 - the creature-type clause, asked of the parser that set the flag the same way.
     if (face.choosesTypeOnEntry && parseChoosesTypeOnEntry(line)) continue;
+    // D625 - the prepare line, asked of the parser that set the flag (the funnel prepares the permanent as it enters).
+    if (face.entersPrepared && parseEntersPreparedLine(line, face.name)) continue;
     // D453 - the control Aura's line, when the face flag read it (the built-in in sba.ts takes and gives back).
     if (face.controlsEnchanted && /^You control enchanted (?:creature|permanent)\.$/.test(line)) continue;
     // D442 - a printed maximum hand size the cleanup step READS (`maxHandSize`, CR 514.1). Asked of the

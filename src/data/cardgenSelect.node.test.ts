@@ -723,6 +723,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D625 - the prepared spell reads; what stays is a card the row maker refuses for another reason.
+  ['Skycoach Waypoint', 'the row maker: a prepare clause aimed at a target (the fixture must be a creature with a prepare spell; not this wave): Targe - its clause reads since D625 (D625)'],
   // D624 - the scope words read; what stays is a card the row maker refuses for another reason.
   ['Great Oak Guardian', 'the row maker: an object verb after a clause whose objects the suite does not enumerate (a scoped clause; not this wave): Unt - its clause reads since D624 (D624)'],
   ['Soul of New Phyrexia', 'the row maker: a mass pump over a scope outside the subtype table: Permanents you control - its clause reads since D624 (D624)'],
@@ -2061,7 +2063,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Valiant Rescuer', 'a first-time-each-turn head with no turn record to read (not this wave): youCycle (D513)'],
   ['Raphael, Tag Team Tough', 'a mass verb over a scope the suite has no witness for (not this wave): Untap all attacking creatures (D513)'],
   ['Whispering Snitch', 'trigger head not in the library: Whenever you surveil, this creature deals 1 damage to each opponent (D513)'],
-  ['Leech Collector // Bloodletting', 'multi-face or unusual layout (D513)'],
   ['Mindlink Mech', 'trigger head not in the library: Whenever this Vehicle becomes crewed, until end of turn, this Vehic (D513)'],
   // D512 - the additional combat phase: the rows the select offered and the row maker refused, by its own reasons.
   ['Éomer, Marshal of Rohan', 'a filtered head outside the closed reader (an adjective outside the list: attacking): Whenever one or more other attacking legendary creatures you (D512)'],

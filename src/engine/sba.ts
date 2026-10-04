@@ -281,7 +281,9 @@ export function checkStateBasedActions(
     for (const zone of ['graveyard', 'exile', 'hand', 'library', 'command'] as const) {
       for (const id of state.zones[zone][p] ?? []) {
         const card = state.cards[id];
-        if (!card || !card.isToken) continue;
+        // D625 - and a COPY OF A CARD (CR 704.5e): no zone but the stack holds one (a prepared spell's copy, resolved or
+        // countered into a graveyard, returned to a hand), the same two steps.
+        if (!card || !(card.isToken || card.copyCard === true)) continue;
         actions.push({ t: 'tokenCeasesToExist', card: id });
         ceased.push(id);
         doomed.add(id);

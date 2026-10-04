@@ -339306,6 +339306,660 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "SPELLBOOK_SEEKER_CAREFUL_STUDY": {
+    "scryfallId": "cc44eaa4-59a4-419e-b1d1-d92f354ff588",
+    "oracleId": "df5e4100-8c83-42d6-af96-1a1ec84a9210",
+    "name": "Spellbook Seeker // Careful Study",
+    "layout": "prepare",
+    "faces": [
+      {
+        "name": "Spellbook Seeker",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Bird Wizard",
+        "oracleText": "Flying\nThis creature enters prepared. (While it's prepared, you may cast a copy of its spell. Doing so unprepares it.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Scott Murphy",
+        "imageId": "cc44eaa4-59a4-419e-b1d1-d92f354ff588"
+      },
+      {
+        "name": "Careful Study",
+        "manaCost": "{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Draw two cards, then discard two cards.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Scott Murphy",
+        "imageId": "cc44eaa4-59a4-419e-b1d1-d92f354ff588"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Prepared"
+    ],
+    "setCode": "sos",
+    "collectorNumber": "68",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HONORBOUND_PAGE_FORUM_S_FAVOR": {
+    "scryfallId": "79a70863-860f-4a7b-9cb2-d3546b689d44",
+    "oracleId": "66ee56b9-aca8-4efa-b9b5-50717e0784a7",
+    "name": "Honorbound Page // Forum's Favor",
+    "layout": "prepare",
+    "faces": [
+      {
+        "name": "Honorbound Page",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Cat Cleric",
+        "oracleText": "First strike\nThis creature enters prepared. (While it's prepared, you may cast a copy of its spell. Doing so unprepares it.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Paolo Parente",
+        "imageId": "79a70863-860f-4a7b-9cb2-d3546b689d44"
+      },
+      {
+        "name": "Forum's Favor",
+        "manaCost": "{W}",
+        "typeLine": "Sorcery",
+        "oracleText": "Target creature gets +1/+0 and gains flying until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Paolo Parente",
+        "imageId": "79a70863-860f-4a7b-9cb2-d3546b689d44"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "First strike",
+      "Prepared"
+    ],
+    "setCode": "sos",
+    "collectorNumber": "19",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ENCOURAGING_AVIATOR_JUMP": {
+    "scryfallId": "72654b84-9902-41db-92ab-a3499c31221c",
+    "oracleId": "d6accaed-ff35-4324-b31b-35e6837bc079",
+    "name": "Encouraging Aviator // Jump",
+    "layout": "prepare",
+    "faces": [
+      {
+        "name": "Encouraging Aviator",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Bird Wizard",
+        "oracleText": "Flying\nWhenever this creature attacks, it becomes prepared. (While it's prepared, you may cast a copy of its spell. Doing so unprepares it.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Oriana Menendez",
+        "imageId": "72654b84-9902-41db-92ab-a3499c31221c"
+      },
+      {
+        "name": "Jump",
+        "manaCost": "{U}",
+        "typeLine": "Instant",
+        "oracleText": "Target creature gains flying until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Oriana Menendez",
+        "imageId": "72654b84-9902-41db-92ab-a3499c31221c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Prepared"
+    ],
+    "setCode": "sos",
+    "collectorNumber": "46",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STUDIOUS_FIRST_YEAR_RAMPANT_GROWTH": {
+    "scryfallId": "24f888dd-785c-4089-a89c-03f9080130ed",
+    "oracleId": "58b0c737-0a84-4f9a-b3b7-300c5de43874",
+    "name": "Studious First-Year // Rampant Growth",
+    "layout": "prepare",
+    "faces": [
+      {
+        "name": "Studious First-Year",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Bear Wizard",
+        "oracleText": "This creature enters prepared. (While it's prepared, you may cast a copy of its spell. Doing so unprepares it.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mariah Tekulve",
+        "imageId": "24f888dd-785c-4089-a89c-03f9080130ed"
+      },
+      {
+        "name": "Rampant Growth",
+        "manaCost": "{1}{G}",
+        "typeLine": "Sorcery",
+        "oracleText": "Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mariah Tekulve",
+        "imageId": "24f888dd-785c-4089-a89c-03f9080130ed"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Prepared"
+    ],
+    "setCode": "sos",
+    "collectorNumber": "162",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKYCOACH_WAYPOINT": {
+    "scryfallId": "6747657b-5ce4-4dbd-b924-ca1f7119faf7",
+    "oracleId": "2ac2b815-2d72-48e6-b43a-18884a74bf95",
+    "name": "Skycoach Waypoint",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skycoach Waypoint",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{3}, {T}: Target creature becomes prepared. (Only creatures with prepare spells can become prepared.)",
+        "flavorText": "\"Do you have all your books? And your stylus? And your extra uniform? And your lucky scarf?\"\n—Overheard at Hookiver Station",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jorge Jacinto",
+        "imageId": "6747657b-5ce4-4dbd-b924-ca1f7119faf7"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Prepared"
+    ],
+    "setCode": "sos",
+    "collectorNumber": "261",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EMERITUS_OF_CONFLICT_LIGHTNING_BOLT": {
+    "scryfallId": "699c0207-901e-4fe9-b22d-1f6cb994a1f2",
+    "oracleId": "5963eef1-1022-42b1-8a0c-fc9850bfc2a3",
+    "name": "Emeritus of Conflict // Lightning Bolt",
+    "layout": "prepare",
+    "faces": [
+      {
+        "name": "Emeritus of Conflict",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "First strike\nWhenever you cast your third spell each turn, this creature becomes prepared. (While it's prepared, you may cast a copy of its spell. Doing so unprepares it.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alix Branwyn",
+        "imageId": "699c0207-901e-4fe9-b22d-1f6cb994a1f2"
+      },
+      {
+        "name": "Lightning Bolt",
+        "manaCost": "{R}",
+        "typeLine": "Instant",
+        "oracleText": "Lightning Bolt deals 3 damage to any target.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alix Branwyn",
+        "imageId": "699c0207-901e-4fe9-b22d-1f6cb994a1f2"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "First strike",
+      "Prepared"
+    ],
+    "setCode": "psos",
+    "collectorNumber": "113p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCATHING_SHADELOCK_VENOMOUS_WORDS": {
+    "scryfallId": "03e664cd-c3a6-4263-b2d8-dd99058fb8ec",
+    "oracleId": "2796c3d9-9e56-40f2-8398-7a131c4657ff",
+    "name": "Scathing Shadelock // Venomous Words",
+    "layout": "prepare",
+    "faces": [
+      {
+        "name": "Scathing Shadelock",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Snake Warlock",
+        "oracleText": "At the beginning of your first main phase, this creature becomes prepared. (While it's prepared, you may cast a copy of its spell. Doing so unprepares it.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Loïc Canavaggia",
+        "imageId": "03e664cd-c3a6-4263-b2d8-dd99058fb8ec"
+      },
+      {
+        "name": "Venomous Words",
+        "manaCost": "{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Target creature you control gets +2/+0 and gains deathtouch until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Loïc Canavaggia",
+        "imageId": "03e664cd-c3a6-4263-b2d8-dd99058fb8ec"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Prepared"
+    ],
+    "setCode": "sos",
+    "collectorNumber": "98",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SANAR_UNFINISHED_GENIUS_WILD_IDEA": {
+    "scryfallId": "173157aa-712d-44f2-89ba-dd2511a07f26",
+    "oracleId": "a8c44bd9-6470-47d7-934f-77c76a44a984",
+    "name": "Sanar, Unfinished Genius // Wild Idea",
+    "layout": "prepare",
+    "faces": [
+      {
+        "name": "Sanar, Unfinished Genius",
+        "manaCost": "{U}{R}",
+        "typeLine": "Legendary Creature — Goblin Sorcerer",
+        "oracleText": "Sanar enters prepared. (While it's prepared, you may cast a copy of its spell. Doing so unprepares it.)\n{T}: Create a Treasure token. Activate only if you've cast an instant or sorcery spell this turn.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Justin Gerard",
+        "imageId": "173157aa-712d-44f2-89ba-dd2511a07f26"
+      },
+      {
+        "name": "Wild Idea",
+        "manaCost": "{3}{U}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Search your library for an instant or sorcery card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Justin Gerard",
+        "imageId": "173157aa-712d-44f2-89ba-dd2511a07f26"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Treasure",
+      "Prepared"
+    ],
+    "setCode": "sos",
+    "collectorNumber": "223",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EMERITUS_OF_WOE_DEMONIC_TUTOR": {
+    "scryfallId": "26156da4-1ec3-4702-bded-9868af3026b5",
+    "oracleId": "93056597-b964-421f-be2f-e92abef1c2a4",
+    "name": "Emeritus of Woe // Demonic Tutor",
+    "layout": "prepare",
+    "faces": [
+      {
+        "name": "Emeritus of Woe",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Vampire Warlock",
+        "oracleText": "This creature enters prepared. (While it's prepared, you may cast a copy of its spell. Doing so unprepares it.)\nAt the beginning of your end step, if two or more creatures died this turn, this creature becomes prepared.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jodie Muir",
+        "imageId": "26156da4-1ec3-4702-bded-9868af3026b5"
+      },
+      {
+        "name": "Demonic Tutor",
+        "manaCost": "{1}{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Search your library for a card, put that card into your hand, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jodie Muir",
+        "imageId": "26156da4-1ec3-4702-bded-9868af3026b5"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Prepared"
+    ],
+    "setCode": "sos",
+    "collectorNumber": "324",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EMERITUS_OF_ABUNDANCE_REGROWTH": {
+    "scryfallId": "2b7e8e07-b3ff-496e-923f-42d703f20a1e",
+    "oracleId": "e5152e8d-9f55-493d-a0fc-753cc72ee299",
+    "name": "Emeritus of Abundance // Regrowth",
+    "layout": "prepare",
+    "faces": [
+      {
+        "name": "Emeritus of Abundance",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elf Druid",
+        "oracleText": "Vigilance\nThis creature enters prepared.\nWhenever this creature attacks, if you control eight or more lands, this creature becomes prepared.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Justyna Dura",
+        "imageId": "2b7e8e07-b3ff-496e-923f-42d703f20a1e"
+      },
+      {
+        "name": "Regrowth",
+        "manaCost": "{1}{G}",
+        "typeLine": "Sorcery",
+        "oracleText": "Return target card from your graveyard to your hand.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Justyna Dura",
+        "imageId": "2b7e8e07-b3ff-496e-923f-42d703f20a1e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Vigilance",
+      "Prepared"
+    ],
+    "setCode": "sos",
+    "collectorNumber": "339",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KIROL_HISTORY_BUFF_PACK_A_PUNCH": {
+    "scryfallId": "676ba521-66e4-42cf-a315-70d03cb7334e",
+    "oracleId": "df1c0d06-2109-4297-9271-8a003fc892bc",
+    "name": "Kirol, History Buff // Pack a Punch",
+    "layout": "prepare",
+    "faces": [
+      {
+        "name": "Kirol, History Buff",
+        "manaCost": "{R}{W}",
+        "typeLine": "Legendary Creature — Vampire Cleric",
+        "oracleText": "Whenever one or more cards leave your graveyard, Kirol becomes prepared. (While it's prepared, you may cast a copy of its spell. Doing so unprepares it.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Bryan Sola",
+        "imageId": "676ba521-66e4-42cf-a315-70d03cb7334e"
+      },
+      {
+        "name": "Pack a Punch",
+        "manaCost": "{1}{R}{W}",
+        "typeLine": "Sorcery",
+        "oracleText": "Mill a card. Put two +1/+1 counters on target creature. It gains trample until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Bryan Sola",
+        "imageId": "676ba521-66e4-42cf-a315-70d03cb7334e"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Prepared",
+      "Mill"
+    ],
+    "setCode": "sos",
+    "collectorNumber": "198",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ABIGALE_POET_LAUREATE_HEROIC_STANZA": {
+    "scryfallId": "77285d12-e658-4eb3-ba13-ff202afab9c8",
+    "oracleId": "2f5f46ed-b8aa-4864-bd20-17281d4632bf",
+    "name": "Abigale, Poet Laureate // Heroic Stanza",
+    "layout": "prepare",
+    "faces": [
+      {
+        "name": "Abigale, Poet Laureate",
+        "manaCost": "{1}{W}{B}",
+        "typeLine": "Legendary Creature — Bird Bard",
+        "oracleText": "Flying\nWhenever you cast a creature spell, Abigale becomes prepared. (While it's prepared, you may cast a copy of its spell. Doing so unprepares it.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Olivier Bernard",
+        "imageId": "77285d12-e658-4eb3-ba13-ff202afab9c8"
+      },
+      {
+        "name": "Heroic Stanza",
+        "manaCost": "{1}{W/B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Put a +1/+1 counter on target creature.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Olivier Bernard",
+        "imageId": "77285d12-e658-4eb3-ba13-ff202afab9c8"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Prepared"
+    ],
+    "setCode": "sos",
+    "collectorNumber": "170",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LLUWEN_EXCHANGE_STUDENT_PEST_FRIEND": {
+    "scryfallId": "a0bcb638-c3c8-4973-9537-5c471f43f34f",
+    "oracleId": "cb125cd4-c7c2-415d-b802-bdcfc2454403",
+    "name": "Lluwen, Exchange Student // Pest Friend",
+    "layout": "prepare",
+    "faces": [
+      {
+        "name": "Lluwen, Exchange Student",
+        "manaCost": "{2}{B}{G}",
+        "typeLine": "Legendary Creature — Elf Druid",
+        "oracleText": "Lluwen enters prepared. (While it's prepared, you may cast a copy of its spell. Doing so unprepares it.)\nExile a creature card from your graveyard: Lluwen becomes prepared. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alix Branwyn",
+        "imageId": "a0bcb638-c3c8-4973-9537-5c471f43f34f"
+      },
+      {
+        "name": "Pest Friend",
+        "manaCost": "{B/G}",
+        "typeLine": "Sorcery",
+        "oracleText": "Create a 1/1 black and green Pest creature token with \"Whenever this token attacks, you gain 1 life.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alix Branwyn",
+        "imageId": "a0bcb638-c3c8-4973-9537-5c471f43f34f"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Prepared"
+    ],
+    "setCode": "sos",
+    "collectorNumber": "199",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LEECH_COLLECTOR_BLOODLETTING": {
+    "scryfallId": "c715fe4c-c0e7-4342-811f-b74687851097",
+    "oracleId": "84bb960c-c34e-4979-8c0f-893c85cee27d",
+    "name": "Leech Collector // Bloodletting",
+    "layout": "prepare",
+    "faces": [
+      {
+        "name": "Leech Collector",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Warlock",
+        "oracleText": "Whenever you gain life for the first time each turn, this creature becomes prepared. (While it's prepared, you may cast a copy of its spell. Doing so unprepares it.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Chris Rallis",
+        "imageId": "c715fe4c-c0e7-4342-811f-b74687851097"
+      },
+      {
+        "name": "Bloodletting",
+        "manaCost": "{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Each opponent loses 2 life.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Chris Rallis",
+        "imageId": "c715fe4c-c0e7-4342-811f-b74687851097"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Prepared"
+    ],
+    "setCode": "sos",
+    "collectorNumber": "88",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

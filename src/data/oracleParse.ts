@@ -38,7 +38,7 @@ import { parseSpellTargets, parseTargetClauses } from './targetParse';
 import { parseActivatedAbilities, parseAdditionalCost, parseAlternativeCost, readCostVerbs, type KickerVerb } from './activatedParse';
 import { parseEffects, partnerWithSearchSpec } from './effectParse';
 import { parseModalFace } from './modalParse';
-import { parseEntersAsCopy, parseEntersTapped, parseChoosesColorOnEntry, parseChoosesTypeOnEntry, predicatesOf, type PermanentPredicate } from './replacementParse';
+import { parseEntersAsCopy, parseEntersPrepared, parseEntersTapped, parseChoosesColorOnEntry, parseChoosesTypeOnEntry, predicatesOf, type PermanentPredicate } from './replacementParse';
 
 /**
  * D343 - a modal face's effect mode from its modes: `auto` when EVERY mode is
@@ -1669,6 +1669,8 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     choosesColorOnEntry: isPermanent && parseChoosesColorOnEntry(face.oracleText),
     // D465 - the creature-type clause, the same way.
     choosesTypeOnEntry: isPermanent && parseChoosesTypeOnEntry(face.oracleText),
+    // D625 - the prepare line, the same way.
+    entersPrepared: isPermanent && parseEntersPrepared(face.oracleText, face.name),
     // D453 - an Aura that takes its host: one exact line, on an Aura face alone.
     controlsEnchanted: isPermanent && typeLine.subtypes.includes('Aura') && /^You control enchanted (?:creature|permanent)\.$/m.test(face.oracleText),
     // D442 - a permanent's printed maximum hand size (CR 402.2); the cleanup step reads it.

@@ -7,6 +7,15 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { SCATHING_SHADELOCK_VENOMOUS_WORDS_SCRIPT } from './cards/scathingShadelockVenomousWords';
+import { SANAR_UNFINISHED_GENIUS_WILD_IDEA_SCRIPT } from './cards/sanarUnfinishedGeniusWildIdea';
+import { EMERITUS_OF_WOE_DEMONIC_TUTOR_SCRIPT } from './cards/emeritusOfWoeDemonicTutor';
+import { EMERITUS_OF_ABUNDANCE_REGROWTH_SCRIPT } from './cards/emeritusOfAbundanceRegrowth';
+import { KIROL_HISTORY_BUFF_PACK_APUNCH_SCRIPT } from './cards/kirolHistoryBuffPackAPunch';
+import { ENCOURAGING_AVIATOR_JUMP_SCRIPT } from './cards/encouragingAviatorJump';
+import { ABIGALE_POET_LAUREATE_HEROIC_STANZA_SCRIPT } from './cards/abigalePoetLaureateHeroicStanza';
+import { LLUWEN_EXCHANGE_STUDENT_PEST_FRIEND_SCRIPT } from './cards/lluwenExchangeStudentPestFriend';
+import { LEECH_COLLECTOR_BLOODLETTING_SCRIPT } from './cards/leechCollectorBloodletting';
 import { NEVINYRRALS_DISK_SCRIPT } from './cards/nevinyrralsDisk';
 import { SERENITY_SCRIPT } from './cards/serenity';
 import { KALEMNES_CAPTAIN_SCRIPT } from './cards/kalemnesCaptain';
@@ -8992,6 +9001,15 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SCATHING_SHADELOCK_VENOMOUS_WORDS_SCRIPT,
+  SANAR_UNFINISHED_GENIUS_WILD_IDEA_SCRIPT,
+  EMERITUS_OF_WOE_DEMONIC_TUTOR_SCRIPT,
+  EMERITUS_OF_ABUNDANCE_REGROWTH_SCRIPT,
+  KIROL_HISTORY_BUFF_PACK_APUNCH_SCRIPT,
+  ENCOURAGING_AVIATOR_JUMP_SCRIPT,
+  ABIGALE_POET_LAUREATE_HEROIC_STANZA_SCRIPT,
+  LLUWEN_EXCHANGE_STUDENT_PEST_FRIEND_SCRIPT,
+  LEECH_COLLECTOR_BLOODLETTING_SCRIPT,
   NEVINYRRALS_DISK_SCRIPT,
   SERENITY_SCRIPT,
   KALEMNES_CAPTAIN_SCRIPT,

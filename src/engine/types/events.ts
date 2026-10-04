@@ -327,6 +327,13 @@ export type EventBody =
    * union has to say so.
    */
   | { readonly t: 'TokensCeased'; readonly cards: readonly InstanceId[] }
+  /** D625 - permanents become prepared or unprepared (the prepare reminder); a card off the battlefield is skipped. */
+  | { readonly t: 'PreparedChanged'; readonly cards: readonly InstanceId[]; readonly prepared: boolean }
+  /**
+   * D625 - A COPY OF A CARD made on the stack to be cast (CR 707.12): a prepared spell's copy - its caster's, the
+   * spell's face (`faceIndex`), the permanent it came from (`preparedFrom`). No zone array holds it on the stack.
+   */
+  | { readonly t: 'CardCopyMade'; readonly card: InstanceId; readonly oracleId: OracleId; readonly printingId: PrintingId; readonly owner: PlayerId; readonly faceIndex: number; readonly preparedFrom: InstanceId }
   /**
    * D475 - a player gets an EMBLEM (CR 114): an object in the owner's command zone with the abilities of the
    * emblem printing the card quotes. Created, never cast, never a permanent, never ceasing.

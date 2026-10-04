@@ -112,8 +112,15 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   { names: ["Jace, Vryn's Prodigy // Jace, Telepath Unbound"], copiesPerSeat: 5,
     counterKeys: ['transformedIntoPlaneswalker'], rotHistory: 'D108 D177' },
   // The ONLY source either optional counter reads.
-  { names: ["Ajani's Mantra"], copiesPerSeat: 5,
-    counterKeys: ['optionalTaken', 'optionalDeclined'], rotHistory: 'D128 D178' },
+  // D625 - three a seat: its fourth and fifth slots went to the prepared spell below (the swap; 234 / 220 over D624's gate,
+  // the widest margins in the table).
+  { names: ["Ajani's Mantra"], copiesPerSeat: 3,
+    counterKeys: ['optionalTaken', 'optionalDeclined'], rotHistory: 'D128 D178, D625' },
+  // D625 - THE PREPARED SPELL: two Studious First-Years a seat ({G} 1/1 that enters prepared; the copy of its Rampant Growth
+  // cast from the battlefield, a sorcery - CR 707.12) in Ajani's Mantra's fourth and fifth slots (the seat's card count and
+  // the shuffle kept, D553's rule).
+  { names: ['Studious First-Year // Rampant Growth'], copiesPerSeat: 2,
+    counterKeys: ['preparedCasts'], rotHistory: 'D625' },
   // The layer-6 ordering pair — a grant against a removal (CR 613.7).
   { names: ['Levitation', 'Gravity Sphere'], copiesPerSeat: 5,
     counterKeys: ['layer6Sources'], rotHistory: 'D129 D149 D173' },
@@ -354,8 +361,8 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   { names: ['Final Flourish', 'Thornscape Battlemage'], copiesPerSeat: 2, counterKeys: ['kickerVerbCasts', 'secondKickerCasts'], rotHistory: 'D530' },
   // D531 - CONTROL WITH A DURATION AND THE EXCHANGE: two Political Trickeries (the exchange of two lands) and two Sowers
   // of Temptation (a creature held for as long as Sower stays) a seat.
-  // D624 - one of each a seat: the second slots went to the monstrosity pair below (the swap; neither counter here
-  // carries a floor - controlGained 62 over D624's first gate).
+  // D624 - one of each a seat: the second slots went to the monstrosity pair below (the swap; the floor here is the SUM -
+  // controlGained 62 over D624's first gate, 32 + 0 over the fuzz after the swap; D625 corrected the note).
   { names: ['Political Trickery', 'Sower of Temptation'], copiesPerSeat: 1, counterKeys: ['controlGained', 'controlHeld'], rotHistory: 'D531, D624' },
   // D533 - MONSTROSITY: two Fleecemane Lions and two Sinuous Vermin a seat (the cheapest Monstrosity activations rowed).
   // D624 - ROTTED to 0 over 500 seeds (3 at D623's gate) once the scope words and CR 120.3c reshaped the games:
@@ -1536,7 +1543,9 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
   const copiers = state.stack.length === 0 ? [] : usable.filter((a) => a.t === 'CastSpell' && copyTargetOnStack(state, holder, a.card, a.faceIndex));
   // D487 - and with a payable copier in hand and nothing on the stack, an instant or sorcery to copy is cast first.
   const copyable = state.stack.length === 0 && holdsCopier(state, holder, usable) ? usable.filter((a) => a.t === 'CastSpell' && a.affordable && copyableSpellToCast(state, holder, a.card, a.faceIndex)) : [];
-  const chosen = lands.length > 0 ? p.pick(lands) : copiers.length > 0 ? p.pick(copiers) : copyable.length > 0 ? p.pick(copyable) : kickable.length > 0 ? p.pick(kickable) : buyable.length > 0 ? p.pick(buyable) : stormable.length > 0 ? p.pick(stormable) : p.pick(usable);
+  // D625 - a PREPARED spell's copy (offered from the battlefield) is cast first when affordable (0 over 60 seeds on the ordinary pick).
+  const preparable = usable.filter((a) => a.t === 'CastSpell' && a.from.kind === 'battlefield' && a.affordable);
+  const chosen = lands.length > 0 ? p.pick(lands) : copiers.length > 0 ? p.pick(copiers) : copyable.length > 0 ? p.pick(copyable) : kickable.length > 0 ? p.pick(kickable) : buyable.length > 0 ? p.pick(buyable) : stormable.length > 0 ? p.pick(stormable) : preparable.length > 0 ? p.pick(preparable) : p.pick(usable);
   if (!chosen) return { t: 'PassPriority', player: holder };
   switch (chosen.t) {
     case 'PlayLand':
@@ -1841,6 +1850,8 @@ interface Run {
   readonly controlHeld: number;
   /** D533 - the permanents that became monstrous (`BecameMonstrous`). */
   readonly monstrosities: number;
+  /** D625 - the prepared spells' copies cast from the battlefield (`SpellCast` with `preparedFrom`, CR 707.12). */
+  readonly preparedCasts: number;
   /** D534 - the coin flips a resolution made (`CoinFlipped` not caused by the manual tool's `FlipCoin` intent). */
   readonly rulesFlips: number;
   /** D535 - the spells cast with their buyback paid, and the ones that went back to hand as they resolved. */
@@ -2455,6 +2466,7 @@ function runOne(seed: number): Run {
     controlGained: game.log.filter((e) => e.body.t === 'ControlGained').length,
     controlHeld: game.log.filter((e) => e.body.t === 'ControlTakenBySource').length,
     monstrosities: game.log.filter((e) => e.body.t === 'BecameMonstrous').length,
+    preparedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.preparedFrom !== undefined).length,
     rulesFlips: game.log.filter((e) => e.body.t === 'CoinFlipped' && !(e.cause.kind === 'intent' && e.cause.intent === 'FlipCoin')).length,
     buybackCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.buyback === true).length,
     buybackReturns: game.log.filter((e) => e.body.t === 'StackResolved' && e.body.buyback === true).length,
@@ -2855,6 +2867,7 @@ const TOTAL_KEYS = [
   'controlGained',
   'controlHeld',
   'monstrosities',
+  'preparedCasts',
   'rulesFlips',
   'buybackCasts',
   'buybackReturns',
@@ -3407,10 +3420,12 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.chaptersFired).toBeGreaterThan(0);
         // D530 - a kick D530 opened at gate size (Final Flourish and Thornscape Battlemage, two a seat).
         expect(totals.kickerVerbCasts + totals.secondKickerCasts).toBeGreaterThan(0);
-        // D531 - a control D531 opened at gate size (Political Trickery and Sower of Temptation, two a seat).
+        // D531 - a control D531 opened at gate size (Political Trickery and Sower of Temptation, one a seat since D624).
         expect(totals.controlGained + totals.controlHeld).toBeGreaterThan(0);
-        // D533 - a permanent became monstrous at gate size (Fleecemane Lion and Sinuous Vermin, two a seat).
+        // D533 - a permanent became monstrous at gate size (Fleecemane Lion and Sinuous Vermin, three a seat since D624).
         expect(totals.monstrosities).toBeGreaterThan(0);
+        // D625 - a prepared spell's copy cast at gate size (Studious First-Year, two a seat).
+        expect(totals.preparedCasts).toBeGreaterThan(0);
         // D534 - a rules coin flip at gate size (Winter Sky, two a seat).
         expect(totals.rulesFlips).toBeGreaterThan(0);
         // D535 - a bought-back spell back in its owner's hand at gate size (Searing Touch, two a seat).

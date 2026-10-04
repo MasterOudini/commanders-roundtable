@@ -147,6 +147,8 @@ export interface CardView {
   disguised?: true;
   /** D573 - PHASED OUT (CR 702.26b): treated as though it does not exist until its controller's next untap step. PUBLIC. */
   phasedOut?: true;
+  /** D625 - PREPARED (the prepare reminder): its controller may cast a copy of its spell. PUBLIC - a designation. */
+  prepared?: true;
   /**
    * D575 - the permanent's DERIVED wards (printed and granted), for the client's cost preview to charge what the host
    * charges (D53). PUBLIC - a permanent's abilities are public. Absent when it has none.

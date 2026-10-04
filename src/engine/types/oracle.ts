@@ -837,6 +837,11 @@ export type EffectKind =
   /** D579 - TRANSFORM (CR 701.28): the source turned to its other face (a transforming double-faced card only). */
   | 'transform'
   /**
+   * D625 - `<target creature> becomes prepared.` / `This creature becomes prepared.` (and `unprepared`, `unprepare`): only a
+   * creature with a prepare spell becomes prepared (the reminder) - the executor asks the printing.
+   */
+  | 'prepare'
+  /**
    * D399 - "<target> can't be blocked this turn." (the evasion with an END, CR 509.1b's other
    * side): an until-end-of-turn entry on the ATTACKER that `canBlock` reads and cleanup clears.
    * The self form ("This creature can't be blocked this turn.") is aimed at the source (D373).
@@ -1401,7 +1406,7 @@ export interface ReflexiveSpec {
  * executor claims and no sentence ever fills - a dead seam `tsc` cannot see (D158).
  */
 // D602 - `removeCounters` joins: the source's own counter removed (`Remove a +1/+1 counter from this creature.`).
-export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'removeCounters','bounce', 'untap', 'regenerate', 'animate', 'bite', 'fight', 'cantBeBlocked', 'attackDespiteDefender', 'switchPt', 'destroy', 'exchangeControl', 'monstrosity', 'adapt', 'suspect', 'phaseOut', 'transform']);
+export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'removeCounters','bounce', 'untap', 'regenerate', 'animate', 'bite', 'fight', 'cantBeBlocked', 'attackDespiteDefender', 'switchPt', 'destroy', 'exchangeControl', 'monstrosity', 'adapt', 'suspect', 'phaseOut', 'transform', 'prepare']);
 
 /**
  * D402 - WHEN a delayed trigger fires: the step, and whose turn it must be. `next` is the first
@@ -1694,6 +1699,8 @@ export interface EffectSpec {
    * script (`transformFrom` in scripts/vocabulary.ts); absent, the source transforms from whichever face is up.
    */
   readonly transformFrom?: number;
+  /** D625 - `prepare` only: the clause UNprepares (`becomes unprepared`); absent, it prepares. */
+  readonly unprepare?: true;
   /** D395 - the animate family's shape: what the permanent becomes until end of turn. */
   readonly animate?: {
     readonly power: number;
@@ -2510,6 +2517,11 @@ export interface OracleFace {
    * statics over "of the chosen type".
    */
   readonly choosesTypeOnEntry: boolean;
+  /**
+   * D625 - `This creature enters prepared.` (the prepare reminder): the funnel's entry built-in prepares the permanent as it
+   * enters (`triggers.ts`, the tap's way). One exact line, anchored at both ends (`parseEntersPrepared`).
+   */
+  readonly entersPrepared: boolean;
   /**
    * D453 - `You control enchanted creature.` / `You control enchanted permanent.` on an Aura (CR 613.2 - a layer-2
    * control effect): while the Aura stays attached, its controller controls the enchanted permanent (`sba.ts`'s

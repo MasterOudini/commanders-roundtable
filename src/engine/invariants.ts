@@ -80,6 +80,8 @@ export function checkInvariants(state: GameState): string[] {
       if (new Set(card.exhausted).size !== card.exhausted.length) problems.push(`${id} exhausted one ability twice`);
       if (card.zone.kind !== 'battlefield') problems.push(`${id} carries an exhaust memory off the battlefield`);
     }
+    // D625 - prepared is a battlefield designation (cleared with the battlefield fields as the permanent leaves, CR 400.7).
+    if (card.prepared === true && card.zone.kind !== 'battlefield') problems.push(`${id} is prepared off the battlefield`);
     // ⚠️ Both directions of an attachment, every time. Clearing one side leaves
     // a dead id in the other, and the aura-falls SBA then fires on a permanent
     // that no longer exists — a crash several turns after the real mistake.

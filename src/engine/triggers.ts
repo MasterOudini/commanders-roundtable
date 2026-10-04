@@ -961,6 +961,8 @@ function withEntersTapped(
   events: readonly EventBody[],
 ): EventBody[] {
   const tapping: InstanceId[] = [];
+  // D625 - the permanents entering prepared (the prepare reminder), prepared after the move as the tapped ones are tapped.
+  const preparing: InstanceId[] = [];
   const asking: { card: InstanceId; player: PlayerId; life: number; label: string; reveal?: { any: readonly PermanentPredicate[]; text: string }; option?: 'unleash' | 'riot'; devour?: { n: number; candidates: readonly InstanceId[] } }[] = [];
   for (const ev of events) {
     if (ev.t !== 'CardsMoved') continue;
@@ -993,6 +995,7 @@ function withEntersTapped(
           if (candidates.length > 0) asking.push({ card: move.card, player: chooser, life: 0, label: face.name, devour: { n, candidates } });
         }
       }
+      if (face.entersPrepared) preparing.push(move.card);
       const rule = face.entersTapped;
       if (!rule) continue;
       // ⚠️ The controller comes from the DESTINATION, then the card. A
@@ -1038,6 +1041,7 @@ function withEntersTapped(
   // would name a card still in its old zone, and `reducer.ts` drops a tap
   // outside the battlefield (CR 110.5b) without saying why.
   if (tapping.length > 0) out.push({ t: 'PermanentsTapped', cards: tapping });
+  if (preparing.length > 0) out.push({ t: 'PreparedChanged', cards: preparing, prepared: true });
   const head = asking[0];
   if (head) {
     // ⚠️ **THE WHOLE BATCH'S QUESTIONS, HEAD FIRST.** One `CardsMoved` can put

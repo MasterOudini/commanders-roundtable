@@ -533,3 +533,18 @@ const CHOOSE_TYPE_RE = /^As (?:this [A-Za-z]+|[A-Z][^,]*) enters, choose a creat
 export function parseChoosesTypeOnEntry(oracleText: string): boolean {
   return oracleText.split('\n').some((line) => CHOOSE_TYPE_RE.test(line.trim()));
 }
+
+/**
+ * D625 - ENTERS PREPARED (the prepare reminder: "While it's prepared, you may cast a copy of its spell. Doing so
+ * unprepares it."): `This creature enters prepared.` / `<name> enters prepared.` - one exact line, anchored at both ends;
+ * the funnel's entry built-in prepares the permanent as it enters.
+ */
+const ENTERS_PREPARED = /^~ enters prepared\.$/i;
+
+export function parseEntersPreparedLine(line: string, cardName: string): boolean {
+  return ENTERS_PREPARED.test(normalise(line, cardName));
+}
+
+export function parseEntersPrepared(oracleText: string, cardName: string): boolean {
+  return oracleText.split('\n').some((line) => parseEntersPreparedLine(line, cardName));
+}

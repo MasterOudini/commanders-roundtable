@@ -303,6 +303,18 @@ export function castsWarped(state: GameState, id: InstanceId, player: PlayerId):
   return inst !== undefined && inst.zone.kind === 'exile' && inst.owner === player && inst.warpedTurn !== undefined && inst.warpedTurn < state.turn.turnNumber;
 }
 
+/**
+ * D625 - A PREPARED PERMANENT (the prepare reminder: "While it's prepared, you may cast a copy of its spell. Doing so
+ * unprepares it."): its controller may cast a copy of its spell - face 1 of a `prepare` printing - while it stays prepared, on
+ * the battlefield, phased in and face up. The one predicate the offer and the host both ask.
+ */
+export function castsPrepared(state: GameState, oracle: OracleDb, id: InstanceId, player: PlayerId): boolean {
+  const inst = state.cards[id];
+  if (!inst || inst.zone.kind !== 'battlefield' || inst.prepared !== true || inst.controller !== player || inst.phasedOut || inst.faceDown) return false;
+  const printing = oracle.byPrinting(inst.printingId);
+  return printing !== undefined && printing.layout === 'prepare' && printing.faces.length > 1;
+}
+
 export function castsForetold(state: GameState, id: InstanceId, face: OracleFace, player: PlayerId): boolean {
   const inst = state.cards[id];
   return inst !== undefined && inst.zone.kind === 'exile' && inst.owner === player && inst.foretoldTurn !== undefined && inst.foretoldTurn < state.turn.turnNumber && face.foretellCost !== null;
@@ -545,6 +557,14 @@ function offeredActions(
     const card = cardFor(state, oracle, id);
     if (!card || !castsForetold(state, id, faceOf(card, 0), player)) continue;
     const action = castAction(state, oracle, scripts, id, 0, { kind: 'exile', player }, context, sorcerySpeed);
+    if (action) out.push(action);
+  }
+
+  // D625 - A PREPARED PERMANENT: its spell (face 1) offered to its controller at the spell's own speed, from the battlefield - the
+  // cast makes a copy of the card on the stack (CR 707.12); the permanent stays where it is.
+  for (const id of state.zones.battlefield) {
+    if (!castsPrepared(state, oracle, id, player)) continue;
+    const action = castAction(state, oracle, scripts, id, 1, { kind: 'battlefield', player: null }, context, sorcerySpeed);
     if (action) out.push(action);
   }
 
