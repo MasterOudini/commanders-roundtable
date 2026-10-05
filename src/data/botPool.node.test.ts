@@ -462,13 +462,13 @@ const POOL: Record<string, number> = {
   // D484 - the prompt continuation: the spells whose ask precedes their last sentence (Vampiric Tutor, Disrupt, Geth's Verdict, Contentious Plan ...).
   // D485 - the token copy: the permanents that copy themselves (Spawnwrithe, Giant Adephage ...) and the copy spells (Rite of Replication, Cackling Counterpart ...).
   // D486 - the clone: the clones themselves (Clone, Stunt Double, Phyrexian Metamorph, Copy Enchantment, Vesuva ...).
-  creature: 8200,
+  creature: 8212,
   instant: 1752,
   sorcery: 1417,
   // M6.4hq (D384): the quoted grant - four Auras and an Equipment whose only leftover was the
   // ability they hand out, which `scrub` blanks and the classifier could not see.
   land: 742,
-  artifact: 807,
+  artifact: 808,
   enchantment: 849,
   // D472: the loyalty cost is charged now - the first five planeswalkers whose every line reads.
   planeswalker: 16,

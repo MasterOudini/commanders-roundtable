@@ -1745,6 +1745,8 @@ export interface TurnMemory {
    * Ids, like the rest: the CHECK derives the Assassin type and reads the commander flag.
    */
   readonly combatDamagers: readonly { readonly card: InstanceId; readonly controller: PlayerId }[];
+  /** D629 - the crimes each player committed this turn (CR 700.13 - `CrimeCommitted`); absent until the first. */
+  readonly crimes?: Readonly<Record<PlayerId, number>>;
 }
 
 /**

@@ -2390,9 +2390,31 @@ function chooseTriggerTargets(
       // D437 - the clause each target answers rides the event: an optional first clause left empty must not shift the
       // second clause's pick into the first executor's aim (`picksFor` read `targets[clause]` for a trigger before).
       { t: 'StackTargetsSet', stackId: awaiting.stackId, targets: intent.targets, ...(verdict.assignment !== undefined ? { targetSlots: verdict.assignment } : {}) },
+      // D629 - a crime, as the triggered ability's targets are chosen (it is on the stack - CR 603.3d, 700.13).
+      ...crimeEvents(state, intent.player, awaiting.stackId, intent.targets),
       { t: 'AwaitingSet', awaiting: null },
     ],
   };
+}
+
+/**
+ * D629 - A CRIME (CR 700.13): casting a spell, activating an ability or putting a triggered ability on the stack that
+ * TARGETS an opponent, a permanent or a spell or ability an opponent controls, or a card in an opponent's graveyard -
+ * read off the board as the targets become final. One crime per object, however many such targets. A copy is never
+ * cast (no crime); ward's bound spell and a delayed trigger's aims are not targets (never here).
+ */
+function crimeEvents(state: GameState, controller: PlayerId, source: StackId, targets: readonly TargetChoice[]): EventBody[] {
+  const foreign = (p: PlayerId | null | undefined): boolean => p !== null && p !== undefined && p !== controller;
+  const crime = targets.some((t) => {
+    if (t.kind === 'player') return foreign(t.id);
+    if (t.kind === 'stack') return foreign(state.stack.find((s) => s.id === t.id)?.controller);
+    const inst = state.cards[t.id];
+    if (!inst) return false;
+    if (inst.zone.kind === 'battlefield') return foreign(inst.controller);
+    if (inst.zone.kind === 'graveyard') return foreign(inst.owner);
+    return false;
+  });
+  return crime ? [{ t: 'CrimeCommitted', player: controller, source }] : [];
 }
 
 /**
@@ -2702,6 +2724,8 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
     ...(preparedFrom !== undefined ? { preparedFrom } : {}),
   };
   events.push({ t: 'SpellCast', obj });
+  // D629 - a crime, as the spell becomes cast (CR 700.13).
+  events.push(...crimeEvents(state, obj.controller, obj.id, obj.targets));
   if (preparedFrom !== undefined) events.push({ t: 'PreparedChanged', cards: [preparedFrom], prepared: false });
   if (setup.from.kind === 'command' && card?.isCommander) {
     events.push({
@@ -3139,6 +3163,8 @@ function finishAbility(
       : {}),
   };
   events.push({ t: 'AbilityPutOnStack', obj });
+  // D629 - a crime, as the ability is activated (CR 700.13).
+  events.push(...crimeEvents(state, obj.controller, obj.id, obj.targets));
   events.push(
     narrated(
       n`${who(state, pending.player)} ${vb(pending.player, 'activates', 'activate')} ${face.name}'s ability${pending.xValue !== null ? ` with X = ${pending.xValue}` : ''}.`,
@@ -3261,6 +3287,8 @@ function finishFromPending(
     ...(preparedFrom !== undefined ? { preparedFrom } : {}),
   };
   events.push({ t: 'SpellCast', obj });
+  // D629 - a crime, as the spell becomes cast (CR 700.13).
+  events.push(...crimeEvents(state, obj.controller, obj.id, obj.targets));
   if (preparedFrom !== undefined) events.push({ t: 'PreparedChanged', cards: [preparedFrom], prepared: false });
   if (pending.isCommanderCast && card?.isCommander) {
     events.push({ t: 'CommanderCastCountIncreased', card: pending.card, to: card.commanderCastCount + 1 });

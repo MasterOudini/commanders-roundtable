@@ -11240,6 +11240,21 @@ const WANTED = [
   'Eyes of the Watcher',
   'Namazu Trader',
   // D628 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D629 - COMMIT A CRIME: the rows the whole-leftover row maker rowed once a crime (CR 700.13) was an event the heads watch and a turn-memory question the conditions read.
+  'Marchesa, Dealer of Death',
+  'Freestrider Lookout',
+  'Blood Hustler',
+  'Patrolling Peacemaker',
+  'Magda, the Hoardmaster',
+  'Marauding Sphinx',
+  'Slickshot Vault-Buster',
+  "Bandit's Haul",
+  'Omenport Vigilante',
+  'Hardbristle Bandit',
+  'Overzealous Muscle',
+  'Raven of Fell Omens',
+  'Deepmuck Desperado',
+  // D629 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -11701,6 +11716,8 @@ const WANTED_TOKENS = [
   { name: 'Gold', set: 'tc15', cn: '24', key: 'GOLD_ARTIFACT_TOKEN' },
   // D628 - the token a payment's branch creates (Nadir Kraken's Tentacle): the row maker's token step reads a payment's branches now.
   { name: 'Tentacle', set: 'tltr', cn: '17', key: 'TENTACLE_3D9415BE_TOKEN' },
+  // D629 - the tokens the wave's rows create (the port's token-pin step, missing until D494).
+  { name: 'Scorpion Dragon', set: 'totj', cn: '11', key: 'SCORPION_DRAGON_4_4_R_CREATURE_FLYING_HASTE_TOKEN' },
 ];
 
 function constName(name) {

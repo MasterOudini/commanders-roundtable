@@ -315,8 +315,15 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // finds a land in hand only when two were drawn together - 7 Grazer entries and 21 Atlas activations over 20 seeds put
   // nothing. The executor names the clause it ran with an empty `PutFromHand` (D505's `ScopeWalked` with no members);
   // `handPutClauses` counts the clauses, `handPuts` the cards, `handPutAsks` the questions.
-  { names: ['Arboreal Grazer', 'Walking Atlas'], copiesPerSeat: 2,
-    counterKeys: ['handPutClauses'], rotHistory: 'D508 D509' },
+  // D629 - one a seat: the second slots went to the crime pair below (the swap; handPutClauses 249 over D627's gate).
+  { names: ['Arboreal Grazer', 'Walking Atlas'], copiesPerSeat: 1,
+    counterKeys: ['handPutClauses'], rotHistory: 'D508 D509, D629' },
+  // D629 - COMMIT A CRIME (CR 700.13): one Raven of Fell Omens ({1}{B} - whenever you commit a crime, each opponent loses 1 life
+  // and you gain 1 life, once each turn) and one Blood Hustler ({B} - a +1/+1 counter, once each turn; its own {3}{B} aimed at an
+  // opponent is a crime) a seat, in the pair above's second slots (the seat's card count and the shuffle kept, D553's rule).
+  // The crimes themselves need no staple: every spell or ability the driver aims at an opponent or their permanent commits one.
+  { names: ['Raven of Fell Omens', 'Blood Hustler'], copiesPerSeat: 1,
+    counterKeys: ['crimeHeadFires'], rotHistory: 'D629' },
   // D510 - the untap choice, the mass can't-block and the wheel: two Snaps a seat ({1}{U} instant, `Return target creature to
   // its owner's hand. Untap up to two lands.` - the queue's untap verb asked of the caster), two Falters ({1}{R} instant,
   // `Creatures without flying can't block this turn.` - the scope walked, no target) and two Timetwisters ({2}{U}
@@ -1877,6 +1884,9 @@ interface Run {
   readonly countedManaMade: number;
   /** D628 - payments answered yes whose prompt carried a branch of two or more clauses (the payment's body read as a text). */
   readonly paidTextBranches: number;
+  /** D629 - the crimes committed (`CrimeCommitted`, CR 700.13), and the crime heads that fired (`#youCommitCrime-` / `#opponentCommitsCrime-`). */
+  readonly crimesCommitted: number;
+  readonly crimeHeadFires: number;
   /** D534 - the coin flips a resolution made (`CoinFlipped` not caused by the manual tool's `FlipCoin` intent). */
   readonly rulesFlips: number;
   /** D535 - the spells cast with their buyback paid, and the ones that went back to hand as they resolved. */
@@ -2494,6 +2504,8 @@ function runOne(seed: number): Run {
     preparedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.preparedFrom !== undefined).length,
     // D626 - counted off the event (the pool empties at every step): the source's face, read off the final state (a land rarely leaves).
     // D628 - read off the prompt the answer closed: the `payMana` question carries its branch (`ifPaid`).
+    crimesCommitted: game.log.filter((e) => e.body.t === 'CrimeCommitted').length,
+    crimeHeadFires: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#(?:youCommitCrime|opponentCommitsCrime)-/.test(e.body.obj.abilityRef ?? '')).length,
     paidTextBranches: (() => {
       let n = 0;
       let asked = 0;
@@ -2925,6 +2937,8 @@ const TOTAL_KEYS = [
   'gatedManaMade',
   'countedManaMade',
   'paidTextBranches',
+  'crimesCommitted',
+  'crimeHeadFires',
   'rulesFlips',
   'buybackCasts',
   'buybackReturns',
@@ -3489,6 +3503,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.countedManaMade).toBeGreaterThan(0);
         // D628 - a paid text branch at gate size (Customs Depot and Eye of Vecna, one a seat).
         expect(totals.paidTextBranches).toBeGreaterThan(0);
+        // D629 - a crime head fired at gate size (Raven of Fell Omens and Blood Hustler, one a seat).
+        expect(totals.crimeHeadFires).toBeGreaterThan(0);
         // D534 - a rules coin flip at gate size (Winter Sky, two a seat).
         expect(totals.rulesFlips).toBeGreaterThan(0);
         // D535 - a bought-back spell back in its owner's hand at gate size (Searing Touch, two a seat).

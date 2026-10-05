@@ -180,6 +180,9 @@ export function activationConditionsHold(
           seen = cond.who === 'you' && state.turn.activePlayer !== player ? 0 : memory.attackers;
         } else if (cond.what === 'drawn') {
           for (const [id, n] of Object.entries(state.turn.cardsDrawn)) if (whose(id)) seen += n;
+        // D629 - the crimes committed this turn (absent until the first).
+        } else if (cond.what === 'crimes') {
+          for (const [id, n] of Object.entries(memory.crimes ?? {})) if (whose(id)) seen += n;
         } else {
           const per = memory[cond.what];
           for (const [id, n] of Object.entries(per)) if (whose(id)) seen += n;

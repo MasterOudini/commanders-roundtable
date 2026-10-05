@@ -121,6 +121,8 @@ const TURN_MEMORY_RE = new RegExp(
   '^if (?:' +
     [
       '(?:an opponent|you) (?:lost|gained) life this turn',
+      // D629 - a crime this turn (CR 700.13, `TurnMemory.crimes`).
+      "you've committed a crime this turn",
       `you gained ${TM_NUM} or more life this turn`,
       'an opponent was dealt (?:combat )?damage this turn',
       "you've cast (?:a noncreature|an instant or sorcery|a creature|another|two or more|three or more|four or more) spells? this turn",
@@ -167,6 +169,8 @@ function turnMemoryCondition(mm: RegExpExecArray): ActivationCondition | null {
     flags: { readonly self?: true; readonly excludeSelf?: true } = {},
   ): ActivationCondition => ({ kind: "turnMemory", what, who, count, any, none, ...flags });
   const num = (re: RegExp): number => acNumber(re.exec(c)?.[1]) ?? 0;
+  // D629 - a crime this turn.
+  if (/you've committed a crime this turn/.test(c)) return of("crimes", "you", 1);
   if (/an opponent lost life this turn/.test(c)) return of("lostLife", "opponent", 1);
   if (/you lost life this turn/.test(c)) return of("lostLife", "you", 1);
   if (/you gained life this turn/.test(c)) return of("gainedLife", "you", 1);

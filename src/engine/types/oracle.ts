@@ -1892,7 +1892,9 @@ export type ActivationCondition =
  */
 export type TurnMemoryQuestion =
   | 'cast' | 'died' | 'entered' | 'leftGraveyard' | 'discarded' | 'tokensCreated' | 'lostLife' | 'gainedLife' | 'attackers'
-  | 'left' | 'damaged' | 'toGraveyard' | 'drawn' | 'lifeGained' | 'lifeLost';
+  | 'left' | 'damaged' | 'toGraveyard' | 'drawn' | 'lifeGained' | 'lifeLost'
+  // D629 - `you've committed a crime this turn` (`TurnMemory.crimes`).
+  | 'crimes';
 
 /**
  * D367 - ONE activated ability a permanent HAS because ANOTHER permanent's

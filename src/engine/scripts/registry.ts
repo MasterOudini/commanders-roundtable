@@ -7,6 +7,19 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { MARCHESA_DEALER_OF_DEATH_SCRIPT } from './cards/marchesaDealerOfDeath';
+import { FREESTRIDER_LOOKOUT_SCRIPT } from './cards/freestriderLookout';
+import { BLOOD_HUSTLER_SCRIPT } from './cards/bloodHustler';
+import { PATROLLING_PEACEMAKER_SCRIPT } from './cards/patrollingPeacemaker';
+import { MAGDA_THE_HOARDMASTER_SCRIPT } from './cards/magdaTheHoardmaster';
+import { MARAUDING_SPHINX_SCRIPT } from './cards/maraudingSphinx';
+import { SLICKSHOT_VAULT_BUSTER_SCRIPT } from './cards/slickshotVaultBuster';
+import { BANDITS_HAUL_SCRIPT } from './cards/banditsHaul';
+import { OMENPORT_VIGILANTE_SCRIPT } from './cards/omenportVigilante';
+import { HARDBRISTLE_BANDIT_SCRIPT } from './cards/hardbristleBandit';
+import { OVERZEALOUS_MUSCLE_SCRIPT } from './cards/overzealousMuscle';
+import { RAVEN_OF_FELL_OMENS_SCRIPT } from './cards/ravenOfFellOmens';
+import { DEEPMUCK_DESPERADO_SCRIPT } from './cards/deepmuckDesperado';
 import { NECROMASTER_DRAGON_SCRIPT } from './cards/necromasterDragon';
 import { NADIR_KRAKEN_SCRIPT } from './cards/nadirKraken';
 import { CUSTOMS_DEPOT_SCRIPT } from './cards/customsDepot';
@@ -9033,6 +9046,19 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  MARCHESA_DEALER_OF_DEATH_SCRIPT,
+  FREESTRIDER_LOOKOUT_SCRIPT,
+  BLOOD_HUSTLER_SCRIPT,
+  PATROLLING_PEACEMAKER_SCRIPT,
+  MAGDA_THE_HOARDMASTER_SCRIPT,
+  MARAUDING_SPHINX_SCRIPT,
+  SLICKSHOT_VAULT_BUSTER_SCRIPT,
+  BANDITS_HAUL_SCRIPT,
+  OMENPORT_VIGILANTE_SCRIPT,
+  HARDBRISTLE_BANDIT_SCRIPT,
+  OVERZEALOUS_MUSCLE_SCRIPT,
+  RAVEN_OF_FELL_OMENS_SCRIPT,
+  DEEPMUCK_DESPERADO_SCRIPT,
   NECROMASTER_DRAGON_SCRIPT,
   NADIR_KRAKEN_SCRIPT,
   CUSTOMS_DEPOT_SCRIPT,

@@ -502,6 +502,13 @@ export type EventBody =
   | { readonly t: 'ModesChosen'; readonly modes: readonly number[] }
   | { readonly t: 'CastCancelled'; readonly stackId: StackId }
   | { readonly t: 'SpellCast'; readonly obj: StackObject }
+  /**
+   * D629 - A CRIME (CR 700.13): the player cast a spell, activated an ability or put a triggered ability on the stack that
+   * targets an opponent, a permanent or a spell or ability an opponent controls, or a card in an opponent's graveyard - one
+   * per object (`source`), however many such targets. Counted on the turn record (`TurnMemory.crimes`); the head
+   * `Whenever you commit a crime` watches it.
+   */
+  | { readonly t: 'CrimeCommitted'; readonly player: PlayerId; readonly source: StackId }
   /** D487 - a COPY of the spell `of`, put on top of the stack (CR 707.10): a spell that was never cast (nothing recorded, no cast trigger). */
   | { readonly t: 'SpellCopied'; readonly obj: StackObject; readonly of: StackId }
   /** D494 - keywords a permanent gained for as long as it stays (`It gains haste.`, CR 611.2c): `CardInstance.gained`. */

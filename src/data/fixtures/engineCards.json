@@ -341353,6 +341353,452 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "MARCHESA_DEALER_OF_DEATH": {
+    "scryfallId": "00af1be9-8a38-47c6-8e57-80afccf49722",
+    "oracleId": "37449c93-4d32-4f1a-982f-8f3416214368",
+    "name": "Marchesa, Dealer of Death",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Marchesa, Dealer of Death",
+        "manaCost": "{U}{B}{R}",
+        "typeLine": "Legendary Creature — Human Rogue",
+        "oracleText": "Whenever you commit a crime, you may pay {1}. If you do, look at the top two cards of your library. Put one of them into your hand and the other into your graveyard. (Targeting opponents, anything they control, and/or cards in their graveyards is a crime.)",
+        "flavorText": "\"You should have folded when you had the chance.\"",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R",
+          "U"
+        ],
+        "artist": "Ryan Pancoast",
+        "imageId": "00af1be9-8a38-47c6-8e57-80afccf49722"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "potj",
+    "collectorNumber": "220p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FREESTRIDER_LOOKOUT": {
+    "scryfallId": "0b4037ed-d2df-40c7-9155-5c8dee6c5c49",
+    "oracleId": "b7d3e234-0954-4422-96c0-cda91101faa3",
+    "name": "Freestrider Lookout",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Freestrider Lookout",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "Reach\nWhenever you commit a crime, look at the top five cards of your library. You may put a land card from among them onto the battlefield tapped. Put the rest on the bottom of your library in a random order. This ability triggers only once each turn. (Targeting opponents, anything they control, and/or cards in their graveyards is a crime.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Matt Zeilinger",
+        "imageId": "0b4037ed-d2df-40c7-9155-5c8dee6c5c49"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "potj",
+    "collectorNumber": "163p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOOD_HUSTLER": {
+    "scryfallId": "1016a750-2a18-4443-a600-957eb4026d3a",
+    "oracleId": "bb02e64c-0c4a-41ae-972e-ce83e6fc4cb9",
+    "name": "Blood Hustler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blood Hustler",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Vampire Rogue",
+        "oracleText": "Whenever you commit a crime, put a +1/+1 counter on this creature. This ability triggers only once each turn. (Targeting opponents, anything they control, and/or cards in their graveyards is a crime.)\n{3}{B}: Target opponent loses 1 life and you gain 1 life.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Anna Pavleeva",
+        "imageId": "1016a750-2a18-4443-a600-957eb4026d3a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "otj",
+    "collectorNumber": "80",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PATROLLING_PEACEMAKER": {
+    "scryfallId": "1e06d6be-c2a3-4c73-a916-89674c0ddfed",
+    "oracleId": "aa44171d-1c76-40a7-82fc-5ef2abbca647",
+    "name": "Patrolling Peacemaker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Patrolling Peacemaker",
+        "manaCost": "{2}{W}",
+        "typeLine": "Artifact Creature — Robot Soldier",
+        "oracleText": "This creature enters with two +1/+1 counters on it.\nWhenever an opponent commits a crime, proliferate. (They commit a crime if they target an opponent, anything an opponent controls, and/or cards in an opponent's graveyard. To proliferate, you choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Michal Ivan",
+        "imageId": "1e06d6be-c2a3-4c73-a916-89674c0ddfed"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Proliferate"
+    ],
+    "setCode": "eoc",
+    "collectorNumber": "5",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAGDA_THE_HOARDMASTER": {
+    "scryfallId": "2834e84e-e932-4052-9dad-2e1c8e76fbbc",
+    "oracleId": "7fd2beb8-f823-4723-beec-e59b62127490",
+    "name": "Magda, the Hoardmaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Magda, the Hoardmaster",
+        "manaCost": "{1}{R}",
+        "typeLine": "Legendary Creature — Dwarf Berserker",
+        "oracleText": "Whenever you commit a crime, create a tapped Treasure token. This ability triggers only once each turn. (Targeting opponents, anything they control, and/or cards in their graveyards is a crime.)\nSacrifice three Treasures: Create a 4/4 red Scorpion Dragon creature token with flying and haste. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Loïc Canavaggia",
+        "imageId": "2834e84e-e932-4052-9dad-2e1c8e76fbbc"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Treasure"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "374",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARAUDING_SPHINX": {
+    "scryfallId": "34071884-c5b6-42c0-9eb3-9f32910c29d8",
+    "oracleId": "70bea459-f6e9-411a-bd33-339bf95ea47a",
+    "name": "Marauding Sphinx",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Marauding Sphinx",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Creature — Sphinx Rogue",
+        "oracleText": "Flying, vigilance, ward {2}\nWhenever you commit a crime, surveil 2. This ability triggers only once each turn. (Targeting opponents, anything they control, and/or cards in their graveyards is a crime.)",
+        "flavorText": "She poses a riddle to each mark, allowing them a chance to keep their goods. Thus far, none have succeeded.",
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mila Pesic",
+        "imageId": "34071884-c5b6-42c0-9eb3-9f32910c29d8"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Surveil",
+      "Vigilance",
+      "Ward"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "56",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SLICKSHOT_VAULT_BUSTER": {
+    "scryfallId": "592ccc36-3d10-4a12-8743-9b300b80cb4d",
+    "oracleId": "2085642e-29be-4e13-81dc-1f2ff6c095eb",
+    "name": "Slickshot Vault-Buster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Slickshot Vault-Buster",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "Vigilance\nThis creature gets +2/+0 as long as you've committed a crime this turn. (Targeting opponents, anything they control, and/or cards in their graveyards is a crime.)",
+        "flavorText": "\"Sure it's risky, but that's what makes it fun! That and the money. And the bankers' faces.\"",
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Julia Metzger",
+        "imageId": "592ccc36-3d10-4a12-8743-9b300b80cb4d"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "68",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BANDIT_S_HAUL": {
+    "scryfallId": "68b2e74b-933b-4285-963b-dda3a986a914",
+    "oracleId": "84b08b55-0623-4202-98c6-1756d3c1bb8f",
+    "name": "Bandit's Haul",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bandit's Haul",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "Whenever you commit a crime, put a loot counter on this artifact. This ability triggers only once each turn. (Targeting opponents, anything they control, and/or cards in their graveyards is a crime.)\n{T}: Add one mana of any color.\n{2}, {T}, Remove two loot counters from this artifact: Draw a card.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Monztre",
+        "imageId": "68b2e74b-933b-4285-963b-dda3a986a914"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "otj",
+    "collectorNumber": "240",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OMENPORT_VIGILANTE": {
+    "scryfallId": "7ecd8b6f-b9aa-466a-909c-3209beef8244",
+    "oracleId": "852e3d89-64a0-4b32-be2b-b1d6cd7c2f64",
+    "name": "Omenport Vigilante",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Omenport Vigilante",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Mercenary",
+        "oracleText": "This creature has double strike as long as you've committed a crime this turn. (Targeting opponents, anything they control, and/or cards in their graveyards is a crime.)",
+        "flavorText": "Freestriders took to patrolling near the Omenpaths, protecting new arrivals from the robbers and charlatans prowling for easy marks.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Forrest Imel",
+        "imageId": "7ecd8b6f-b9aa-466a-909c-3209beef8244"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "otj",
+    "collectorNumber": "21",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HARDBRISTLE_BANDIT": {
+    "scryfallId": "cbe544fb-93b7-4640-b886-cb0b3e437357",
+    "oracleId": "116eea43-4235-4608-8c6a-599e860ae2f1",
+    "name": "Hardbristle Bandit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hardbristle Bandit",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Plant Rogue",
+        "oracleText": "{T}: Add one mana of any color.\nWhenever you commit a crime, untap this creature. This ability triggers only once each turn. (Targeting opponents, anything they control, and/or cards in their graveyards is a crime.)",
+        "flavorText": "Visitors to the town of Hardbristle found the locals to be quite prickly.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Francis Tneh",
+        "imageId": "cbe544fb-93b7-4640-b886-cb0b3e437357"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "otj",
+    "collectorNumber": "168",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OVERZEALOUS_MUSCLE": {
+    "scryfallId": "ce57d977-e9c5-4ed1-915f-cdc90a54f8f8",
+    "oracleId": "4cb63198-29b5-4607-bd4a-f449807fb764",
+    "name": "Overzealous Muscle",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Overzealous Muscle",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Ogre Mercenary",
+        "oracleText": "Whenever you commit a crime during your turn, this creature gains indestructible until end of turn. (Targeting opponents, anything they control, and/or cards in their graveyards is a crime. Damage and effects that say \"destroy\" don't destroy a creature with indestructible.)",
+        "flavorText": "Not everyone can be a pickpocket.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Sam White",
+        "imageId": "ce57d977-e9c5-4ed1-915f-cdc90a54f8f8"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "otj",
+    "collectorNumber": "97",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAVEN_OF_FELL_OMENS": {
+    "scryfallId": "e2df3cb4-1658-450a-912a-df336706acdc",
+    "oracleId": "eec7d4f4-4141-49ed-8978-aefacc0a6609",
+    "name": "Raven of Fell Omens",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Raven of Fell Omens",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying\nWhenever you commit a crime, each opponent loses 1 life and you gain 1 life. This ability triggers only once each turn. (Targeting opponents, anything they control, and/or cards in their graveyards is a crime.)",
+        "flavorText": "A raven sighted at midnight often means there's unkindness on the way.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Justin Cornell",
+        "imageId": "e2df3cb4-1658-450a-912a-df336706acdc"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "101",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEEPMUCK_DESPERADO": {
+    "scryfallId": "f95ee726-7465-40f8-a954-19b19e636c12",
+    "oracleId": "b75ffa62-a291-44d7-a950-b50c8394e066",
+    "name": "Deepmuck Desperado",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deepmuck Desperado",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Homarid Mercenary",
+        "oracleText": "Whenever you commit a crime, each opponent mills three cards. This ability triggers only once each turn. (Targeting opponents, anything they control, and/or cards in their graveyards is a crime.)",
+        "flavorText": "\"Heard you've been horning in on my turf. How about I introduce you to some surf?\"",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Loïc Canavaggia",
+        "imageId": "f95ee726-7465-40f8-a954-19b19e636c12"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "42",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -351242,6 +351688,42 @@
     "keywords": [],
     "setCode": "tltr",
     "collectorNumber": "17",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "SCORPION_DRAGON_4_4_R_CREATURE_FLYING_HASTE_TOKEN": {
+    "scryfallId": "334178bb-970b-4f5a-af9b-1729eab65808",
+    "oracleId": "eb3f6b64-79f9-4287-b60d-b7ba5d3af4ba",
+    "name": "Scorpion Dragon",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Scorpion Dragon",
+        "manaCost": "",
+        "typeLine": "Token Creature — Scorpion Dragon",
+        "oracleText": "Flying, haste",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Diego Gisbert",
+        "imageId": "334178bb-970b-4f5a-af9b-1729eab65808"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Flying",
+      "Haste"
+    ],
+    "setCode": "totj",
+    "collectorNumber": "11",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

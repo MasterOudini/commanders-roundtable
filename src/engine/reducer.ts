@@ -1012,6 +1012,11 @@ function applyBody(state: GameState, body: EventBody): GameState {
       delete owed[body.player];
       return { ...next, turn: { ...next.turn, memory: { ...m, speedOwed: owed, speedRaised: { ...(m.speedRaised ?? {}), [body.player]: true } } } };
     }
+    // D629 - a crime (CR 700.13): counted on the turn record, for `you've committed a crime this turn`.
+    case 'CrimeCommitted': {
+      const m = state.turn.memory;
+      return { ...state, turn: { ...state.turn, memory: { ...m, crimes: { ...(m.crimes ?? {}), [body.player]: (m.crimes?.[body.player] ?? 0) + 1 } } } };
+    }
     // D620 - the city's blessing (CR 702.131c).
     case 'CitysBlessingChanged':
       return withPlayer(state, body.player, { citysBlessing: body.has ? true : undefined });
