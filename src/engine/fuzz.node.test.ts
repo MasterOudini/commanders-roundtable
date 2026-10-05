@@ -122,8 +122,14 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   { names: ['Studious First-Year // Rampant Growth'], copiesPerSeat: 2,
     counterKeys: ['preparedCasts'], rotHistory: 'D625' },
   // The layer-6 ordering pair — a grant against a removal (CR 613.7).
-  { names: ['Levitation', 'Gravity Sphere'], copiesPerSeat: 5,
-    counterKeys: ['layer6Sources'], rotHistory: 'D129 D149 D173' },
+  // D626 - four a seat: the fifth slots went to the gated mana pair below (the swap; layer6Sources 36 over D624's gate).
+  { names: ['Levitation', 'Gravity Sphere'], copiesPerSeat: 4,
+    counterKeys: ['layer6Sources'], rotHistory: 'D129 D149 D173, D626' },
+  // D626 - THE GATED MANA ABILITY: one Wastewood Verge ({B} only with a Swamp or a Forest) and one Temple of the False God
+  // ({C}{C} only with five lands) a seat, in the layer-6 pair's fifth slots (the seat's card count and the shuffle kept, D553's
+  // rule): a gated source the solver and the tap may use only while its gate holds.
+  { names: ['Wastewood Verge', 'Temple of the False God'], copiesPerSeat: 1,
+    counterKeys: ['gatedManaMade'], rotHistory: 'D626' },
   // The CR 616 pair — rots QUADRATICALLY (both must share a battlefield);
   // D180's comment demanded this table if it rotted a third time.
   { names: ['Hardened Scales', 'Branching Evolution'], copiesPerSeat: 15,
@@ -1852,6 +1858,8 @@ interface Run {
   readonly monstrosities: number;
   /** D625 - the prepared spells' copies cast from the battlefield (`SpellCast` with `preparedFrom`, CR 707.12). */
   readonly preparedCasts: number;
+  /** D626 - mana a GATED line made (`ManaAdded` off a source whose face prints a gated production of exactly that mana). */
+  readonly gatedManaMade: number;
   /** D534 - the coin flips a resolution made (`CoinFlipped` not caused by the manual tool's `FlipCoin` intent). */
   readonly rulesFlips: number;
   /** D535 - the spells cast with their buyback paid, and the ones that went back to hand as they resolved. */
@@ -2467,6 +2475,15 @@ function runOne(seed: number): Run {
     controlHeld: game.log.filter((e) => e.body.t === 'ControlTakenBySource').length,
     monstrosities: game.log.filter((e) => e.body.t === 'BecameMonstrous').length,
     preparedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.preparedFrom !== undefined).length,
+    // D626 - counted off the event (the pool empties at every step): the source's face, read off the final state (a land rarely leaves).
+    gatedManaMade: game.log.filter((e) => {
+      if (e.body.t !== 'ManaAdded' || e.body.source === null) return false;
+      const inst = game.state.cards[e.body.source];
+      const card = inst ? ORACLE.byPrinting(inst.printingId) : undefined;
+      if (!inst || !card) return false;
+      const made = e.body.mana;
+      return faceOf(card, inst.faceIndex).producesMana.some((p) => p.activationConditions !== undefined && p.outputs.some((o) => (['W', 'U', 'B', 'R', 'G', 'C'] as const).every((k) => o.mana[k] === made[k])));
+    }).length,
     rulesFlips: game.log.filter((e) => e.body.t === 'CoinFlipped' && !(e.cause.kind === 'intent' && e.cause.intent === 'FlipCoin')).length,
     buybackCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.buyback === true).length,
     buybackReturns: game.log.filter((e) => e.body.t === 'StackResolved' && e.body.buyback === true).length,
@@ -2868,6 +2885,7 @@ const TOTAL_KEYS = [
   'controlHeld',
   'monstrosities',
   'preparedCasts',
+  'gatedManaMade',
   'rulesFlips',
   'buybackCasts',
   'buybackReturns',
@@ -3426,6 +3444,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.monstrosities).toBeGreaterThan(0);
         // D625 - a prepared spell's copy cast at gate size (Studious First-Year, two a seat).
         expect(totals.preparedCasts).toBeGreaterThan(0);
+        // D626 - mana a gated line made at gate size (Wastewood Verge and Temple of the False God, one a seat).
+        expect(totals.gatedManaMade).toBeGreaterThan(0);
         // D534 - a rules coin flip at gate size (Winter Sky, two a seat).
         expect(totals.rulesFlips).toBeGreaterThan(0);
         // D535 - a bought-back spell back in its owner's hand at gate size (Searing Touch, two a seat).

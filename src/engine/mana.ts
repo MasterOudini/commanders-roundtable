@@ -25,6 +25,7 @@ import { faceColors, fitPool, type SpendPurpose } from './spend';
 import type { SpendRestriction } from './types/mana';
 import { faceOf } from './oracle';
 import { isDetained } from './detain';
+import { activationConditionsHold } from './activationConditions';
 
 /** One tappable mana ability, with its `anyColor` already expanded. */
 export interface ManaSource {
@@ -131,6 +132,9 @@ export function manaSourcesOf(
     const d = derive(state, oracle, scripts, id, opts.cache);
     for (const prod of d.producesMana) {
       if (prod.conditional && !opts.includeConditional) continue;
+      // D626 - a GATED mana ability (`Activate only if ...`) is a source only while its conditions hold - the offer, the tap and the solver
+      // all read this one list.
+      if (prod.activationConditions !== undefined && !activationConditionsHold(state, oracle, scripts, player, id, prod.activationConditions, opts.cache)) continue;
       // D325 - a source with a cost beside the {T} is never auto-tapped (the solver would have
       // to price mana against mana); the tap-by-hand menu and the handler ask for it by name.
       if (prod.extraCost && !opts.includeCostly) continue;

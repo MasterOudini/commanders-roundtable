@@ -339960,6 +339960,166 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "WASTEWOOD_VERGE": {
+    "scryfallId": "0001b4a6-10bf-4bdd-a9da-fe78d9d39a82",
+    "oracleId": "c6e0574c-3e2b-4c40-b17a-05bce3d49309",
+    "name": "Wastewood Verge",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wastewood Verge",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {G}.\n{T}: Add {B}. Activate only if you control a Swamp or a Forest.",
+        "flavorText": "\"I'm worried about Loot. He has great power but lacks the experience to know what dangers await him.\"\n—Vraska",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Bartek Fedyczak",
+        "imageId": "0001b4a6-10bf-4bdd-a9da-fe78d9d39a82"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "pdft",
+    "collectorNumber": "268p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TEMPLE_OF_THE_FALSE_GOD": {
+    "scryfallId": "00b8fe63-1968-4a56-958d-903f0ebf3a75",
+    "oracleId": "cfdd5dc6-593e-495a-8cfe-3a56b3c4c7df",
+    "name": "Temple of the False God",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Temple of the False God",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}{C}. Activate only if you control five or more lands.",
+        "flavorText": "Those who bring nothing to the temple take nothing away.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Brian Snõddy",
+        "imageId": "00b8fe63-1968-4a56-958d-903f0ebf3a75"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "c14",
+    "collectorNumber": "314",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOX_OPAL": {
+    "scryfallId": "3722deaf-de7b-4e49-b93b-b790fb598337",
+    "oracleId": "de2440de-e948-4811-903c-0bbe376ff64d",
+    "name": "Mox Opal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mox Opal",
+        "manaCost": "{0}",
+        "typeLine": "Legendary Artifact",
+        "oracleText": "Metalcraft — {T}: Add one mana of any color. Activate only if you control three or more artifacts.",
+        "flavorText": "The suns of Mirrodin have shone upon perfection only once.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Volkan Baǵa",
+        "imageId": "3722deaf-de7b-4e49-b93b-b790fb598337"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Metalcraft"
+    ],
+    "setCode": "j19",
+    "collectorNumber": "3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FANATIC_OF_RHONAS": {
+    "scryfallId": "1f9fb33a-3b39-4aff-93b8-aedafe0ea694",
+    "oracleId": "7973820b-fdaf-46ec-9e3e-d4c0e77b5067",
+    "name": "Fanatic of Rhonas",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fanatic of Rhonas",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Snake Druid",
+        "oracleText": "{T}: Add {G}.\nFerocious — {T}: Add {G}{G}{G}{G}. Activate only if you control a creature with power 4 or greater.\nEternalize {2}{G}{G} ({2}{G}{G}, Exile this card from your graveyard: Create a token that's a copy of it, except it's a 4/4 black Zombie Snake Druid with no mana cost. Eternalize only as a sorcery.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Scott Murphy",
+        "imageId": "1f9fb33a-3b39-4aff-93b8-aedafe0ea694"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Ferocious",
+      "Eternalize"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "152",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HIDDEN_LAIR": {
+    "scryfallId": "0742ddb6-71ed-444e-91ad-84f876725a4a",
+    "oracleId": "7069d241-4e66-40bf-afd1-551a4a5457f0",
+    "name": "Hidden Lair",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hidden Lair",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{T}: Add {U} or {B}. Activate only if this land entered this turn or if you control a basic land.",
+        "flavorText": "While the Avengers worried over the threat of Ultron-19, in a remote bunker, the construction of Ultron-2458 neared completion.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Pavel Kolomeyets",
+        "imageId": "0742ddb6-71ed-444e-91ad-84f876725a4a"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "msh",
+    "collectorNumber": "269",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

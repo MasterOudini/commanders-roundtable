@@ -20,6 +20,7 @@ import { scrub } from './targetParse';
 import type { HybridOption, HybridSymbol, ManaCost, ManaPool, SpendConjunction, SpendRestriction, SpendTerm } from '../engine/types/mana';
 import { EMPTY_POOL } from '../engine/types/mana';
 import type {
+  ActivationCondition,
   Keyword,
   ManaOutput,
   ManaProduction,
@@ -35,7 +36,7 @@ import { canonicalKeyword, parseDevour, parseLandwalk, parseToxic } from '../eng
 import { parseCostReductions, parseGrantedReductions } from './costParse';
 import { parseHandSize } from './handSizeParse';
 import { parseSpellTargets, parseTargetClauses } from './targetParse';
-import { parseActivatedAbilities, parseAdditionalCost, parseAlternativeCost, readCostVerbs, type KickerVerb } from './activatedParse';
+import { parseActivatedAbilities, parseActivationConditions, parseAdditionalCost, parseAlternativeCost, readCostVerbs, type KickerVerb } from './activatedParse';
 import { parseEffects, partnerWithSearchSpec } from './effectParse';
 import { parseModalFace } from './modalParse';
 import { parseEntersAsCopy, parseEntersPrepared, parseEntersTapped, parseChoosesColorOnEntry, parseChoosesTypeOnEntry, predicatesOf, type PermanentPredicate } from './replacementParse';
@@ -945,7 +946,8 @@ function outputKey(o: ManaProduction): string {
   // D397 - the restriction is part of the identity: `{T}: Add {C}.` beside `{T}: Add {C}. Spend
   // this mana only to cast an artifact spell.` are two abilities, and a key without the sentence
   // dropped the second as a duplicate (eleven lines across the database, found by the parse pin).
-  return `${o.requiresTap}|${o.conditional}|${o.restriction?.text ?? '-'}|${o.anyColor ? `${o.anyColor.scope}:${o.anyColor.amount}` : '-'}|${o.outputs.map((x) => poolKey(x.mana)).join(',')}|${o.extraCost ? `${o.extraCost.mana?.raw ?? ''}/${o.extraCost.life}/${o.extraCost.sacrificeSelf ? 's' : ''}` : '-'}`;
+  // D626 - and the gate: a gated `{T}: Add {C}.` beside an ungated one is a second ability, never a duplicate.
+  return `${o.requiresTap}|${o.conditional}|${o.restriction?.text ?? '-'}|${o.anyColor ? `${o.anyColor.scope}:${o.anyColor.amount}` : '-'}|${o.outputs.map((x) => poolKey(x.mana)).join(',')}|${o.extraCost ? `${o.extraCost.mana?.raw ?? ''}/${o.extraCost.life}/${o.extraCost.sacrificeSelf ? 's' : ''}` : '-'}|${o.activationConditions ? JSON.stringify(o.activationConditions) : '-'}`;
 }
 
 /** Text that makes the amount or usability of the mana unknowable to the engine. */
@@ -987,6 +989,24 @@ function chargeablePieces(cost: string, name: string): { readonly mana: ManaCost
 
 const CONDITIONAL_RE =
   /\b(if\b|unless\b|only\b|for each\b|equal to\b|that much\b|X\b|Activate only\b|as long as\b|instead\b|choose\b|reveal\b|whenever\b|when\b|at the beginning\b)/i;
+
+/**
+ * D626 - THE GATED MANA ABILITY'S READER: the effect's LAST sentence `Activate only if <condition>.`, read whole by the activated
+ * abilities' closed reader (`parseActivationConditions` - the one an `Activate only if` line of any other ability is read by, so a
+ * mana gate and an ability gate can never read the same words two ways); the rest of the effect is returned without it.
+ * Null when there is no such sentence, or it is not read whole (a phrase outside the union, a sorcery or once-each-turn
+ * restriction beside it) - the line then stays `conditional`, tapped by hand, as before.
+ */
+const MANA_GATE_RE = /^(.*?[.])\s*(Activate only if [^.]+[.])\s*$/i;
+// An ability word before the cost is print (`Metalcraft — {T}: ...`, `Ferocious — {T}: ...`), never a cost piece.
+const ABILITY_WORD_COST_RE = /^[A-Z][A-Za-z' ]* [—-] /;
+function manaGateOf(effect: string, name: string): { readonly effect: string; readonly conditions: readonly ActivationCondition[] } | null {
+  const m = MANA_GATE_RE.exec(effect.trim());
+  if (!m) return null;
+  const read = parseActivationConditions(m[2] ?? '', name);
+  if (read.unread !== null || read.sorceryOnly || read.oncePerTurn || read.conditions.length === 0) return null;
+  return { effect: ' ' + (m[1] ?? ''), conditions: read.conditions };
+}
 
 // ── D397 - the spend restriction ─────────────────────────────────────────────
 
@@ -1100,8 +1120,10 @@ export function parseManaProduction(
   const out: ManaProduction[] = [];
   const seen = new Set<string>();
 
+  // D626 - the gate of the line being read (null outside the printed lines and on an ungated line), riding every push.
+  let lineGate: readonly ActivationCondition[] | null = null;
   const push = (p: Omit<ManaProduction, 'abilityIndex'>): void => {
-    const withIndex: ManaProduction = { ...p, abilityIndex: out.length };
+    const withIndex: ManaProduction = { ...p, ...(lineGate !== null ? { activationConditions: lineGate } : {}), abilityIndex: out.length };
     const key = outputKey(withIndex);
     if (seen.has(key)) return;
     seen.add(key);
@@ -1136,6 +1158,7 @@ export function parseManaProduction(
   // intrinsic ones — one physical land offering three tap options in the
   // payment UI. The intrinsic land-type pass above already has these covered.
   for (const [lineIndex, raw] of (face.oracleText ?? '').split('\n').entries()) {
+    lineGate = null;
     const printed = raw.trim();
     if (printed.startsWith('(') && printed.endsWith(')')) continue;
     // ⚠️⚠️ **SCRUBBED, AND EVERYTHING BELOW READS THE SCRUBBED COPY.** Reminder
@@ -1172,8 +1195,13 @@ export function parseManaProduction(
     // D124 already stated this rule for the tier-3 NOTE; the production itself
     // had never checked it.
     if (colon < 0) continue;
-    const cost = line.slice(0, colon);
-    const effect = line.slice(colon + 1);
+    // D626 - THE GATED MANA ABILITY: a last sentence `Activate only if <condition>.` the activated abilities' reader reads whole is
+    // the source's gate (`activationConditions`, asked by `manaSourcesOf`), cut off the effect before every test below; an ability
+    // word before the cost is print. Anything the reader leaves unread stays in the effect, and the line stays conditional.
+    const gate = manaGateOf(line.slice(colon + 1), face.name);
+    lineGate = gate === null ? null : gate.conditions;
+    const cost = gate === null ? line.slice(0, colon) : line.slice(0, colon).replace(ABILITY_WORD_COST_RE, '');
+    const effect = gate === null ? line.slice(colon + 1) : gate.effect;
     if (!/\badd\b/i.test(effect)) continue;
 
     const requiresTap = /\{T\}/.test(cost);
@@ -1194,7 +1222,7 @@ export function parseManaProduction(
     const spend = spendRestrictionOf(effect);
     const restriction = spend.restriction;
     const conditional =
-      unchargedExtra || CONDITIONAL_RE.test(spend.effectWithout) || /\bonly\b/i.test(restriction ? cost + ':' + spend.effectWithout : line);
+      unchargedExtra || CONDITIONAL_RE.test(spend.effectWithout) || /\bonly\b/i.test(restriction ? cost + ':' + spend.effectWithout : gate === null ? line : cost + ':' + effect);
 
     // "Add one mana of any color", "Add two mana of any one color".
     // ⚠️ "any TYPE" as well as "any color". Reflecting Pool, Horizon of Progress

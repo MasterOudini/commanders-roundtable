@@ -307,6 +307,12 @@ export interface ManaProduction {
    * cannot express is not here at all - the line stays `conditional` instead.
    */
   readonly restriction?: SpendRestriction | null;
+  /**
+   * D626 - THE GATED MANA ABILITY: the line's last sentence `Activate only if <condition>.`, READ by the activated abilities'
+   * own closed reader (`parseActivationConditions`): the source is offered and tapped only while every condition holds
+   * (`manaSourcesOf`). Absent when the line prints no gate; a gate the reader leaves unread keeps the line `conditional`.
+   */
+  readonly activationConditions?: readonly ActivationCondition[];
   readonly text: string;
   /**
    * Index of the oracle-text line this was parsed from, or null for the

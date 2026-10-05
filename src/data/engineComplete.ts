@@ -526,6 +526,9 @@ export function linesUnaccounted(
   // path enforces. Asked of the parser that read it (it sets `restriction` only when that
   // sentence is exactly the second of two), never re-read here.
   const restricted = new Set<number>();
+  // D626 - a line whose last sentence is a GATE the parser read (`Activate only if ...`) and `manaSourcesOf` enforces. Asked of the
+  // parser that read it (it sets `activationConditions` only when the reader read the sentence whole), never re-read here.
+  const gated = new Set<number>();
   if (face.isPermanent) {
     for (const p of face.producesMana) {
       if (p.line === null) continue;
@@ -533,6 +536,7 @@ export function linesUnaccounted(
       if (!p.conditional) modelled.add(p.line);
       if (!p.conditional && p.drawback) priced.add(p.line);
       if (!p.conditional && p.restriction) restricted.add(p.line);
+      if (!p.conditional && p.activationConditions !== undefined) gated.add(p.line);
     }
   }
 
@@ -542,7 +546,8 @@ export function linesUnaccounted(
     if (line === '') continue;
     // D355 - a priced line is accounted for too: the mana AND the damage happen, in one action.
     // D397 - and a restricted one: the mana is made under its restriction and spent under it.
-    if (modelled.has(i) && (isManaOnlyLine(line) || priced.has(i) || restricted.has(i))) continue;
+    // D626 - and a gated one: the mana is made only while the gate holds.
+    if (modelled.has(i) && (isManaOnlyLine(line) || priced.has(i) || restricted.has(i) || gated.has(i))) continue;
     // ⚠️ ASKED OF THE PARSER THAT DECIDED IT, never re-read here — the fourth
     // time this file has had to say so. `face.entersTapped` is already the
     // answer to "is this the unconditional clause"; a second regex here would
