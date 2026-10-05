@@ -10055,6 +10055,31 @@ export const DREAMTIDE_WHALE: CardData = F.DREAMTIDE_WHALE as CardData;
 export const ARENA_TRICKSTER: CardData = F.ARENA_TRICKSTER as CardData;
 export const DREAMSTALKER_MANTICORE: CardData = F.DREAMSTALKER_MANTICORE as CardData;
 export const MISCHIEVOUS_CHIMERA: CardData = F.MISCHIEVOUS_CHIMERA as CardData;
+export const DISTANT_MELODY: CardData = F.DISTANT_MELODY as CardData;
+export const HARMONIZED_CRESCENDO: CardData = F.HARMONIZED_CRESCENDO as CardData;
+export const LUMINESCENT_RAIN: CardData = F.LUMINESCENT_RAIN as CardData;
+export const ROAR_OF_THE_CROWD: CardData = F.ROAR_OF_THE_CROWD as CardData;
+export const COORDINATED_BARRAGE: CardData = F.COORDINATED_BARRAGE as CardData;
+export const PACK_S_DISDAIN: CardData = F.PACK_S_DISDAIN as CardData;
+export const CRIPPLING_FEAR: CardData = F.CRIPPLING_FEAR as CardData;
+export const OUTBREAK: CardData = F.OUTBREAK as CardData;
+export const KINDRED_DOMINANCE: CardData = F.KINDRED_DOMINANCE as CardData;
+export const RAISE_THE_PALISADE: CardData = F.RAISE_THE_PALISADE as CardData;
+export const AND_THEY_SHALL_KNOW_NO_FEAR: CardData = F.AND_THEY_SHALL_KNOW_NO_FEAR as CardData;
+export const THRIVING_HEATH: CardData = F.THRIVING_HEATH as CardData;
+export const THRIVING_MOOR: CardData = F.THRIVING_MOOR as CardData;
+export const THRIVING_BLUFF: CardData = F.THRIVING_BLUFF as CardData;
+export const THRIVING_GROVE: CardData = F.THRIVING_GROVE as CardData;
+export const THRIVING_ISLE: CardData = F.THRIVING_ISLE as CardData;
+export const MANOR_GATE: CardData = F.MANOR_GATE as CardData;
+export const CLIFFGATE: CardData = F.CLIFFGATE as CardData;
+export const CITADEL_GATE: CardData = F.CITADEL_GATE as CardData;
+export const BLACK_DRAGON_GATE: CardData = F.BLACK_DRAGON_GATE as CardData;
+export const SEA_GATE: CardData = F.SEA_GATE as CardData;
+export const UNCHARTED_HAVEN: CardData = F.UNCHARTED_HAVEN as CardData;
+export const CROSSROADS_VILLAGE: CardData = F.CROSSROADS_VILLAGE as CardData;
+export const NIGHT_MARKET: CardData = F.NIGHT_MARKET as CardData;
+export const MIRAGE_MESA: CardData = F.MIRAGE_MESA as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -20392,6 +20417,31 @@ export const ENGINE_CARDS: CardData[] = [
   ARENA_TRICKSTER,
   DREAMSTALKER_MANTICORE,
   MISCHIEVOUS_CHIMERA,
+  DISTANT_MELODY,
+  HARMONIZED_CRESCENDO,
+  LUMINESCENT_RAIN,
+  ROAR_OF_THE_CROWD,
+  COORDINATED_BARRAGE,
+  PACK_S_DISDAIN,
+  CRIPPLING_FEAR,
+  OUTBREAK,
+  KINDRED_DOMINANCE,
+  RAISE_THE_PALISADE,
+  AND_THEY_SHALL_KNOW_NO_FEAR,
+  THRIVING_HEATH,
+  THRIVING_MOOR,
+  THRIVING_BLUFF,
+  THRIVING_GROVE,
+  THRIVING_ISLE,
+  MANOR_GATE,
+  CLIFFGATE,
+  CITADEL_GATE,
+  BLACK_DRAGON_GATE,
+  SEA_GATE,
+  UNCHARTED_HAVEN,
+  CROSSROADS_VILLAGE,
+  NIGHT_MARKET,
+  MIRAGE_MESA,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -531,6 +531,8 @@ export type RejectReason =
   | 'noPendingChoice'
   /** D465 - the creature type named is not one the oracle catalogue knows. */
   | 'notACreatureType'
+  /** D632 - the colour a prompt excludes (`choose a color other than white`). */
+  | 'excludedColor'
   | 'wrongCastStage'
   | 'illegalTarget'
   | 'illegalMode'

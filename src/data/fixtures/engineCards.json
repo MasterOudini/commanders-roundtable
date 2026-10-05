@@ -342893,6 +342893,799 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "DISTANT_MELODY": {
+    "scryfallId": "09c5c40e-b3d0-4490-8455-b370ec35de79",
+    "oracleId": "ac6c5852-71c7-4f19-8c87-ccb345052862",
+    "name": "Distant Melody",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Distant Melody",
+        "manaCost": "{3}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Choose a creature type. Draw a card for each permanent you control of that type.",
+        "flavorText": "\"Ah-noo wee-tee kah wah-tees.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Paul Scott Canavan",
+        "imageId": "09c5c40e-b3d0-4490-8455-b370ec35de79"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "sld",
+    "collectorNumber": "2326",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HARMONIZED_CRESCENDO": {
+    "scryfallId": "2715e0c0-9913-4bea-9a42-ad1164f6130a",
+    "oracleId": "b93cd38a-1d0c-40e6-aaf1-621a2c88bf46",
+    "name": "Harmonized Crescendo",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Harmonized Crescendo",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that creature's color.)\nChoose a creature type. Draw a card for each permanent you control of that type.",
+        "flavorText": "A song can unite quicker than a sword can divide.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Tyler Walpole",
+        "imageId": "2715e0c0-9913-4bea-9a42-ad1164f6130a"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Convoke"
+    ],
+    "setCode": "ecl",
+    "collectorNumber": "54",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LUMINESCENT_RAIN": {
+    "scryfallId": "5f9903cc-350c-44cf-9c0b-5df7922ed766",
+    "oracleId": "7e23a2e7-b8b3-424f-8922-a1adb1db3f4d",
+    "name": "Luminescent Rain",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Luminescent Rain",
+        "manaCost": "{2}{G}",
+        "typeLine": "Instant",
+        "oracleText": "Choose a creature type. You gain 2 life for each permanent you control of that type.",
+        "flavorText": "Storms in Lorwyn don't patter on village rooftops, but rather drench the clachan in rays of amber light.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "John Avon",
+        "imageId": "5f9903cc-350c-44cf-9c0b-5df7922ed766"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mor",
+    "collectorNumber": "129",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROAR_OF_THE_CROWD": {
+    "scryfallId": "e4b0e072-c51a-4e97-a089-8e5b540355aa",
+    "oracleId": "0ab56978-7add-4427-b10d-4f59ab4b2c5d",
+    "name": "Roar of the Crowd",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Roar of the Crowd",
+        "manaCost": "{3}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Choose a creature type. Roar of the Crowd deals damage to any target equal to the number of permanents you control of the chosen type.",
+        "flavorText": "One voice is but a pebble to the rest of the world. A thousand voices at once is an avalanche.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Dave Dorman",
+        "imageId": "e4b0e072-c51a-4e97-a089-8e5b540355aa"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mor",
+    "collectorNumber": "100",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COORDINATED_BARRAGE": {
+    "scryfallId": "8d0b26b0-cc31-458b-8a92-aa3392d0ca0f",
+    "oracleId": "690acf56-8af4-4e96-a3a7-c8bbfe524d24",
+    "name": "Coordinated Barrage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Coordinated Barrage",
+        "manaCost": "{W}",
+        "typeLine": "Instant",
+        "oracleText": "Choose a creature type. Coordinated Barrage deals damage to target attacking or blocking creature equal to the number of permanents you control of the chosen type.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Franz Vohwinkel",
+        "imageId": "8d0b26b0-cc31-458b-8a92-aa3392d0ca0f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "mor",
+    "collectorNumber": "7",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PACK_S_DISDAIN": {
+    "scryfallId": "79713cf7-2715-44cc-9f15-4c809b82efb6",
+    "oracleId": "8b5659bd-a272-44cd-811f-9feec7d9825f",
+    "name": "Pack's Disdain",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pack's Disdain",
+        "manaCost": "{1}{B}",
+        "typeLine": "Instant",
+        "oracleText": "Choose a creature type. Target creature gets -1/-1 until end of turn for each permanent of the chosen type you control.",
+        "flavorText": "Like the sun to a flower, the adoring gaze of the tribe is sustenance to an elf. To be shunned is to wither.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "79713cf7-2715-44cc-9f15-4c809b82efb6"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mor",
+    "collectorNumber": "73",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRIPPLING_FEAR": {
+    "scryfallId": "0b82ca44-6c80-4220-bf41-76a62cd3459f",
+    "oracleId": "e7a7ba65-ad14-41d5-889b-9bbeae9ab3f7",
+    "name": "Crippling Fear",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crippling Fear",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Choose a creature type. Creatures that aren't of the chosen type get -3/-3 until end of turn.",
+        "flavorText": "Panic spread like wildfire as the demons of Immersturm poured into Bretagard, slaughtering as they came.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Néstor Ossandón Leal",
+        "imageId": "0b82ca44-6c80-4220-bf41-76a62cd3459f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "pkhm",
+    "collectorNumber": "82p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OUTBREAK": {
+    "scryfallId": "f43c30d9-23a5-4872-925d-3427f5f57995",
+    "oracleId": "05079cee-b190-42d7-b59f-130cb545cab7",
+    "name": "Outbreak",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Outbreak",
+        "manaCost": "{3}{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "You may discard a Swamp card rather than pay this spell's mana cost.\nChoose a creature type. All creatures of that type get -1/-1 until end of turn.",
+        "flavorText": "This plague chooses its victims.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Quinton Hoover",
+        "imageId": "f43c30d9-23a5-4872-925d-3427f5f57995"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "pcy",
+    "collectorNumber": "71",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KINDRED_DOMINANCE": {
+    "scryfallId": "22c47433-a0fa-4a1d-9070-25af120c02dd",
+    "oracleId": "ccaa44f2-96be-44e2-884f-c31baa3908d5",
+    "name": "Kindred Dominance",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kindred Dominance",
+        "manaCost": "{5}{B}{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Choose a creature type. Destroy all creatures that aren't of the chosen type.",
+        "flavorText": "In the end, the lights fade, the land withers, and only the dead and vile remain.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Bram Sels",
+        "imageId": "22c47433-a0fa-4a1d-9070-25af120c02dd"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 7,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "C17-18",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAISE_THE_PALISADE": {
+    "scryfallId": "3137b507-8c45-40f4-b971-f27c01d0d4c5",
+    "oracleId": "f55a3781-fe33-4301-9bb5-6a54b9c13c4f",
+    "name": "Raise the Palisade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Raise the Palisade",
+        "manaCost": "{4}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Choose a creature type. Return all creatures that aren't of the chosen type to their owners' hands.",
+        "flavorText": "She seemed tall beyond measurement, and beautiful beyond enduring, terrible and worshipful.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jason Kang",
+        "imageId": "3137b507-8c45-40f4-b971-f27c01d0d4c5"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "ltc",
+    "collectorNumber": "106",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AND_THEY_SHALL_KNOW_NO_FEAR": {
+    "scryfallId": "3881c9af-e5a5-4159-bdfe-fb523a82a515",
+    "oracleId": "0ea6d165-2c30-41a4-8829-6d0510afc03f",
+    "name": "And They Shall Know No Fear",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "And They Shall Know No Fear",
+        "manaCost": "{1}{W}",
+        "typeLine": "Instant",
+        "oracleText": "Choose a creature type. Creatures you control of the chosen type get +1/+0 and gain indestructible until end of turn.",
+        "flavorText": "\"They are my bulwark against the Terror. They are the Defenders of Humanity. They are my Space Marines.\"\n—The Emperor of Mankind",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Games Workshop",
+        "imageId": "3881c9af-e5a5-4159-bdfe-fb523a82a515"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "40k",
+    "collectorNumber": "9★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THRIVING_HEATH": {
+    "scryfallId": "06329ca8-75b0-409d-bb80-6b9164f4e22a",
+    "oracleId": "d1946630-e224-40db-8f0d-388b09622288",
+    "name": "Thriving Heath",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thriving Heath",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped. As it enters, choose a color other than white.\n{T}: Add {W} or one mana of the chosen color.",
+        "flavorText": "Wildflowers here bloom not with the season but with the ebb and flow of magic.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alayna Danner",
+        "imageId": "06329ca8-75b0-409d-bb80-6b9164f4e22a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "dsc",
+    "collectorNumber": "315",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THRIVING_MOOR": {
+    "scryfallId": "06a80fcc-b457-49c6-8c3a-0c5f58d74b2d",
+    "oracleId": "bff416bb-d193-4c45-b2c1-7c297dbfad08",
+    "name": "Thriving Moor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thriving Moor",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped. As it enters, choose a color other than black.\n{T}: Add {B} or one mana of the chosen color.",
+        "flavorText": "Beauty appears in strange places for those with eyes to see it.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Titus Lunter",
+        "imageId": "06a80fcc-b457-49c6-8c3a-0c5f58d74b2d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "cmm",
+    "collectorNumber": "433",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THRIVING_BLUFF": {
+    "scryfallId": "0786c046-0cf6-41c8-800a-082997d2fcbf",
+    "oracleId": "91fceb34-0f2d-4392-be27-00dcd765637f",
+    "name": "Thriving Bluff",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thriving Bluff",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped. As it enters, choose a color other than red.\n{T}: Add {R} or one mana of the chosen color.",
+        "flavorText": "As eons passed, the rock wore away, revealing the rich colors at the mountain's heart.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Johannes Voss",
+        "imageId": "0786c046-0cf6-41c8-800a-082997d2fcbf"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "lcc",
+    "collectorNumber": "361",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THRIVING_GROVE": {
+    "scryfallId": "0de19659-5b50-4917-b8dd-e030aa72868d",
+    "oracleId": "a8052556-8962-4130-86a8-6fb7b6a324f7",
+    "name": "Thriving Grove",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thriving Grove",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped. As it enters, choose a color other than green.\n{T}: Add {G} or one mana of the chosen color.",
+        "flavorText": "Far from human eyes, birds flit between vivid blossoms in a hidden paradise.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Ravenna Tran",
+        "imageId": "0de19659-5b50-4917-b8dd-e030aa72868d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "afc",
+    "collectorNumber": "268",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THRIVING_ISLE": {
+    "scryfallId": "2592bd6b-aea8-4fac-ad52-1801fcc7abe5",
+    "oracleId": "69fc70b8-b143-4662-ac95-e2743037239d",
+    "name": "Thriving Isle",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thriving Isle",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped. As it enters, choose a color other than blue.\n{T}: Add {U} or one mana of the chosen color.",
+        "flavorText": "All the wonders of the natural world in one breathtaking microcosm.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jonas De Ro",
+        "imageId": "2592bd6b-aea8-4fac-ad52-1801fcc7abe5"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "cmm",
+    "collectorNumber": "432",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MANOR_GATE": {
+    "scryfallId": "08a1a78c-f715-4d92-a428-bcc409bdbd79",
+    "oracleId": "dd6e67c0-66a1-49b7-8a86-3cf4b209fd07",
+    "name": "Manor Gate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Manor Gate",
+        "manaCost": "",
+        "typeLine": "Land — Gate",
+        "oracleText": "This land enters tapped.\nAs this land enters, choose a color other than green.\n{T}: Add {G} or one mana of the chosen color.",
+        "flavorText": "A barrier that shields privileged eyes from the city's woes.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Andreas Rocha",
+        "imageId": "08a1a78c-f715-4d92-a428-bcc409bdbd79"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "CLB-356",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CLIFFGATE": {
+    "scryfallId": "557470dc-c594-4b26-81b9-356bedb0c215",
+    "oracleId": "1999b5ac-21fb-4d99-ad72-58bf507f9a59",
+    "name": "Cliffgate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cliffgate",
+        "manaCost": "",
+        "typeLine": "Land — Gate",
+        "oracleText": "This land enters tapped.\nAs this land enters, choose a color other than red.\n{T}: Add {R} or one mana of the chosen color.",
+        "flavorText": "A partition between the hopeless living and the restless dead.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Emmanuel Shiu",
+        "imageId": "557470dc-c594-4b26-81b9-356bedb0c215"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "clb",
+    "collectorNumber": "350",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CITADEL_GATE": {
+    "scryfallId": "7dca83ce-1b75-4dcc-a839-598106a92ca9",
+    "oracleId": "15f1fe23-5af4-4fc4-8cde-2e0bf9f9be0c",
+    "name": "Citadel Gate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Citadel Gate",
+        "manaCost": "",
+        "typeLine": "Land — Gate",
+        "oracleText": "This land enters tapped.\nAs this land enters, choose a color other than white.\n{T}: Add {W} or one mana of the chosen color.",
+        "flavorText": "A beacon of order and safety, for those who can afford it.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Andreas Rocha",
+        "imageId": "7dca83ce-1b75-4dcc-a839-598106a92ca9"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "CLB-349",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLACK_DRAGON_GATE": {
+    "scryfallId": "a28c674c-ae89-416e-bac6-edfd9f24ee7b",
+    "oracleId": "dde6bce5-8bbe-4866-b5aa-2c05c7d37241",
+    "name": "Black Dragon Gate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Black Dragon Gate",
+        "manaCost": "",
+        "typeLine": "Land — Gate",
+        "oracleText": "This land enters tapped.\nAs this land enters, choose a color other than black.\n{T}: Add {B} or one mana of the chosen color.",
+        "flavorText": "An imposing visage that looms over all who would rise above their station.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Sergey Glushakov",
+        "imageId": "a28c674c-ae89-416e-bac6-edfd9f24ee7b"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "CLB-347",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEA_GATE": {
+    "scryfallId": "d97f31e1-bcaf-4316-a2de-49e2cf7566ec",
+    "oracleId": "b574c540-9f8a-4fd4-8809-d02c9b099ddc",
+    "name": "Sea Gate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sea Gate",
+        "manaCost": "",
+        "typeLine": "Land — Gate",
+        "oracleText": "This land enters tapped.\nAs this land enters, choose a color other than blue.\n{T}: Add {U} or one mana of the chosen color.",
+        "flavorText": "An efficient route from a smuggler's ship to a patriar's manor.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Kamila Szutenberg",
+        "imageId": "d97f31e1-bcaf-4316-a2de-49e2cf7566ec"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "clb",
+    "collectorNumber": "359",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNCHARTED_HAVEN": {
+    "scryfallId": "172cd5b7-98fc-4add-b858-a0b3dfb75c19",
+    "oracleId": "d23c3613-bc5e-4fc5-939c-62a090c53a79",
+    "name": "Uncharted Haven",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Uncharted Haven",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped. As it enters, choose a color.\n{T}: Add one mana of the chosen color.",
+        "flavorText": "\"There are lands beyond Valley. Wild, calamity-scarred, and beautiful.\"\n—Farfeather, birdfolk scout",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Adam Paquette",
+        "imageId": "172cd5b7-98fc-4add-b858-a0b3dfb75c19"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "fdn",
+    "collectorNumber": "564",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CROSSROADS_VILLAGE": {
+    "scryfallId": "64db46d4-f91f-49cc-971c-b8e19f0c4ea9",
+    "oracleId": "b26cfeb0-7bbe-4d93-8eed-e832f175a80c",
+    "name": "Crossroads Village",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crossroads Village",
+        "manaCost": "",
+        "typeLine": "Land — Town",
+        "oracleText": "This land enters tapped. As it enters, choose a color.\n{T}: Add one mana of the chosen color.",
+        "flavorText": "\"You've got to destroy the Dreadnought!\"\n—Bafsk resident",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Hristo D. Chukov",
+        "imageId": "64db46d4-f91f-49cc-971c-b8e19f0c4ea9"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "fin",
+    "collectorNumber": "276",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIGHT_MARKET": {
+    "scryfallId": "a8c1dce3-6136-4294-9d2b-5ef8527d733b",
+    "oracleId": "4cdb9f80-d08f-4986-99c8-573166d66082",
+    "name": "Night Market",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Night Market",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped. As it enters, choose a color.\n{T}: Add one mana of the chosen color.\nCycling {3} ({3}, Discard this card: Draw a card.)",
+        "flavorText": "The Indigo Revolution changed more about Avishkar than just its name. Even Gonti's infamous night markets had gone legitimate.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "David Álvarez",
+        "imageId": "a8c1dce3-6136-4294-9d2b-5ef8527d733b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Cycling"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "258",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MIRAGE_MESA": {
+    "scryfallId": "c3d2e816-c06d-4c5d-98fe-c350d8cfab27",
+    "oracleId": "e103f422-85c0-43f8-8a2f-8b7863e503fa",
+    "name": "Mirage Mesa",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mirage Mesa",
+        "manaCost": "",
+        "typeLine": "Land — Desert",
+        "oracleText": "This land enters tapped. As it enters, choose a color.\n{T}: Add one mana of the chosen color.",
+        "flavorText": "\"Out there, death and salvation may lie on either side of the same ridge of sand.\"\n—Ertha Jo, frontier mentor",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Andrew Mar",
+        "imageId": "c3d2e816-c06d-4c5d-98fe-c350d8cfab27"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "otj",
+    "collectorNumber": "262",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

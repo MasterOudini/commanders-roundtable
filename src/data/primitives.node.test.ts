@@ -320,8 +320,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // wave's rows. The other 34 are spells the seam reads whole with no script anywhere.
       // M6.4hq (D384): the QUOTED GRANT, 8,035 -> 8,040 - five cards whose only leftover was the
       // ability they hand out, which `scrub` blanks so the classifier could not see it at all.
-      complete: 13827,
-      blocked: 17865,
+      complete: 13853,
+      blocked: 17839,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -330,7 +330,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // in D160, → 1,219 in D161 — the D161 fall is 13 landed; the selection's
       // new spell/unenforced filters change what a BATCH offers, not this
       // count, which stays the parsers' own).
-      scriptableToday: 1938,
+      scriptableToday: 1939,
       // ⚠️⚠️ **2,025 → 96, AND THE OLD NUMBER WAS THE ARTEFACT.** `optional` was
       // tested ahead of `expressible` and every rule below it, so it caught any
       // line containing "you may" whatever else that line needed — 4,549 lines,
@@ -345,7 +345,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // 812 → 915, and `chooseFromZone` 691 → 1,005 is the largest single move.
       layer6: 915,
       counter: 953,
-      token: 725,
+      token: 726,
     });
   });
 
@@ -382,7 +382,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // scriptable by the seam), so the multiplier fell 5.1× → 3.1× — the
     // report's own headline note coming true: "if that number is large, the
     // library is the bottleneck", and now it is.
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1938, 1954, 3270, 4739, 5804]);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1939, 1955, 3271, 4740, 5806]);
     expect.soft(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(2.8);
   });
 
@@ -535,7 +535,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     // D626 - one permanent up: its gated mana line reads now, the token sentence the sole primitive.
     // D628 - six permanents down: their token sentence sat in a payment's If-you-do body, read now as a text.
     // D630 - one permanent down: its token sentence sat in a kinship or payment branch, read now.
-    expect.soft(byOwner).toEqual({ spell: 269, permanent: 456 });
+    // D632 - one permanent up: its other sentence (the chosen type or the Thriving line) reads now, the token sentence the sole primitive.
+    expect.soft(byOwner).toEqual({ spell: 269, permanent: 457 });
     // ⚠️ `unclaimed: 0` is the canary on the classifier: every one of the 1,123
     // is accounted for, so the five buckets are the whole row rather than five
     // buckets and a shrug.
@@ -552,7 +553,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
       predefined: 105,
       withAbilities: 226,
       variable: 74,
-      plain: 229,
+      plain: 230,
       unclaimed: 0,
     });
   });
@@ -583,8 +584,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
    */
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1938, 1954]);
-    expect.soft(r.complete).toBe(13827);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1939, 1955]);
+    expect.soft(r.complete).toBe(13853);
   });
 });
 

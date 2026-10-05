@@ -403,6 +403,9 @@ function invert(condition: EntersTappedCondition): EntersTappedCondition | null 
 export function parseEntersTappedLine(line: string, cardName: string): EntersTapped | null {
   const s = normalise(line, cardName);
   if (UNCONDITIONAL.test(s)) return { unless: null };
+  // D632 - the Thriving line: `This land enters tapped. As it enters, choose a color other than <color>.` - the tap, with
+  // the colour clause read by its own reader (`chooseColorLine`), or not at all.
+  if (THRIVING_RE.test(line.trim()) && chooseColorLine(line) !== null) return { unless: null };
   const pay = PAY_TO_UNTAP.exec(s);
   if (pay) {
     const life = Number(pay[1]);
@@ -513,10 +516,31 @@ export function parseEntersAsCopy(oracleText: string, cardName: string): EntersA
  * OTHER THAN BLACK" and "choose a color, then …" are different sentences and a
  * prefix match would answer them both with the wrong question.
  */
-const CHOOSE_COLOR_RE = /^As (?:this [a-z]+|[A-Z][^,]*) enters, choose a colou?r\.$/;
+// D632 - and `choose a color other than <color>` (the Gates), and `As it enters` after the land's own first sentence: the
+// Thriving lands print `This land enters tapped. As it enters, choose a color other than white.` on ONE line (`THRIVING_RE`).
+const CHOOSE_COLOR_RE = /^As (?:this [a-z]+|it|[A-Z][^,]*) enters, choose a colou?r(?: other than (white|blue|black|red|green))?[.]$/;
+const THRIVING_RE = /^This [a-z]+ enters tapped[.] (As it enters, choose a colou?r(?: other than (?:white|blue|black|red|green))?[.])$/;
+const COLOR_WORD: Readonly<Record<string, ColorLetter>> = { white: 'W', blue: 'U', black: 'B', red: 'R', green: 'G' };
+
+/** D632 - the colour clause of one line (the Thriving line's second sentence included): its exclusion, or null. */
+function chooseColorLine(line: string): { readonly except: ColorLetter | null } | null {
+  const s = line.trim();
+  const m = CHOOSE_COLOR_RE.exec(THRIVING_RE.exec(s)?.[1] ?? s);
+  if (!m) return null;
+  return { except: m[1] === undefined ? null : (COLOR_WORD[m[1]] ?? null) };
+}
 
 export function parseChoosesColorOnEntry(oracleText: string): boolean {
-  return oracleText.split('\n').some((line) => CHOOSE_COLOR_RE.test(line.trim()));
+  return oracleText.split('\n').some((line) => chooseColorLine(line) !== null);
+}
+
+/** D632 - the colour the entry's prompt refuses (`choose a color other than white`), or null. */
+export function parseEntryColorExcept(oracleText: string): ColorLetter | null {
+  for (const line of oracleText.split('\n')) {
+    const hit = chooseColorLine(line);
+    if (hit) return hit.except;
+  }
+  return null;
 }
 
 /**

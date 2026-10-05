@@ -660,12 +660,13 @@ export function answerAwaiting(
       if (pick === undefined) return fault('noIntentForAwaiting', 'no player to choose');
       return act({ t: 'AnswerChoosePlayer', player: me, chosen: pick }, 'choose an opponent to clash with');
     }
+    // D632 - never the colour the prompt excludes (`choose a color other than white`): the first of my identity it
+    // allows, else the first of WUBRG it allows.
     case 'chooseColor': {
       const seat = view.seats[me];
-      return act(
-        { t: 'AnswerChooseColor', player: me, color: seat?.identity[0] ?? 'G' },
-        'name a colour',
-      );
+      const allowed = (c: string) => c !== awaiting.except;
+      const color = seat?.identity.find(allowed) ?? (['W', 'U', 'B', 'R', 'G'] as const).find(allowed) ?? 'G';
+      return act({ t: 'AnswerChooseColor', player: me, color }, 'name a colour');
     }
 
     /**

@@ -364,7 +364,12 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // four or more creatures, that creature gets +4/+4 until end of turn instead.`) and Resourceful Return ({1}{B} sorcery,
   // `Return target creature card from your graveyard to your hand. If you control an artifact, draw a card.`) two a seat:
   // the board decides which reading runs, and the log says which either way.
-  { names: ['For the Family', 'Resourceful Return'], copiesPerSeat: 2, counterKeys: ['gatedClauses'], rotHistory: 'D523' },
+  // D632 - one a seat: the second slots went to the chosen-type pair below (the swap; gatedClauses 156 over D630's gate).
+  { names: ['For the Family', 'Resourceful Return'], copiesPerSeat: 1, counterKeys: ['gatedClauses'], rotHistory: 'D523, D632' },
+  // D632 - THE CHOSEN TYPE AND THE COLOUR OTHER THAN: one Distant Melody ({3}{U} sorcery - `Choose a creature type. Draw a card for
+  // each permanent you control of that type.`) and one Thriving Heath (tapped; a colour other than white) a seat, in the pair
+  // above's second slots (the seat's card count and the shuffle kept, D553's rule).
+  { names: ['Distant Melody', 'Thriving Heath'], copiesPerSeat: 1, counterKeys: ['chosenTypes', 'exceptColors'], rotHistory: 'D632' },
   // D525 - CASCADE: two Bloodbraid Elves ({2}{R}{G} 3/2 haste, cascade) and two Ardent Pleas ({1}{W}{U} exalted,
   // cascade) a seat - the keyword trigger off the spell on the stack; the driver answers the exiled candidate's
   // chooser through the same pool the host admits, and declines it half the time.
@@ -1899,6 +1904,9 @@ interface Run {
   /** D630 - the kinship triggers that fired (the look is made each time), and the reveals paid (the top card shared a type). */
   readonly kinshipFires: number;
   readonly kinshipReveals: number;
+  /** D632 - the creature types named as a spell resolved, and the colour prompts that refused a colour (`except`). */
+  readonly chosenTypes: number;
+  readonly exceptColors: number;
   /** D534 - the coin flips a resolution made (`CoinFlipped` not caused by the manual tool's `FlipCoin` intent). */
   readonly rulesFlips: number;
   /** D535 - the spells cast with their buyback paid, and the ones that went back to hand as they resolved. */
@@ -2519,6 +2527,8 @@ function runOne(seed: number): Run {
     crimesCommitted: game.log.filter((e) => e.body.t === 'CrimeCommitted').length,
     crimeHeadFires: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#(?:youCommitCrime|opponentCommitsCrime)-/.test(e.body.obj.abilityRef ?? '')).length,
     kinshipFires: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /If it shares a (?:creature|card) type/.test(e.body.obj.label)).length,
+    chosenTypes: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'chooseCreatureType' && e.body.awaiting.resolving === true).length,
+    exceptColors: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'chooseColor' && e.body.awaiting.except !== undefined).length,
     // D630 - read off the prompt the answer closed: the `payMana` question carries the reveal price (`verbs.revealTopShares`).
     kinshipReveals: (() => {
       let n = 0;
@@ -2967,6 +2977,8 @@ const TOTAL_KEYS = [
   'crimeHeadFires',
   'kinshipFires',
   'kinshipReveals',
+  'chosenTypes',
+  'exceptColors',
   'rulesFlips',
   'buybackCasts',
   'buybackReturns',
@@ -3535,6 +3547,10 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.crimeHeadFires).toBeGreaterThan(0);
         // D630 - a kinship trigger fired at gate size (Wolf-Skull Shaman and Mudbutton Clanger, one a seat).
         expect(totals.kinshipFires).toBeGreaterThan(0);
+        // D632 - a creature type named as a spell resolved, at gate size (Distant Melody, one a seat; 1 over the 60-seed canary).
+        expect(totals.chosenTypes).toBeGreaterThan(0);
+        // D632 - a colour prompt that refused a colour, at gate size (Thriving Heath, one a seat; 4 over the 60-seed canary).
+        expect(totals.exceptColors).toBeGreaterThan(0);
         // D534 - a rules coin flip at gate size (Winter Sky, two a seat).
         expect(totals.rulesFlips).toBeGreaterThan(0);
         // D535 - a bought-back spell back in its owner's hand at gate size (Searing Touch, two a seat).

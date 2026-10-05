@@ -40,7 +40,7 @@ import type {
   SearchQualifier,
   SearchSpec,
 } from '../engine/types/oracle';
-import { COUNTER_KINDS } from '../engine/types/oracle';
+import { CHOSEN_TYPE, COUNTER_KINDS } from '../engine/types/oracle';
 import type { CopyExceptions } from '../engine/types/oracle';
 import type { ColorLetter } from './cardTypes';
 
@@ -398,10 +398,16 @@ function readShieldRecipient(raw: string): 'target' | 'creatures' | 'creaturesYo
 // cards carry it, 17 with nothing else unread). A player scope the executor reads as the resolving object's
 // controller; a verb that refuses player scopes (destroy, exile, bounce) refuses it as it refuses `each player`.
 // D624 - and the controller phrases on `each creature`, `creatures you don't control`, `creature tokens` and `all planeswalkers`.
-const SCOPE = `(each creature(?: (?:with|without) (?:${KW})| your opponents control| you don't control| an opponent controls)?|each opponent|each player|you|all creatures|all artifacts|all enchantments|all lands|all planeswalkers|creatures your opponents control|creatures you don't control|creatures you control|creature tokens|attacking creatures)`;
+// D632 - and the chosen type's scopes (`Choose a creature type.` before the clause): `creatures that aren't of the chosen type`,
+// `all creatures of that type`, `creatures you control of the chosen type` - the sentinel subtype the answer substitutes.
+const SCOPE = `((?:all )?creatures that aren(?:'|’)t of the chosen type|all creatures of (?:that|the chosen) type|creatures you control of the chosen type|each creature(?: (?:with|without) (?:${KW})| your opponents control| you don't control| an opponent controls)?|each opponent|each player|you|all creatures|all artifacts|all enchantments|all lands|all planeswalkers|creatures your opponents control|creatures you don't control|creatures you control|creature tokens|attacking creatures)`;
 function readScope(raw: string | undefined): BoardScope | null {
   if (raw === undefined) return null;
   const s = raw.toLowerCase();
+  // D632 - the chosen type's scopes: `CHOSEN_TYPE`, which the answer to `Choose a creature type.` replaces.
+  if (/^(?:all )?creatures that aren(?:'|’)t of the chosen type$/.test(s)) return { kind: 'creature', controller: 'any', subtype: CHOSEN_TYPE, subtypeAbsent: true };
+  if (/^all creatures of (?:that|the chosen) type$/.test(s)) return { kind: 'creature', controller: 'any', subtype: CHOSEN_TYPE };
+  if (s === 'creatures you control of the chosen type') return { kind: 'creature', controller: 'you', subtype: CHOSEN_TYPE };
   if (s === 'each opponent') return { kind: 'player', controller: 'opponents' };
   if (s === 'you') return { kind: 'player', controller: 'you' };
   if (s === 'each player') return { kind: 'player', controller: 'any' };
@@ -1790,6 +1796,16 @@ const RULES: readonly Rule[] = [
     build: () => ({ ...BASE, targetIndex: -1, self: true }),
   },
   /**
+   * D632 - THE CHOSEN TYPE AT RESOLUTION: `Choose a creature type.` - an ask (D465's prompt); the clauses after it read
+   * `of that type` / `of the chosen type` as `CHOSEN_TYPE` (the closed scopes, the count nouns), which the answer substitutes.
+   * A clause naming the chosen type with no choice before it in its own text stays unread (`chosenBeforeRead`).
+   */
+  {
+    kind: 'chooseType',
+    re: /^choose a creature type[.]$/i,
+    build: () => ({ ...BASE, targetIndex: -1, self: true }),
+  },
+  /**
    * D622 - THE MILL GRAMMAR: `Mill N cards.` and a TAKE over the milled cards in the window's next sentence - `(then)
    * (you may) put a <noun> card from among them / the cards milled this way / the milled cards / those cards` or `<noun>
    * card milled this way`, `up to one` optional too, `into your hand` or `onto the battlefield (tapped)`. The look's noun
@@ -3009,7 +3025,7 @@ const OBJ_VERB_LEAD = new RegExp(`^(?:then )?(?<verb>untap|tap|regenerate|suspec
 const OBJ_VERB_SUBJ = new RegExp(`^(?:then )?${OBJ_REF} (?<rest>can't be blocked this turn|can't block this turn|(?:doesn't|don't) untap during (?:its|their) controller(?:'|’)s next untap step|don't untap during their controllers(?:'|’) next untap steps|phases? out)\\.$`, 'i');
 // The clauses whose objects are NOT on the battlefield in the state the object verbs read (they arrive as the clause runs).
 const OBJ_LATE: ReadonlySet<EffectKind> = new Set(['createToken', 'populate', 'reanimate', 'returnFromGraveyard', 'returnObj']);
-const OBJ_ASKS: ReadonlySet<EffectKind> = new Set(['search', 'lookAtTop', 'millPick', 'payOptional', 'sacrifice', 'discard', 'returnChoose', 'explore', 'connive', 'revealHandChoose', 'proliferate', 'scry', 'surveil', 'copySpell', 'putFromHand', 'untapChoose', 'bolster', 'amass', 'ringTempt']);
+const OBJ_ASKS: ReadonlySet<EffectKind> = new Set(['chooseType', 'search', 'lookAtTop', 'millPick', 'payOptional', 'sacrifice', 'discard', 'returnChoose', 'explore', 'connive', 'revealHandChoose', 'proliferate', 'scry', 'surveil', 'copySpell', 'putFromHand', 'untapChoose', 'bolster', 'amass', 'ringTempt']);
 function objectsRewrite(sentence: string, previous: Clause | undefined): EffectSpec | null {
   const prev = previous?.spec;
   if (!prev) return null;
@@ -3367,7 +3383,7 @@ function matchReflexive(price: string, payload: string, cardName: string, afterA
 // `you do` is the answer - a second seam). A pronoun action (`it`, `them`) after another sentence of its line may be that
 // sentence's object, never the source: refused. The executor pushes D584's marker after the action's last step, when the
 // action was performed.
-const MANDATORY_ASKING: ReadonlySet<string> = new Set(['sacrifice', 'discard', 'surveil', 'scry', 'lookAtTop', 'millPick', 'search', 'amass', 'explore', 'connive', 'proliferate', 'populate', 'returnChoose', 'putFromHand', 'revealHandChoose', 'untapChoose', 'bolster', 'ringTempt', 'discover', 'clash', 'manifestDread', 'copySpell', 'endure', 'payOptional']);
+const MANDATORY_ASKING: ReadonlySet<string> = new Set(['sacrifice', 'discard', 'surveil', 'scry', 'lookAtTop', 'millPick', 'search', 'amass', 'explore', 'connive', 'proliferate', 'populate', 'returnChoose', 'putFromHand', 'revealHandChoose', 'untapChoose', 'bolster', 'ringTempt', 'discover', 'clash', 'manifestDread', 'copySpell', 'endure', 'payOptional', 'chooseType']);
 function mandatoryAction(price: string, payload: string, cardName: string, afterAnother: boolean): EffectSpec | null {
   if (/^(?:then )?(?:if [^,]+, )?you may /i.test(price)) return null;
   if (afterAnother && /\b(?:it|them)\b/i.test(price)) return null;
@@ -3437,7 +3453,7 @@ function readVerbPrice(raw: string): VerbPrice | null {
   if (!read || read.lifeCost > 0) return null;
   return { costText: price, sacrificeSelf: false, sacrificeCost: read.sacrificeCost, discardCost: read.discardCost, tapCost: read.tapCost, exileFromGraveyardCost: read.exileFromGraveyardCost, returnCost: read.returnCost };
 }
-const PAY_BODY_REFUSED: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'millPick', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand', 'untapChoose', 'wheelShuffle', 'bolster', 'amass', 'ringTempt']);
+const PAY_BODY_REFUSED: ReadonlySet<EffectKind> = new Set(['chooseType', 'discard', 'lookAtTop', 'millPick', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand', 'untapChoose', 'wheelShuffle', 'bolster', 'amass', 'ringTempt']);
 
 function readPrice(raw: string): { cost: PaySpec['cost']; life: number; energy: number } | null {
   const life = raw.match(/(\d+) life$/i);
@@ -3709,7 +3725,7 @@ function matchPayment(sentence: string): EffectSpec | null {
 // left the zone the verb needs does nothing (D494's rule). Asks, payments and referents stay refused.
 const DELAY_TAIL = /^(.+?) at (?:the beginning of )?(the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step|end of combat)\.$/i;
 const DELAY_HEAD = /^At (?:the beginning of )?(the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step|end of combat), (.+)$/i;
-const DELAY_ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'millPick', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand', 'untapChoose', 'wheelShuffle', 'bolster', 'amass', 'ringTempt']);
+const DELAY_ASKS: ReadonlySet<EffectKind> = new Set(['chooseType', 'discard', 'lookAtTop', 'millPick', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand', 'untapChoose', 'wheelShuffle', 'bolster', 'amass', 'ringTempt']);
 function delayWhen(phrase: string): DelayWhen {
   const p = phrase.toLowerCase();
   if (p === 'end of combat') return { step: 'endCombat', whose: 'next' };
@@ -3765,6 +3781,12 @@ const COUNT_PERM = new RegExp(
 function readCountNoun(raw: string): CountExpr | null {
   const noun = raw.trim();
   const low = noun.toLowerCase();
+  // D632 - the chosen type's count nouns (`permanent you control of that type`, `permanent of the chosen type you control`,
+  // `creature you control of the chosen type`): `CHOSEN_TYPE`, which the answer to `Choose a creature type.` replaces.
+  const ch = /^(permanent|creature)( you control)? of (?:that|the chosen) type( you control)?$/.exec(low);
+  if (ch && (ch[2] !== undefined) !== (ch[3] !== undefined)) {
+    return { kind: 'permanents', controller: 'you', predicates: [{ supertypes: [], types: ch[1] === 'creature' ? ['Creature'] : [], subtypes: [CHOSEN_TYPE], colors: [] }], other: false, attacking: false, untapped: false, keyword: null, powerAtLeast: null, withPlusCounter: false, named: null };
+  }
   // D611 - the counters of a kind on the SOURCE (`charge counter on this artifact`): read off the source as the clause
   // resolves, or as it last existed when the cost moved it (`StackObject.sourceCounters`).
   const sc = /^(\+1\/\+1|-1\/-1|[a-z][a-z-]*) counter on (?:this (?:creature|permanent|artifact|enchantment|land)|~)$/.exec(low);
@@ -3819,6 +3841,8 @@ function readCountNoun(raw: string): CountExpr | null {
  */
 export function readManaCount(phrase: string, kind: 'forEach' | 'where', name: string): CountExpr | null {
   const p = phrase.trim().replace(/[.]$/, '');
+  // D632 - a mana amount over the chosen type has no choice before it to fill the sentinel: unread.
+  if (/ of (?:that|the chosen) type/i.test(p)) return null;
   const short = (name.split(',')[0] ?? name).trim();
   const own = [/^this (?:creature|permanent|artifact)'s power$/i.test(p), p.toLowerCase() === name.toLowerCase() + "'s power", p.toLowerCase() === short.toLowerCase() + "'s power"];
   if (kind === 'where' && own.some(Boolean)) return { kind: 'selfPower' };
@@ -4296,6 +4320,23 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
    * `Scry 1. ~ deals 1 damage to each opponent`, `Proliferate. Draw a card`).
    * The scry-then-draw riders keep riding their spec; nothing else is special.
    */
+  // D632 - THE CHOSEN TYPE IS THE TEXT'S OWN: a clause reading `of the chosen type` runs only behind a `Choose a creature
+  // type.` of the same text, whose answer substitutes the sentinel; anywhere else (a permanent's remembered type, no choice
+  // before it) the text stays unread rather than match nothing (D90).
+  if (!chosenBeforeRead(effects)) {
+    warn('effect:none');
+    return { effects: [], mode: 'manual' };
+  }
   warn('effect:auto');
   return { effects, mode: 'auto' };
+}
+
+/** D632 - every clause naming `CHOSEN_TYPE` stands after a `chooseType` clause of the same list. */
+function chosenBeforeRead(effects: readonly EffectSpec[]): boolean {
+  let chosen = false;
+  for (const e of effects) {
+    if (e.kind === 'chooseType') chosen = true;
+    else if (!chosen && JSON.stringify(e).includes(CHOSEN_TYPE)) return false;
+  }
+  return true;
 }

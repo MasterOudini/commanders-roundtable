@@ -705,6 +705,12 @@ export type CountExpr =
   /** D627 - the SOURCE's power as it stands (`an amount of {G} equal to this creature's power`); a source with no power counts zero. */
   | { readonly kind: 'selfPower' };
 
+/**
+ * D632 - THE CHOSEN TYPE'S SENTINEL: a scope's or a count's subtype read from `of that type` / `of the chosen type` behind
+ * `Choose a creature type.`; the answer replaces it with the type named (`withChosenType`). No printed subtype has a space.
+ */
+export const CHOSEN_TYPE = '(the chosen type)';
+
 export interface BoardScope {
   readonly kind: 'creature' | 'permanent' | 'player';
   /** Whose. `any` is every player's, which is what "each creature" means. D482 - `target`: the player the effect aimed at. */
@@ -721,6 +727,8 @@ export interface BoardScope {
   readonly other?: true;
   /** D505 - `creature` only: a subtype the member must have (`each Merfolk creature you control`, `each Fractal you control`). */
   readonly subtype?: string;
+  /** D632 - the `subtype` the member must NOT have (`creatures that aren't of the chosen type`). */
+  readonly subtypeAbsent?: true;
   /** D505 - `permanent` only: `nonland permanents`. */
   readonly nonland?: true;
   /** D512 - `creature` only: the member attacked this turn (`all creatures that attacked this turn` - TurnMemory.attackerIds). */
@@ -946,6 +954,12 @@ export type EffectKind =
    */
   | 'clash'
   | 'returnSelf'
+  /**
+   * D632 - THE CHOSEN TYPE AT RESOLUTION: `Choose a creature type.` on an instant or sorcery - an ask (D465's prompt, the
+   * clauses after it riding it); the clauses after it read `of that type` / `of the chosen type` as `CHOSEN_TYPE`, which
+   * the answer substitutes before they resume (`withChosenType`).
+   */
+  | 'chooseType'
   /** D531 - `Exchange control of target A and target B.` (CR 701.10): each to the other's controller. */
   | 'exchangeControl'
   /** D532 - `Target opponent gains control of ~.` (CR 108.4): the player target takes the source, or the clause's other target, for good. */
@@ -2534,6 +2548,8 @@ export interface OracleFace {
    * of that sentence.
    */
   readonly choosesColorOnEntry: boolean;
+  /** D632 - `choose a color other than <color>` (the Thriving lands, the Gates): the colour the entry's prompt refuses. */
+  readonly entryColorExcept?: ColorLetter;
   /**
    * D465 - "As this ~ enters, choose a creature type." (CR 614.12), the colour clause one noun
    * over: asked as the permanent enters, remembered on `CardInstance.chosenType`, read by the

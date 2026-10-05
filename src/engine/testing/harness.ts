@@ -383,8 +383,9 @@ export function simplestAnswer(
         player: awaiting.player,
         key: awaiting.options[0]?.key ?? '<none>',
       };
+    // D632 - white, unless the prompt excludes it (`choose a color other than white`): then blue.
     case 'chooseColor':
-      return { t: 'AnswerChooseColor', player: awaiting.player, color: 'W' };
+      return { t: 'AnswerChooseColor', player: awaiting.player, color: awaiting.except === 'W' ? 'U' : 'W' };
     // D527 - the first candidate, always (a clash's opponent): reproducible, and legal on any board.
     case 'choosePlayer':
       return { t: 'AnswerChoosePlayer', player: awaiting.player, chosen: awaiting.candidates[0] as PlayerId };

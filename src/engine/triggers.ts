@@ -1990,7 +1990,8 @@ function withChosenColor(
       // Two literals rather than one object with a computed kind: the awaiting pin reads the
       // constructions by their literal kind, and each of the two must keep a producer site.
       const awaiting: Awaiting = face.choosesColorOnEntry
-        ? { kind: 'chooseColor', player, source: move.card, label: face.name }
+        // D632 - with the colour the face excludes (`choose a color other than white`).
+        ? { kind: 'chooseColor', player, source: move.card, label: face.name, ...(face.entryColorExcept !== undefined ? { except: face.entryColorExcept } : {}) }
         : { kind: 'chooseCreatureType', player, source: move.card, label: face.name };
       return [...events, { t: 'AwaitingSet', awaiting }];
     }

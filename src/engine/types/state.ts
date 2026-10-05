@@ -1286,6 +1286,8 @@ export type Awaiting =
       readonly player: PlayerId;
       readonly source: InstanceId;
       readonly label: string;
+      /** D632 - the colour this prompt refuses (`choose a color other than white` - the Thriving lands, the Gates). */
+      readonly except?: ColorLetter;
     }
   /**
    * D527 - a PLAYER chosen at resolution (`Clash with an opponent` with more than one): the candidates ride the prompt
@@ -1309,6 +1311,12 @@ export type Awaiting =
       readonly player: PlayerId;
       readonly source: InstanceId;
       readonly label: string;
+      /**
+       * D632 - asked as a SPELL resolves (`Choose a creature type.`): nothing remembers the answer - the clauses after the
+       * choosing one take it (`withChosenType`) and resume (`continuation`).
+       */
+      readonly resolving?: true;
+      readonly continuation?: EffectContinuation;
     }
   | {
       readonly kind: 'entersChoice';

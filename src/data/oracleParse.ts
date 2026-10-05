@@ -40,7 +40,7 @@ import { parseSpellTargets, parseTargetClauses } from './targetParse';
 import { parseActivatedAbilities, parseActivationConditions, parseAdditionalCost, parseAlternativeCost, readCostVerbs, type KickerVerb } from './activatedParse';
 import { parseEffects, partnerWithSearchSpec, readManaCount } from './effectParse';
 import { parseModalFace } from './modalParse';
-import { parseEntersAsCopy, parseEntersPrepared, parseEntersTapped, parseChoosesColorOnEntry, parseChoosesTypeOnEntry, predicatesOf, type PermanentPredicate } from './replacementParse';
+import { parseEntersAsCopy, parseEntersPrepared, parseEntersTapped, parseChoosesColorOnEntry, parseChoosesTypeOnEntry, parseEntryColorExcept, predicatesOf, type PermanentPredicate } from './replacementParse';
 
 /**
  * D343 - a modal face's effect mode from its modes: `auto` when EVERY mode is
@@ -1300,6 +1300,17 @@ export function parseManaProduction(
       continue;
     }
 
+    // D632 - `Add {W} or one mana of the chosen color.` (the Thriving lands, the Gates): the printed symbol OR the permanent's
+    // chosen colour - two productions of the one line (the painland's shape): the symbol, and the `chosen` scope (D147). Before
+    // D632 the symbol branch below dropped the second alternative unread and kept the line whole (D90).
+    const orChosen = /(?:^|[^a-z])add [{]([WUBRGC])[}] or one mana of the chosen colou?r[.]?$/i.exec(effect.trim());
+    if (orChosen) {
+      const sym = (orChosen[1] ?? 'C').toUpperCase();
+      push({ outputs: [{ mana: pool({ [sym]: 1 }), amount: 1 }], anyColor: null, requiresTap, conditional: unchargedExtra, extraCost: charged, restriction, text: printed, line: lineIndex });
+      push({ outputs: [], anyColor: { scope: 'chosen', amount: 1 }, requiresTap, conditional: unchargedExtra, extraCost: charged, restriction, text: printed, line: lineIndex });
+      continue;
+    }
+
     // D627 - THE COUNTED MANA AMOUNT. The effect (its spend restriction cut off) is exactly one counted sentence: the symbols
     // for each <noun>, X of any one colour where X is the number of <nouns> or the source's power, an amount of one symbol
     // equal to the same. The count rides the production (`count`, multiplied in `manaSourcesOf`); a count the reader cannot read
@@ -1758,6 +1769,8 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     // D486 - the clone's line, the same way.
     entersAsCopy: isPermanent ? parseEntersAsCopy(face.oracleText, face.name) : null,
     choosesColorOnEntry: isPermanent && parseChoosesColorOnEntry(face.oracleText),
+    // D632 - the colour the entry's prompt refuses (the Thriving lands, the Gates).
+    ...(isPermanent && parseEntryColorExcept(face.oracleText) !== null ? { entryColorExcept: parseEntryColorExcept(face.oracleText) as ColorLetter } : {}),
     // D465 - the creature-type clause, the same way.
     choosesTypeOnEntry: isPermanent && parseChoosesTypeOnEntry(face.oracleText),
     // D625 - the prepare line, the same way.

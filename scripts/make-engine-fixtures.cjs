@@ -11290,6 +11290,32 @@ const WANTED = [
   'Dreamstalker Manticore',
   'Mischievous Chimera',
   // D631 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D632 - THE CHOSEN TYPE AT RESOLUTION AND THE COLOUR OTHER THAN: the eleven Choose-a-creature-type spells, the Thriving lands, the Gates and the plain Thriving-line lands the seam completes (chosenTypeSpell.test.ts).
+  'Distant Melody',
+  'Harmonized Crescendo',
+  'Luminescent Rain',
+  'Roar of the Crowd',
+  'Coordinated Barrage',
+  "Pack's Disdain",
+  'Crippling Fear',
+  'Outbreak',
+  'Kindred Dominance',
+  'Raise the Palisade',
+  'And They Shall Know No Fear',
+  'Thriving Heath',
+  'Thriving Moor',
+  'Thriving Bluff',
+  'Thriving Grove',
+  'Thriving Isle',
+  'Manor Gate',
+  'Cliffgate',
+  'Citadel Gate',
+  'Black Dragon Gate',
+  'Sea Gate',
+  'Uncharted Haven',
+  'Crossroads Village',
+  'Night Market',
+  'Mirage Mesa',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

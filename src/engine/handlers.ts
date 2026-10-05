@@ -65,7 +65,7 @@ import type { RestrictedMana } from './types/mana';
 import { manualIntent } from './manual';
 import { flipCoin, rollDie, shuffle, type RngState } from './rng';
 import { n, narrated, tableName, their, vb, who } from './narrate';
-import { askBatch, askCandidates, drawEvents, effectResult, mergeExceptions, resumeContinuation, suspendTick, topSharesType } from './effects';
+import { askBatch, askCandidates, drawEvents, effectResult, mergeExceptions, resumeContinuation, suspendTick, topSharesType, withChosenType } from './effects';
 import { proliferateCandidates } from './proliferate';
 import { exploreChain } from './explore';
 import { conniveAfterDiscard } from './connive';
@@ -4147,6 +4147,10 @@ function answerChooseColor(
   if (awaiting.player !== intent.player) {
     return reject('notYourTurn', 'That choice is not yours to make.');
   }
+  // D632 - `choose a color other than white`: the colour the prompt excludes is refused, with a message.
+  if (awaiting.except !== undefined && intent.color === awaiting.except) {
+    return reject('excludedColor', `${awaiting.label} names a colour other than {${awaiting.except}}.`);
+  }
   return {
     ok: true,
     events: [
@@ -4180,6 +4184,16 @@ function answerChooseCreatureType(
   }
   if (!deps.oracle.creatureTypes.has(intent.creatureType)) {
     return reject('notACreatureType', `${intent.creatureType} is not a creature type.`);
+  }
+  // D632 - asked as a spell resolves: no permanent remembers the type - the clauses after the choosing one take it
+  // (`withChosenType`) and resume against the state the answer leaves.
+  if (awaiting.resolving === true) {
+    const events: EventBody[] = [
+      { t: 'AwaitingSet', awaiting: null },
+      narrated(n`${who(state, intent.player)} ${vb(intent.player, 'names', 'name')} ${intent.creatureType} for ${awaiting.label}.`, intent.player),
+    ];
+    const carried = awaiting.continuation === undefined ? undefined : withChosenType(awaiting.continuation, intent.creatureType);
+    return accept(events, resumeContinuation(state, deps, events, carried));
   }
   return {
     ok: true,

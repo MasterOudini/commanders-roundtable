@@ -706,7 +706,8 @@ export function PromptBar() {
         )}
         {awaiting?.kind === 'chooseColor' && mine('chooseColor') && (
           <>
-            {(['W', 'U', 'B', 'R', 'G'] as const).map((c) => (
+            {/* D632 - the colour the prompt excludes is not offered. */}
+            {(['W', 'U', 'B', 'R', 'G'] as const).filter((c) => c !== awaiting.except).map((c) => (
               <button
                 key={c}
                 type="button"

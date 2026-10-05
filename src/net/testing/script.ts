@@ -101,9 +101,10 @@ export function simplestIntent(
         return awaiting.player === snapshot.you && awaiting.options[0]
           ? { t: 'AnswerChooseReplacement', player: awaiting.player, key: awaiting.options[0].key }
           : null;
+      // D632 - white, unless the prompt excludes it: then blue.
       case 'chooseColor':
         return awaiting.player === snapshot.you
-          ? { t: 'AnswerChooseColor', player: awaiting.player, color: 'W' }
+          ? { t: 'AnswerChooseColor', player: awaiting.player, color: awaiting.except === 'W' ? 'U' : 'W' }
           : null;
       /** D465 - the creature-type twin; Human, for reproducibility. */
       case 'chooseCreatureType':

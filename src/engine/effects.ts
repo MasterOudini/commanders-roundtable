@@ -19,7 +19,7 @@ import type { EngineDeps } from './loop';
 import type { CardMove, EventBody, MoveReason, ResolvedDamage } from './types/events';
 import { reflexiveMarker } from './reflexiveMarker';
 import type { InstanceId, PlayerId } from './types/ids';
-import { SELF_AIMED, type BoardScope, type CopyExceptions, type CounterKind, type DelayWhen, type EffectSpec, type LookFilter, type SearchQualifier } from './types/oracle';
+import { CHOSEN_TYPE, SELF_AIMED, type BoardScope, type CopyExceptions, type CounterKind, type DelayWhen, type EffectSpec, type LookFilter, type SearchQualifier } from './types/oracle';
 import { predicateAdmits } from '../data/replacementParse';
 import { reboundCastSpec, suspendTickSpec } from '../data/effectParse';
 import { RING_EMBLEM } from '../data/tokenParse';
@@ -2016,6 +2016,16 @@ export function effectResult(
         out.push({ t: 'AwaitingSet', awaiting: { kind: 'choosePlayer', player: controller, candidates: rivals, purpose: 'clash', label: obj.label } });
         break;
       }
+      // D632 - THE CHOSEN TYPE AT RESOLUTION (`Choose a creature type.`): D465's prompt, for the controller, marked as asked
+      // while the object resolves; the clauses after it ride it (the stop below) and the answer substitutes the type into
+      // them (`withChosenType`). A copy names its original card; an object with neither asks nothing.
+      case 'chooseType': {
+        if (out.some((e) => e.t === 'AwaitingSet')) break;
+        const asker = obj.card ?? obj.source;
+        if (asker === null) break;
+        out.push({ t: 'AwaitingSet', awaiting: { kind: 'chooseCreatureType', player: controller, source: asker, label: obj.label, resolving: true } });
+        break;
+      }
       // D527 - `Return ~ to its owner's hand`: the source wherever it is - a permanent, or the spell's own card in the
       // graveyard once a clash's answers resumed its clauses (the spell resolved; CR 608.2m put it there, the rider brings
       // it back). A source still on the stack is the loop's own fate (`spellFateOf`), left alone here.
@@ -3017,6 +3027,22 @@ function chained(inner: EffectContinuation, outer: EffectContinuation): EffectCo
 }
 
 /**
+ * D632 - THE CHOSEN TYPE SUBSTITUTED: the frame's own clauses with `CHOSEN_TYPE` (a scope's or a count's subtype, read from
+ * `of the chosen type`) replaced by the type named; the frames beyond it are other objects' and keep theirs.
+ */
+export function withChosenType(c: EffectContinuation, type: string): EffectContinuation {
+  const sub = (v: unknown): unknown =>
+    v === CHOSEN_TYPE
+      ? type
+      : Array.isArray(v)
+        ? v.map(sub)
+        : v !== null && typeof v === 'object'
+          ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, sub(x)]))
+          : v;
+  return { ...c, effects: sub(c.effects) as readonly EffectSpec[] };
+}
+
+/**
  * The question with the continuation on it. Only the prompts the executor raises carry one; a prompt that already
  * carries this very continuation (the search's reveal stage re-raises its own) is left alone, and one that carries
  * another (a payment's branch that asked) keeps it and takes this one as the frame beyond.
@@ -3033,6 +3059,8 @@ function withContinuation(awaiting: Awaiting, continuation: EffectContinuation):
     case 'endureChoice':
     // D527 - the player choice a clash raises carries the clauses after the clashing one.
     case 'choosePlayer':
+    // D632 - and the creature type a resolving spell names (an entering permanent's own prompt is never the executor's).
+    case 'chooseCreatureType':
       if (awaiting.continuation === continuation) return awaiting;
       return { ...awaiting, continuation: awaiting.continuation === undefined ? continuation : chained(awaiting.continuation, continuation) };
     // D487 - a copy's new-targets question carries the clauses after the copying one; a cast's own prompt never does.
@@ -3391,7 +3419,8 @@ function scopeMembers(
       if (scope.keyword !== undefined && d.keywords.has(scope.keyword) === (scope.keywordAbsent === true)) continue;
       // D505 - `other` (not the source), a subtype, `nonland`.
       if (scope.other === true && exclude !== undefined && exclude !== null && id === exclude) continue;
-      if (scope.subtype !== undefined && !d.typeLine.subtypes.includes(scope.subtype)) continue;
+      // D632 - and `subtypeAbsent`: the member must NOT have it (`creatures that aren't of the chosen type`).
+      if (scope.subtype !== undefined && d.typeLine.subtypes.includes(scope.subtype) === (scope.subtypeAbsent === true)) continue;
       if (scope.nonland === true && d.typeLine.types.includes('Land')) continue;
       // D512 - `creatures that attacked this turn`: the turn record's declared attackers.
       if (scope.attackedThisTurn === true && !state.turn.memory.attackerIds.includes(id)) continue;

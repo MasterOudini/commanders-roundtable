@@ -718,6 +718,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D632 - the chosen type reads; what stays is a card the row maker refuses for another reason.
+  ['Pol Jamaar, Illusionist', 'the row maker: a vocabulary effect the suite cannot assert: chooseType - its chosen type reads since D632 (D632)'],
   // D630 - kinship reads; what stays is a card the row maker refuses for another reason.
   ['Pyroclast Consul', 'the row maker: a payment branch dealing damage to a creature scope (no witness staged; not this wave): ~ deals 2 damage to ea - its kinship reads since D630 (D630)'],
   // D628 - the payment body reads as a text; what stays is a card the row maker refuses for another reason.
