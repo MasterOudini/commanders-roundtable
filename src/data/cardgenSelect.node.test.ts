@@ -269,7 +269,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D450 - vanishing and fading are the engine's now, and the mirror offered four the row maker refused: a two-head
   // line, a possessive filter, and two vanishing-1 cards the suite's own walk would kill before the fire (the wide run's reason).
   ['Crack in Time', "trigger head not in the library: When this enchantment enters and at the beginning of your first main phase, tap all creatures you don't control."],
-  ['Dreamtide Whale', 'a filtered head outside the closed reader (an adjective outside the list: their): Whenever a player casts their second spell each turn, proliferate.'],
   ['Lavacore Elemental', "a vanishing count the suite walk removes (1 against 1 upkeep ticks): the card dies at its controller's first upkeep before the combat-damage head fires"],
   ['Soultether Golem', "a vanishing count the suite walk removes (1 against 1 upkeep ticks): the card dies at its controller's first upkeep before another creature enters"],
   // D449 - evoke and dash are the engine's now, and the mirror offered four the row maker refused: two up-to-two
@@ -469,7 +468,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Hard Cover', 'a leftover line not among the printed lines: Enchanted creature gets +0/+2 and has'],
   ['Invasion of Dominaria // Serra Faithkeeper', 'multi-face or unusual layout'],
   ['Kraven the Hunter', 'a filtered head outside the closed reader (a qualifier outside the keyword list: the greatest power among creatures that player controls): Whenever a creature an opponent controls with the greatest p'],
-  ['Lotho, Corrupt Shirriff', 'a filtered head outside the closed reader (an adjective outside the list: their): Whenever a player casts their second spell each turn, you lo'],
   ['Magus of the Bazaar', 'a queued discard the scaffold hand may not hold: Discard three cards.'],
   ['Pet Avengers', 'a line that is neither an activated ability nor a library trigger: Power-up — {6}{G}: Put a +1/+1 counter on this creature and create a 3'],
   ['Ragnarok, Divine Deliverance', 'multi-face or unusual layout'],
@@ -568,7 +566,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Flourishing Defenses', 'trigger head not in the library: Whenever a -1/-1 counter is put on a creature, you may create a 1/1 gr'],
   ['Frilled Mystic', 'a vocabulary effect the suite cannot assert: counter'],
   ['Gangrenous Goliath', 'a graveyard return beside another cost piece'],
-  ['Glen Elendra Pranksters', "a filtered head outside the closed reader (an adjective outside the list: spell): Whenever you cast a spell during an opponent's turn, you may"],
   ['Goldfury Strider', 'cost: a tap cost with no fixture the suite can put: artifacts and/or creatures'],
   ['Gravity Negator', "a payment branch the suite cannot assert beside its another-target line (the ask is not the payment's) (D424)"],
   ['Great Hall of Starnheim', 'cost: Sacrifice this land and a creature you control'],
@@ -692,7 +689,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Cleaving Skyrider', 'a counted noun with a refinement the suite cannot stage (~ deals X damage to any target, where X is the number of attacking creatures.)'],
   ['Cybermat', 'a counted payload under a head whose arm sizes the board (attacksNotBlocked) (~ gets +X/+0 until end of turn, where X is the number of attacking artifact creatures.)'],
   ['Dire Fleet Captain', 'a counted payload under a head whose arm sizes the board (attacks) (~ gets +1/+1 until end of turn for each other attacking Pirate.)'],
-  ['Dreamstalker Manticore', "a filtered head outside the closed reader (an adjective outside the list (your: Whenever you cast your first spell during each opponent's tu)"],
   ['Elite Javelineer', 'a vocabulary clause the suite has no fixture for (a combat-role clause)'],
   ['Firefist Adept', 'a counted noun with no witness the suite can put (~ deals X damage to target creature an opponent controls, where X is the number of Wiza...)'],
   ['Firespitter Whelp', 'a filtered head outside the closed reader (an adjective outside the list (or: Whenever you cast a noncreature or Dragon spell, this creatu)'],
@@ -956,7 +952,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Leela, Sevateem Warrior', 'the row maker: trigger head not in the library: Whenever an opponent draws a card except the first one they draw in each of their draw steps, put a +1/+1 counter on ~. (D542)'],
   ['Alora, Merry Thief', 'the row maker: a combat-role clause under a head whose declaration is not self attacking (the co-attacker rides an (D542)'],
   ['Alharu, Solemn Ritualist', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: you): Whenever a nontoken creature you control with a +1/+1 counter on it dies, create a 1/1 white Spirit creature token with flying. (D542)'],
-  ['Kraum, Ludevic\'s Opus', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: their): Whenever an opponent casts their second spell each turn, draw a card. (D542)'],
   ['Brinelin, the Moon Kraken', 'the row maker: trigger head not in the library: When ~ enters and whenever you cast a spell with mana value 6 or greater, you may return target nonland permanent to its owner\'s hand. (D542)'],
   ['Graham O\'Brien', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: spell): Whenever you cast (D542)'],
   ['Rose Noble', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: spell): Whenever you cast a Doctor spell or creature spell with doctor\'s companion, draw a card. (D542)'],
@@ -2211,7 +2206,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D493 - the look grammar: the rows the select offered and the row maker refused, by its own reasons.
   ['Fecund Greenshell', 'a filtered head outside the closed reader (a qualifier outside the keyword list: toughness greater than its power): Whenever this creature or another (D493)'],
   ['Wandering Mind', 'a look with a negated noun the suite has no fixture for: Look at the top six cards of your library. You may reveal a (D493)'],
-  ["Nymris, Oona's Trickster", 'a filtered head outside the closed reader (an adjective outside the list: your): Whenever you cast your first spell during each opponent\'s tu (D493)'],
   ['Adéwalé, Breaker of Chains', 'a combat-damage head no attack-capable fixture satisfies: a Vehicle you control (D493)'],
   // D492 - the once-per-turn trigger: the rider cards the row maker refused, by its own reasons.
   ['Exemplar of Light', 'trigger head not in the library: Whenever you put one or more +1/+1 counters on this creature, draw a c (D492)'],
@@ -2239,7 +2233,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Goblin Piledriver', 'a counted payload under a head whose arm sizes the board (attacks) (~ gets +2/+0 until end of turn for each other attacking Goblin.)'],
   ['Grotag Bug-Catcher', 'a counted payload under a head whose arm sizes the board (attacks) (~ gets +1/+0 until end of turn for each creature in your party.)'],
   ['Hand That Feeds', 'trigger head not in the library (Whenever this creature attacks while there are four or more card types)'],
-  ['Hearthborn Battler', 'a filtered head outside the closed reader (an adjective outside the list (their: Whenever a player casts their second spell each turn, this c)'],
   ['HYDRA Assault Robot', 'a filtered head outside the closed reader (an adjective outside the list (and/or: Whenever another Villain and/or artifact you control enters,)'],
   ['Illuminator Virtuoso', 'trigger head not in the library (Whenever this creature becomes the target of a spell you control, it c)'],
   ['Iron-Fist Pulverizer', 'trigger payload not a pump (~ deals 2 damage to target opponent. Scry 1.)'],
@@ -2249,7 +2242,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Lavakin Brawler', 'a counted payload under a head whose arm sizes the board (attacks) (~ gets +1/+0 until end of turn for each Elemental you control.)'],
   ['Leyline Phantom', "trigger head not in the library (When this creature deals combat damage, return it to its owner's hand.)"],
   ['Mayhem Devil', 'trigger head not in the library (Whenever a player sacrifices a permanent, this creature deals 1 damage)'],
-  ['Mischievous Chimera', "a filtered head outside the closed reader (an adjective outside the list (your: Whenever you cast your first spell during each opponent's tu)"],
   ['Mysterious Egg', 'the row maker: a mutates head whose mutate cost the test cannot pay: no mutate line - the mutates head is in the library since D581; a card with no Mutate line is mutated onto (another mutate card cast onto it) (D581)'],
   ['Rampaging Classmate', 'a counted payload under a head whose arm sizes the board (attacks) (~ gets +1/+0 until end of turn for each other attacking creature.)'],
   ['Saprazzan Raider', "trigger head not in the library (When this creature becomes blocked, return it to its owner's hand.)"],
@@ -2394,7 +2386,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['North Pole Patrol', 'a keyword-worded activation (Waterbend {3}, {T}: tap target creature) beside its another-target line'],
   // D412 - connive is the engine's own (CR 701.50): the one the selector offered once the connive sentences read
   // that the row maker refused, by reason.
-  ['Ledger Shredder', 'a filtered head outside the closed reader (whenever a player casts their second spell each turn - an any-player second-spell head) beside its connive'],
   // D411 - the untap skip is the engine's own: the two the selector offered once the freeze sentences read
   // that the row maker refused, by reason.
   ['Ojutai, Soul of Winter', 'a trigger head outside the library (whenever a Dragon you control attacks) beside its untap skip'],
@@ -3203,7 +3194,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // forms that genuinely fail to parse.
   ["Warriors' Lesson", 'quoted-ability temporary grant'],
   ['Wash Out', 'script-raised prompt'],
-  ['Wavebreak Hippocamp', 'once-per-turn trigger memory'],
   ['West Coast Expansion', 'script-raised prompt'],
 
   // D269 (M6.4df) — ZERO new classes, and the batch where the
@@ -3368,7 +3358,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // ⚠️ Ghostfire "is colorless" — a characteristic-defining static on a
   // SPELL, which no StaticDef has ever applied from the stack.
   ['Exterminatus', 'temporary keyword/ability grant'],
-  ['Fire Nation Occupation', 'firebending mechanic'],
   ['Flamewright', 'keyword-predicate sacrifice cost'],
   ['Foil', 'cast-time alternative cost'],
   ['Force of Vigor', 'cast-time alternative cost'],
@@ -4010,7 +3999,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Azorius Aethermage', 'a trigger head outside the row library (Whenever a permanent is returned to your hand)'],
   ['Jeweled Torque', 'a trigger head outside the row library (Whenever a player casts a spell of the chosen colo)'],
   ['Spirit Cairn', 'a trigger head outside the row library (Whenever a player discards a card)'],
-  ['Voracious Tome-Skimmer', "a trigger head outside the row library (Whenever you cast a spell during an opponent's tur)"],
   ['Lunar Mystic', 'a trigger head outside the row library (Whenever you cast an instant spell)'],
   ['Kels, Fight Fixer', 'a trigger head outside the row library (Whenever you sacrifice a creature)'],
   ['Assimilate Essence', 'a typed-spell COMPOUND clause the aim layer does not read'],
@@ -4046,9 +4034,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Honor-Worn Shaku', 'a tap cost with no fixture the suite can put'],
   ['Mold Folk', 'ability-word activated line'],
   ['Trophy Hunter', 'effect outside the row kinds'],
-  ['Arena Trickster', 'filtered head: a determiner outside the closed reader'],
   ['Blood Cultist', 'filtered head: an adjective outside the closed reader'],
-  ['Brineborn Cutthroat', 'filtered head: an adjective outside the closed reader'],
   ['Colleen Wing, Street Samurai', 'filtered head: an adjective outside the closed reader'],
   ['Decorated Champion', 'filtered head: an adjective outside the closed reader'],
   ['Diamond Knight', 'filtered head: an adjective outside the closed reader'],

@@ -342395,6 +342395,504 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "LEDGER_SHREDDER": {
+    "scryfallId": "005fd651-7546-462f-bf9f-c78fb3310889",
+    "oracleId": "e9117015-1050-44dd-a46b-e7ffe2085fae",
+    "name": "Ledger Shredder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ledger Shredder",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Bird Advisor",
+        "oracleText": "Flying\nWhenever a player casts their second spell each turn, this creature connives. (Draw a card, then discard a card. If you discarded a nonland card, put a +1/+1 counter on this creature.)",
+        "flavorText": "No evidence, no crime.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mila Pesic",
+        "imageId": "005fd651-7546-462f-bf9f-c78fb3310889"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Connive"
+    ],
+    "setCode": "psnc",
+    "collectorNumber": "46p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BRINEBORN_CUTTHROAT": {
+    "scryfallId": "0857765f-afd7-418a-a93b-c0bd1b1f037e",
+    "oracleId": "916cb70f-3b06-48ed-972d-75f805aa0892",
+    "name": "Brineborn Cutthroat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Brineborn Cutthroat",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Merfolk Pirate",
+        "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nWhenever you cast a spell during an opponent's turn, put a +1/+1 counter on this creature.",
+        "flavorText": "\"I always attack from where their spyglasses can't see.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Caio Monteiro",
+        "imageId": "0857765f-afd7-418a-a93b-c0bd1b1f037e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "m20",
+    "collectorNumber": "50",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VORACIOUS_TOME_SKIMMER": {
+    "scryfallId": "1a696fe5-410c-4699-b1d1-1a9c771d664a",
+    "oracleId": "25b0876e-c995-486e-8536-6e68b76b9c86",
+    "name": "Voracious Tome-Skimmer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Voracious Tome-Skimmer",
+        "manaCost": "{U/B}{U/B}{U/B}",
+        "typeLine": "Creature — Faerie Rogue",
+        "oracleText": "Flying\nWhenever you cast a spell during an opponent's turn, you may pay 1 life. If you do, draw a card.",
+        "flavorText": "She spoils the book before you read it.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Loïc Canavaggia",
+        "imageId": "1a696fe5-410c-4699-b1d1-1a9c771d664a"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "ecl",
+    "collectorNumber": "250",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KRAUM_LUDEVIC_S_OPUS": {
+    "scryfallId": "20e13fc2-c4dd-4875-be32-e04d954e658d",
+    "oracleId": "5f694f2d-9349-4988-b2b4-788136d4293e",
+    "name": "Kraum, Ludevic's Opus",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kraum, Ludevic's Opus",
+        "manaCost": "{3}{U}{R}",
+        "typeLine": "Legendary Creature — Zombie Horror",
+        "oracleText": "Flying, haste\nWhenever an opponent casts their second spell each turn, draw a card.\nPartner (You can have two commanders if both have partner.)",
+        "flavorText": "\"It lives . . . IT LIVES!\"\n—Ludevic, necro-alchemist",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "20e13fc2-c4dd-4875-be32-e04d954e658d"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Haste",
+      "Partner"
+    ],
+    "setCode": "cmr",
+    "collectorNumber": "523",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GLEN_ELENDRA_PRANKSTERS": {
+    "scryfallId": "2a71800f-3e67-4cfb-a3b1-8c073a91b909",
+    "oracleId": "4b02df52-d6c0-4735-b2b8-d637cb41f0ba",
+    "name": "Glen Elendra Pranksters",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Glen Elendra Pranksters",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Faerie Wizard",
+        "oracleText": "Flying\nWhenever you cast a spell during an opponent's turn, you may return target creature you control to its owner's hand.",
+        "flavorText": "Victims spirited through a faerie ring find themselves stranded miles away.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Omar Rayyan",
+        "imageId": "2a71800f-3e67-4cfb-a3b1-8c073a91b909"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "lrw",
+    "collectorNumber": "67",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NYMRIS_OONA_S_TRICKSTER": {
+    "scryfallId": "319fb987-2bf2-4d94-81d1-c601edae3f28",
+    "oracleId": "9ee50bae-47c4-4ae7-a82b-f2a0b366df35",
+    "name": "Nymris, Oona's Trickster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nymris, Oona's Trickster",
+        "manaCost": "{3}{U}{B}",
+        "typeLine": "Legendary Creature — Faerie Knight",
+        "oracleText": "Flash\nFlying\nWhenever you cast your first spell during each opponent's turn, look at the top two cards of your library. Put one of those cards into your hand and the other into your graveyard.",
+        "flavorText": "Mischief is its own reward.",
+        "power": "1",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Johannes Voss",
+        "imageId": "319fb987-2bf2-4d94-81d1-c601edae3f28"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Flash"
+    ],
+    "setCode": "woc",
+    "collectorNumber": "141",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FIRE_NATION_OCCUPATION": {
+    "scryfallId": "3455d55e-aef5-4eb1-bcd9-1ff9d1ab3698",
+    "oracleId": "2a99c0d6-3200-44ff-8d4c-f7a38cecb05f",
+    "name": "Fire Nation Occupation",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fire Nation Occupation",
+        "manaCost": "{2}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "When this enchantment enters, create a 2/2 red Soldier creature token with firebending 1. (Whenever it attacks, add {R}. This mana lasts until end of combat.)\nWhenever you cast a spell during an opponent's turn, create a 2/2 red Soldier creature token with firebending 1.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Arthur Yuan",
+        "imageId": "3455d55e-aef5-4eb1-bcd9-1ff9d1ab3698"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tle",
+    "collectorNumber": "105",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WAVEBREAK_HIPPOCAMP": {
+    "scryfallId": "543356bc-d4ab-4250-80c8-5ca69c11af87",
+    "oracleId": "3405c8a9-a8d6-4b45-9b64-94141076603b",
+    "name": "Wavebreak Hippocamp",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wavebreak Hippocamp",
+        "manaCost": "{2}{U}",
+        "typeLine": "Enchantment Creature — Horse Fish",
+        "oracleText": "Whenever you cast your first spell during each opponent's turn, draw a card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Caio Monteiro",
+        "imageId": "543356bc-d4ab-4250-80c8-5ca69c11af87"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "thb",
+    "collectorNumber": "310",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LOTHO_CORRUPT_SHIRRIFF": {
+    "scryfallId": "69d97af0-8af0-4124-b56f-2633d34e5574",
+    "oracleId": "135cc078-1c45-465e-b0b9-7168c89f56f4",
+    "name": "Lotho, Corrupt Shirriff",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lotho, Corrupt Shirriff",
+        "manaCost": "{W}{B}",
+        "typeLine": "Legendary Creature — Halfling Rogue",
+        "oracleText": "Whenever a player casts their second spell each turn, you lose 1 life and create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+        "flavorText": "\"Whatever is wrong in the Shire, Lotho will be at the bottom of it: you can be sure of that.\"\n—Pippin",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Ilker Yildiz",
+        "imageId": "69d97af0-8af0-4124-b56f-2633d34e5574"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Treasure"
+    ],
+    "setCode": "ltr",
+    "collectorNumber": "370",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HEARTHBORN_BATTLER": {
+    "scryfallId": "73a10a11-a21f-4e93-8771-8d971c158911",
+    "oracleId": "beb02f49-95a6-49bf-b176-4e4b2ab5b651",
+    "name": "Hearthborn Battler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hearthborn Battler",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Lizard Warlock",
+        "oracleText": "Haste\nWhenever a player casts their second spell each turn, this creature deals 2 damage to target opponent.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "73a10a11-a21f-4e93-8771-8d971c158911"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "blb",
+    "collectorNumber": "361",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DREAMTIDE_WHALE": {
+    "scryfallId": "966e2066-ef45-4882-a420-247115a319b9",
+    "oracleId": "ee8c0b4c-03c5-4da5-b4f1-028c845384af",
+    "name": "Dreamtide Whale",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dreamtide Whale",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Whale",
+        "oracleText": "Vanishing 2 (This creature enters with two time counters on it. At the beginning of your upkeep, remove a time counter from it. When the last is removed, sacrifice it.)\nWhenever a player casts their second spell each turn, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": null,
+        "power": "7",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ron Spears",
+        "imageId": "966e2066-ef45-4882-a420-247115a319b9"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Vanishing",
+      "Proliferate"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "450",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARENA_TRICKSTER": {
+    "scryfallId": "e096049d-9f02-4abb-bb5a-97b14fd17099",
+    "oracleId": "69c27223-d676-4916-899b-297dc4ed2d59",
+    "name": "Arena Trickster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arena Trickster",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Human Shaman",
+        "oracleText": "Whenever you cast your first spell during each opponent's turn, put a +1/+1 counter on this creature.",
+        "flavorText": "\"It's not enough to surprise your opponent. You have to delight the crowd as well.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "PINDURSKI",
+        "imageId": "e096049d-9f02-4abb-bb5a-97b14fd17099"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "thb",
+    "collectorNumber": "126",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DREAMSTALKER_MANTICORE": {
+    "scryfallId": "ee10eaa0-dbe0-45ee-9a7d-395ec5d27e08",
+    "oracleId": "1ecb3349-ccb8-4b54-bd81-8d649d6f96f0",
+    "name": "Dreamstalker Manticore",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dreamstalker Manticore",
+        "manaCost": "{2}{R}",
+        "typeLine": "Enchantment Creature — Manticore",
+        "oracleText": "Whenever you cast your first spell during each opponent's turn, this creature deals 1 damage to any target.",
+        "flavorText": "Purphoros forged the manticore's tail from bronze, its teeth from silver, and its heart from hate.",
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Chris Rallis",
+        "imageId": "ee10eaa0-dbe0-45ee-9a7d-395ec5d27e08"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "thb",
+    "collectorNumber": "131",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MISCHIEVOUS_CHIMERA": {
+    "scryfallId": "f8a3df0e-4ee8-458b-adf5-56aca20493e9",
+    "oracleId": "5cc57770-1070-45f6-9d76-d402c55a0d06",
+    "name": "Mischievous Chimera",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mischievous Chimera",
+        "manaCost": "{U}{R}",
+        "typeLine": "Enchantment Creature — Chimera",
+        "oracleText": "Flying\nWhenever you cast your first spell during each opponent's turn, this creature deals 1 damage to each opponent. Scry 1.",
+        "flavorText": "Some curiosities are best left alone.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Antonio José Manzanedo",
+        "imageId": "f8a3df0e-4ee8-458b-adf5-56aca20493e9"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Scry",
+      "Flying"
+    ],
+    "setCode": "thb",
+    "collectorNumber": "223",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

@@ -11274,6 +11274,22 @@ const WANTED = [
   'Venomous Brutalizer',
   'Wandering Graybeard',
   // D630 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D631 - THE CAST ORDINALS AND THE OPPONENTS TURN: the rows the whole-leftover row maker rowed once a cast head read a players or an opponents second spell, a spell other than the first, and a spell in an opponents turn.
+  'Ledger Shredder',
+  'Brineborn Cutthroat',
+  'Voracious Tome-Skimmer',
+  "Kraum, Ludevic's Opus",
+  'Glen Elendra Pranksters',
+  "Nymris, Oona's Trickster",
+  'Fire Nation Occupation',
+  'Wavebreak Hippocamp',
+  'Lotho, Corrupt Shirriff',
+  'Hearthborn Battler',
+  'Dreamtide Whale',
+  'Arena Trickster',
+  'Dreamstalker Manticore',
+  'Mischievous Chimera',
+  // D631 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

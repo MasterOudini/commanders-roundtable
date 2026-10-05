@@ -348,7 +348,8 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // D520 - AMASS (CR 701.47): Relentless Advance ({3}{U} sorcery, `Amass Zombies 3.`), Lazotep Reaver ({1}{B} 1/2, `When this
   // creature enters, amass Zombies 1.`) and Dunland Crebain ({2}{B} 1/1 flying, `... amass Orcs 2.` - the Orc onto a Zombie
   // Army) two a seat: the Army token made and grown, the subtype added, the tie asked when a copy effect made a second.
-  { names: ['Relentless Advance', 'Lazotep Reaver', 'Dunland Crebain'], copiesPerSeat: 2, counterKeys: ['amasses'], rotHistory: 'D520' },
+  // D631 - one a seat: the second copies went back to the prevention trio below (the swap; amasses 78 over D631's first gate).
+  { names: ['Relentless Advance', 'Lazotep Reaver', 'Dunland Crebain'], copiesPerSeat: 1, counterKeys: ['amasses'], rotHistory: 'D520, D631' },
   // D521 - THE RING TEMPTS YOU (CR 701.54): Claim the Precious ({2}{B} sorcery, `Destroy target creature. The Ring tempts
   // you.`), Birthday Escape ({U} sorcery, `Draw a card. The Ring tempts you.`), Took Reaper ({B} 1/1, dies: tempts) and
   // Relentless Rohirrim ({3}{R} 3/2, enters: tempts) two a seat: the bearer chosen, the emblem given, its abilities as
@@ -770,8 +771,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // rotating pool's damage rows aim at creatures. Three cards, three fuels, one counter -
   // D149's CR 616 pair one card wider.
   // D618 - one of each a seat: their second copies went to Fog (the swap above; 17 prevented over D618's first gate).
-  { names: ['Statecraft', 'Bubble Matrix', 'Mark of Asylum'], copiesPerSeat: 1,
-    counterKeys: ['staticDamagePrevented'], rotHistory: 'D385, D618' },
+  // D631 - two a seat again: one a seat read ZERO over D631's first 500-seed gate (the windows moved with fourteen names); the
+  // second copies came from the amass trio (the swap).
+  { names: ['Statecraft', 'Bubble Matrix', 'Mark of Asylum'], copiesPerSeat: 2,
+    counterKeys: ['staticDamagePrevented'], rotHistory: 'D385, D618, D631' },
   // D377 - THE MOVE'S REASON. `reason` never reaches `GameState` (the reducer reads the moves and
   // moves the cards), so unlike D364's `poolSnow` the replay hash cannot vouch for it at all: what
   // these three prove is that REAL GAMES produce the three reasons a printed head watches for,

@@ -7,6 +7,20 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { LEDGER_SHREDDER_SCRIPT } from './cards/ledgerShredder';
+import { BRINEBORN_CUTTHROAT_SCRIPT } from './cards/brinebornCutthroat';
+import { VORACIOUS_TOME_SKIMMER_SCRIPT } from './cards/voraciousTomeSkimmer';
+import { KRAUM_LUDEVICS_OPUS_SCRIPT } from './cards/kraumLudevicsOpus';
+import { GLEN_ELENDRA_PRANKSTERS_SCRIPT } from './cards/glenElendraPranksters';
+import { NYMRIS_OONAS_TRICKSTER_SCRIPT } from './cards/nymrisOonasTrickster';
+import { FIRE_NATION_OCCUPATION_SCRIPT } from './cards/fireNationOccupation';
+import { WAVEBREAK_HIPPOCAMP_SCRIPT } from './cards/wavebreakHippocamp';
+import { LOTHO_CORRUPT_SHIRRIFF_SCRIPT } from './cards/lothoCorruptShirriff';
+import { HEARTHBORN_BATTLER_SCRIPT } from './cards/hearthbornBattler';
+import { DREAMTIDE_WHALE_SCRIPT } from './cards/dreamtideWhale';
+import { ARENA_TRICKSTER_SCRIPT } from './cards/arenaTrickster';
+import { DREAMSTALKER_MANTICORE_SCRIPT } from './cards/dreamstalkerManticore';
+import { MISCHIEVOUS_CHIMERA_SCRIPT } from './cards/mischievousChimera';
 import { DRAINPIPE_VERMIN_SCRIPT } from './cards/drainpipeVermin';
 import { KRENKO_BARON_OF_TIN_STREET_SCRIPT } from './cards/krenkoBaronOfTinStreet';
 import { QUIET_CONTEMPLATION_SCRIPT } from './cards/quietContemplation';
@@ -9063,6 +9077,20 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  LEDGER_SHREDDER_SCRIPT,
+  BRINEBORN_CUTTHROAT_SCRIPT,
+  VORACIOUS_TOME_SKIMMER_SCRIPT,
+  KRAUM_LUDEVICS_OPUS_SCRIPT,
+  GLEN_ELENDRA_PRANKSTERS_SCRIPT,
+  NYMRIS_OONAS_TRICKSTER_SCRIPT,
+  FIRE_NATION_OCCUPATION_SCRIPT,
+  WAVEBREAK_HIPPOCAMP_SCRIPT,
+  LOTHO_CORRUPT_SHIRRIFF_SCRIPT,
+  HEARTHBORN_BATTLER_SCRIPT,
+  DREAMTIDE_WHALE_SCRIPT,
+  ARENA_TRICKSTER_SCRIPT,
+  DREAMSTALKER_MANTICORE_SCRIPT,
+  MISCHIEVOUS_CHIMERA_SCRIPT,
   DRAINPIPE_VERMIN_SCRIPT,
   KRENKO_BARON_OF_TIN_STREET_SCRIPT,
   QUIET_CONTEMPLATION_SCRIPT,
