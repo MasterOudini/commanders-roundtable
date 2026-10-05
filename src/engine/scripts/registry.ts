@@ -7,6 +7,28 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { MOONLIT_STRIDER_SCRIPT } from './cards/moonlitStrider';
+import { ALSEID_OF_LIFES_BOUNTY_SCRIPT } from './cards/alseidOfLifesBounty';
+import { TOWER_OF_THE_MAGISTRATE_SCRIPT } from './cards/towerOfTheMagistrate';
+import { MOTHER_OF_RUNES_SCRIPT } from './cards/motherOfRunes';
+import { RAPPELLING_SCOUTS_SCRIPT } from './cards/rappellingScouts';
+import { BENEVOLENT_BODYGUARD_SCRIPT } from './cards/benevolentBodyguard';
+import { CARTEL_ARISTOCRAT_SCRIPT } from './cards/cartelAristocrat';
+import { JARETH_LEONINE_TITAN_SCRIPT } from './cards/jarethLeonineTitan';
+import { RESILIENT_WANDERER_SCRIPT } from './cards/resilientWanderer';
+import { SEJIRI_STEPPE_SCRIPT } from './cards/sejiriSteppe';
+import { ARMORED_GUARDIAN_SCRIPT } from './cards/armoredGuardian';
+import { KAMI_OF_THE_PAINTED_ROAD_SCRIPT } from './cards/kamiOfThePaintedRoad';
+import { THORNSCAPE_MASTER_SCRIPT } from './cards/thornscapeMaster';
+import { HELL_BENT_RAIDER_SCRIPT } from './cards/hellBentRaider';
+import { OBSIDIAN_ACOLYTE_SCRIPT } from './cards/obsidianAcolyte';
+import { STORMSCAPE_MASTER_SCRIPT } from './cards/stormscapeMaster';
+import { AVEN_LIBERATOR_SCRIPT } from './cards/avenLiberator';
+import { KNIGHT_OF_DAWN_SCRIPT } from './cards/knightOfDawn';
+import { CRIMSON_ACOLYTE_SCRIPT } from './cards/crimsonAcolyte';
+import { KEEPER_OF_KOOKUS_SCRIPT } from './cards/keeperOfKookus';
+import { MIDVAST_PROTECTOR_SCRIPT } from './cards/midvastProtector';
+import { SYGG_RIVER_GUIDE_SCRIPT } from './cards/syggRiverGuide';
 import { LEDGER_SHREDDER_SCRIPT } from './cards/ledgerShredder';
 import { BRINEBORN_CUTTHROAT_SCRIPT } from './cards/brinebornCutthroat';
 import { VORACIOUS_TOME_SKIMMER_SCRIPT } from './cards/voraciousTomeSkimmer';
@@ -9077,6 +9099,28 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  MOONLIT_STRIDER_SCRIPT,
+  ALSEID_OF_LIFES_BOUNTY_SCRIPT,
+  TOWER_OF_THE_MAGISTRATE_SCRIPT,
+  MOTHER_OF_RUNES_SCRIPT,
+  RAPPELLING_SCOUTS_SCRIPT,
+  BENEVOLENT_BODYGUARD_SCRIPT,
+  CARTEL_ARISTOCRAT_SCRIPT,
+  JARETH_LEONINE_TITAN_SCRIPT,
+  RESILIENT_WANDERER_SCRIPT,
+  SEJIRI_STEPPE_SCRIPT,
+  ARMORED_GUARDIAN_SCRIPT,
+  KAMI_OF_THE_PAINTED_ROAD_SCRIPT,
+  THORNSCAPE_MASTER_SCRIPT,
+  HELL_BENT_RAIDER_SCRIPT,
+  OBSIDIAN_ACOLYTE_SCRIPT,
+  STORMSCAPE_MASTER_SCRIPT,
+  AVEN_LIBERATOR_SCRIPT,
+  KNIGHT_OF_DAWN_SCRIPT,
+  CRIMSON_ACOLYTE_SCRIPT,
+  KEEPER_OF_KOOKUS_SCRIPT,
+  MIDVAST_PROTECTOR_SCRIPT,
+  SYGG_RIVER_GUIDE_SCRIPT,
   LEDGER_SHREDDER_SCRIPT,
   BRINEBORN_CUTTHROAT_SCRIPT,
   VORACIOUS_TOME_SKIMMER_SCRIPT,

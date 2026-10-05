@@ -154,6 +154,20 @@ function computeDerived(
     if (mod.card !== inst.id || mod.keywords === undefined) continue;
     for (const k of mod.keywords) chars.keywords.add(k);
   }
+  // D633 - PROTECTION GAINED UNTIL END OF TURN, at the same layer and the same way: merged into what the faces printed.
+  for (const mod of state.untilEndOfTurn) {
+    if (mod.card !== inst.id || mod.protection === undefined) continue;
+    const p = mod.protection;
+    const q = chars.protection;
+    chars.protection = {
+      colors: [...q.colors, ...p.colors.filter((c) => !q.colors.includes(c))],
+      fromEverything: q.fromEverything || p.fromEverything,
+      ...(q.types !== undefined || p.types !== undefined ? { types: [...(q.types ?? []), ...(p.types ?? []).filter((t) => !(q.types ?? []).includes(t))] } : {}),
+      ...(q.subtypes !== undefined ? { subtypes: q.subtypes } : {}),
+      ...(q.categories !== undefined ? { categories: q.categories } : {}),
+      other: q.other,
+    };
+  }
   // D494 - CR 611.2c: keywords gained for as long as the object stays (`It gains haste.`), at the same layer.
   for (const k of inst.gained ?? []) chars.keywords.add(k);
   // D548 - an awakened land has haste (CR 702.113a), at the same layer.

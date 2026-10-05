@@ -26,7 +26,7 @@ import type {
 } from './ids';
 import type { ManaPool, RestrictedMana, SpendRestriction } from './mana';
 import type { NarrationPart } from './narration';
-import type { CopyExceptions, EffectSpec, Keyword, TargetSpec } from './oracle';
+import type { CopyExceptions, EffectSpec, Keyword, Protection, TargetSpec } from './oracle';
 import type {
   Awaiting,
   DefenderRef,
@@ -825,6 +825,8 @@ export type EventBody =
       readonly basePt?: { readonly power: number; readonly toughness: number };
       readonly subtypes?: readonly string[];
       readonly colors?: readonly ('W' | 'U' | 'B' | 'R' | 'G')[];
+      /** D633 - PROTECTION gained until end of turn (`gains protection from the color of your choice until end of turn`), layer 6. */
+      readonly protection?: Protection;
     }
   /**
    * D393 - THREATEN: `controller` takes the permanent until end of turn and `revertTo` gets it

@@ -384,7 +384,12 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   { names: ['Release the Ants', 'Research the Deep'], copiesPerSeat: 2, counterKeys: ['clashes', 'clashWins'], rotHistory: 'D527' },
   // D528 - SAGAS: two Origins of the Hulk and two Births of Meletis a seat - each enters with a lore counter (chapter I),
   // gets one as its controller's precombat main begins (II, III) and is sacrificed once the final chapter has resolved.
-  { names: ['Origin of the Hulk', 'The Birth of Meletis'], copiesPerSeat: 2, counterKeys: ['chaptersFired', 'sagasSacrificed'], rotHistory: 'D528' },
+  // D633 - one a seat: the second slots went to the protection pair below (the swap; chaptersFired 114 over D631's gate).
+  { names: ['Origin of the Hulk', 'The Birth of Meletis'], copiesPerSeat: 1, counterKeys: ['chaptersFired', 'sagasSacrificed'], rotHistory: 'D528, D633' },
+  // D633 - THE PROTECTION GRANT UNTIL END OF TURN: one Stave Off ({W} - `Target creature gains protection from the color of your
+  // choice until end of turn.`) and one Akroma's Blessing ({2}{W} - `Choose a color. Creatures you control gain protection from
+  // the chosen color until end of turn.`) a seat, in the pair above's second slots (the seat's card count and the shuffle kept).
+  { names: ['Stave Off', "Akroma's Blessing"], copiesPerSeat: 1, counterKeys: ['coloursNamed', 'protectionGrants'], rotHistory: 'D633' },
   // D530 - THE KICKER'S OTHER COSTS: two Final Flourishes (kicked by sacrificing an artifact or creature - the driver
   // names the first candidates) and two Thornscape Battlemages (kicker {R} and/or {W} - the driver names both when both
   // are payable, else the second) a seat.
@@ -1907,6 +1912,9 @@ interface Run {
   /** D632 - the creature types named as a spell resolved, and the colour prompts that refused a colour (`except`). */
   readonly chosenTypes: number;
   readonly exceptColors: number;
+  /** D633 - the colours named as an object resolved, and the protection grants made until end of turn. */
+  readonly coloursNamed: number;
+  readonly protectionGrants: number;
   /** D534 - the coin flips a resolution made (`CoinFlipped` not caused by the manual tool's `FlipCoin` intent). */
   readonly rulesFlips: number;
   /** D535 - the spells cast with their buyback paid, and the ones that went back to hand as they resolved. */
@@ -2529,6 +2537,8 @@ function runOne(seed: number): Run {
     kinshipFires: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /If it shares a (?:creature|card) type/.test(e.body.obj.label)).length,
     chosenTypes: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'chooseCreatureType' && e.body.awaiting.resolving === true).length,
     exceptColors: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'chooseColor' && e.body.awaiting.except !== undefined).length,
+    coloursNamed: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'chooseColor' && e.body.awaiting.resolving === true).length,
+    protectionGrants: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.protection !== undefined).length,
     // D630 - read off the prompt the answer closed: the `payMana` question carries the reveal price (`verbs.revealTopShares`).
     kinshipReveals: (() => {
       let n = 0;
@@ -2979,6 +2989,8 @@ const TOTAL_KEYS = [
   'kinshipReveals',
   'chosenTypes',
   'exceptColors',
+  'coloursNamed',
+  'protectionGrants',
   'rulesFlips',
   'buybackCasts',
   'buybackReturns',
@@ -3551,6 +3563,10 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.chosenTypes).toBeGreaterThan(0);
         // D632 - a colour prompt that refused a colour, at gate size (Thriving Heath, one a seat; 4 over the 60-seed canary).
         expect(totals.exceptColors).toBeGreaterThan(0);
+        // D633 - a colour named as an object resolved, at gate size (Stave Off and Akroma's Blessing, one a seat; 2 over the 60-seed canary).
+        expect(totals.coloursNamed).toBeGreaterThan(0);
+        // D633 - a protection grant made until end of turn, at gate size (the same pair; 2 over the 60-seed canary).
+        expect(totals.protectionGrants).toBeGreaterThan(0);
         // D534 - a rules coin flip at gate size (Winter Sky, two a seat).
         expect(totals.rulesFlips).toBeGreaterThan(0);
         // D535 - a bought-back spell back in its owner's hand at gate size (Searing Touch, two a seat).

@@ -1687,6 +1687,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
             // Spread-conditional so an event with no keywords appends the
             // exact pre-D194 entry — hash-identical replays.
             ...(body.keywords !== undefined ? { keywords: body.keywords } : {}),
+            // D633 - the protection gained rides the same entry, spread-conditional too.
+            ...(body.protection !== undefined ? { protection: body.protection } : {}),
             ...(body.types !== undefined ? { types: body.types } : {}),
             // D394 - the can't-block restriction rides the same entry, spread-conditional too.
             ...(body.cantBlock !== undefined ? { cantBlock: body.cantBlock } : {}),

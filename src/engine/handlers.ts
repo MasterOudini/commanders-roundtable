@@ -65,7 +65,7 @@ import type { RestrictedMana } from './types/mana';
 import { manualIntent } from './manual';
 import { flipCoin, rollDie, shuffle, type RngState } from './rng';
 import { n, narrated, tableName, their, vb, who } from './narrate';
-import { askBatch, askCandidates, drawEvents, effectResult, mergeExceptions, resumeContinuation, suspendTick, topSharesType, withChosenType } from './effects';
+import { askBatch, askCandidates, drawEvents, effectResult, mergeExceptions, resumeContinuation, suspendTick, topSharesType, withChosenColor, withChosenType } from './effects';
 import { proliferateCandidates } from './proliferate';
 import { exploreChain } from './explore';
 import { conniveAfterDiscard } from './connive';
@@ -162,7 +162,7 @@ export function handle(state: GameState, intent: Intent, deps: EngineDeps): Hand
     case 'AnswerChooseReplacement':
       return answerChooseReplacement(state, intent, deps);
     case 'AnswerChooseColor':
-      return answerChooseColor(state, intent);
+      return answerChooseColor(state, intent, deps);
     case 'AnswerChoosePlayer':
       return answerChoosePlayer(state, intent, deps);
     case 'AnswerChooseCreatureType':
@@ -4139,6 +4139,7 @@ function answerChoosePlayer(state: GameState, intent: Extract<Intent, { t: 'Answ
 function answerChooseColor(
   state: GameState,
   intent: Extract<Intent, { t: 'AnswerChooseColor' }>,
+  deps: EngineDeps,
 ): HandleResult {
   const awaiting = state.priority.awaiting;
   if (awaiting?.kind !== 'chooseColor') {
@@ -4150,6 +4151,16 @@ function answerChooseColor(
   // D632 - `choose a color other than white`: the colour the prompt excludes is refused, with a message.
   if (awaiting.except !== undefined && intent.color === awaiting.except) {
     return reject('excludedColor', `${awaiting.label} names a colour other than {${awaiting.except}}.`);
+  }
+  // D633 - asked as an object resolves: no permanent remembers the colour - the clauses after the choosing one take it
+  // (`withChosenColor`) and resume against the state the answer leaves.
+  if (awaiting.resolving === true) {
+    const events: EventBody[] = [
+      { t: 'AwaitingSet', awaiting: null },
+      narrated(n`${who(state, intent.player)} ${vb(intent.player, 'names', 'name')} {${intent.color}} for ${awaiting.label}.`, intent.player),
+    ];
+    const carried = awaiting.continuation === undefined ? undefined : withChosenColor(awaiting.continuation, intent.color);
+    return accept(events, resumeContinuation(state, deps, events, carried));
   }
   return {
     ok: true,

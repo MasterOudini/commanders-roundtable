@@ -343686,6 +343686,1181 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "STAVE_OFF": {
+    "scryfallId": "3bb09157-5d7a-4da2-92b6-9354489e607f",
+    "oracleId": "c77c23bc-efde-43ce-bf6f-7a8531d81d89",
+    "name": "Stave Off",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stave Off",
+        "manaCost": "{W}",
+        "typeLine": "Instant",
+        "oracleText": "Target creature gains protection from the color of your choice until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Mark Zug",
+        "imageId": "3bb09157-5d7a-4da2-92b6-9354489e607f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "m12",
+    "collectorNumber": "36",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AKROMA_S_BLESSING": {
+    "scryfallId": "be43fdd6-917e-4a49-a9b8-d1673b421dce",
+    "oracleId": "a3fc6888-0a4b-4e1d-b709-042b8b6b1a04",
+    "name": "Akroma's Blessing",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Akroma's Blessing",
+        "manaCost": "{2}{W}",
+        "typeLine": "Instant",
+        "oracleText": "Choose a color. Creatures you control gain protection from the chosen color until end of turn.\nCycling {W} ({W}, Discard this card: Draw a card.)",
+        "flavorText": "The clerics saw her as a divine gift. She saw them only as allies in her war against Phage.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Adam Rex",
+        "imageId": "be43fdd6-917e-4a49-a9b8-d1673b421dce"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Cycling"
+    ],
+    "setCode": "vma",
+    "collectorNumber": "11",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EMERGE_UNSCATHED": {
+    "scryfallId": "0c23013b-4202-45c1-a756-b9a8c5a9dc05",
+    "oracleId": "894015d5-ee78-45df-8d37-53df963c59a6",
+    "name": "Emerge Unscathed",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Emerge Unscathed",
+        "manaCost": "{W}",
+        "typeLine": "Instant",
+        "oracleText": "Target creature you control gains protection from the color of your choice until end of turn.\nRebound (If you cast this spell from your hand, exile it as it resolves. At the beginning of your next upkeep, you may cast this card from exile without paying its mana cost.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Steve Argyle",
+        "imageId": "0c23013b-4202-45c1-a756-b9a8c5a9dc05"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Rebound"
+    ],
+    "setCode": "roe",
+    "collectorNumber": "20",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GODS_WILLING": {
+    "scryfallId": "138f0e49-71d5-4582-92be-797e753f0f42",
+    "oracleId": "48e603a2-b965-4fbc-ad57-4388bce5ac8b",
+    "name": "Gods Willing",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gods Willing",
+        "manaCost": "{W}",
+        "typeLine": "Instant",
+        "oracleText": "Target creature you control gains protection from the color of your choice until end of turn. (It can't be blocked, targeted, dealt damage, enchanted, or equipped by anything of that color.)\nScry 1.",
+        "flavorText": "Honor the gods of Theros, and they will return the favor.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Mark Winters",
+        "imageId": "138f0e49-71d5-4582-92be-797e753f0f42"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "clu",
+    "collectorNumber": "63",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CENTER_SOUL": {
+    "scryfallId": "627d925e-af2a-4d6d-a131-bb59976ea120",
+    "oracleId": "686b44ec-3446-4e1f-a15f-9d8557db6d70",
+    "name": "Center Soul",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Center Soul",
+        "manaCost": "{1}{W}",
+        "typeLine": "Instant",
+        "oracleText": "Target creature you control gains protection from the color of your choice until end of turn.\nRebound (If you cast this spell from your hand, exile it as it resolves. At the beginning of your next upkeep, you may cast this card from exile without paying its mana cost.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Igor Kieryluk",
+        "imageId": "627d925e-af2a-4d6d-a131-bb59976ea120"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Rebound"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "DTK-8",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHELTER": {
+    "scryfallId": "0c39c731-b475-4553-b9a5-a73018eea9db",
+    "oracleId": "c1909d70-d8f4-4c54-8587-0a910f123238",
+    "name": "Shelter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shelter",
+        "manaCost": "{1}{W}",
+        "typeLine": "Instant",
+        "oracleText": "Target creature you control gains protection from the color of your choice until end of turn.\nDraw a card.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "0c39c731-b475-4553-b9a5-a73018eea9db"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "j21",
+    "collectorNumber": "133",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REVERENT_MANTRA": {
+    "scryfallId": "045814ab-da2c-460e-acf3-3bbf7bd5fe38",
+    "oracleId": "b4f7b1eb-6cd4-40f9-b259-3c39291edf27",
+    "name": "Reverent Mantra",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Reverent Mantra",
+        "manaCost": "{3}{W}",
+        "typeLine": "Instant",
+        "oracleText": "You may exile a white card from your hand rather than pay this spell's mana cost.\nChoose a color. All creatures gain protection from the chosen color until end of turn.",
+        "flavorText": "She likes the box. Don't make her leave the box.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Vanessa Stockard",
+        "imageId": "045814ab-da2c-460e-acf3-3bbf7bd5fe38"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "sld",
+    "collectorNumber": "2686",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TEL_JILAD_DEFIANCE": {
+    "scryfallId": "ef01d3f6-c172-43fb-bc65-ff12567111da",
+    "oracleId": "73c7d938-5cec-4f96-b649-3f67bef29407",
+    "name": "Tel-Jilad Defiance",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tel-Jilad Defiance",
+        "manaCost": "{1}{G}",
+        "typeLine": "Instant",
+        "oracleText": "Target creature gains protection from artifacts until end of turn.\nDraw a card.",
+        "flavorText": "The Viridian elves had purged their culture of the trolls' traitorous influence. In times of strife, however, the ancestral memories returned.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Goran Josic",
+        "imageId": "ef01d3f6-c172-43fb-bc65-ff12567111da"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "som",
+    "collectorNumber": "129",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLESSED_BREATH": {
+    "scryfallId": "9e2d8650-b8c3-4e89-9aa2-424a98715c38",
+    "oracleId": "e83e1f99-1f9b-49fc-bdc7-5f6335e401e4",
+    "name": "Blessed Breath",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blessed Breath",
+        "manaCost": "{W}",
+        "typeLine": "Instant — Arcane",
+        "oracleText": "Target creature you control gains protection from the color of your choice until end of turn.\nSplice onto Arcane {W} (As you cast an Arcane spell, you may reveal this card from your hand and pay its splice cost. If you do, add this card's effects to that spell.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Tsutomu Kawade",
+        "imageId": "9e2d8650-b8c3-4e89-9aa2-424a98715c38"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Splice"
+    ],
+    "setCode": "chk",
+    "collectorNumber": "1",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FEAT_OF_RESISTANCE": {
+    "scryfallId": "73148b3b-73d3-4f57-8b67-1e91fbe112b9",
+    "oracleId": "2038f505-7b03-4c63-bc44-c5139729dd05",
+    "name": "Feat of Resistance",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Feat of Resistance",
+        "manaCost": "{1}{W}",
+        "typeLine": "Instant",
+        "oracleText": "Put a +1/+1 counter on target creature you control. It gains protection from the color of your choice until end of turn. (It can't be blocked, targeted, dealt damage, enchanted, or equipped by anything of that color.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "David Gaillet",
+        "imageId": "73148b3b-73d3-4f57-8b67-1e91fbe112b9"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "m21",
+    "collectorNumber": "19",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REDEEM_THE_LOST": {
+    "scryfallId": "6a0f1aa1-b5be-43f0-822d-c4fcf33270d9",
+    "oracleId": "3c5e269e-1baa-4b40-8e0f-1763ac85dc6b",
+    "name": "Redeem the Lost",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Redeem the Lost",
+        "manaCost": "{1}{W}",
+        "typeLine": "Instant",
+        "oracleText": "Target creature you control gains protection from the color of your choice until end of turn. Clash with an opponent. If you win, return Redeem the Lost to its owner's hand. (Each clashing player reveals the top card of their library, then puts that card on their choice of the top or bottom. A player wins if their card had a greater mana value.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Scott M. Fischer",
+        "imageId": "6a0f1aa1-b5be-43f0-822d-c4fcf33270d9"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Clash"
+    ],
+    "setCode": "mor",
+    "collectorNumber": "21",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEJIRI_SHELTER_SEJIRI_GLACIER": {
+    "scryfallId": "84b8c3a4-6826-4c64-b4c2-a4e10601eaba",
+    "oracleId": "d54e4e37-042b-44a5-918d-757308545d4d",
+    "name": "Sejiri Shelter // Sejiri Glacier",
+    "layout": "modal_dfc",
+    "faces": [
+      {
+        "name": "Sejiri Shelter",
+        "manaCost": "{1}{W}",
+        "typeLine": "Instant",
+        "oracleText": "Target creature you control gains protection from the color of your choice until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Darek Zabrocki",
+        "imageId": "84b8c3a4-6826-4c64-b4c2-a4e10601eaba-0"
+      },
+      {
+        "name": "Sejiri Glacier",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\n{T}: Add {W}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Darek Zabrocki",
+        "imageId": "84b8c3a4-6826-4c64-b4c2-a4e10601eaba-1"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "pio",
+    "collectorNumber": "31",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "MOONLIT_STRIDER": {
+    "scryfallId": "04fe00af-1634-45bd-bf1b-42997c4c3359",
+    "oracleId": "8524a6a9-4d4c-4796-aad3-0f08f825a239",
+    "name": "Moonlit Strider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Moonlit Strider",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Sacrifice this creature: Target creature you control gains protection from the color of your choice until end of turn.\nSoulshift 3 (When this creature dies, you may return target Spirit card with mana value 3 or less from your graveyard to your hand.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "John Avon",
+        "imageId": "04fe00af-1634-45bd-bf1b-42997c4c3359"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Soulshift"
+    ],
+    "setCode": "mm2",
+    "collectorNumber": "27",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ALSEID_OF_LIFE_S_BOUNTY": {
+    "scryfallId": "06dbfdac-059c-411c-aeac-6d849ee54212",
+    "oracleId": "d371031e-78be-4964-b521-b1eaa22a5480",
+    "name": "Alseid of Life's Bounty",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Alseid of Life's Bounty",
+        "manaCost": "{W}",
+        "typeLine": "Enchantment Creature — Nymph",
+        "oracleText": "Lifelink\n{1}, Sacrifice this creature: Target creature or enchantment you control gains protection from the color of your choice until end of turn.",
+        "flavorText": "\"Dawn-kissed, he nourishes the golden grain.\"\n—Psemilla, Meletian poet",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Magali Villeneuve",
+        "imageId": "06dbfdac-059c-411c-aeac-6d849ee54212"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Lifelink"
+    ],
+    "setCode": "j22",
+    "collectorNumber": "143",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TOWER_OF_THE_MAGISTRATE": {
+    "scryfallId": "0743db09-bf73-4d56-8c0c-7834cb535055",
+    "oracleId": "ac08fae8-208c-4602-8d39-9bfd29b53a5e",
+    "name": "Tower of the Magistrate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tower of the Magistrate",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{1}, {T}: Target creature gains protection from artifacts until end of turn.",
+        "flavorText": "Like the city, weakest at its foundation.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Thomas Gianni",
+        "imageId": "0743db09-bf73-4d56-8c0c-7834cb535055"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "mb2",
+    "collectorNumber": "242",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOTHER_OF_RUNES": {
+    "scryfallId": "0b1a46ab-95cb-4c24-924f-fc2afd4fcac7",
+    "oracleId": "60433b48-d27f-413c-905c-43839b1943f1",
+    "name": "Mother of Runes",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mother of Runes",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "{T}: Target creature you control gains protection from the color of your choice until end of turn.",
+        "flavorText": "\"My family protects all families.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Scott M. Fischer",
+        "imageId": "0b1a46ab-95cb-4c24-924f-fc2afd4fcac7"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "ulg",
+    "collectorNumber": "14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAPPELLING_SCOUTS": {
+    "scryfallId": "113b8366-e6d0-423e-af4b-52c1e08ed446",
+    "oracleId": "c71eb9b5-2017-4e6c-8140-f9c8af65893f",
+    "name": "Rappelling Scouts",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rappelling Scouts",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Creature — Human Rebel Scout",
+        "oracleText": "Flying\n{2}{W}: This creature gains protection from the color of your choice until end of turn.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Nelson DeCastro",
+        "imageId": "113b8366-e6d0-423e-af4b-52c1e08ed446"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "mmq",
+    "collectorNumber": "41",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BENEVOLENT_BODYGUARD": {
+    "scryfallId": "1736d2b1-97aa-40b7-b01e-3d9b91abf55c",
+    "oracleId": "c8c38570-0b42-4bfc-896f-f57f9a11ba9d",
+    "name": "Benevolent Bodyguard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Benevolent Bodyguard",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Sacrifice this creature: Target creature you control gains protection from the color of your choice until end of turn.",
+        "flavorText": "\"My destiny is to save others so their destinies may be achieved.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Roger Raupp",
+        "imageId": "1736d2b1-97aa-40b7-b01e-3d9b91abf55c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "vma",
+    "collectorNumber": "17",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CARTEL_ARISTOCRAT": {
+    "scryfallId": "17906962-d89f-42ae-b019-22974490513c",
+    "oracleId": "9603e553-f72d-40bf-94ab-596afb7d6db3",
+    "name": "Cartel Aristocrat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cartel Aristocrat",
+        "manaCost": "{W}{B}",
+        "typeLine": "Creature — Human Advisor",
+        "oracleText": "Sacrifice another creature: This creature gains protection from the color of your choice until end of turn.",
+        "flavorText": "\"Your life serves a higher purpose now: ensuring the continuation of my own.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "James Ryman",
+        "imageId": "17906962-d89f-42ae-b019-22974490513c"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "2x2",
+    "collectorNumber": "191",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JARETH_LEONINE_TITAN": {
+    "scryfallId": "4351b9a4-0173-4373-9a0e-efdbf2d3bcc8",
+    "oracleId": "019aa6a6-7be8-4c3d-8f3e-4ccce2b9c3d3",
+    "name": "Jareth, Leonine Titan",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jareth, Leonine Titan",
+        "manaCost": "{3}{W}{W}{W}",
+        "typeLine": "Legendary Creature — Cat Giant",
+        "oracleText": "Whenever Jareth blocks, it gets +7/+7 until end of turn.\n{W}: Jareth gains protection from the color of your choice until end of turn.",
+        "flavorText": "Light's champion in the stronghold of darkness.",
+        "power": "4",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "4351b9a4-0173-4373-9a0e-efdbf2d3bcc8"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "ema",
+    "collectorNumber": "16",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RESILIENT_WANDERER": {
+    "scryfallId": "5e5a61de-ee4e-4097-b342-b5f2c976e16e",
+    "oracleId": "cb1e5b14-e440-4ca9-b3f4-e770e158bf69",
+    "name": "Resilient Wanderer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Resilient Wanderer",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Creature — Human Nomad",
+        "oracleText": "First strike\nDiscard a card: This creature gains protection from the color of your choice until end of turn.",
+        "flavorText": "Nomads understand many cultures and therefore travel without fear.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Clyde Caldwell",
+        "imageId": "5e5a61de-ee4e-4097-b342-b5f2c976e16e"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "First strike"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "43",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEJIRI_STEPPE": {
+    "scryfallId": "668f5732-da88-4d42-9186-70cfef81f689",
+    "oracleId": "3dfbf95e-a91b-429c-96e2-95ac777e7027",
+    "name": "Sejiri Steppe",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sejiri Steppe",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\nWhen this land enters, target creature you control gains protection from the color of your choice until end of turn.\n{T}: Add {W}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Anthony Francisco",
+        "imageId": "668f5732-da88-4d42-9186-70cfef81f689"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "wwk",
+    "collectorNumber": "142",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARMORED_GUARDIAN": {
+    "scryfallId": "6de5e1bd-1d31-4f9f-b18d-d6f49bc7ef10",
+    "oracleId": "46752289-01e8-4839-8889-49db1efd2e1a",
+    "name": "Armored Guardian",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Armored Guardian",
+        "manaCost": "{3}{W}{U}",
+        "typeLine": "Creature — Cat Soldier",
+        "oracleText": "{1}{W}{W}: Target creature you control gains protection from the color of your choice until end of turn.\n{1}{U}{U}: This creature gains shroud until end of turn. (It can't be the target of spells or abilities.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Arnie Swekel",
+        "imageId": "6de5e1bd-1d31-4f9f-b18d-d6f49bc7ef10"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "inv",
+    "collectorNumber": "230",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KAMI_OF_THE_PAINTED_ROAD": {
+    "scryfallId": "7068739c-0a6a-49a1-88c3-68d7abc58ee2",
+    "oracleId": "1335c655-35f5-4561-8e12-d79124e52ce6",
+    "name": "Kami of the Painted Road",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kami of the Painted Road",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Whenever you cast a Spirit or Arcane spell, this creature gains protection from the color of your choice until end of turn.",
+        "flavorText": "In ancient times, precepts of kami law were inscribed onto bridges as a gesture of respect. During the war, humans regarded them as warnings of where not to travel.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "7068739c-0a6a-49a1-88c3-68d7abc58ee2"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "chk",
+    "collectorNumber": "23",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THORNSCAPE_MASTER": {
+    "scryfallId": "7e8f164d-3782-4eaa-a4db-ab7082d45ee7",
+    "oracleId": "ea802eda-fc8d-45c7-b5a3-238a2cdc4dcb",
+    "name": "Thornscape Master",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thornscape Master",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{R}{R}, {T}: This creature deals 2 damage to target creature.\n{W}{W}, {T}: Target creature gains protection from the color of your choice until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Larry Elmore",
+        "imageId": "7e8f164d-3782-4eaa-a4db-ab7082d45ee7"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "inv",
+    "collectorNumber": "216",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HELL_BENT_RAIDER": {
+    "scryfallId": "7f41ac1c-2603-4234-8963-cd47bb894024",
+    "oracleId": "ee8ab29b-0749-463a-abbd-eb0b9013aec8",
+    "name": "Hell-Bent Raider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hell-Bent Raider",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Creature — Human Barbarian",
+        "oracleText": "First strike, haste\nDiscard a card at random: This creature gains protection from white until end of turn.",
+        "flavorText": "He doesn't slow until his spear is weighted with corpses.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mike Ploog",
+        "imageId": "7f41ac1c-2603-4234-8963-cd47bb894024"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "First strike",
+      "Haste"
+    ],
+    "setCode": "tor",
+    "collectorNumber": "101",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OBSIDIAN_ACOLYTE": {
+    "scryfallId": "868efcee-bb13-4b6f-b81b-99408685e4c4",
+    "oracleId": "dd1e7e89-72d7-44d7-922c-f08f0b7d5166",
+    "name": "Obsidian Acolyte",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Obsidian Acolyte",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Protection from black\n{W}: Target creature gains protection from black until end of turn.",
+        "flavorText": "The truthful will stand in the gaze of death and escape unharmed.\n—Obsidian acolyte creed",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Matthew D. Wilson",
+        "imageId": "868efcee-bb13-4b6f-b81b-99408685e4c4"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Protection"
+    ],
+    "setCode": "inv",
+    "collectorNumber": "22",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STORMSCAPE_MASTER": {
+    "scryfallId": "9b704165-4587-48f1-8830-c5a07ec666cc",
+    "oracleId": "bfcd6c5d-7189-4d84-b0df-0a5ce5f43528",
+    "name": "Stormscape Master",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stormscape Master",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{W}{W}, {T}: Target creature gains protection from the color of your choice until end of turn.\n{B}{B}, {T}: Target player loses 2 life and you gain 2 life.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Hannibal King",
+        "imageId": "9b704165-4587-48f1-8830-c5a07ec666cc"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "inv",
+    "collectorNumber": "76",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AVEN_LIBERATOR": {
+    "scryfallId": "b2804006-2a60-400c-be0b-8aa042469372",
+    "oracleId": "0f3fff7a-cc46-4c72-9edc-fdbddd3b51b5",
+    "name": "Aven Liberator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aven Liberator",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Creature — Bird Soldier",
+        "oracleText": "Flying\nMorph {3}{W} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)\nWhen this creature is turned face up, target creature you control gains protection from the color of your choice until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Brian Snõddy",
+        "imageId": "b2804006-2a60-400c-be0b-8aa042469372"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Morph"
+    ],
+    "setCode": "scg",
+    "collectorNumber": "4",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KNIGHT_OF_DAWN": {
+    "scryfallId": "bf0e5034-a134-4eb6-af8e-b2419b92b3a6",
+    "oracleId": "51262155-f1be-45a8-a21f-94e920a93e55",
+    "name": "Knight of Dawn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Knight of Dawn",
+        "manaCost": "{1}{W}{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "First strike\n{W}{W}: This creature gains protection from the color of your choice until end of turn.",
+        "flavorText": "Flash like daybreak to the fray.\n—Motto of the Knights of Dawn",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "bf0e5034-a134-4eb6-af8e-b2419b92b3a6"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "First strike"
+    ],
+    "setCode": "tmp",
+    "collectorNumber": "26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRIMSON_ACOLYTE": {
+    "scryfallId": "c1718028-3009-4bdd-9f6f-59c17edd1344",
+    "oracleId": "969626f0-19d9-47ae-8766-4d59269e389c",
+    "name": "Crimson Acolyte",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crimson Acolyte",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Protection from red\n{W}: Target creature gains protection from red until end of turn.",
+        "flavorText": "The faithful will walk through streams of fire and emerge unscathed.\n—Crimson acolyte creed",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Dany Orizio",
+        "imageId": "c1718028-3009-4bdd-9f6f-59c17edd1344"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Protection"
+    ],
+    "setCode": "inv",
+    "collectorNumber": "11",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KEEPER_OF_KOOKUS": {
+    "scryfallId": "d11b6df4-449f-44ea-a4fa-f079bcd26a54",
+    "oracleId": "97417270-e525-4261-b7d9-0dde3360e666",
+    "name": "Keeper of Kookus",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Keeper of Kookus",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Goblin",
+        "oracleText": "{R}: This creature gains protection from red until end of turn.",
+        "flavorText": "Wanted: Thick-skinned goblin for guarding mean ol' Kookus. Must like fires. Must heal quickly.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Scott Hampton",
+        "imageId": "d11b6df4-449f-44ea-a4fa-f079bcd26a54"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "vis",
+    "collectorNumber": "85",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MIDVAST_PROTECTOR": {
+    "scryfallId": "d4f6214f-90cb-4575-b221-3c8d0ed65ffe",
+    "oracleId": "33a5ad42-cd81-4724-9f68-7f32a1c8a047",
+    "name": "Midvast Protector",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Midvast Protector",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "When this creature enters, target creature you control gains protection from the color of your choice until end of turn.",
+        "flavorText": "\"I cultivated my faith in Avacyn despite meager returns. Now my faith is repaid.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "James Ryman",
+        "imageId": "d4f6214f-90cb-4575-b221-3c8d0ed65ffe"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "avr",
+    "collectorNumber": "28",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SYGG_RIVER_GUIDE": {
+    "scryfallId": "fb1aefaf-1b96-4c08-a73e-98e401655965",
+    "oracleId": "73f6da1e-b8ce-4b5a-9da0-84ca67adaf1c",
+    "name": "Sygg, River Guide",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sygg, River Guide",
+        "manaCost": "{W}{U}",
+        "typeLine": "Legendary Creature — Merfolk Wizard",
+        "oracleText": "Islandwalk (This creature can't be blocked as long as defending player controls an Island.)\n{1}{W}: Target Merfolk you control gains protection from the color of your choice until end of turn.",
+        "flavorText": "\"If there's a place worth going, the Merrow Lanes already do. And if there's a route worth taking, yours truly already has.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Larry MacDougall",
+        "imageId": "fb1aefaf-1b96-4c08-a73e-98e401655965"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Landwalk",
+      "Islandwalk"
+    ],
+    "setCode": "lrw",
+    "collectorNumber": "251",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

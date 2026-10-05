@@ -19,7 +19,8 @@ import type { EngineDeps } from './loop';
 import type { CardMove, EventBody, MoveReason, ResolvedDamage } from './types/events';
 import { reflexiveMarker } from './reflexiveMarker';
 import type { InstanceId, PlayerId } from './types/ids';
-import { CHOSEN_TYPE, SELF_AIMED, type BoardScope, type CopyExceptions, type CounterKind, type DelayWhen, type EffectSpec, type LookFilter, type SearchQualifier } from './types/oracle';
+import { CHOSEN_COLOR, CHOSEN_TYPE, SELF_AIMED, type BoardScope, type CopyExceptions, type CounterKind, type DelayWhen, type EffectSpec, type LookFilter, type Protection, type SearchQualifier } from './types/oracle';
+import type { ColorLetter } from '../data/cardTypes';
 import { predicateAdmits } from '../data/replacementParse';
 import { reboundCastSpec, suspendTickSpec } from '../data/effectParse';
 import { RING_EMBLEM } from '../data/tokenParse';
@@ -777,6 +778,8 @@ export function effectResult(
           ...(effect.keywords.length > 0 ? { keywords: effect.keywords } : {}),
           // D399 - the printed unblockable rider, on the same entry, spread-conditional too.
           ...(effect.cantBeBlocked ? { cantBeBlocked: true as const } : {}),
+          // D633 - the protection gained, on the same entry, spread-conditional too.
+          ...protectionRider(effect),
         });
         break;
       }
@@ -800,6 +803,8 @@ export function effectResult(
             power: effect.power,
             toughness: effect.toughness,
             ...(effect.keywords.length > 0 ? { keywords: effect.keywords } : {}),
+            // D633 - the protection gained, each member's entry.
+            ...protectionRider(effect),
           });
         }
         break;
@@ -2026,6 +2031,15 @@ export function effectResult(
         out.push({ t: 'AwaitingSet', awaiting: { kind: 'chooseCreatureType', player: controller, source: asker, label: obj.label, resolving: true } });
         break;
       }
+      // D633 - THE CHOSEN COLOUR AT RESOLUTION (`Choose a color.`): D147's prompt, for the controller, marked as asked while the
+      // object resolves; the clauses after it ride it and the answer substitutes the colour (`withChosenColor`).
+      case 'nameColor': {
+        if (out.some((e) => e.t === 'AwaitingSet')) break;
+        const asker = obj.card ?? obj.source;
+        if (asker === null) break;
+        out.push({ t: 'AwaitingSet', awaiting: { kind: 'chooseColor', player: controller, source: asker, label: obj.label, resolving: true } });
+        break;
+      }
       // D527 - `Return ~ to its owner's hand`: the source wherever it is - a permanent, or the spell's own card in the
       // graveyard once a clash's answers resumed its clauses (the spell resolved; CR 608.2m put it there, the rider brings
       // it back). A source still on the stack is the loop's own fate (`spellFateOf`), left alone here.
@@ -3021,6 +3035,32 @@ function continuationOf(obj: StackObject, at: number, rest: readonly EffectSpec[
   };
 }
 
+/**
+ * D633 - the protection a pump's spec names, as the entry carries it: the colours (a `CHOSEN_COLOR` the answer never filled
+ * names nothing) and the card types. Nothing named, no rider.
+ */
+function protectionRider(effect: EffectSpec): { protection?: Protection } {
+  const p = effect.protectionFrom;
+  if (p === undefined) return {};
+  const colors = p.colors.filter((c): c is ColorLetter => c === 'W' || c === 'U' || c === 'B' || c === 'R' || c === 'G');
+  const types = p.types ?? [];
+  if (colors.length === 0 && types.length === 0) return {};
+  return { protection: { colors, fromEverything: false, other: [], ...(types.length > 0 ? { types } : {}) } };
+}
+
+/** D633 - the chosen colour substituted for its sentinel in a frame's own clauses (`Choose a color.`'s answer). */
+export function withChosenColor(c: EffectContinuation, color: string): EffectContinuation {
+  const sub = (v: unknown): unknown =>
+    v === CHOSEN_COLOR
+      ? color
+      : Array.isArray(v)
+        ? v.map(sub)
+        : v !== null && typeof v === 'object'
+          ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, sub(x)]))
+          : v;
+  return { ...c, effects: sub(c.effects) as readonly EffectSpec[] };
+}
+
 /** The frame beyond `inner`'s last: a question raised inside a resumed frame keeps the frames the prompt already carried. */
 function chained(inner: EffectContinuation, outer: EffectContinuation): EffectContinuation {
   return { ...inner, outer: inner.outer === undefined ? outer : chained(inner.outer, outer) };
@@ -3061,6 +3101,8 @@ function withContinuation(awaiting: Awaiting, continuation: EffectContinuation):
     case 'choosePlayer':
     // D632 - and the creature type a resolving spell names (an entering permanent's own prompt is never the executor's).
     case 'chooseCreatureType':
+    // D633 - and the colour a resolving object names.
+    case 'chooseColor':
       if (awaiting.continuation === continuation) return awaiting;
       return { ...awaiting, continuation: awaiting.continuation === undefined ? continuation : chained(awaiting.continuation, continuation) };
     // D487 - a copy's new-targets question carries the clauses after the copying one; a cast's own prompt never does.

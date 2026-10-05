@@ -40,7 +40,7 @@ import type {
   SearchQualifier,
   SearchSpec,
 } from '../engine/types/oracle';
-import { CHOSEN_TYPE, COUNTER_KINDS } from '../engine/types/oracle';
+import { CHOSEN_COLOR, CHOSEN_TYPE, COUNTER_KINDS } from '../engine/types/oracle';
 import type { CopyExceptions } from '../engine/types/oracle';
 import type { ColorLetter } from './cardTypes';
 
@@ -401,6 +401,23 @@ function readShieldRecipient(raw: string): 'target' | 'creatures' | 'creaturesYo
 // D632 - and the chosen type's scopes (`Choose a creature type.` before the clause): `creatures that aren't of the chosen type`,
 // `all creatures of that type`, `creatures you control of the chosen type` - the sentinel subtype the answer substitutes.
 const SCOPE = `((?:all )?creatures that aren(?:'|’)t of the chosen type|all creatures of (?:that|the chosen) type|creatures you control of the chosen type|each creature(?: (?:with|without) (?:${KW})| your opponents control| you don't control| an opponent controls)?|each opponent|each player|you|all creatures|all artifacts|all enchantments|all lands|all planeswalkers|creatures your opponents control|creatures you don't control|creatures you control|creature tokens|attacking creatures)`;
+// D633 - the protection a grant names: one or more colours (`and from`), `artifacts`, `the chosen color` (`CHOSEN_COLOR`).
+const PROT_FROM = '(?:white|blue|black|red|green|artifacts|the chosen colou?r)(?: and from (?:white|blue|black|red|green|artifacts))*';
+const PROT_COLOR: Readonly<Record<string, string>> = { white: 'W', blue: 'U', black: 'B', red: 'R', green: 'G' };
+function protectionFrom(raw: string | undefined): { colors: string[]; types?: string[] } | null {
+  if (raw === undefined) return null;
+  const colors: string[] = [];
+  const types: string[] = [];
+  for (const w of raw.toLowerCase().split(' and from ')) {
+    const word = w.trim();
+    if (/^the chosen colou?r$/.test(word)) colors.push(CHOSEN_COLOR);
+    else if (word === 'artifacts') types.push('Artifact');
+    else if (PROT_COLOR[word] !== undefined) colors.push(PROT_COLOR[word] as string);
+    else return null;
+  }
+  return { colors, ...(types.length > 0 ? { types } : {}) };
+}
+
 function readScope(raw: string | undefined): BoardScope | null {
   if (raw === undefined) return null;
   const s = raw.toLowerCase();
@@ -1806,6 +1823,45 @@ const RULES: readonly Rule[] = [
     build: () => ({ ...BASE, targetIndex: -1, self: true }),
   },
   /**
+   * D633 - THE CHOSEN COLOUR AT RESOLUTION: `Choose a color.` - an ask (D147's colour prompt, marked `resolving`); the clauses
+   * after it read `the chosen color` as `CHOSEN_COLOR`, which the answer substitutes (`chosenBeforeRead` keeps the order).
+   */
+  {
+    kind: 'nameColor',
+    re: /^choose a colou?r[.]$/i,
+    build: () => ({ ...BASE, targetIndex: -1, self: true }),
+  },
+  /**
+   * D633 - THE PROTECTION GRANT UNTIL END OF TURN: a target's, the source's, a scope's - `protection from <colour>[ and from
+   * <colour>]`, `artifacts`, `the chosen color` (the sentinel) - riding the pump's until-end-of-turn entry (`protectionFrom`).
+   */
+  {
+    kind: 'pump',
+    re: new RegExp(`^${TARGET} (?:gains|(?:each )?gain) protection from (${PROT_FROM}) until end of turn[.]$`, 'i'),
+    build: (m) => {
+      const p = protectionFrom(m[1]);
+      return p === null ? null : { ...BASE, protectionFrom: p };
+    },
+  },
+  {
+    kind: 'pump',
+    re: new RegExp(`^${SELF} gains protection from (${PROT_FROM}) until end of turn[.]$`, 'i'),
+    build: (m) => {
+      const p = protectionFrom(m[1]);
+      return p === null ? null : { ...BASE, protectionFrom: p, targetIndex: -1, self: true };
+    },
+  },
+  {
+    kind: 'massPump',
+    re: new RegExp(`^${SCOPE} gain protection from (${PROT_FROM}) until end of turn[.]$`, 'i'),
+    build: (m) => {
+      const s = readScope(m[1]);
+      const p = protectionFrom(m[2]);
+      if (s === null || s.kind !== 'creature' || p === null) return null;
+      return { ...BASE, protectionFrom: p, targetIndex: -1, self: true, scopes: [s] };
+    },
+  },
+  /**
    * D622 - THE MILL GRAMMAR: `Mill N cards.` and a TAKE over the milled cards in the window's next sentence - `(then)
    * (you may) put a <noun> card from among them / the cards milled this way / the milled cards / those cards` or `<noun>
    * card milled this way`, `up to one` optional too, `into your hand` or `onto the battlefield (tapped)`. The look's noun
@@ -3025,7 +3081,7 @@ const OBJ_VERB_LEAD = new RegExp(`^(?:then )?(?<verb>untap|tap|regenerate|suspec
 const OBJ_VERB_SUBJ = new RegExp(`^(?:then )?${OBJ_REF} (?<rest>can't be blocked this turn|can't block this turn|(?:doesn't|don't) untap during (?:its|their) controller(?:'|’)s next untap step|don't untap during their controllers(?:'|’) next untap steps|phases? out)\\.$`, 'i');
 // The clauses whose objects are NOT on the battlefield in the state the object verbs read (they arrive as the clause runs).
 const OBJ_LATE: ReadonlySet<EffectKind> = new Set(['createToken', 'populate', 'reanimate', 'returnFromGraveyard', 'returnObj']);
-const OBJ_ASKS: ReadonlySet<EffectKind> = new Set(['chooseType', 'search', 'lookAtTop', 'millPick', 'payOptional', 'sacrifice', 'discard', 'returnChoose', 'explore', 'connive', 'revealHandChoose', 'proliferate', 'scry', 'surveil', 'copySpell', 'putFromHand', 'untapChoose', 'bolster', 'amass', 'ringTempt']);
+const OBJ_ASKS: ReadonlySet<EffectKind> = new Set(['chooseType', 'nameColor', 'search', 'lookAtTop', 'millPick', 'payOptional', 'sacrifice', 'discard', 'returnChoose', 'explore', 'connive', 'revealHandChoose', 'proliferate', 'scry', 'surveil', 'copySpell', 'putFromHand', 'untapChoose', 'bolster', 'amass', 'ringTempt']);
 function objectsRewrite(sentence: string, previous: Clause | undefined): EffectSpec | null {
   const prev = previous?.spec;
   if (!prev) return null;
@@ -3383,7 +3439,7 @@ function matchReflexive(price: string, payload: string, cardName: string, afterA
 // `you do` is the answer - a second seam). A pronoun action (`it`, `them`) after another sentence of its line may be that
 // sentence's object, never the source: refused. The executor pushes D584's marker after the action's last step, when the
 // action was performed.
-const MANDATORY_ASKING: ReadonlySet<string> = new Set(['sacrifice', 'discard', 'surveil', 'scry', 'lookAtTop', 'millPick', 'search', 'amass', 'explore', 'connive', 'proliferate', 'populate', 'returnChoose', 'putFromHand', 'revealHandChoose', 'untapChoose', 'bolster', 'ringTempt', 'discover', 'clash', 'manifestDread', 'copySpell', 'endure', 'payOptional', 'chooseType']);
+const MANDATORY_ASKING: ReadonlySet<string> = new Set(['sacrifice', 'discard', 'surveil', 'scry', 'lookAtTop', 'millPick', 'search', 'amass', 'explore', 'connive', 'proliferate', 'populate', 'returnChoose', 'putFromHand', 'revealHandChoose', 'untapChoose', 'bolster', 'ringTempt', 'discover', 'clash', 'manifestDread', 'copySpell', 'endure', 'payOptional', 'chooseType', 'nameColor']);
 function mandatoryAction(price: string, payload: string, cardName: string, afterAnother: boolean): EffectSpec | null {
   if (/^(?:then )?(?:if [^,]+, )?you may /i.test(price)) return null;
   if (afterAnother && /\b(?:it|them)\b/i.test(price)) return null;
@@ -3453,7 +3509,7 @@ function readVerbPrice(raw: string): VerbPrice | null {
   if (!read || read.lifeCost > 0) return null;
   return { costText: price, sacrificeSelf: false, sacrificeCost: read.sacrificeCost, discardCost: read.discardCost, tapCost: read.tapCost, exileFromGraveyardCost: read.exileFromGraveyardCost, returnCost: read.returnCost };
 }
-const PAY_BODY_REFUSED: ReadonlySet<EffectKind> = new Set(['chooseType', 'discard', 'lookAtTop', 'millPick', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand', 'untapChoose', 'wheelShuffle', 'bolster', 'amass', 'ringTempt']);
+const PAY_BODY_REFUSED: ReadonlySet<EffectKind> = new Set(['chooseType', 'nameColor', 'discard', 'lookAtTop', 'millPick', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand', 'untapChoose', 'wheelShuffle', 'bolster', 'amass', 'ringTempt']);
 
 function readPrice(raw: string): { cost: PaySpec['cost']; life: number; energy: number } | null {
   const life = raw.match(/(\d+) life$/i);
@@ -3725,7 +3781,7 @@ function matchPayment(sentence: string): EffectSpec | null {
 // left the zone the verb needs does nothing (D494's rule). Asks, payments and referents stay refused.
 const DELAY_TAIL = /^(.+?) at (?:the beginning of )?(the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step|end of combat)\.$/i;
 const DELAY_HEAD = /^At (?:the beginning of )?(the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step|end of combat), (.+)$/i;
-const DELAY_ASKS: ReadonlySet<EffectKind> = new Set(['chooseType', 'discard', 'lookAtTop', 'millPick', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand', 'untapChoose', 'wheelShuffle', 'bolster', 'amass', 'ringTempt']);
+const DELAY_ASKS: ReadonlySet<EffectKind> = new Set(['chooseType', 'nameColor', 'discard', 'lookAtTop', 'millPick', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand', 'untapChoose', 'wheelShuffle', 'bolster', 'amass', 'ringTempt']);
 function delayWhen(phrase: string): DelayWhen {
   const p = phrase.toLowerCase();
   if (p === 'end of combat') return { step: 'endCombat', whose: 'next' };
@@ -4275,6 +4331,10 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
     .filter((l) => !/^Madness (?:\{[^}]+\})+$/.test(l.trim()))
     // D539 - LEARN (CR 701.48a) with no cards outside the game: the rummage or nothing, D415's optional verb price.
     .map((l) => (/^learn\.$/i.test(l.trim()) ? 'You may discard a card. If you do, draw a card.' : l))
+    // D633 - `<subject> gains protection from the color of your choice until end of turn.`: the colour is chosen as the clause
+    // resolves - read as `Choose a color.` before the text and the protection from the chosen colour (one resolution; nothing
+    // is revealed between the two).
+    .map((l) => (/protection from the colou?r of your choice until end of turn/i.test(l) ? 'Choose a color. ' + l.replace(/protection from the colou?r of your choice until end of turn/i, 'protection from the chosen color until end of turn') : l))
     // D422 - `This spell can't be countered.` is the face's own (`OracleFace.cantBeCountered`), no clause of the spell either.
     .filter((l) => !/^(?:This spell|~) can't be countered\.$/.test(l.trim()))
     // D413 - a Devoid line is a keyword the engine honours (D310), no clause of the spell either.
@@ -4331,12 +4391,17 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
   return { effects, mode: 'auto' };
 }
 
-/** D632 - every clause naming `CHOSEN_TYPE` stands after a `chooseType` clause of the same list. */
+/** D632 - every clause naming `CHOSEN_TYPE` stands after a `chooseType` clause of the same list; D633 - `CHOSEN_COLOR` after a `nameColor`. */
 function chosenBeforeRead(effects: readonly EffectSpec[]): boolean {
-  let chosen = false;
+  let type = false;
+  let color = false;
   for (const e of effects) {
-    if (e.kind === 'chooseType') chosen = true;
-    else if (!chosen && JSON.stringify(e).includes(CHOSEN_TYPE)) return false;
+    if (e.kind === 'chooseType') type = true;
+    else if (e.kind === 'nameColor') color = true;
+    else {
+      const j = JSON.stringify(e);
+      if ((!type && j.includes(CHOSEN_TYPE)) || (!color && j.includes(CHOSEN_COLOR))) return false;
+    }
   }
   return true;
 }

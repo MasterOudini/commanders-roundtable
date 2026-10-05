@@ -31,6 +31,7 @@ import type { ManaCost, ManaPool, PaymentProblem, RestrictedMana } from './mana'
 import type { NarrationPart } from './narration';
 import type {
   Keyword,
+  Protection,
   ModeDecl,
   LookFilter,
   SearchQualifier,
@@ -1288,6 +1289,12 @@ export type Awaiting =
       readonly label: string;
       /** D632 - the colour this prompt refuses (`choose a color other than white` - the Thriving lands, the Gates). */
       readonly except?: ColorLetter;
+      /**
+       * D633 - asked as an object RESOLVES (`Choose a color.`, `the color of your choice`): nothing remembers the answer - the
+       * clauses after the choosing one take it (`withChosenColor`) and resume (`continuation`).
+       */
+      readonly resolving?: true;
+      readonly continuation?: EffectContinuation;
     }
   /**
    * D527 - a PLAYER chosen at resolution (`Clash with an opponent` with more than one): the candidates ride the prompt
@@ -1940,6 +1947,8 @@ export interface GameState {
      * `derive.ts`, cleared by the same `UntilEndOfTurnEnded` as the P/T.
      */
     readonly keywords?: readonly Keyword[];
+    /** D633 - protection gained until end of turn, merged at layer 6 beside the keywords (`derive.ts`). */
+    readonly protection?: Protection;
     /** D311 - card types gained until end of turn (a crewed Vehicle). Read at layer 4. */
     readonly types?: readonly string[];
     /**

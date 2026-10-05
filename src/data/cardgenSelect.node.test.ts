@@ -718,6 +718,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D633 - the protection grant reads; what stays is a card the row maker refuses for another reason.
+  ['Radiant, Serra Archangel', 'the row maker: cost: Tap another untapped creature you control with flying - its protection grant reads since D633 (D633)'],
   // D632 - the chosen type reads; what stays is a card the row maker refuses for another reason.
   ['Pol Jamaar, Illusionist', 'the row maker: a vocabulary effect the suite cannot assert: chooseType - its chosen type reads since D632 (D632)'],
   // D630 - kinship reads; what stays is a card the row maker refuses for another reason.
@@ -1689,7 +1691,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Gilt-Leaf Ambush', 'the row maker: a spell with a line outside the vocabulary: Create two 1/1 green Elf Warrior creature tokens. Clash with (D527)'],
   ['Pollen Lullaby', 'the row maker: a spell with a line outside the vocabulary: Prevent all combat damage that would be dealt this turn. Cla (D527)'],
   ['Captivating Glance', 'the `Otherwise` half of the verdict (`At the beginning of your end step, clash with an o`): a gate on the negation the parser does not read (D527)'],
-  ['Redeem the Lost', 'the row maker: a spell with a line outside the vocabulary: Target creature you control gains protection from the color (D527)'],
   ['Pulling Teeth', 'the `Otherwise` half of the verdict (`Clash with an opponent. If you win, target player `): a gate on the negation the parser does not read (D527)'],
   ['Broken Ambitions', 'the row maker: a spell with a line outside the vocabulary: Counter target spell unless its controller pays {X}. Clash w (D527)'],
   ['Lash Out', 'the row maker: a spell with a line outside the vocabulary: Lash Out deals 3 damage to target creature. Clash with an op (D527)'],

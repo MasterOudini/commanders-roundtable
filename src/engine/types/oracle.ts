@@ -710,6 +710,8 @@ export type CountExpr =
  * `Choose a creature type.`; the answer replaces it with the type named (`withChosenType`). No printed subtype has a space.
  */
 export const CHOSEN_TYPE = '(the chosen type)';
+/** D633 - the chosen colour's sentinel (`protection from the chosen color`), substituted by the answer to `Choose a color.`. */
+export const CHOSEN_COLOR = '(the chosen color)';
 
 export interface BoardScope {
   readonly kind: 'creature' | 'permanent' | 'player';
@@ -960,6 +962,11 @@ export type EffectKind =
    * the answer substitutes before they resume (`withChosenType`).
    */
   | 'chooseType'
+  /**
+   * D633 - `Choose a color.` (and `the color of your choice`, read as it): an ask - D147's colour prompt raised as the object
+   * resolves, the clauses after it riding it; they read `the chosen color` as `CHOSEN_COLOR`, which the answer substitutes.
+   */
+  | 'nameColor'
   /** D531 - `Exchange control of target A and target B.` (CR 701.10): each to the other's controller. */
   | 'exchangeControl'
   /** D532 - `Target opponent gains control of ~.` (CR 108.4): the player target takes the source, or the clause's other target, for good. */
@@ -1499,6 +1506,12 @@ export interface EffectSpec {
    * may appear here, so an unenforced keyword can never be granted.
    */
   readonly keywords: readonly Keyword[];
+  /**
+   * D633 - `pump` / `massPump` only: PROTECTION gained until end of turn - the colours (`CHOSEN_COLOR` for `the chosen color`,
+   * substituted by the answer to the `nameColor` clause before it) and the card types (`artifacts`). Optional: every earlier
+   * spec reads as it did.
+   */
+  readonly protectionFrom?: { readonly colors: readonly string[]; readonly types?: readonly string[] };
   /**
    * `putCounters` / `removeCounters` only: WHICH counter, from the closed list.
    *

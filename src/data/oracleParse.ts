@@ -455,6 +455,9 @@ export function parseProtection(oracleText: string, warn: Warn = NOOP_WARN): Pro
 
   for (const m of text.matchAll(/protection from ([^.;\n(]+)/gi)) {
     const clause = (m[1] ?? '').trim();
+    // D633 - a protection that ends at end of turn is a GRANT (`... gains protection from the color of your choice until end of
+    // turn`) - the pump's until-end-of-turn entry carries it - never this face's own printed keyword.
+    if (/ until end of turn$/i.test(' ' + clause)) continue;
     for (const part of clause.split(/\s*(?:,|\band from\b|\band\b)\s*/i)) {
       // D356 - `X, from Y, and from Z` hands the next part over with its own preposition still
       // attached; strip it, because no protection quality is named `from ...`.
