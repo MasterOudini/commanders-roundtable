@@ -339,7 +339,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // three quoted grants, four heads outside the library, two filtered heads, a Clue sacrifice head, a cycling trigger on
   // a spell, two loyalty faces) - each by the wide run's reason.
   ['Argoth, Sanctum of Nature', 'multi-face or unusual layout (a meld card)'],
-  ['Drowner Initiate', 'a payment branch the suite cannot assert: mill (a graveyard count under a payment)'],
   ['Scrabbling Skullcrab', 'trigger head not in the library: Eerie - Whenever an enchantment you control enters and whenever you fully unlock a Room, target player mills two cards.'],
   ['Enigma Eidolon', 'trigger payload not a pump: Return this card from your graveyard to your hand.'],
   ['Fleeting Memories', 'a sacrifice head no fixture the suite can sacrifice satisfies: a Clue'],
@@ -723,6 +722,26 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D628 - the payment body reads as a text; what stays is a card the row maker refuses for another reason.
+  ['Marchesa, Dealer of Death', 'the row maker: trigger head not in the library: Whenever you commit a crime, you may pay {1}. If you do, look at the t - its payment body reads since D628 (D628)'],
+  ['Kalastria Highborn', 'the row maker: two payment prompts on one row (the payer lands are shared) - its payment body reads since D628 (D628)'],
+  ['Wedding Security', 'the row maker: a verb price the suite has no fixture for: sacrifice a Blood token - its payment body reads since D628 (D628)'],
+  ['Circle of Affliction', 'the row maker: trigger head not in the library: Whenever a source of the chosen color deals damage to you, you may pay - its payment body reads since D628 (D628)'],
+  ['Cacophony Scamp', 'the row maker: a payment branch the suite cannot assert: proliferate - its payment body reads since D628 (D628)'],
+  ['Drainpipe Vermin', 'the row maker: a payment branch discard the suite cannot stage (another players, or more than two; not this wave): Target pl - its payment body reads since D628 (D628)'],
+  ['Bristlebud Farmer', 'the row maker: a payment branch the suite cannot assert: millPick - its payment body reads since D628 (D628)'],
+  ['Bearer of Silence', 'the row maker: a payment branch the suite cannot assert: sacrifice - its payment body reads since D628 (D628)'],
+  ['Krenko, Baron of Tin Street', 'the row maker: a payment branch the suite cannot assert: grantObj - its payment body reads since D628 (D628)'],
+  ['Quiet Contemplation', 'the row maker: a payment branch the suite cannot assert: freeze - its payment body reads since D628 (D628)'],
+  ['Sludge Strider', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: you): Whenever another artifact you  - its payment body reads since D628 (D628)'],
+  ['Gert and Old Lace, Runaways', 'the row maker: trigger head not in the library: When ~ enter, you may discard a card. If you do, search your library f - its payment body reads since D628 (D628)'],
+  ['Haunted Cadaver', 'the row maker: a payment branch discard the suite cannot stage (another players, or more than two; not this wave): Target pl - its payment body reads since D628 (D628)'],
+  ['Blood Speaker', 'the row maker: trigger payload not a pump: Return this card from your graveyard to your hand. - its payment body reads since D628 (D628)'],
+  ['Flameshadow Conjuring', 'the row maker: a payment branch the suite cannot assert: grantObj - its payment body reads since D628 (D628)'],
+  ['Invasion of Ergamon // Truga Cliffcharger', 'the row maker: the face 0 a filtered head outside the closed reader (an adjective outside the list: this): When this Siege en - its payment body reads since D628 (D628)'],
+  ['Tainted Observer', 'the row maker: a payment branch the suite cannot assert: proliferate - its payment body reads since D628 (D628)'],
+  ['Akoum Stonewaker', 'the row maker: a payment branch the suite cannot assert: exileObj - its payment body reads since D628 (D628)'],
+  ['Venomous Brutalizer', 'the row maker: a payment branch the suite cannot assert: proliferate - its payment body reads since D628 (D628)'],
   // D627 - the counted mana amount reads; what stays is a card the row maker refuses for another reason.
   ['City of Shadows', 'the row maker: cost: Exile a creature you control - its mana line reads since D627 (D627)'],
   // D625 - the prepared spell reads; what stays is a card the row maker refuses for another reason.
@@ -1533,7 +1552,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Sigurd, Jarl of Ravensthorpe', 'a lore-counter verb (`Boast — {1}: Put a lore counter on target Saga you`) - the count moves, the chapters follow; the verb is outside the vocabulary (D528)'],
   ['Birth of the Imperium', 'the row maker: a token outside TOKEN_TABLE: Astartes Warrior|2/2|W|Creature|vigilance for each opponent you have (D528)'],
   ['The Antiquities War', 'the row maker: trigger payload not a pump: Artifacts you control become artifact creatures with base po (D528)'],
-  ["The Huntsman's Redemption", 'the row maker: trigger payload not a pump: You may sacrifice a creature. If you do, search your library (D528)'],
   ['Long List of the Ents', 'the row maker: a line that is neither an activated ability nor a library trigger: I, II, III, IV, V, VI — Note a creature type that hasn\'t been noted (D528)'],
   ['The Creation of Avacyn', 'the row maker: trigger payload not a pump: Search your library for a card, exile it face down, then shu (D528)'],
   ['Day of the Moon', 'the row maker: trigger payload not a pump: Choose a creature card name, then goad all creatures with a (D528)'],

@@ -63,7 +63,7 @@ import { suggestPayment, solveInputFor, validatePlan } from './payment';
 import { OTHER_PURPOSE, abilityPurpose, bucketsFitting, fitPool, restrictedOfSpend, spellPurpose, type SpendPurpose } from './spend';
 import type { RestrictedMana } from './types/mana';
 import { manualIntent } from './manual';
-import { flipCoin, rollDie, shuffle } from './rng';
+import { flipCoin, rollDie, shuffle, type RngState } from './rng';
 import { n, narrated, tableName, their, vb, who } from './narrate';
 import { askBatch, askCandidates, drawEvents, effectResult, mergeExceptions, resumeContinuation, suspendTick } from './effects';
 import { proliferateCandidates } from './proliferate';
@@ -4232,11 +4232,15 @@ function answerPayMana(
     if (marker !== null) events.push(marker);
   }
   const branch = intent.pay ? awaiting.ifPaid : awaiting.ifNotPaid;
+  // D628 - the branch's RNG (a shuffle inside a text branch) is threaded on to the clauses after it, never dropped.
+  let rng: RngState | undefined;
   if (branch.length > 0) {
     let scratch = state;
     for (const body of events) scratch = apply(scratch, { seq: scratch.eventCount, body, cause: { kind: 'system' } } as never);
     const obj: StackObject = {
-      id: 'pay',
+      // D628 - a text branch may arm a delayed trigger (`Exile that token at the beginning of the next end step.`) whose id
+      // derives from this one: unique per answer, so two payments' delayed triggers never share one.
+      id: `pay-${state.eventCount}`,
       kind: awaiting.card ? 'spell' : 'triggered',
       controller: awaiting.controller,
       card: awaiting.card,
@@ -4253,10 +4257,12 @@ function answerPayMana(
       castFrom: null,
       faceIndex: 0,
     };
-    events.push(...effectResult(scratch, deps, obj, branch).events);
+    const result = effectResult(scratch, deps, obj, branch);
+    events.push(...result.events);
+    rng = result.rng;
   }
   // D484 - the clauses after the payment, once the branch has landed (a branch that asked carries them on its question).
-  return accept(events, resumeContinuation(state, deps, events, awaiting.continuation));
+  return accept(events, resumeContinuation(state, deps, events, awaiting.continuation, rng));
 }
 
 /**

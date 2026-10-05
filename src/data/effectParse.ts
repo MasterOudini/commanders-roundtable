@@ -2900,6 +2900,10 @@ interface Clause {
    * null when the clause names nothing a later sentence could point back at.
    */
   readonly phrase: string | null;
+  /** D628 - the index of the first sentence it was read from (`clausesOf`'s `raw`). */
+  readonly at?: number;
+  /** D628 - read AGAINST the clause before it (a referent, its objects, its player, a kicked `instead`, a gate). */
+  readonly bound?: true;
 }
 
 /**
@@ -3224,7 +3228,7 @@ function clausesOf(text: string, cardName: string): Clause[] {
   for (let i = 0; i < raw.length; ) {
     const unit = units.get(i);
     if (unit !== undefined) {
-      out.push({ text: raw[i] ?? '', spec: unit, phrase: null });
+      out.push({ text: raw[i] ?? '', spec: unit, phrase: null, at: i });
       i += 1;
       continue;
     }
@@ -3268,12 +3272,12 @@ function clausesOf(text: string, cardName: string): Clause[] {
     // D426 - a sentence no rule reads whole may be TWO clauses joined by `and` (or `, then`).
     const joined2 = spec === null ? conjunctionSplit(raw[i] ?? '', previous) : null;
     if (joined2) {
-      out.push(...joined2);
+      out.push(...joined2.map((c) => ({ ...c, at: i })));
       i += 1;
       continue;
     }
     const clauseText = raw.slice(i, i + span).join(' ');
-    out.push({ text: clauseText, spec, phrase: referred || insteadK ? (previous?.phrase ?? null) : phraseOf(clauseText) });
+    out.push({ text: clauseText, spec, phrase: referred || insteadK ? (previous?.phrase ?? null) : phraseOf(clauseText), at: i, ...(referred || insteadK || gated ? { bound: true as const } : {}) });
     i += span;
   }
   return out;
@@ -3602,6 +3606,37 @@ function payBody(sentence: string): EffectSpec | null {
   return inner;
 }
 
+/**
+ * D628 - THE PAYMENT'S BODY IS A TEXT. D369 read `If you do, <body>` as ONE rule and refused a body that asks; a body the
+ * rules read only as a TEXT is now the paid branch, clause by clause (`clausesOf`, `placeClauses` - D584's reflexive
+ * payload's reading): two clauses of one sentence (`draw a card, then discard a card`, `target player loses 2 life and you
+ * gain 2 life`), an asking clause (a discard, a look, a scry, a search - the answer resumes what follows it, D484), or a
+ * sentence after it about what it made or looked at (`Exile that token at the beginning of the next end step.`, the
+ * look's `Put one of them into your hand ...`). Every clause understood; one target at most, confident (the wrapper's
+ * index, D369's rule); no second choice, payment, randomness or sacrificed number inside it. ⚠️ A LATER SENTENCE THE RULES
+ * READ ON ITS OWN IS NOT THE BRANCH'S: `If you do` governs its own sentence (CR 608.2c), so a sentence after the first
+ * must be BOUND to the clause before it - else the window stops short of it and it runs whether or not the price was paid.
+ */
+function paidBranch(body: string): readonly EffectSpec[] | null {
+  if (/^you may\b/i.test(body) || /\bwhen you do\b/i.test(body) || /\bat random\b/i.test(body)) return null;
+  const text = body.charAt(0).toUpperCase() + body.slice(1);
+  const clauses = clausesOf(text, '~');
+  if (clauses.length === 0 || clauses.some((c) => c.spec === null || ((c.at ?? 0) > 0 && c.bound !== true))) return null;
+  const { effects, understood } = placeClauses(clauses, '~');
+  if (understood < clauses.length) return null;
+  if (effects.some((e) => e.pay || e.kind === 'payOptional' || e.atRandom || e.otherTargetIndex !== undefined || e.targetIndex > 0 || readsSacrificed(e))) return null;
+  const targets = parseTargetClauses(text);
+  if (targets.some((t) => !t.confident)) return null;
+  if (targets.length !== (effects.some((e) => e.targetIndex === 0) ? 1 : 0)) return null;
+  return effects;
+}
+/** D628 - the wrapper over a text branch: aimed where the branch's one target is, else about the controller (D369's self). */
+function paidText(sentence: string, branch: readonly EffectSpec[] | null, cost: PaySpec['cost'], life: number, energy: number, verbs: VerbPrice | null): EffectSpec | null {
+  if (branch === null) return null;
+  const aimed = branch.some((e) => e.targetIndex !== -1);
+  return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: aimed ? 0 : -1, self: !aimed, pay: { cost, life, energy, verbs, who: 'controller', ifPaid: branch, ifNotPaid: [] } };
+}
+
 function matchPayment(sentence: string): EffectSpec | null {
   const u = sentence.match(UNLESS_RE);
   if (u) {
@@ -3622,7 +3657,9 @@ function matchPayment(sentence: string): EffectSpec | null {
   if (m) {
     const price = readPrice(m[1] ?? '');
     const inner = payBody(m[2] ?? '');
-    if (!price || !inner) return null;
+    if (!price) return null;
+    // D628 - a body the rules read only as a TEXT is the branch, clause by clause.
+    if (!inner) return paidText(sentence, paidBranch(m[2] ?? ''), price.cost, price.life, price.energy, null);
     return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: inner.targetIndex, self: inner.self, pay: { cost: price.cost, life: price.life, energy: price.energy, verbs: null, who: 'controller', ifPaid: [inner], ifNotPaid: [] } };
   }
   // D415 - the verb prices, after the mana forms (`pay` is not a verb lead, so neither shadows the other).
@@ -3637,7 +3674,9 @@ function matchPayment(sentence: string): EffectSpec | null {
   if (mv) {
     const verbs = readVerbPrice(mv[1] ?? '');
     const inner = payBody(mv[2] ?? '');
-    if (!verbs || !inner) return null;
+    if (!verbs) return null;
+    // D628 - and after a verb price.
+    if (!inner) return paidText(sentence, paidBranch(mv[2] ?? ''), null, 0, 0, verbs);
     return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: inner.targetIndex, self: inner.self, pay: { cost: null, life: 0, energy: 0, verbs, who: 'controller', ifPaid: [inner], ifNotPaid: [] } };
   }
   return null;
@@ -4086,7 +4125,12 @@ function placeClauses(clauses: readonly Clause[], cardName: string): { effects: 
   return { effects, understood };
 }
 
-function withSelfName(spec: EffectSpec, cardName: string): EffectSpec {
+function withSelfName(spec0: EffectSpec, cardName: string): EffectSpec {
+  // D628 - a payment's branch clauses too: a text branch may search for a card named ~ (Llanowar Sentinel).
+  const named = (e: EffectSpec): EffectSpec => withSelfName(e, cardName);
+  const spec = spec0.pay && [...spec0.pay.ifPaid, ...spec0.pay.ifNotPaid].some((e) => e.search?.qualifier?.name === '~')
+    ? { ...spec0, pay: { ...spec0.pay, ifPaid: spec0.pay.ifPaid.map(named), ifNotPaid: spec0.pay.ifNotPaid.map(named) } }
+    : spec0;
   const search = spec.search;
   if (!search || search.qualifier?.name !== '~') return spec;
   return { ...spec, search: { ...search, qualifier: { ...search.qualifier, name: cardName } } };

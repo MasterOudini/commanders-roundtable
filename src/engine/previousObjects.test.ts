@@ -135,10 +135,12 @@ describe("D494 - the previous clause's objects", () => {
 
   // D495 - THE OBJECT ROWS. A token maker's objects are the tokens it made, never the creature it copied: the copy of a
   // target Bears gains haste and is sacrificed at the next end step, and the Bears it copied stays untouched. A clause
-  // before that ASKS (a payment whose body makes the token) produces its objects only after the answer: refused.
-  test("a copy of a target: the copy alone gains the keyword and goes at the end step, the creature it copied stays; the asking clause before refuses", () => {
+  // before that ASKS (a payment whose body makes the token) produced its objects only after the answer and was refused;
+  // D628 - the payment's body is a text now: the token and the sentence about it are the paid branch, run in one pass after
+  // the answer, so the objects are known where the clause reads them.
+  test("a copy of a target: the copy alone gains the keyword and goes at the end step, the creature it copied stays; a payment's branch binds its own token", () => {
     expect(kinds("Create a token that's a copy of target creature you control. It gains haste. Sacrifice it at the beginning of the next end step.")).toMatchObject({ mode: 'auto', effects: [{ kind: 'createToken' }, { kind: 'grantObj', ofPrevious: true, indefinite: true }, { kind: 'sacrificeObj', ofPrevious: true, delayed: true }] });
-    expect(kinds("You may pay {1}{R}. If you do, create a token that's a copy of target creature. It gains haste.").mode, 'the payment answers first: the objects are unknown at the clause').not.toBe('auto');
+    expect(kinds("You may pay {1}{R}. If you do, create a token that's a copy of target creature. It gains haste.").mode, 'D628 - the branch makes the token and binds it, in one pass after the answer').toBe('auto');
     // The copied creature is a Coral Eel, not another Bears: a copy of the Bears would carry this very trigger and copy on.
     const g = startedGame({ players: 2, decks: [['Grizzly Bears', 'Coral Eel'], ['Grizzly Bears']], scripts: createRegistry([entersWith('Grizzly Bears', "Create a token that's a copy of target creature you control. It gains haste. Sacrifice it at the beginning of the next end step.")]) });
     holdEverywhere(g);

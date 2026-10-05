@@ -26,12 +26,13 @@ describe('the proliferate vocabulary (D391)', () => {
     expect(parseEffects('Put a -1/-1 counter on target creature, then proliferate.', 'Grim Affliction', true).mode).toBe('auto');
   });
 
-  test('an effect after the ask rides its question (D484); a conditional and a payment around it stay refused', () => {
+  test('an effect after the ask rides its question (D484); a conditional around it stays refused, a payment around it reads (D628)', () => {
     // "Proliferate. Draw a card." landed assisted under D195 (the draw after the question was dropped).
     // The continuation carries it now - Contentious Plan is one of the seam test's cards.
     expect(parseEffects('Proliferate.\nDraw a card.', 'Contentious Plan', true).mode).toBe('auto');
     expect(parseEffects("Counter target spell. If that spell's mana value was 3 or less, proliferate.", 'Reject Imperfection', true).mode).not.toBe('auto');
-    expect(parseEffects('You may pay {2}. If you do, proliferate.', 'Test Card', true).mode).not.toBe('auto');
+    // D628 - the payment's body is a text: a branch that asks is the paid branch, the answer resuming the rest (D484).
+    expect(parseEffects('You may pay {2}. If you do, proliferate.', 'Test Card', true).mode).toBe('auto');
   });
 });
 

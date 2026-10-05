@@ -340540,6 +340540,819 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "NECROMASTER_DRAGON": {
+    "scryfallId": "01fe38ca-68f3-4a49-900b-4371e19a7751",
+    "oracleId": "b03fc155-2a70-4106-853c-33bdc88d548c",
+    "name": "Necromaster Dragon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Necromaster Dragon",
+        "manaCost": "{3}{U}{B}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying\nWhenever this creature deals combat damage to a player, you may pay {2}. If you do, create a 2/2 black Zombie creature token and each opponent mills two cards.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Peter Mohrbacher",
+        "imageId": "01fe38ca-68f3-4a49-900b-4371e19a7751"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Mill"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "57000",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NADIR_KRAKEN": {
+    "scryfallId": "0207e0c0-3d77-498b-bc74-fec4c668e9a0",
+    "oracleId": "5a73d439-bd78-42e1-90ae-eedd30536881",
+    "name": "Nadir Kraken",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nadir Kraken",
+        "manaCost": "{1}{U}{U}",
+        "typeLine": "Creature — Kraken",
+        "oracleText": "Whenever you draw a card, you may pay {1}. If you do, put a +1/+1 counter on this creature and create a 1/1 blue Tentacle creature token.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "0207e0c0-3d77-498b-bc74-fec4c668e9a0"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "hbg",
+    "collectorNumber": "906",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CUSTOMS_DEPOT": {
+    "scryfallId": "067d8c46-c334-4b00-af06-2e28b6086c58",
+    "oracleId": "de64eab5-9d7a-4408-8358-47d30a14ce40",
+    "name": "Customs Depot",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Customs Depot",
+        "manaCost": "{1}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever you cast a creature spell, you may pay {1}. If you do, draw a card, then discard a card.",
+        "flavorText": "A bribe is always faster than filling out paperwork.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Scott M. Fischer",
+        "imageId": "067d8c46-c334-4b00-af06-2e28b6086c58"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mmq",
+    "collectorNumber": "71",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GO_SHINTAI_OF_SHARED_PURPOSE": {
+    "scryfallId": "0ab91962-ebad-46f6-9f90-7477c224d93d",
+    "oracleId": "4cab6ea8-4a80-4b34-b758-7f2aa4d540e4",
+    "name": "Go-Shintai of Shared Purpose",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Go-Shintai of Shared Purpose",
+        "manaCost": "{3}{W}",
+        "typeLine": "Legendary Enchantment Creature — Shrine",
+        "oracleText": "Vigilance\nAt the beginning of your end step, you may pay {1}. If you do, create a 1/1 colorless Spirit creature token for each Shrine you control.",
+        "flavorText": "It seeks those who act with kindness and offers friendship.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Johannes Voss",
+        "imageId": "0ab91962-ebad-46f6-9f90-7477c224d93d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "neo",
+    "collectorNumber": "14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPRINGBLOOM_DRUID": {
+    "scryfallId": "1393f384-9aec-49c1-8c6c-07956433e0d1",
+    "oracleId": "788a4896-3414-40bf-b391-d2efea2fb5f9",
+    "name": "Springbloom Druid",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Springbloom Druid",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elf Druid",
+        "oracleText": "When this creature enters, you may sacrifice a land. If you do, search your library for up to two basic land cards, put them onto the battlefield tapped, then shuffle.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Randy Gallegos",
+        "imageId": "1393f384-9aec-49c1-8c6c-07956433e0d1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "j21",
+    "collectorNumber": "642",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FORMIDABLE_SPEAKER": {
+    "scryfallId": "1444f39f-042b-4bb3-8307-6b8878198086",
+    "oracleId": "5bd06f9e-9a42-455d-ad26-24bc04e51c7c",
+    "name": "Formidable Speaker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Formidable Speaker",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elf Druid",
+        "oracleText": "When this creature enters, you may discard a card. If you do, search your library for a creature card, reveal it, put it into your hand, then shuffle.\n{1}, {T}: Untap another target permanent.",
+        "flavorText": "Jean-Emmanuel Depraz, World Champion XXIX",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Aurore Folny",
+        "imageId": "1444f39f-042b-4bb3-8307-6b8878198086"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ecl",
+    "collectorNumber": "366",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNDERCITY_SCAVENGER": {
+    "scryfallId": "1be7e297-4602-44f8-b919-07015813fd7e",
+    "oracleId": "5146ae31-9578-46e3-be78-eb90e4ba48cd",
+    "name": "Undercity Scavenger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Undercity Scavenger",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Ogre Warrior",
+        "oracleText": "When this creature enters, you may sacrifice another creature. If you do, put two +1/+1 counters on this creature, then scry 2.",
+        "flavorText": "\"We grow strong by feasting on failure.\"\n—Izoni",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Tomasz Jedruszek",
+        "imageId": "1be7e297-4602-44f8-b919-07015813fd7e"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "rna",
+    "collectorNumber": "88",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ACADEMY_RECTOR": {
+    "scryfallId": "21aa9f50-face-4f2d-860d-9cd51a1b36d7",
+    "oracleId": "e3c85068-b4b6-40b9-a16c-5c3b2d059ec4",
+    "name": "Academy Rector",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Academy Rector",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "When this creature dies, you may exile it. If you do, search your library for an enchantment card, put that card onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "21aa9f50-face-4f2d-860d-9cd51a1b36d7"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "wc00",
+    "collectorNumber": "nl1",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THE_HUNTSMAN_S_REDEMPTION": {
+    "scryfallId": "27003577-e276-4ad5-b3e9-8523b166ad49",
+    "oracleId": "ae63fd5c-46ff-41fb-a1f6-6259336525c1",
+    "name": "The Huntsman's Redemption",
+    "layout": "saga",
+    "faces": [
+      {
+        "name": "The Huntsman's Redemption",
+        "manaCost": "{2}{G}",
+        "typeLine": "Enchantment — Saga",
+        "oracleText": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)\nI — Create a 3/3 green Beast creature token.\nII — You may sacrifice a creature. If you do, search your library for a creature or basic land card, reveal it, put it into your hand, then shuffle.\nIII — Up to two target creatures each get +2/+2 and gain trample until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Magali Villeneuve",
+        "imageId": "27003577-e276-4ad5-b3e9-8523b166ad49"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "woe",
+    "collectorNumber": "176",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNDERHANDED_DESIGNS": {
+    "scryfallId": "28855038-f96e-4fdb-9bfb-34c0fedd344f",
+    "oracleId": "870185fc-7b05-47d3-95ff-97fbf12796d4",
+    "name": "Underhanded Designs",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Underhanded Designs",
+        "manaCost": "{1}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever an artifact you control enters, you may pay {1}. If you do, each opponent loses 1 life and you gain 1 life.\n{1}{B}, Sacrifice this enchantment: Destroy target creature. Activate only if you control two or more artifacts.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Anastasia Ovchinnikova",
+        "imageId": "28855038-f96e-4fdb-9bfb-34c0fedd344f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "klr",
+    "collectorNumber": "108",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DROWNER_INITIATE": {
+    "scryfallId": "28accc5f-63a5-47d0-b0e6-747aa0aa43e5",
+    "oracleId": "19a4010f-f5bf-48be-a1d7-eacc3bbeeb59",
+    "name": "Drowner Initiate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Drowner Initiate",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Merfolk Wizard",
+        "oracleText": "Whenever a player casts a blue spell, you may pay {1}. If you do, target player mills two cards.",
+        "flavorText": "Nothing satisfies a merrow as much as drowning what it cannot have.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "E. M. Gist",
+        "imageId": "28accc5f-63a5-47d0-b0e6-747aa0aa43e5"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "shm",
+    "collectorNumber": "36",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FAITH_OF_THE_DEVOTED": {
+    "scryfallId": "3171e131-349a-4109-9da0-9bfaba785b14",
+    "oracleId": "99af5247-06cf-40b2-9a7c-65ad59b1ddf6",
+    "name": "Faith of the Devoted",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Faith of the Devoted",
+        "manaCost": "{2}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever you cycle or discard a card, you may pay {1}. If you do, each opponent loses 2 life and you gain 2 life.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Raoul Vitale",
+        "imageId": "3171e131-349a-4109-9da0-9bfaba785b14"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ha4",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IRONCLAD_REVOLUTIONARY": {
+    "scryfallId": "43a5535b-b1d1-4648-aa72-4f64e9fcd95d",
+    "oracleId": "382109c5-fd08-4e82-b898-2a387181b470",
+    "name": "Ironclad Revolutionary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ironclad Revolutionary",
+        "manaCost": "{4}{B}{B}",
+        "typeLine": "Creature — Aetherborn Artificer",
+        "oracleText": "When this creature enters, you may sacrifice an artifact. If you do, put two +1/+1 counters on this creature and each opponent loses 2 life.",
+        "flavorText": "As the rebellion spread, renegade ingenuity outpaced the Consulate's greatest fears.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Eric Deschamps",
+        "imageId": "43a5535b-b1d1-4648-aa72-4f64e9fcd95d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "aer",
+    "collectorNumber": "65",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EYE_OF_VECNA": {
+    "scryfallId": "523a78de-712e-4cfd-b34c-cfa1febf329b",
+    "oracleId": "371a7bbf-5890-46d8-ae57-f020c103b465",
+    "name": "Eye of Vecna",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eye of Vecna",
+        "manaCost": "{2}",
+        "typeLine": "Legendary Artifact",
+        "oracleText": "When Eye of Vecna enters, you draw a card and you lose 2 life.\nAt the beginning of your upkeep, you may pay {2}. If you do, you draw a card and you lose 2 life.",
+        "flavorText": "\"I see all things as they truly are! I see . . . decay in all flesh, and betrayal in every heart.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Irina Nordsol",
+        "imageId": "523a78de-712e-4cfd-b34c-cfa1febf329b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "pafr",
+    "collectorNumber": "243a",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BRINGER_OF_THE_BLACK_DAWN": {
+    "scryfallId": "54e5e882-02d4-4d69-aabf-ae9bf31f2923",
+    "oracleId": "a9f98ad5-e8d4-4142-a19f-3368b85d1c95",
+    "name": "Bringer of the Black Dawn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bringer of the Black Dawn",
+        "manaCost": "{7}{B}{B}",
+        "typeLine": "Creature — Bringer",
+        "oracleText": "You may pay {W}{U}{B}{R}{G} rather than pay this spell's mana cost.\nTrample\nAt the beginning of your upkeep, you may pay 2 life. If you do, search your library for a card, then shuffle and put that card on top.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "54e5e882-02d4-4d69-aabf-ae9bf31f2923"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G",
+      "R",
+      "U",
+      "W"
+    ],
+    "cmc": 9,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "5dn",
+    "collectorNumber": "43",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARENA_RECTOR": {
+    "scryfallId": "60a24826-55fc-4b1b-98bf-3204ad852765",
+    "oracleId": "6a23963c-21dc-4d21-8d28-5abad7f859a1",
+    "name": "Arena Rector",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arena Rector",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "When this creature dies, you may exile it. If you do, search your library for a planeswalker card, put it onto the battlefield, then shuffle.",
+        "flavorText": "\"I see something special in you—a bright ember that yearns to dance among the stars.\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Ryan Pancoast",
+        "imageId": "60a24826-55fc-4b1b-98bf-3204ad852765"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "bbd",
+    "collectorNumber": "23",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LLANOWAR_SENTINEL": {
+    "scryfallId": "6f37ea4b-66e2-4ad5-ae7f-d02fd59131bd",
+    "oracleId": "272ab5d5-7edb-4457-8a09-cabe2325c881",
+    "name": "Llanowar Sentinel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Llanowar Sentinel",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elf",
+        "oracleText": "When this creature enters, you may pay {1}{G}. If you do, search your library for a card named Llanowar Sentinel, put that card onto the battlefield, then shuffle.",
+        "flavorText": "\"The forest has as many eyes as leaves.\"\n—Mirri of the *Weatherlight*",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Douglas Shuler",
+        "imageId": "6f37ea4b-66e2-4ad5-ae7f-d02fd59131bd"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "wth",
+    "collectorNumber": "134",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BITTER_CHILL": {
+    "scryfallId": "888e3c71-e21d-4e77-b1b6-09769f9cd3d6",
+    "oracleId": "be0dcad2-8e84-4e9f-b69c-837b40b8fb83",
+    "name": "Bitter Chill",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bitter Chill",
+        "manaCost": "{1}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nWhen this Aura enters, tap enchanted creature.\nEnchanted creature doesn't untap during its controller's untap step.\nWhen this Aura is put into a graveyard from the battlefield, you may pay {1}. If you do, scry 1, then draw a card.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Julie Dillon",
+        "imageId": "888e3c71-e21d-4e77-b1b6-09769f9cd3d6"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant",
+      "Scry"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "44",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEYMOUR_FLUX": {
+    "scryfallId": "8fc42c17-a12b-42db-bb01-3e444ac2a376",
+    "oracleId": "7312efc2-8a02-47cd-874b-c3338241435e",
+    "name": "Seymour Flux",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Seymour Flux",
+        "manaCost": "{4}{B}",
+        "typeLine": "Legendary Creature — Spirit Avatar",
+        "oracleText": "At the beginning of your upkeep, you may pay 1 life. If you do, draw a card and put a +1/+1 counter on Seymour Flux.",
+        "flavorText": "\"Your hope ends here. And your meaningless existence with it.\"",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "K-SUWABE",
+        "imageId": "8fc42c17-a12b-42db-bb01-3e444ac2a376"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "fin",
+    "collectorNumber": "452",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VAMPIRE_GOURMAND": {
+    "scryfallId": "917514c0-9cd5-4b97-85b9-c4f753560ad4",
+    "oracleId": "3386414c-32fa-40ae-9b30-dab976a158c1",
+    "name": "Vampire Gourmand",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vampire Gourmand",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "Whenever this creature attacks, you may sacrifice another creature. If you do, draw a card and this creature can't be blocked this turn.",
+        "flavorText": "\"He asked me if I wanted to come in for a bite to eat. Who am I to turn down a stranger's kindness?\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Chris Rallis",
+        "imageId": "917514c0-9cd5-4b97-85b9-c4f753560ad4"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "fdn",
+    "collectorNumber": "74",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUBWAY_TRAIN": {
+    "scryfallId": "96f869f7-db88-4580-82b7-8749a55e525c",
+    "oracleId": "6d4472ad-3fbf-4a5d-94de-dfee04fda9c3",
+    "name": "Subway Train",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Subway Train",
+        "manaCost": "{2}",
+        "typeLine": "Artifact — Vehicle",
+        "oracleText": "When this Vehicle enters, you may pay {G}. If you do, search your library for a basic land card, reveal it, put it into your hand, then shuffle.\nCrew 2 (Tap any number of creatures you control with total power 2 or more: This Vehicle becomes an artifact creature until end of turn.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jonas De Ro",
+        "imageId": "96f869f7-db88-4580-82b7-8749a55e525c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Crew"
+    ],
+    "setCode": "spm",
+    "collectorNumber": "178",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BEETLE_HEADED_MERCHANTS": {
+    "scryfallId": "c2eed79f-38c1-4aac-9525-d54cb114f17f",
+    "oracleId": "0e6609b4-f359-4bf1-a06e-f4317a0e7b3c",
+    "name": "Beetle-Headed Merchants",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Beetle-Headed Merchants",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Human Citizen",
+        "oracleText": "Whenever this creature attacks, you may sacrifice another creature or artifact. If you do, draw a card and put a +1/+1 counter on this creature.",
+        "flavorText": "To these desert-dwelling traders, there is profit to be found under every dune of sand and in every living thing.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Norikatsu Miyoshi",
+        "imageId": "c2eed79f-38c1-4aac-9525-d54cb114f17f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "tla",
+    "collectorNumber": "86",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EYES_OF_THE_WATCHER": {
+    "scryfallId": "f7bb0716-e0fc-415d-8fc3-d3f5ee31e9c5",
+    "oracleId": "350b3c1c-b37e-4279-9b49-0fb93c5e7e33",
+    "name": "Eyes of the Watcher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eyes of the Watcher",
+        "manaCost": "{2}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever you cast an instant or sorcery spell, you may pay {1}. If you do, scry 2. (Look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ron Spears",
+        "imageId": "f7bb0716-e0fc-415d-8fc3-d3f5ee31e9c5"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "5dn",
+    "collectorNumber": "30",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NAMAZU_TRADER": {
+    "scryfallId": "f9d25b34-990d-416c-aef7-1b5a73f19dd4",
+    "oracleId": "3d01c351-6dbd-4d63-9843-3aa1a3c039a6",
+    "name": "Namazu Trader",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Namazu Trader",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Fish Citizen",
+        "oracleText": "When this creature enters, you lose 1 life and create a Treasure token.\nWhenever this creature attacks, you may sacrifice another creature or artifact. If you do, surveil 2. (Look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Andrea Tentori Montalto",
+        "imageId": "f9d25b34-990d-416c-aef7-1b5a73f19dd4"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Surveil",
+      "Treasure"
+    ],
+    "setCode": "fin",
+    "collectorNumber": "107",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -350396,6 +351209,39 @@
     "keywords": [],
     "setCode": "tc15",
     "collectorNumber": "24",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "TENTACLE_3D9415BE_TOKEN": {
+    "scryfallId": "3d9415be-356d-45a5-a62b-a75368629481",
+    "oracleId": "82adaeee-e011-49db-af53-fda6c2b192d5",
+    "name": "Tentacle",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Tentacle",
+        "manaCost": "",
+        "typeLine": "Token Creature — Tentacle",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Chris Cold",
+        "imageId": "3d9415be-356d-45a5-a62b-a75368629481"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tltr",
+    "collectorNumber": "17",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

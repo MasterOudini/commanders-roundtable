@@ -128,7 +128,8 @@ describe('source integrity', () => {
       relative(process.cwd(), f),
     );
     expect(gated).toHaveLength(10);
-  });
+    // D628 - a whole-repo scan: its own bound (the gate's load took it past the 20 s default at 9,400 test files).
+  }, 120_000);
 
   test('no source file contains a control character', () => {
     const offenders: string[] = [];
@@ -151,5 +152,6 @@ describe('source integrity', () => {
       offenders,
       'control characters in source — rewrite the escape as two characters (backslash + letter)',
     ).toEqual([]);
-  });
+    // D628 - a whole-repo scan: its own bound, as the count above.
+  }, 120_000);
 });

@@ -7,6 +7,30 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { NECROMASTER_DRAGON_SCRIPT } from './cards/necromasterDragon';
+import { NADIR_KRAKEN_SCRIPT } from './cards/nadirKraken';
+import { CUSTOMS_DEPOT_SCRIPT } from './cards/customsDepot';
+import { GO_SHINTAI_OF_SHARED_PURPOSE_SCRIPT } from './cards/goShintaiOfSharedPurpose';
+import { SPRINGBLOOM_DRUID_SCRIPT } from './cards/springbloomDruid';
+import { FORMIDABLE_SPEAKER_SCRIPT } from './cards/formidableSpeaker';
+import { UNDERCITY_SCAVENGER_SCRIPT } from './cards/undercityScavenger';
+import { ACADEMY_RECTOR_SCRIPT } from './cards/academyRector';
+import { THE_HUNTSMANS_REDEMPTION_SCRIPT } from './cards/theHuntsmansRedemption';
+import { UNDERHANDED_DESIGNS_SCRIPT } from './cards/underhandedDesigns';
+import { DROWNER_INITIATE_SCRIPT } from './cards/drownerInitiate';
+import { FAITH_OF_THE_DEVOTED_SCRIPT } from './cards/faithOfTheDevoted';
+import { IRONCLAD_REVOLUTIONARY_SCRIPT } from './cards/ironcladRevolutionary';
+import { EYE_OF_VECNA_SCRIPT } from './cards/eyeOfVecna';
+import { BRINGER_OF_THE_BLACK_DAWN_SCRIPT } from './cards/bringerOfTheBlackDawn';
+import { ARENA_RECTOR_SCRIPT } from './cards/arenaRector';
+import { LLANOWAR_SENTINEL_SCRIPT } from './cards/llanowarSentinel';
+import { BITTER_CHILL_SCRIPT } from './cards/bitterChill';
+import { SEYMOUR_FLUX_SCRIPT } from './cards/seymourFlux';
+import { VAMPIRE_GOURMAND_SCRIPT } from './cards/vampireGourmand';
+import { SUBWAY_TRAIN_SCRIPT } from './cards/subwayTrain';
+import { BEETLE_HEADED_MERCHANTS_SCRIPT } from './cards/beetleHeadedMerchants';
+import { EYES_OF_THE_WATCHER_SCRIPT } from './cards/eyesOfTheWatcher';
+import { NAMAZU_TRADER_SCRIPT } from './cards/namazuTrader';
 import { HERONBLADE_ELITE_SCRIPT } from './cards/heronbladeElite';
 import { ELVISH_ARCHDRUID_SCRIPT } from './cards/elvishArchdruid';
 import { MARWYN_THE_NURTURER_SCRIPT } from './cards/marwynTheNurturer';
@@ -9009,6 +9033,30 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  NECROMASTER_DRAGON_SCRIPT,
+  NADIR_KRAKEN_SCRIPT,
+  CUSTOMS_DEPOT_SCRIPT,
+  GO_SHINTAI_OF_SHARED_PURPOSE_SCRIPT,
+  SPRINGBLOOM_DRUID_SCRIPT,
+  FORMIDABLE_SPEAKER_SCRIPT,
+  UNDERCITY_SCAVENGER_SCRIPT,
+  ACADEMY_RECTOR_SCRIPT,
+  THE_HUNTSMANS_REDEMPTION_SCRIPT,
+  UNDERHANDED_DESIGNS_SCRIPT,
+  DROWNER_INITIATE_SCRIPT,
+  FAITH_OF_THE_DEVOTED_SCRIPT,
+  IRONCLAD_REVOLUTIONARY_SCRIPT,
+  EYE_OF_VECNA_SCRIPT,
+  BRINGER_OF_THE_BLACK_DAWN_SCRIPT,
+  ARENA_RECTOR_SCRIPT,
+  LLANOWAR_SENTINEL_SCRIPT,
+  BITTER_CHILL_SCRIPT,
+  SEYMOUR_FLUX_SCRIPT,
+  VAMPIRE_GOURMAND_SCRIPT,
+  SUBWAY_TRAIN_SCRIPT,
+  BEETLE_HEADED_MERCHANTS_SCRIPT,
+  EYES_OF_THE_WATCHER_SCRIPT,
+  NAMAZU_TRADER_SCRIPT,
   HERONBLADE_ELITE_SCRIPT,
   ELVISH_ARCHDRUID_SCRIPT,
   MARWYN_THE_NURTURER_SCRIPT,

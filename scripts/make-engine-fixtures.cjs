@@ -11214,6 +11214,32 @@ const WANTED = [
   'Rainveil Rejuvenator',
   'Shrine of Boundless Growth',
   // D627 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D628 - THE PAYMENT BODY IS A TEXT: the rows the whole-leftover row maker rowed once a payment If-you-do body read as a text (two clauses of one sentence, an asking clause the answer resumes, a sentence about what it made).
+  'Necromaster Dragon',
+  'Nadir Kraken',
+  'Customs Depot',
+  'Go-Shintai of Shared Purpose',
+  'Springbloom Druid',
+  'Formidable Speaker',
+  'Undercity Scavenger',
+  'Academy Rector',
+  "The Huntsman's Redemption",
+  'Underhanded Designs',
+  'Drowner Initiate',
+  'Faith of the Devoted',
+  'Ironclad Revolutionary',
+  'Eye of Vecna',
+  'Bringer of the Black Dawn',
+  'Arena Rector',
+  'Llanowar Sentinel',
+  'Bitter Chill',
+  'Seymour Flux',
+  'Vampire Gourmand',
+  'Subway Train',
+  'Beetle-Headed Merchants',
+  'Eyes of the Watcher',
+  'Namazu Trader',
+  // D628 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -11673,6 +11699,8 @@ const WANTED_TOKENS = [
   { name: 'Snake', set: 'tktk', cn: '9', key: 'SNAKE_032E9F9D_TOKEN' },
   // D621 - the tokens the wave's rows create (the port's token-pin step, missing until D494).
   { name: 'Gold', set: 'tc15', cn: '24', key: 'GOLD_ARTIFACT_TOKEN' },
+  // D628 - the token a payment's branch creates (Nadir Kraken's Tentacle): the row maker's token step reads a payment's branches now.
+  { name: 'Tentacle', set: 'tltr', cn: '17', key: 'TENTACLE_3D9415BE_TOKEN' },
 ];
 
 function constName(name) {

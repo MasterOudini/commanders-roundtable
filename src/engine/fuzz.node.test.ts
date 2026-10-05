@@ -473,8 +473,16 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
     counterKeys: ['drawStepHeadFires'], rotHistory: 'D433' },
   // D434 - the mill vocabulary: Hedron Crab ({U}, landfall - target player mills three) and Millstone ({2}; {2}, {T}:
   // target player mills two) - a trigger and an activation, a coloured body and a colourless one, two a seat each.
-  { names: ['Hedron Crab', 'Millstone'], copiesPerSeat: 2,
-    counterKeys: ['millsResolved'], rotHistory: 'D434' },
+  // D628 - one a seat: the second slots went to the payment-branch pair below (the swap; millsResolved 308 over D627's gate).
+  { names: ['Hedron Crab', 'Millstone'], copiesPerSeat: 1,
+    counterKeys: ['millsResolved'], rotHistory: 'D434, D628' },
+  // D628 - THE PAYMENT'S BODY IS A TEXT: one Customs Depot (whenever you cast a creature spell, you may pay {1} - draw a card,
+  // then discard a card: a branch that ASKS, its answer resuming the rest) and one Eye of Vecna ({2}, colourless: at the
+  // beginning of your upkeep, you may pay {2} - you draw a card and you lose 2 life: two clauses of one sentence, every turn)
+  // a seat, in the pair above's second slots (the seat's card count and the shuffle kept, D553's rule). Nadir Kraken ({1}{U}{U},
+  // whenever you draw) was the first pick and paid once over the 60-seed canary.
+  { names: ['Customs Depot', 'Eye of Vecna'], copiesPerSeat: 1,
+    counterKeys: ['paidTextBranches'], rotHistory: 'D628' },
   // D435 - the if-you-do pair: Stadium Tidalmage ({3}{U} - enters or attacks: a cast is a fire), Rook Turret ({3} - another
   // artifact you control enters) and Riddlesmith ({1}{U} - you cast an artifact spell) loot off the seat's own casts; two a
   // seat each, so the pair fires without a second event or the coin's consent (the counter reads the stack, not the prompt).
@@ -1867,6 +1875,8 @@ interface Run {
   readonly gatedManaMade: number;
   /** D627 - mana a COUNTED line made (`ManaAdded` off a source whose face prints a counted production). */
   readonly countedManaMade: number;
+  /** D628 - payments answered yes whose prompt carried a branch of two or more clauses (the payment's body read as a text). */
+  readonly paidTextBranches: number;
   /** D534 - the coin flips a resolution made (`CoinFlipped` not caused by the manual tool's `FlipCoin` intent). */
   readonly rulesFlips: number;
   /** D535 - the spells cast with their buyback paid, and the ones that went back to hand as they resolved. */
@@ -2483,6 +2493,19 @@ function runOne(seed: number): Run {
     monstrosities: game.log.filter((e) => e.body.t === 'BecameMonstrous').length,
     preparedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.preparedFrom !== undefined).length,
     // D626 - counted off the event (the pool empties at every step): the source's face, read off the final state (a land rarely leaves).
+    // D628 - read off the prompt the answer closed: the `payMana` question carries its branch (`ifPaid`).
+    paidTextBranches: (() => {
+      let n = 0;
+      let asked = 0;
+      for (const e of game.log) {
+        if (e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'payMana') asked = e.body.awaiting.ifPaid.length;
+        else if (e.body.t === 'PaymentAnswered') {
+          if (e.body.paid && asked >= 2) n += 1;
+          asked = 0;
+        }
+      }
+      return n;
+    })(),
     // D627 - counted off the event; the source's face read off the final state (a land or a creature rarely leaves the record).
     countedManaMade: game.log.filter((e) => {
       if (e.body.t !== 'ManaAdded' || e.body.source === null) return false;
@@ -2901,6 +2924,7 @@ const TOTAL_KEYS = [
   'preparedCasts',
   'gatedManaMade',
   'countedManaMade',
+  'paidTextBranches',
   'rulesFlips',
   'buybackCasts',
   'buybackReturns',
@@ -3463,6 +3487,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.gatedManaMade).toBeGreaterThan(0);
         // D627 - mana a counted line made at gate size (Gaea's Cradle and Priest of Titania, one a seat).
         expect(totals.countedManaMade).toBeGreaterThan(0);
+        // D628 - a paid text branch at gate size (Customs Depot and Eye of Vecna, one a seat).
+        expect(totals.paidTextBranches).toBeGreaterThan(0);
         // D534 - a rules coin flip at gate size (Winter Sky, two a seat).
         expect(totals.rulesFlips).toBeGreaterThan(0);
         // D535 - a bought-back spell back in its owner's hand at gate size (Searing Touch, two a seat).

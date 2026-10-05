@@ -34,9 +34,9 @@ describe('D484 - the prompt continuation', () => {
     expect(verdict.effects.map((e) => e.kind)).toEqual(['sacrifice', 'loseLife']);
     expect(parseEffects('Scry 1.\nDestroy target artifact.', '~', true).mode).toBe('auto');
     expect(parseEffects('Each opponent discards a card and loses 2 life.', '~', true).mode).toBe('auto');
-    // The scry rider is still one clause, and a payment whose branch asks is still refused.
+    // The scry rider is still one clause; D628 - and a payment whose branch asks READS (the payment's body is a text).
     expect(parseEffects('Scry 2, then draw a card.', '~', true).effects).toHaveLength(1);
-    expect(parseEffects('You may pay {2}. If you do, proliferate.', '~', true).mode).not.toBe('auto');
+    expect(parseEffects('You may pay {2}. If you do, proliferate.', '~', true).effects[0]?.pay?.ifPaid.map((e) => e.kind)).toEqual(['proliferate']);
   });
 
   test('Vampiric Tutor: the found card goes on top and THEN the life is lost; the shuffle and the replay agree', () => {
