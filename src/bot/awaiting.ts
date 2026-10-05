@@ -343,6 +343,8 @@ export function answerAwaiting(
        */
       if (awaiting.verbs) {
         const v = awaiting.verbs;
+        // D630 - kinship's reveal costs nothing: always paid (the branch is the card's whole benefit).
+        if (v.revealTopShares !== undefined) return act({ t: 'AnswerPayMana', player: me, pay: true, picks: [] }, `reveal for ${awaiting.label}`);
         // D571 - a champion's exile names one.
         // D609 - the dying card's own exile names one too (itself).
         const count = v.sacrificeSelf || v.exileSelf === true || v.championExile !== undefined ? 1 : (v.sacrificeCost?.count ?? v.discardCost?.count ?? v.tapCost?.count ?? v.exileFromGraveyardCost?.count ?? v.returnCost?.count ?? 0);

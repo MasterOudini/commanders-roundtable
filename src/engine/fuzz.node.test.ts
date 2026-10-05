@@ -296,8 +296,14 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // D505 - the mass verbs over a scope: two Vitalizes and two Bonds of Discipline a seat ({G} instant `Untap all
   // creatures you control.`; {4}{W} sorcery `Tap all creatures your opponents control. Creatures you control gain
   // lifelink until end of turn.` - the scope walked, the marker counted).
-  { names: ['Vitalize', 'Bond of Discipline'], copiesPerSeat: 2,
-    counterKeys: ['scopesWalked'], rotHistory: 'D505' },
+  // D630 - one a seat: the second slots went to the kinship pair below (the swap; scopesWalked 152 over D627's gate).
+  { names: ['Vitalize', 'Bond of Discipline'], copiesPerSeat: 1,
+    counterKeys: ['scopesWalked'], rotHistory: 'D505, D630' },
+  // D630 - KINSHIP: one Wolf-Skull Shaman ({1}{G} Elf Shaman - a 2/2 Wolf) and one Mudbutton Clanger ({R} Goblin Warrior - +1/+1
+  // until end of turn) a seat, in the pair above's second slots (the seat's card count and the shuffle kept, D553's rule):
+  // every upkeep each looks at the top card, and the reveal is asked when it shares a creature type.
+  { names: ['Wolf-Skull Shaman', 'Mudbutton Clanger'], copiesPerSeat: 1,
+    counterKeys: ['kinshipFires'], rotHistory: 'D630' },
   // D507 - the referent search: two Paths to Exile a seat ({W} instant, `Exile target creature. Its controller may search
   // their library for a basic land card, put that card onto the battlefield tapped, then shuffle.` - the search asked of
   // the exiled creature's controller, who accepts the offer and finds in their own library).
@@ -1887,6 +1893,9 @@ interface Run {
   /** D629 - the crimes committed (`CrimeCommitted`, CR 700.13), and the crime heads that fired (`#youCommitCrime-` / `#opponentCommitsCrime-`). */
   readonly crimesCommitted: number;
   readonly crimeHeadFires: number;
+  /** D630 - the kinship triggers that fired (the look is made each time), and the reveals paid (the top card shared a type). */
+  readonly kinshipFires: number;
+  readonly kinshipReveals: number;
   /** D534 - the coin flips a resolution made (`CoinFlipped` not caused by the manual tool's `FlipCoin` intent). */
   readonly rulesFlips: number;
   /** D535 - the spells cast with their buyback paid, and the ones that went back to hand as they resolved. */
@@ -2506,6 +2515,20 @@ function runOne(seed: number): Run {
     // D628 - read off the prompt the answer closed: the `payMana` question carries its branch (`ifPaid`).
     crimesCommitted: game.log.filter((e) => e.body.t === 'CrimeCommitted').length,
     crimeHeadFires: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#(?:youCommitCrime|opponentCommitsCrime)-/.test(e.body.obj.abilityRef ?? '')).length,
+    kinshipFires: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /If it shares a (?:creature|card) type/.test(e.body.obj.label)).length,
+    // D630 - read off the prompt the answer closed: the `payMana` question carries the reveal price (`verbs.revealTopShares`).
+    kinshipReveals: (() => {
+      let n = 0;
+      let asked = false;
+      for (const e of game.log) {
+        if (e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'payMana') asked = e.body.awaiting.verbs?.revealTopShares !== undefined;
+        else if (e.body.t === 'PaymentAnswered') {
+          if (e.body.paid && asked) n += 1;
+          asked = false;
+        }
+      }
+      return n;
+    })(),
     paidTextBranches: (() => {
       let n = 0;
       let asked = 0;
@@ -2939,6 +2962,8 @@ const TOTAL_KEYS = [
   'paidTextBranches',
   'crimesCommitted',
   'crimeHeadFires',
+  'kinshipFires',
+  'kinshipReveals',
   'rulesFlips',
   'buybackCasts',
   'buybackReturns',
@@ -3505,6 +3530,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.paidTextBranches).toBeGreaterThan(0);
         // D629 - a crime head fired at gate size (Raven of Fell Omens and Blood Hustler, one a seat).
         expect(totals.crimeHeadFires).toBeGreaterThan(0);
+        // D630 - a kinship trigger fired at gate size (Wolf-Skull Shaman and Mudbutton Clanger, one a seat).
+        expect(totals.kinshipFires).toBeGreaterThan(0);
         // D534 - a rules coin flip at gate size (Winter Sky, two a seat).
         expect(totals.rulesFlips).toBeGreaterThan(0);
         // D535 - a bought-back spell back in its owner's hand at gate size (Searing Touch, two a seat).

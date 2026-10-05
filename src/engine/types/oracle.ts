@@ -1373,6 +1373,13 @@ export interface VerbPrice {
    * One pick, the source. Absent elsewhere.
    */
   readonly exileSelf?: true;
+  /**
+   * D630 - KINSHIP's price (`Look at the top card of your library. If it shares a creature type with ~, you may reveal it.`):
+   * the payer LOOKS at the top card of their library, and the reveal is payable while that card shares a creature type (or,
+   * for `card`, a card type) with the source - a changeling has every creature type (CR 702.73a). Paid, every seat sees it.
+   * No pick (the price names one card). Absent elsewhere.
+   */
+  readonly revealTopShares?: 'creature' | 'card';
 }
 
 export interface PaySpec {

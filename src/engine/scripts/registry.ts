@@ -7,6 +7,23 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { DRAINPIPE_VERMIN_SCRIPT } from './cards/drainpipeVermin';
+import { KRENKO_BARON_OF_TIN_STREET_SCRIPT } from './cards/krenkoBaronOfTinStreet';
+import { QUIET_CONTEMPLATION_SCRIPT } from './cards/quietContemplation';
+import { INK_DISSOLVER_SCRIPT } from './cards/inkDissolver';
+import { WOLF_SKULL_SHAMAN_SCRIPT } from './cards/wolfSkullShaman';
+import { SQUEAKING_PIE_GRUBFELLOWS_SCRIPT } from './cards/squeakingPieGrubfellows';
+import { KITHKIN_ZEPHYRNAUT_SCRIPT } from './cards/kithkinZephyrnaut';
+import { HAUNTED_CADAVER_SCRIPT } from './cards/hauntedCadaver';
+import { WINNOWER_PATROL_SCRIPT } from './cards/winnowerPatrol';
+import { FLAMESHADOW_CONJURING_SCRIPT } from './cards/flameshadowConjuring';
+import { NIGHTSHADE_SCHEMERS_SCRIPT } from './cards/nightshadeSchemers';
+import { TAINTED_OBSERVER_SCRIPT } from './cards/taintedObserver';
+import { FELHIDE_SPIRITBINDER_SCRIPT } from './cards/felhideSpiritbinder';
+import { MUDBUTTON_CLANGER_SCRIPT } from './cards/mudbuttonClanger';
+import { AKOUM_STONEWAKER_SCRIPT } from './cards/akoumStonewaker';
+import { VENOMOUS_BRUTALIZER_SCRIPT } from './cards/venomousBrutalizer';
+import { WANDERING_GRAYBEARD_SCRIPT } from './cards/wanderingGraybeard';
 import { MARCHESA_DEALER_OF_DEATH_SCRIPT } from './cards/marchesaDealerOfDeath';
 import { FREESTRIDER_LOOKOUT_SCRIPT } from './cards/freestriderLookout';
 import { BLOOD_HUSTLER_SCRIPT } from './cards/bloodHustler';
@@ -9046,6 +9063,23 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  DRAINPIPE_VERMIN_SCRIPT,
+  KRENKO_BARON_OF_TIN_STREET_SCRIPT,
+  QUIET_CONTEMPLATION_SCRIPT,
+  INK_DISSOLVER_SCRIPT,
+  WOLF_SKULL_SHAMAN_SCRIPT,
+  SQUEAKING_PIE_GRUBFELLOWS_SCRIPT,
+  KITHKIN_ZEPHYRNAUT_SCRIPT,
+  HAUNTED_CADAVER_SCRIPT,
+  WINNOWER_PATROL_SCRIPT,
+  FLAMESHADOW_CONJURING_SCRIPT,
+  NIGHTSHADE_SCHEMERS_SCRIPT,
+  TAINTED_OBSERVER_SCRIPT,
+  FELHIDE_SPIRITBINDER_SCRIPT,
+  MUDBUTTON_CLANGER_SCRIPT,
+  AKOUM_STONEWAKER_SCRIPT,
+  VENOMOUS_BRUTALIZER_SCRIPT,
+  WANDERING_GRAYBEARD_SCRIPT,
   MARCHESA_DEALER_OF_DEATH_SCRIPT,
   FREESTRIDER_LOOKOUT_SCRIPT,
   BLOOD_HUSTLER_SCRIPT,

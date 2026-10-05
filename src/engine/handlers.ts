@@ -65,7 +65,7 @@ import type { RestrictedMana } from './types/mana';
 import { manualIntent } from './manual';
 import { flipCoin, rollDie, shuffle, type RngState } from './rng';
 import { n, narrated, tableName, their, vb, who } from './narrate';
-import { askBatch, askCandidates, drawEvents, effectResult, mergeExceptions, resumeContinuation, suspendTick } from './effects';
+import { askBatch, askCandidates, drawEvents, effectResult, mergeExceptions, resumeContinuation, suspendTick, topSharesType } from './effects';
 import { proliferateCandidates } from './proliferate';
 import { exploreChain } from './explore';
 import { conniveAfterDiscard } from './connive';
@@ -4330,6 +4330,20 @@ function verbPriceEvents(
     };
   }
   const cache = makeDeriveCache(state);
+  // D630 - KINSHIP's reveal: the top card the payer was shown, still on top and still sharing the type (re-checked against the
+  // board as it stands, D139); every seat sees it. The price names one card, so no pick is needed; any other pick is refused.
+  if (verbs.revealTopShares !== undefined) {
+    const library = state.zones.library[player] ?? [];
+    const top = library[library.length - 1];
+    if (top === undefined || !topSharesType(state, deps, self === '' ? null : self, top, verbs.revealTopShares)) return { error: reject('cannotAfford', `${awaiting.label}: the top card of your library does not share the type.`) };
+    if (picks.length > 1 || (picks.length === 1 && picks[0] !== top)) return { error: reject('noSuchCard', `${awaiting.label}'s price is the top card of your library.`) };
+    return {
+      events: [
+        { t: 'CardsRevealed', cards: [top], to: [...state.seating] },
+        narrated(n`${who(state, player)} ${vb(player, 'reveals', 'reveal')} ${revealedName(state, deps, top)} for ${awaiting.label}.`, player, awaiting.identity),
+      ],
+    };
+  }
   // D571 - CHAMPION's exile: one pick, another permanent the payer controls the noun admits, re-checked against the
   // board as it stands; the move carries the champion's entry stamp (D407's `until`) - the state-based return brings
   // it back under its owner's control when the champion leaves.

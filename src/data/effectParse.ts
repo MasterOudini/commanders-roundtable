@@ -3309,6 +3309,8 @@ const VERB_LEAD = String.raw`(?:sacrifice|discard|exile|return|tap)`;
 const MAY_VERB_RE = new RegExp(String.raw`^(?:then )?you may (${VERB_LEAD} .+?)\. if you do, (.+)$`, 'i');
 const UNLESS_VERB_RE = new RegExp(String.raw`^(.+?) unless you (${VERB_LEAD} [^.]+)\.$`, 'i');
 const SELF_PRICE_RE = /^sacrifice (?:it|~|this (?:creature|permanent|artifact|enchantment|land))$/i;
+/** D630 - KINSHIP's three sentences: the look, the shared type (a creature type, or a card type) with the source, the body. */
+const KINSHIP_RE = /^look at the top card of your library\. if it shares a (creature|card) type with (?:~|this creature|this permanent), you may reveal it\. if you do, (.+)$/i;
 
 /**
  * D584 - THE REFLEXIVE TRIGGER (CR 603.12). `<price>. When you do, <payload>` - a price D369 or D415 already reads (`you may pay
@@ -3663,6 +3665,15 @@ function matchPayment(sentence: string): EffectSpec | null {
     return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: inner.targetIndex, self: inner.self, pay: { cost: price.cost, life: price.life, energy: price.energy, verbs: null, who: 'controller', ifPaid: [inner], ifNotPaid: [] } };
   }
   // D415 - the verb prices, after the mana forms (`pay` is not a verb lead, so neither shadows the other).
+  // D630 - KINSHIP: the look and the shared type are the price (`VerbPrice.revealTopShares`); the body is D628's branch.
+  const km = sentence.match(KINSHIP_RE);
+  if (km) {
+    const kind = (km[1] ?? '').toLowerCase() === 'card' ? ('card' as const) : ('creature' as const);
+    const verbs: VerbPrice = { costText: 'reveal it', sacrificeSelf: false, sacrificeCost: null, discardCost: null, tapCost: null, exileFromGraveyardCost: null, returnCost: null, revealTopShares: kind };
+    const inner = payBody(km[2] ?? '');
+    if (!inner) return paidText(sentence, paidBranch(km[2] ?? ''), null, 0, 0, verbs);
+    return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: inner.targetIndex, self: inner.self, pay: { cost: null, life: 0, energy: 0, verbs, who: 'controller', ifPaid: [inner], ifNotPaid: [] } };
+  }
   const uv = sentence.match(UNLESS_VERB_RE);
   if (uv) {
     const verbs = readVerbPrice(uv[2] ?? '');

@@ -766,7 +766,8 @@ export function PromptBar() {
                 const v = awaiting.verbs;
                 if (!v) return;
                 // D609 - the dying card's own exile is the source itself, as its own sacrifice is: no pick to make.
-                if (v.sacrificeSelf || v.exileSelf === true) {
+                // D630 - kinship's reveal names its one card (the top of the library) too.
+                if (v.sacrificeSelf || v.exileSelf === true || v.revealTopShares !== undefined) {
                   send({ t: 'AnswerPayMana', player: viewer, pay: true, picks: awaiting.candidates ? [...awaiting.candidates] : [] });
                   return;
                 }

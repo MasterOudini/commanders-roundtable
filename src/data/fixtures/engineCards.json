@@ -341799,6 +341799,602 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "DRAINPIPE_VERMIN": {
+    "scryfallId": "4d7251f3-df66-4611-a84c-1897f74431f7",
+    "oracleId": "b6d39905-e074-4517-b806-d081d1069f74",
+    "name": "Drainpipe Vermin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Drainpipe Vermin",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Rat",
+        "oracleText": "When this creature dies, you may pay {B}. If you do, target player discards a card.",
+        "flavorText": "When times are tough, the poor eat the rats. When times are tougher, the rats eat the poor.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Trevor Claxton",
+        "imageId": "4d7251f3-df66-4611-a84c-1897f74431f7"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "rtr",
+    "collectorNumber": "66",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KRENKO_BARON_OF_TIN_STREET": {
+    "scryfallId": "5524b712-c67d-4d2e-9344-9e85a6ce3227",
+    "oracleId": "91b2520e-85b6-4e1f-88cf-a585feeb8e65",
+    "name": "Krenko, Baron of Tin Street",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Krenko, Baron of Tin Street",
+        "manaCost": "{2}{R}",
+        "typeLine": "Legendary Creature — Goblin",
+        "oracleText": "Haste\n{T}, Sacrifice an artifact: Put a +1/+1 counter on each Goblin you control.\nWhenever an artifact is put into a graveyard from the battlefield, you may pay {R}. If you do, create a 1/1 red Goblin creature token. It gains haste until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Brian Valeza",
+        "imageId": "5524b712-c67d-4d2e-9344-9e85a6ce3227"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "135",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "QUIET_CONTEMPLATION": {
+    "scryfallId": "5dc7c9d5-904e-4ab6-9773-5c4f1c6d34c4",
+    "oracleId": "f87dfde4-8c57-4543-826c-6b3cf9c11b90",
+    "name": "Quiet Contemplation",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Quiet Contemplation",
+        "manaCost": "{2}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever you cast a noncreature spell, you may pay {1}. If you do, tap target creature an opponent controls and it doesn't untap during its controller's next untap step.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Magali Villeneuve",
+        "imageId": "5dc7c9d5-904e-4ab6-9773-5c4f1c6d34c4"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ktk",
+    "collectorNumber": "50",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INK_DISSOLVER": {
+    "scryfallId": "6e1bf0ad-f718-4118-9e9b-19041cfbb5cf",
+    "oracleId": "a138ca33-6ea4-468e-9cfb-c908ee62c516",
+    "name": "Ink Dissolver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ink Dissolver",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Merfolk Wizard",
+        "oracleText": "Kinship — At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with this creature, you may reveal it. If you do, each opponent mills three cards.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Brandon Dorman",
+        "imageId": "6e1bf0ad-f718-4118-9e9b-19041cfbb5cf"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Kinship",
+      "Mill"
+    ],
+    "setCode": "mor",
+    "collectorNumber": "36",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WOLF_SKULL_SHAMAN": {
+    "scryfallId": "804ef999-0d44-420e-ad0c-a6dcf8e9c392",
+    "oracleId": "c29724c7-dc2e-4a66-8371-449fd012d429",
+    "name": "Wolf-Skull Shaman",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wolf-Skull Shaman",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf Shaman",
+        "oracleText": "Kinship — At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with this creature, you may reveal it. If you do, create a 2/2 green Wolf creature token.",
+        "flavorText": "A chorus of howls answers his call.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jim Murray",
+        "imageId": "804ef999-0d44-420e-ad0c-a6dcf8e9c392"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Kinship"
+    ],
+    "setCode": "mor",
+    "collectorNumber": "140",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SQUEAKING_PIE_GRUBFELLOWS": {
+    "scryfallId": "81290ae9-9217-482a-ae1a-be1a0ef47b5d",
+    "oracleId": "bb4107f8-817c-43b2-b64c-f3b4c64eb3f0",
+    "name": "Squeaking Pie Grubfellows",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Squeaking Pie Grubfellows",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Goblin Shaman",
+        "oracleText": "Kinship — At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with this creature, you may reveal it. If you do, each opponent discards a card.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jim Pavelec",
+        "imageId": "81290ae9-9217-482a-ae1a-be1a0ef47b5d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Kinship"
+    ],
+    "setCode": "mor",
+    "collectorNumber": "78",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KITHKIN_ZEPHYRNAUT": {
+    "scryfallId": "8671abe8-4333-4b23-a87e-58bcc65deef2",
+    "oracleId": "f69e9629-a7f7-4241-bf0c-c8def7d19d66",
+    "name": "Kithkin Zephyrnaut",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kithkin Zephyrnaut",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Kithkin Soldier",
+        "oracleText": "Kinship — At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with this creature, you may reveal it. If you do, this creature gets +2/+2 and gains flying and vigilance until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Quinton Hoover & Val Mayerik",
+        "imageId": "8671abe8-4333-4b23-a87e-58bcc65deef2"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Kinship"
+    ],
+    "setCode": "mor",
+    "collectorNumber": "16",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HAUNTED_CADAVER": {
+    "scryfallId": "a164420c-3619-4f5e-81cf-2aa5a4553bc3",
+    "oracleId": "7f46839f-175d-4292-8057-c3e0da206075",
+    "name": "Haunted Cadaver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Haunted Cadaver",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "Whenever this creature deals combat damage to a player, you may sacrifice it. If you do, that player discards three cards.\nMorph {1}{B} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Randy Gallegos",
+        "imageId": "a164420c-3619-4f5e-81cf-2aa5a4553bc3"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Morph"
+    ],
+    "setCode": "ons",
+    "collectorNumber": "154",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WINNOWER_PATROL": {
+    "scryfallId": "a47bed84-5a4a-4f16-af6c-789c542ce3a7",
+    "oracleId": "41618227-a1c9-41e2-b567-7dfb493974c4",
+    "name": "Winnower Patrol",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Winnower Patrol",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elf Warrior",
+        "oracleText": "Kinship — At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with this creature, you may reveal it. If you do, put a +1/+1 counter on this creature.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Eric Fortune",
+        "imageId": "a47bed84-5a4a-4f16-af6c-789c542ce3a7"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Kinship"
+    ],
+    "setCode": "mor",
+    "collectorNumber": "139",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLAMESHADOW_CONJURING": {
+    "scryfallId": "ae113258-288f-47d5-8f79-e2e51b6326de",
+    "oracleId": "343460ea-7999-4d9e-b425-97fa1621f9d6",
+    "name": "Flameshadow Conjuring",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Flameshadow Conjuring",
+        "manaCost": "{3}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever a nontoken creature you control enters, you may pay {R}. If you do, create a token that's a copy of that creature. That token gains haste. Exile it at the beginning of the next end step.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Seb McKinnon",
+        "imageId": "ae113258-288f-47d5-8f79-e2e51b6326de"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "moc",
+    "collectorNumber": "280",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIGHTSHADE_SCHEMERS": {
+    "scryfallId": "af9a61cd-3a26-4142-83ce-9c41cdb16eb4",
+    "oracleId": "fd7b0b56-2f55-4933-bedc-e7711dbdd556",
+    "name": "Nightshade Schemers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nightshade Schemers",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Faerie Wizard",
+        "oracleText": "Flying\nKinship — At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with this creature, you may reveal it. If you do, each opponent loses 2 life.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "af9a61cd-3a26-4142-83ce-9c41cdb16eb4"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Kinship"
+    ],
+    "setCode": "mor",
+    "collectorNumber": "69",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TAINTED_OBSERVER": {
+    "scryfallId": "b9cba67a-b714-49b0-9797-24aca283f162",
+    "oracleId": "420aaa77-f429-4f3d-a73e-91dc25cb38db",
+    "name": "Tainted Observer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tainted Observer",
+        "manaCost": "{1}{G}{U}",
+        "typeLine": "Creature — Phyrexian Bird",
+        "oracleText": "Flying\nToxic 1 (Players dealt combat damage by this creature also get a poison counter.)\nWhenever another creature you control enters, you may pay {2}. If you do, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Johann Bodin",
+        "imageId": "b9cba67a-b714-49b0-9797-24aca283f162"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Toxic",
+      "Proliferate"
+    ],
+    "setCode": "one",
+    "collectorNumber": "217",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FELHIDE_SPIRITBINDER": {
+    "scryfallId": "bbbbe4ce-d6a6-428d-aeee-1c316f358777",
+    "oracleId": "91e3f057-c24f-42b5-8525-74b44bdefc83",
+    "name": "Felhide Spiritbinder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Felhide Spiritbinder",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Minotaur Shaman",
+        "oracleText": "Inspired — Whenever this creature becomes untapped, you may pay {1}{R}. If you do, create a token that's a copy of another target creature, except it's an enchantment in addition to its other types. It gains haste. Exile it at the beginning of the next end step.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mathias Kollros",
+        "imageId": "bbbbe4ce-d6a6-428d-aeee-1c316f358777"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Inspired"
+    ],
+    "setCode": "bng",
+    "collectorNumber": "96",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MUDBUTTON_CLANGER": {
+    "scryfallId": "bc5e2771-ae35-4aff-a92d-7fc7f3ca915f",
+    "oracleId": "b57e13ac-12fc-4b6a-9ca4-3ffb60c6b6ad",
+    "name": "Mudbutton Clanger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mudbutton Clanger",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "Kinship — At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with this creature, you may reveal it. If you do, this creature gets +1/+1 until end of turn.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Larry MacDougall",
+        "imageId": "bc5e2771-ae35-4aff-a92d-7fc7f3ca915f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Kinship"
+    ],
+    "setCode": "mor",
+    "collectorNumber": "95",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AKOUM_STONEWAKER": {
+    "scryfallId": "c92ab7b5-6a29-463e-b294-3cb0efaccddb",
+    "oracleId": "36d1a46e-44ac-4a65-a93c-8d6ab5c31cbf",
+    "name": "Akoum Stonewaker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Akoum Stonewaker",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Shaman",
+        "oracleText": "Landfall — Whenever a land you control enters, you may pay {2}{R}. If you do, create a 3/1 red Elemental creature token with trample and haste. Exile that token at the beginning of the next end step.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Victor Adame Minguez",
+        "imageId": "c92ab7b5-6a29-463e-b294-3cb0efaccddb"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Landfall"
+    ],
+    "setCode": "bfz",
+    "collectorNumber": "140",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VENOMOUS_BRUTALIZER": {
+    "scryfallId": "dd9df44a-a0ab-435f-914c-aa11cd88f4ec",
+    "oracleId": "766c3528-2c5c-4e92-aa85-b1e0e115d491",
+    "name": "Venomous Brutalizer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Venomous Brutalizer",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Phyrexian Knight",
+        "oracleText": "Toxic 3 (Players dealt combat damage by this creature also get three poison counters.)\nWhen this creature enters, you may pay {1}{G}. If you do, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Mike Jordana",
+        "imageId": "dd9df44a-a0ab-435f-914c-aa11cd88f4ec"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Toxic",
+      "Proliferate"
+    ],
+    "setCode": "one",
+    "collectorNumber": "193",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WANDERING_GRAYBEARD": {
+    "scryfallId": "ea5c82f9-4bc5-4326-92c0-d2aa4b4838a5",
+    "oracleId": "ea7d5ada-78ac-405b-887e-b262e4935bd3",
+    "name": "Wandering Graybeard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wandering Graybeard",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Giant Wizard",
+        "oracleText": "Kinship — At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with this creature, you may reveal it. If you do, you gain 4 life.",
+        "flavorText": "His tales are as tall as he is, and only a giant's life is long enough to listen to them all.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "ea5c82f9-4bc5-4326-92c0-d2aa4b4838a5"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Kinship"
+    ],
+    "setCode": "mor",
+    "collectorNumber": "27",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

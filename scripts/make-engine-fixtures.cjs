@@ -11255,6 +11255,25 @@ const WANTED = [
   'Raven of Fell Omens',
   'Deepmuck Desperado',
   // D629 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D630 - KINSHIP AND THE PAYMENT BRANCHES: the rows the whole-leftover row maker rowed once kinship was a reveal price and the suite asserted a branch that proliferates, freezes, makes another player discard or binds its own token.
+  'Drainpipe Vermin',
+  'Krenko, Baron of Tin Street',
+  'Quiet Contemplation',
+  'Ink Dissolver',
+  'Wolf-Skull Shaman',
+  'Squeaking Pie Grubfellows',
+  'Kithkin Zephyrnaut',
+  'Haunted Cadaver',
+  'Winnower Patrol',
+  'Flameshadow Conjuring',
+  'Nightshade Schemers',
+  'Tainted Observer',
+  'Felhide Spiritbinder',
+  'Mudbutton Clanger',
+  'Akoum Stonewaker',
+  'Venomous Brutalizer',
+  'Wandering Graybeard',
+  // D630 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

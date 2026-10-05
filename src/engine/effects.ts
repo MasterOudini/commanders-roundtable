@@ -968,6 +968,14 @@ export function effectResult(
             const inst = self === null ? undefined : priced.cards[self];
             verbCandidates = self !== null && inst !== undefined && inst.zone.kind === 'graveyard' ? [self] : [];
             shipCandidates = true;
+          } else if (pay.verbs.revealTopShares !== undefined) {
+            // D630 - KINSHIP: the payer LOOKS (shown to them alone); the reveal is payable while the card shares the type. Hidden:
+            // the prompt ships no candidate (the answerer reads the card it was shown).
+            const library = priced.zones.library[payer] ?? [];
+            const top = library[library.length - 1];
+            if (top !== undefined) out.push({ t: 'CardsRevealed', cards: [top], to: [payer] });
+            verbCandidates = top !== undefined && topSharesType(priced, deps, self, top, pay.verbs.revealTopShares, pricedCache) ? [top] : [];
+            shipCandidates = false;
           } else if (pay.verbs.championExile) {
             // D571 - the champion's exile: ANOTHER permanent the payer controls the noun admits (public - the prompt
             // ships them); a champion gone from the battlefield prices nothing.
@@ -3447,6 +3455,24 @@ export function millEvents(state: GameState, player: PlayerId, count: number): E
   if (take <= 0) return [];
   const ids = library.slice(library.length - take).reverse();
   return [{ t: 'CardsMoved', moves: ids.map((card) => ({ card, from: { kind: 'library' as const, player }, to: { kind: 'graveyard' as const, player } })) }];
+}
+
+/**
+ * D630 - KINSHIP's question (`If it shares a creature type with ~`): the top card of the library, as printed, and the source,
+ * as derived, share a creature type - both must be creature-typed (a creature, a kindred card), and a changeling has every
+ * creature type (CR 702.73a; the source's derivation already spells its own out). `card`: a card type.
+ */
+export function topSharesType(state: GameState, deps: EngineDeps, source: InstanceId | null, top: InstanceId, kind: 'creature' | 'card', cache?: DeriveCache): boolean {
+  const inst = state.cards[top];
+  const printing = inst ? deps.oracle.byPrinting(inst.printingId) : undefined;
+  if (!inst || !printing || source === null || state.cards[source] === undefined) return false;
+  const face = faceOf(printing, inst.faceIndex);
+  const ours = derive(state, deps.oracle, deps.scripts, source, cache).typeLine;
+  if (kind === 'card') return face.typeLine.types.some((t) => ours.types.includes(t));
+  const creatureTyped = (t: { readonly types: readonly string[] }): boolean => t.types.includes('Creature') || t.types.includes('Kindred') || t.types.includes('Tribal');
+  if (!creatureTyped(ours) || !creatureTyped(face.typeLine)) return false;
+  const theirs = face.keywords.includes('changeling') ? [...deps.oracle.creatureTypes] : face.typeLine.subtypes;
+  return theirs.some((s) => ours.subtypes.includes(s));
 }
 
 export function drawEvents(state: GameState, player: PlayerId, count: number): EventBody[] {
