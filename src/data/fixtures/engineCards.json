@@ -344861,6 +344861,554 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "WILD_GROWTH": {
+    "scryfallId": "077a6195-835e-496d-bd17-aec3f8fb7bc4",
+    "oracleId": "706ae742-1807-44b7-a4fa-f2e26f61519a",
+    "name": "Wild Growth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wild Growth",
+        "manaCost": "{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nWhenever enchanted land is tapped for mana, its controller adds an additional {G}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Mark Poole",
+        "imageId": "077a6195-835e-496d-bd17-aec3f8fb7bc4"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "30a",
+    "collectorNumber": "225",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OVERGROWTH": {
+    "scryfallId": "0bf13b7d-736b-4bf9-8b30-6e182986ddbb",
+    "oracleId": "e6ccebf4-f4f0-404f-a634-4d751ef9c8aa",
+    "name": "Overgrowth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Overgrowth",
+        "manaCost": "{2}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nWhenever enchanted land is tapped for mana, its controller adds an additional {G}{G}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Christopher Rush",
+        "imageId": "0bf13b7d-736b-4bf9-8b30-6e182986ddbb"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "9ED-262",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FERTILE_GROUND": {
+    "scryfallId": "05edfbbc-34e8-4046-966c-3a979468b95e",
+    "oracleId": "cf14d4e5-5965-45ad-97f7-26facf2884b5",
+    "name": "Fertile Ground",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fertile Ground",
+        "manaCost": "{1}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nWhenever enchanted land is tapped for mana, its controller adds an additional one mana of any color.",
+        "flavorText": "Pretty, valuable, and delicious—a boggart thief's trifecta.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Mark Tedin",
+        "imageId": "05edfbbc-34e8-4046-966c-3a979468b95e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "lrw",
+    "collectorNumber": "211",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MANA_FLARE": {
+    "scryfallId": "0f065e87-8a9c-4d5d-ae26-a614f1054799",
+    "oracleId": "97159138-c34b-416e-b079-5c952383a243",
+    "name": "Mana Flare",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mana Flare",
+        "manaCost": "{2}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever a player taps a land for mana, that player adds one mana of any type that land produced.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Christopher Rush",
+        "imageId": "0f065e87-8a9c-4d5d-ae26-a614f1054799"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "4bb",
+    "collectorNumber": "211",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HEARTBEAT_OF_SPRING": {
+    "scryfallId": "006b8547-1427-4aa2-88e4-e82b0ff4bb6d",
+    "oracleId": "f15911a5-f597-452e-a015-b115339f28fc",
+    "name": "Heartbeat of Spring",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Heartbeat of Spring",
+        "manaCost": "{2}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever a player taps a land for mana, that player adds one mana of any type that land produced.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Viacom",
+        "imageId": "006b8547-1427-4aa2-88e4-e82b0ff4bb6d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tle",
+    "collectorNumber": "42",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DICTATE_OF_KARAMETRA": {
+    "scryfallId": "d5114607-df8f-4e44-8ef5-b6af89964bbc",
+    "oracleId": "01cb56d7-f859-46fd-b6c9-40d2c4965b69",
+    "name": "Dictate of Karametra",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dictate of Karametra",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "Flash\nWhenever a player taps a land for mana, that player adds one mana of any type that land produced.",
+        "flavorText": "\"I refuse to let the folly of mortals endanger the home I made for them.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Noah Bradley",
+        "imageId": "d5114607-df8f-4e44-8ef5-b6af89964bbc"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "jou",
+    "collectorNumber": "121",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ZHUR_TAA_ANCIENT": {
+    "scryfallId": "2076308f-0f4e-4b31-9e75-c2965942e7d1",
+    "oracleId": "6543b60c-12b0-4e69-9074-6a2b468c5234",
+    "name": "Zhur-Taa Ancient",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Zhur-Taa Ancient",
+        "manaCost": "{3}{R}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Whenever a player taps a land for mana, that player adds one mana of any type that land produced.",
+        "flavorText": "Many Ravnicans think of nature as orderly groves and elf-tended rot farms. They haven't seen the Gruul wilds.",
+        "power": "7",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Adam Paquette",
+        "imageId": "2076308f-0f4e-4b31-9e75-c2965942e7d1"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "dgm",
+    "collectorNumber": "119",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRYPT_GHAST": {
+    "scryfallId": "060c12ee-65b0-48d3-82d0-fdb5e27097a8",
+    "oracleId": "a3c8d817-7949-4dae-b9f5-f9d952479270",
+    "name": "Crypt Ghast",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crypt Ghast",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Extort (Whenever you cast a spell, you may pay {W/B}. If you do, each opponent loses 1 life and you gain that much life.)\nWhenever you tap a Swamp for mana, add an additional {B}.",
+        "flavorText": "The soul of a murderer from the old world, steeped for centuries in rot and malevolence.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Tim Jacobus",
+        "imageId": "060c12ee-65b0-48d3-82d0-fdb5e27097a8"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Extort"
+    ],
+    "setCode": "dsc",
+    "collectorNumber": "368",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VERNAL_BLOOM": {
+    "scryfallId": "547cb570-5e32-4e7c-8cbb-21712ddc4a05",
+    "oracleId": "238b270c-152a-48e5-a955-65f5cb80c174",
+    "name": "Vernal Bloom",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vernal Bloom",
+        "manaCost": "{3}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever a Forest is tapped for mana, its controller adds an additional {G}.",
+        "flavorText": "Many cultures have legends of a lush, hidden paradise. The elves of Argoth had no need of such stories.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Bob Eggleton",
+        "imageId": "547cb570-5e32-4e7c-8cbb-21712ddc4a05"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "USG-281",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MANA_REFLECTION": {
+    "scryfallId": "1fcf02eb-2aaa-4c22-a3b3-f57019664118",
+    "oracleId": "a3a8a044-283d-443e-bc40-c2f826d70c22",
+    "name": "Mana Reflection",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mana Reflection",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "If you tap a permanent for mana, it produces twice as much of that mana instead.",
+        "flavorText": "Despite its darkness, Shadowmoor doesn't want for growth. Legions of creeping things thrive in the shade.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Terese Nielsen & Ron Spencer",
+        "imageId": "1fcf02eb-2aaa-4c22-a3b3-f57019664118"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "shm",
+    "collectorNumber": "122",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NYXBLOOM_ANCIENT": {
+    "scryfallId": "5f2b2373-9052-4246-a644-1f5b723ea9f1",
+    "oracleId": "8b610f8f-c8dd-4eeb-bc6e-3bc706d5f63e",
+    "name": "Nyxbloom Ancient",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nyxbloom Ancient",
+        "manaCost": "{4}{G}{G}{G}",
+        "typeLine": "Enchantment Creature — Elemental",
+        "oracleText": "Trample\nIf you tap a permanent for mana, it produces three times as much of that mana instead.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Yoshitaka Amano",
+        "imageId": "5f2b2373-9052-4246-a644-1f5b723ea9f1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "fca",
+    "collectorNumber": "16",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARKET_FESTIVAL": {
+    "scryfallId": "c3a70329-ecae-4647-b912-75d936a6c8c5",
+    "oracleId": "15c63f9b-d071-4522-b9f0-a1f441a61b81",
+    "name": "Market Festival",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Market Festival",
+        "manaCost": "{3}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nWhenever enchanted land is tapped for mana, its controller adds an additional two mana in any combination of colors.",
+        "flavorText": "Commerce is always the basis for peace.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ryan Barger",
+        "imageId": "c3a70329-ecae-4647-b912-75d936a6c8c5"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "jou",
+    "collectorNumber": "130",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DAWN_S_REFLECTION": {
+    "scryfallId": "131a124f-f11e-4ea1-a7b2-b94eea988d4e",
+    "oracleId": "362b7838-3b70-4a00-8c26-1c8b8a3b6acf",
+    "name": "Dawn's Reflection",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dawn's Reflection",
+        "manaCost": "{3}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nWhenever enchanted land is tapped for mana, its controller adds an additional two mana in any combination of colors.",
+        "flavorText": "Only Sylvok magic could truly capture the perfection of a Mirrodin sunrise.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "John Avon",
+        "imageId": "131a124f-f11e-4ea1-a7b2-b94eea988d4e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "5dn",
+    "collectorNumber": "85",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MIRARI_S_WAKE": {
+    "scryfallId": "02747420-c635-4f0f-9888-81cf4f7dfc91",
+    "oracleId": "852657c0-18a4-4b28-b9ae-7728acdb5044",
+    "name": "Mirari's Wake",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mirari's Wake",
+        "manaCost": "{3}{G}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "Creatures you control get +1/+1.\nWhenever you tap a land for mana, add one mana of any type that land produced.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "David Martin",
+        "imageId": "02747420-c635-4f0f-9888-81cf4f7dfc91"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "ha3",
+    "collectorNumber": "23",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LAVALEAPER": {
+    "scryfallId": "0eee01c8-6588-407c-9e19-97699e43e713",
+    "oracleId": "a107fb84-6874-4964-a729-4425dad98330",
+    "name": "Lavaleaper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lavaleaper",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "All creatures have haste.\nWhenever a player taps a basic land for mana, that player adds one mana of any type that land produced.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Matthew Forsythe",
+        "imageId": "0eee01c8-6588-407c-9e19-97699e43e713"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ecl",
+    "collectorNumber": "318",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIRKANA_REVENANT": {
+    "scryfallId": "96da0a4c-2865-4383-875a-9f5d6503baee",
+    "oracleId": "6dff1def-5b94-40c8-a942-dea8743ab47c",
+    "name": "Nirkana Revenant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nirkana Revenant",
+        "manaCost": "{4}{B}{B}",
+        "typeLine": "Creature — Vampire Shade",
+        "oracleText": "Whenever you tap a Swamp for mana, add an additional {B}.\n{B}: This creature gets +1/+1 until end of turn.",
+        "flavorText": "Hate is an everlasting wellspring from which she is eternally sustained.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Livia Prima",
+        "imageId": "96da0a4c-2865-4383-875a-9f5d6503baee"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "voc",
+    "collectorNumber": "134",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

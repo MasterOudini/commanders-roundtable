@@ -407,6 +407,8 @@ export type EventBody =
        * fuzz canary `restrictedManaMade` keeps the emitter that must fill it honest.
        */
       readonly only?: SpendRestriction;
+      /** D634 - the tap's triggered mana abilities or a doubler added to what the source alone makes (the fuzz reads it). */
+      readonly augmented?: true;
     }
   /**
    * D364 - `snow` is the SUB-POOL of this spend that came from snow mana. D397 - `restricted`

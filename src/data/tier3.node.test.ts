@@ -488,12 +488,12 @@ const MEASURED: Record<string, number> = {
   // ⚠️ M6.4l (D169): twenty-three silences — the batch's cards leaving both
   // note kinds, split by what each card is.
   // ⚠️ M6.4m (D170): twenty-three more, same shape.
-  abilityText: 11519,
-  payable: 3201,
+  abilityText: 11501,
+  payable: 3200,
   manaPart: 295,
-  either: 13448,
-  eitherAnyFace: 13469,
-  wasSilent: 12628,
+  either: 13431,
+  eitherAnyFace: 13452,
+  wasSilent: 12612,
   // ⚠️ M6.3c moved the three SILENCE counters by exactly the seven cards the
   // counter vocabulary completed (D130), and moving them is the correct
   // behaviour rather than a regression: a card the engine now runs in full must
@@ -517,9 +517,9 @@ const MEASURED: Record<string, number> = {
   // Ghoul, Lodestone Bauble, Digsite Conservator, Unlicensed Hearse, Pestilent Cauldron's front face) now also say their
   // target's unread graveyard phrase ("from a single graveyard" on its target). Pestilent Cauldron's back face already
   // spoke, so the any-face count moves by six.
-  wasSilentAnyFace: 12560,
+  wasSilentAnyFace: 12544,
   silentBefore: 26632,
-  silentAfter: 14004,
+  silentAfter: 14020,
   residual: 58,
   residualKeyword: 58,
   residualManaLine: 0,

@@ -19,7 +19,7 @@ import {
   type ManaSymbolKey,
   type PaymentProblem,
 } from './types/mana';
-import type { ManaOutput, ManaProduction, OracleDb, WardCharge } from './types/oracle';
+import type { ManaExtra, ManaOutput, ManaProduction, OracleDb, WardCharge } from './types/oracle';
 import type { GameState, TargetChoice } from './types/state';
 import { faceColors, fitPool, type SpendPurpose } from './spend';
 import type { SpendRestriction } from './types/mana';
@@ -38,6 +38,8 @@ export interface ManaSource {
   readonly conditional: boolean;
   /** D325 - the cost beside the {T} the tap charges; absent or null for a plain source. */
   readonly extraCost?: ManaProduction['extraCost'];
+  /** D634 - the outputs carry what the tap's triggered mana abilities or a doubler add (`augmentOutputs`). */
+  readonly augmented?: true;
   /** D355 - the price the line charges when the mana is made. */
   readonly drawback?: ManaProduction['drawback'];
   /**
@@ -173,10 +175,13 @@ export function manaSourcesOf(
         ? expandOutputs(prod.outputs, prod.anyColor, scoped)
         : expandOutputs(prod.outputs.map((o) => ({ mana: scalePool(o.mana, n), amount: o.amount * n })), prod.anyColor === null ? null : { ...prod.anyColor, amount: prod.anyColor.amount * n }, scoped);
       if (outputs.length === 0) continue;
+      // D634 - THE TRIGGERED MANA ABILITIES (CR 605.1b) AND THE DOUBLERS (CR 106.12): what this tap also makes, folded in.
+      const aug = augmentOutputs(state, oracle, id, card.controller, d, prod, outputs);
       out.push({
         card: id,
         abilityIndex: prod.abilityIndex,
-        outputs,
+        outputs: aug.outputs,
+        ...(aug.augmented ? { augmented: true as const } : {}),
         // D364 - DERIVED, never printed: a permanent made snow is a snow source.
         snow: d.typeLine.supertypes.includes('Snow'),
         requiresTap: prod.requiresTap,
@@ -649,6 +654,92 @@ export function extraCostSpend(state: GameState, player: PlayerId, extra: NonNul
     mana = spend;
   }
   return { mana, life: extra.life };
+}
+
+/**
+ * D634 - THE TRIGGERED MANA ABILITIES AND THE DOUBLERS, folded into a tapped source's outputs. A mana ability's triggered
+ * mana abilities resolve at once (CR 605.1b, 605.4a) and a doubler replaces what the tap makes (CR 106.12), so the pool the
+ * payment reads is one: every output the source can make is multiplied by its controller's doublers, then each augment that
+ * watches this tap adds its extra (an alternative per colour an `any color` extra may name; a `sameType` extra names a type
+ * the SOURCE produced, never an earlier extra's). Read off the battlefield's faces (`OracleFace.manaAugment`): an Aura on
+ * this land, lands a player taps (any player, the augmenter's controller, an opponent - a land type, basic, nonbasic, snow),
+ * creatures the augmenter's controller taps. A source with no {T}, or with a spend restriction, is not augmented.
+ */
+function augmentOutputs(
+  state: GameState,
+  oracle: OracleDb,
+  id: InstanceId,
+  controller: PlayerId,
+  d: ReturnType<typeof derive>,
+  prod: ManaProduction,
+  outputs: readonly ManaOutput[],
+): { outputs: ManaOutput[]; augmented: boolean } {
+  if (!prod.requiresTap || prod.restriction) return { outputs: [...outputs], augmented: false };
+  let factor = 1;
+  const extras: { extra: ManaExtra; chosen: ColorLetter | null }[] = [];
+  const basic = d.typeLine.supertypes.includes('Basic');
+  for (const aid of inPlay(state)) {
+    const a = state.cards[aid];
+    if (!a || a.phasedOut || a.faceDown) continue;
+    const printing = oracle.byPrinting(a.printingId);
+    if (!printing) continue;
+    for (const g of faceOf(printing, a.faceIndex).manaAugment ?? []) {
+      if (g.kind === 'multiplier') {
+        if (a.controller === controller) factor *= g.factor;
+      } else if (g.kind === 'enchantedLand') {
+        if (a.attachedTo === id && d.isLand && (g.subtype === undefined || d.typeLine.subtypes.includes(g.subtype))) extras.push({ extra: g.extra, chosen: a.chosenColor });
+      } else if (g.kind === 'landsTapped') {
+        if (!d.isLand) continue;
+        if (g.who === 'you' && controller !== a.controller) continue;
+        if (g.who === 'opponents' && controller === a.controller) continue;
+        if (g.subtype !== undefined && !d.typeLine.subtypes.includes(g.subtype)) continue;
+        if (g.basic !== undefined && g.basic !== basic) continue;
+        if (g.snow === true && !d.typeLine.supertypes.includes('Snow')) continue;
+        extras.push({ extra: g.extra, chosen: a.chosenColor });
+      } else if (d.isCreature && controller === a.controller) {
+        extras.push({ extra: g.extra, chosen: a.chosenColor });
+      }
+    }
+  }
+  if (factor === 1 && extras.length === 0) return { outputs: [...outputs], augmented: false };
+  // Each alternative: what the SOURCE made (the doubled output) and the total with the extras so far.
+  let alts = outputs.map((o) => ({ own: scalePool(o.mana, factor), total: scalePool(o.mana, factor) }));
+  for (const { extra, chosen } of extras) {
+    const next: { own: ManaPool; total: ManaPool }[] = [];
+    for (const alt of alts) {
+      if (extra.kind === 'fixed') next.push({ own: alt.own, total: addPools(alt.total, extra.mana) });
+      else if (extra.kind === 'chosenColor') next.push(chosen === null ? alt : { own: alt.own, total: addPools(alt.total, poolFrom({ [chosen]: 1 })) });
+      else if (extra.kind === 'anyColor') for (const combo of colourCombos(extra.amount)) next.push({ own: alt.own, total: addPools(alt.total, combo) });
+      else {
+        const types = MANA_KEYS.filter((k) => alt.own[k] > 0);
+        if (types.length === 0) next.push(alt);
+        for (const k of types) next.push({ own: alt.own, total: addPools(alt.total, poolFrom({ [k]: 1 })) });
+      }
+    }
+    const seen = new Set<string>();
+    alts = next.filter((x) => {
+      const key = MANA_KEYS.map((k) => x.total[k]).join(',');
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  }
+  return { outputs: alts.map((x) => ({ mana: x.total, amount: poolTotal(x.total) })), augmented: true };
+}
+
+/** D634 - the pools an `any color` extra of one or two mana may name (two: every combination of colours, CR 106.1a). */
+function colourCombos(amount: 1 | 2): ManaPool[] {
+  const out: ManaPool[] = [];
+  for (let a = 0; a < COLORS.length; a++) {
+    if (amount === 1) { out.push(poolFrom({ [COLORS[a] as Color]: 1 })); continue; }
+    for (let b = a; b < COLORS.length; b++) out.push(addPools(poolFrom({ [COLORS[a] as Color]: 1 }), poolFrom({ [COLORS[b] as Color]: 1 })));
+  }
+  return out;
+}
+
+/** D634 - two pools added symbol by symbol. */
+function addPools(p: ManaPool, q: ManaPool): ManaPool {
+  return { W: p.W + q.W, U: p.U + q.U, B: p.B + q.B, R: p.R + q.R, G: p.G + q.G, C: p.C + q.C };
 }
 
 /** D627 - a pool every symbol of which is multiplied by n (a counted mana amount). */

@@ -10114,6 +10114,22 @@ export const CRIMSON_ACOLYTE: CardData = F.CRIMSON_ACOLYTE as CardData;
 export const KEEPER_OF_KOOKUS: CardData = F.KEEPER_OF_KOOKUS as CardData;
 export const MIDVAST_PROTECTOR: CardData = F.MIDVAST_PROTECTOR as CardData;
 export const SYGG_RIVER_GUIDE: CardData = F.SYGG_RIVER_GUIDE as CardData;
+export const WILD_GROWTH: CardData = F.WILD_GROWTH as CardData;
+export const OVERGROWTH: CardData = F.OVERGROWTH as CardData;
+export const FERTILE_GROUND: CardData = F.FERTILE_GROUND as CardData;
+export const MANA_FLARE: CardData = F.MANA_FLARE as CardData;
+export const HEARTBEAT_OF_SPRING: CardData = F.HEARTBEAT_OF_SPRING as CardData;
+export const DICTATE_OF_KARAMETRA: CardData = F.DICTATE_OF_KARAMETRA as CardData;
+export const ZHUR_TAA_ANCIENT: CardData = F.ZHUR_TAA_ANCIENT as CardData;
+export const CRYPT_GHAST: CardData = F.CRYPT_GHAST as CardData;
+export const VERNAL_BLOOM: CardData = F.VERNAL_BLOOM as CardData;
+export const MANA_REFLECTION: CardData = F.MANA_REFLECTION as CardData;
+export const NYXBLOOM_ANCIENT: CardData = F.NYXBLOOM_ANCIENT as CardData;
+export const MARKET_FESTIVAL: CardData = F.MARKET_FESTIVAL as CardData;
+export const DAWN_S_REFLECTION: CardData = F.DAWN_S_REFLECTION as CardData;
+export const MIRARI_S_WAKE: CardData = F.MIRARI_S_WAKE as CardData;
+export const LAVALEAPER: CardData = F.LAVALEAPER as CardData;
+export const NIRKANA_REVENANT: CardData = F.NIRKANA_REVENANT as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -20510,6 +20526,22 @@ export const ENGINE_CARDS: CardData[] = [
   KEEPER_OF_KOOKUS,
   MIDVAST_PROTECTOR,
   SYGG_RIVER_GUIDE,
+  WILD_GROWTH,
+  OVERGROWTH,
+  FERTILE_GROUND,
+  MANA_FLARE,
+  HEARTBEAT_OF_SPRING,
+  DICTATE_OF_KARAMETRA,
+  ZHUR_TAA_ANCIENT,
+  CRYPT_GHAST,
+  VERNAL_BLOOM,
+  MANA_REFLECTION,
+  NYXBLOOM_ANCIENT,
+  MARKET_FESTIVAL,
+  DAWN_S_REFLECTION,
+  MIRARI_S_WAKE,
+  LAVALEAPER,
+  NIRKANA_REVENANT,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

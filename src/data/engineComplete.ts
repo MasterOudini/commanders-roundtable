@@ -553,6 +553,8 @@ export function linesUnaccounted(
     // answer to "is this the unconditional clause"; a second regex here would
     // eventually accept an `unless` the parser refused, and the engine would tap
     // a land whose condition nobody checked. See D134.
+    // D634 - a triggered mana ability or a doubler the mana sources fold in, asked of the parser that read it.
+    if (face.manaAugment?.some((a) => a.line === i) === true) continue;
     if (face.entersTapped && parseEntersTappedLine(line, face.name)) continue;
     // D486 - the clone's line, asked of the parser that set the face's field (the funnel asks and applies it).
     if (face.entersAsCopy && parseEntersAsCopyLine(line, face.name)) continue;

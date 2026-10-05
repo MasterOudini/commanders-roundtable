@@ -233,6 +233,28 @@ export interface ManaOutput {
   readonly amount: number;
 }
 
+/**
+ * D634 - what a mana ability's triggered mana abilities add (CR 605.1b), read off the trigger's own text: a fixed amount
+ * (`an additional {G}`), one or two mana of any colour (`... in any combination of colors`), the augmenter's chosen colour, or
+ * one mana of a type the tapped land produced.
+ */
+export type ManaExtra =
+  | { readonly kind: 'fixed'; readonly mana: import('./mana').ManaPool }
+  | { readonly kind: 'anyColor'; readonly amount: 1 | 2 }
+  | { readonly kind: 'chosenColor' }
+  | { readonly kind: 'sameType' };
+/**
+ * D634 - A TRIGGERED MANA ABILITY OR A DOUBLER on this face, folded into the tapped source's outputs by `manaSourcesOf`: the
+ * land the Aura enchants (`enchantedLand`), lands a player taps (`landsTapped` - any player, the augmenter's controller, or an
+ * opponent; a basic land type, basic, nonbasic, snow), creatures the augmenter's controller taps (`creaturesTapped`), and the
+ * multiplier on what the augmenter's controller's permanents make (`multiplier`, CR 106.12). `line` is the printed line.
+ */
+export type ManaAugment =
+  | { readonly kind: 'enchantedLand'; readonly line: number; readonly extra: ManaExtra; readonly subtype?: string }
+  | { readonly kind: 'landsTapped'; readonly line: number; readonly extra: ManaExtra; readonly who: 'any' | 'you' | 'opponents'; readonly subtype?: string; readonly basic?: boolean; readonly snow?: true }
+  | { readonly kind: 'creaturesTapped'; readonly line: number; readonly extra: ManaExtra }
+  | { readonly kind: 'multiplier'; readonly line: number; readonly factor: number };
+
 export interface ManaProduction {
   readonly abilityIndex: number;
   /** One entry per concrete choice. Empty when `anyColor` is set. */
@@ -2304,6 +2326,8 @@ export interface OracleFace {
   /** Land types this creature can't be blocked by a controller of. */
   readonly landwalk: readonly string[];
   readonly producesMana: readonly ManaProduction[];
+  /** D634 - the triggered mana abilities and the doublers this face prints (`manaSourcesOf` folds them in). Absent when none. */
+  readonly manaAugment?: readonly ManaAugment[];
   readonly isPermanent: boolean;
   readonly isCreature: boolean;
   readonly isLand: boolean;

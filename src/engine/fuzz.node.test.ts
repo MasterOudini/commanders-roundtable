@@ -381,7 +381,12 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // D527 - CLASH: two Release the Ants and two Research the Deeps a seat - each clashes with an opponent (two placement
   // prompts, the harness's scry answer keeps the card on top) and returns itself to hand on a win (D523's gate over the
   // verdict); in a four-seat game the caster is asked which opponent (the first candidate).
-  { names: ['Release the Ants', 'Research the Deep'], copiesPerSeat: 2, counterKeys: ['clashes', 'clashWins'], rotHistory: 'D527' },
+  // D634 - one a seat: the second slots went to the mana-augment pair below (the swap; clashes 74 over D631's gate).
+  { names: ['Release the Ants', 'Research the Deep'], copiesPerSeat: 1, counterKeys: ['clashes', 'clashWins'], rotHistory: 'D527, D634' },
+  // D634 - THE TRIGGERED MANA ABILITIES: one Wild Growth ({G} Aura - `Whenever enchanted land is tapped for mana, its controller adds
+  // an additional {G}.`) and one Mana Flare ({2}{R} - `Whenever a player taps a land for mana, that player adds one mana of any
+  // type that land produced.`) a seat, in the pair above's second slots (the seat's card count and the shuffle kept).
+  { names: ['Wild Growth', 'Mana Flare'], copiesPerSeat: 1, counterKeys: ['augmentedMana'], rotHistory: 'D634' },
   // D528 - SAGAS: two Origins of the Hulk and two Births of Meletis a seat - each enters with a lore counter (chapter I),
   // gets one as its controller's precombat main begins (II, III) and is sacrificed once the final chapter has resolved.
   // D633 - one a seat: the second slots went to the protection pair below (the swap; chaptersFired 114 over D631's gate).
@@ -1915,6 +1920,8 @@ interface Run {
   /** D633 - the colours named as an object resolved, and the protection grants made until end of turn. */
   readonly coloursNamed: number;
   readonly protectionGrants: number;
+  /** D634 - the mana a tap made with a triggered mana ability or a doubler folded in (`ManaAdded.augmented`). */
+  readonly augmentedMana: number;
   /** D534 - the coin flips a resolution made (`CoinFlipped` not caused by the manual tool's `FlipCoin` intent). */
   readonly rulesFlips: number;
   /** D535 - the spells cast with their buyback paid, and the ones that went back to hand as they resolved. */
@@ -2539,6 +2546,7 @@ function runOne(seed: number): Run {
     exceptColors: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'chooseColor' && e.body.awaiting.except !== undefined).length,
     coloursNamed: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'chooseColor' && e.body.awaiting.resolving === true).length,
     protectionGrants: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.protection !== undefined).length,
+    augmentedMana: game.log.filter((e) => e.body.t === 'ManaAdded' && e.body.augmented === true).length,
     // D630 - read off the prompt the answer closed: the `payMana` question carries the reveal price (`verbs.revealTopShares`).
     kinshipReveals: (() => {
       let n = 0;
@@ -2991,6 +2999,7 @@ const TOTAL_KEYS = [
   'exceptColors',
   'coloursNamed',
   'protectionGrants',
+  'augmentedMana',
   'rulesFlips',
   'buybackCasts',
   'buybackReturns',
@@ -3567,6 +3576,9 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.coloursNamed).toBeGreaterThan(0);
         // D633 - a protection grant made until end of turn, at gate size (the same pair; 2 over the 60-seed canary).
         expect(totals.protectionGrants).toBeGreaterThan(0);
+        // D634 - a tap that made more with a triggered mana ability or a doubler, at gate size (Wild Growth and Mana Flare, one a
+        // seat; 20 over the 60-seed canary).
+        expect(totals.augmentedMana).toBeGreaterThan(0);
         // D534 - a rules coin flip at gate size (Winter Sky, two a seat).
         expect(totals.rulesFlips).toBeGreaterThan(0);
         // D535 - a bought-back spell back in its owner's hand at gate size (Searing Touch, two a seat).

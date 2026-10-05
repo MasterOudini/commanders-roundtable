@@ -23,6 +23,8 @@ import type {
   ActivationCondition,
   CountExpr,
   Keyword,
+  ManaAugment,
+  ManaExtra,
   ManaOutput,
   ManaProduction,
   OracleFace,
@@ -1158,6 +1160,66 @@ function spendRestrictionOf(effect: string): { readonly restriction: SpendRestri
  * affordability filter would grey out half a player's hand with no visible
  * cause.
  */
+/**
+ * D634 - THE TRIGGERED MANA ABILITIES AND THE DOUBLERS a face prints (`ManaAugment`), each line read whole or not at all: an
+ * Aura's `Whenever enchanted <land> is tapped for mana, its controller adds an additional <extra>.`, a player's (or your)
+ * land tapped for mana adding <extra>, a land type's (`Whenever a Forest is tapped for mana, its controller adds ...`), your
+ * creatures (`Whenever you tap a creature for mana, add an additional {G}.`) and `If you tap a permanent for mana, it produces twice
+ * (three times) as much of that mana instead.` Anything beside the mana in the line (a damage, a counter, a count) is unread.
+ */
+const LAND_TYPE_WORD = '(Swamp|Island|Forest|Mountain|Plains)';
+function manaExtraOf(raw: string): ManaExtra | null {
+  const s = raw.trim();
+  const fixed = /^an additional ((?:[{][WUBRGC][}])+)$/.exec(s);
+  if (fixed) {
+    const mana: Record<string, number> = { W: 0, U: 0, B: 0, R: 0, G: 0, C: 0 };
+    for (const t of (fixed[1] ?? '').match(/[WUBRGC]/g) ?? []) mana[t] = (mana[t] ?? 0) + 1;
+    return { kind: 'fixed', mana: mana as unknown as ManaPool };
+  }
+  if (s === 'an additional one mana of any color') return { kind: 'anyColor', amount: 1 };
+  if (s === 'an additional two mana in any combination of colors') return { kind: 'anyColor', amount: 2 };
+  if (s === 'an additional one mana of the chosen color') return { kind: 'chosenColor' };
+  if (s === 'one mana of any type that land produced') return { kind: 'sameType' };
+  return null;
+}
+export function parseManaAugments(oracleText: string): ManaAugment[] {
+  const out: ManaAugment[] = [];
+  for (const [i, raw] of (oracleText ?? '').split(String.fromCharCode(10)).entries()) {
+    const line = raw.trim();
+    let m = new RegExp('^Whenever enchanted (land|' + LAND_TYPE_WORD.slice(1, -1) + ') is tapped for mana, its controller adds (.+)[.]$').exec(line);
+    if (m) {
+      const extra = manaExtraOf(m[2] ?? '');
+      if (extra) out.push({ kind: 'enchantedLand', line: i, extra, ...(m[1] !== 'land' ? { subtype: m[1] as string } : {}) });
+      continue;
+    }
+    m = new RegExp('^Whenever (a player|you|an opponent) taps? (a land|a basic land|a nonbasic land|a snow land|an? ' + LAND_TYPE_WORD + ') for mana, (?:that player adds|add) (.+)[.]$').exec(line);
+    if (m) {
+      const extra = manaExtraOf(m[4] ?? '');
+      const who = m[1] === 'you' ? 'you' : m[1] === 'an opponent' ? 'opponents' : 'any';
+      const noun = m[2] ?? '';
+      if (extra && (who === 'you') === / add $/.test(line.slice(0, line.length - (m[4] ?? '').length - 1))) {
+        out.push({ kind: 'landsTapped', line: i, extra, who, ...(m[3] !== undefined ? { subtype: m[3] } : {}), ...(noun === 'a basic land' ? { basic: true } : noun === 'a nonbasic land' ? { basic: false } : {}), ...(noun === 'a snow land' ? { snow: true as const } : {}) });
+      }
+      continue;
+    }
+    m = new RegExp('^Whenever an? ' + LAND_TYPE_WORD + ' is tapped for mana, its controller adds (.+)[.]$').exec(line);
+    if (m) {
+      const extra = manaExtraOf(m[2] ?? '');
+      if (extra) out.push({ kind: 'landsTapped', line: i, extra, who: 'any', subtype: m[1] as string });
+      continue;
+    }
+    m = /^Whenever you tap a creature for mana, add (.+)[.]$/.exec(line);
+    if (m) {
+      const extra = manaExtraOf(m[1] ?? '');
+      if (extra) out.push({ kind: 'creaturesTapped', line: i, extra });
+      continue;
+    }
+    m = /^If you tap a permanent for mana, it produces (twice|three times) as much of that mana instead[.]$/.exec(line);
+    if (m) out.push({ kind: 'multiplier', line: i, factor: m[1] === 'twice' ? 2 : 3 });
+  }
+  return out;
+}
+
 export function parseManaProduction(
   face: CardFace,
   typeLine: ParsedTypeLine,
@@ -1638,6 +1700,8 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   const grantedReductions = isPermanent ? parseGrantedReductions(face.oracleText) : [];
   const toxicAmount = keywords.includes('toxic') ? parseToxic(face.oracleText) : 0;
   const producesMana = parseManaProduction(face, typeLine, warn);
+  // D634 - the triggered mana abilities and the doublers a PERMANENT prints (folded into the tapped sources by `manaSourcesOf`).
+  const manaAugment = isPermanent ? parseManaAugments(face.oracleText) : [];
   // ⚠️ Abilities are parsed BEFORE spell targets and are handed `producesMana`,
   // so "is this line a mana ability?" is answered by matching line index against
   // the parser that already decided it — never by a second heuristic here.
@@ -1716,6 +1780,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     protection,
     landwalk,
     producesMana,
+    ...(manaAugment.length > 0 ? { manaAugment } : {}),
     isPermanent,
     isCreature,
     isLand,

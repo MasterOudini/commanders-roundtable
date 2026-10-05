@@ -718,6 +718,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D634 - the triggered mana abilities read; what stays is a card the row maker (or its trial) refuses for another reason.
+  ['Gauntlet of Might', 'the row maker: the trial: its generated anthem suite reads the global red anthem as a filter on its own fixtures - a green yes, a red no (FIX-LIST) - its tapped-for-mana line reads since D634 (D634)'],
+  ['Wolfwillow Haven', 'the row maker: an Enchant land Aura with a row that reads a creature host - its tapped-for-mana line reads since D634 (D634)'],
+  ['Verdant Haven', 'the row maker: an Enchant land Aura with a row that reads a creature host - its tapped-for-mana line reads since D634 (D634)'],
   // D633 - the protection grant reads; what stays is a card the row maker refuses for another reason.
   ['Radiant, Serra Archangel', 'the row maker: cost: Tap another untapped creature you control with flying - its protection grant reads since D633 (D633)'],
   // D632 - the chosen type reads; what stays is a card the row maker refuses for another reason.

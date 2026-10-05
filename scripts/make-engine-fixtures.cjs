@@ -11353,6 +11353,25 @@ const WANTED = [
   'Midvast Protector',
   'Sygg, River Guide',
   // D633 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D634 - THE TRIGGERED MANA ABILITIES AND THE DOUBLERS: the cards the seam completes (manaAugment.test.ts).
+  'Wild Growth',
+  'Overgrowth',
+  'Fertile Ground',
+  'Mana Flare',
+  'Heartbeat of Spring',
+  'Dictate of Karametra',
+  'Zhur-Taa Ancient',
+  'Crypt Ghast',
+  'Vernal Bloom',
+  'Mana Reflection',
+  'Nyxbloom Ancient',
+  'Market Festival',
+  "Dawn's Reflection",
+  // D634 - THE TRIGGERED MANA ABILITIES AND THE DOUBLERS: the rows the whole-leftover row maker rowed once a tapped-for-mana line folded into the mana sources (the other lines rowed).
+  "Mirari's Wake",
+  'Lavaleaper',
+  'Nirkana Revenant',
+  // D634 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

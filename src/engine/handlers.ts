@@ -3386,7 +3386,7 @@ function payEvents(
     // D364 - snow mana is recorded as it is made; the source knows, the pool remembers.
     if (source.snow) for (const k of KEYS) producedSnow[k] += output.mana[k];
     const only = source.restriction;
-    events.push({ t: 'ManaAdded', player, mana: output.mana, source: tap.source, snow: source.snow, ...(only ? { only } : {}) });
+    events.push({ t: 'ManaAdded', player, mana: output.mana, source: tap.source, snow: source.snow, ...(only ? { only } : {}), ...(source.augmented ? { augmented: true as const } : {}) });
     if (only) {
       const at = fitting.findIndex((b) => b.restriction.text === only.text);
       fitting = at < 0 ? [...fitting, { restriction: only, mana: output.mana }] : fitting.map((b, i) => (i === at ? { restriction: b.restriction, mana: addPool(b.mana, output.mana) } : b));
@@ -3488,7 +3488,7 @@ function tapForMana(
   // the Snow supertype makes snow mana, read DERIVED (a permanent can be made snow).
   // D397 - and whether it is SPEND-RESTRICTED: the mana lands in its bucket, and only a payment
   // the restriction fits ever draws on it.
-  events.push({ t: 'ManaAdded', player: intent.player, mana: output.mana, source: intent.card, snow: source.snow, ...(source.restriction ? { only: source.restriction } : {}) });
+  events.push({ t: 'ManaAdded', player: intent.player, mana: output.mana, source: intent.card, snow: source.snow, ...(source.restriction ? { only: source.restriction } : {}), ...(source.augmented ? { augmented: true as const } : {}) });
   // D355 - THE PRICE THE LINE CHARGES, in the SAME accept as the mana. A mana ability does not
   // use the stack (CR 605.1), so there is no window between the two in which anything could
   // respond - and a player who taps a painland at 1 life has already lost when the mana appears.

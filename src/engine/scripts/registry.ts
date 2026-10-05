@@ -7,6 +7,9 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { MIRARIS_WAKE_SCRIPT } from './cards/mirarisWake';
+import { LAVALEAPER_SCRIPT } from './cards/lavaleaper';
+import { NIRKANA_REVENANT_SCRIPT } from './cards/nirkanaRevenant';
 import { MOONLIT_STRIDER_SCRIPT } from './cards/moonlitStrider';
 import { ALSEID_OF_LIFES_BOUNTY_SCRIPT } from './cards/alseidOfLifesBounty';
 import { TOWER_OF_THE_MAGISTRATE_SCRIPT } from './cards/towerOfTheMagistrate';
@@ -9099,6 +9102,9 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  MIRARIS_WAKE_SCRIPT,
+  LAVALEAPER_SCRIPT,
+  NIRKANA_REVENANT_SCRIPT,
   MOONLIT_STRIDER_SCRIPT,
   ALSEID_OF_LIFES_BOUNTY_SCRIPT,
   TOWER_OF_THE_MAGISTRATE_SCRIPT,
