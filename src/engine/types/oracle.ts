@@ -313,6 +313,12 @@ export interface ManaProduction {
    * (`manaSourcesOf`). Absent when the line prints no gate; a gate the reader leaves unread keeps the line `conditional`.
    */
   readonly activationConditions?: readonly ActivationCondition[];
+  /**
+   * D627 - THE COUNTED MANA AMOUNT: `Add {G} for each creature you control.`, `Add X mana of any one color, where X is ...`, `Add an
+   * amount of {G} equal to ...` - each output (or the any-colour amount) is multiplied by this count where the sources are listed
+   * (`manaSourcesOf`, `countOf` on the board as it stands); a count of zero makes no source. Absent on every fixed amount.
+   */
+  readonly count?: CountExpr;
   readonly text: string;
   /**
    * Index of the oracle-text line this was parsed from, or null for the
@@ -695,7 +701,9 @@ export type CountExpr =
   | { readonly kind: 'diedThisTurn' }
   | { readonly kind: 'party' }
   | { readonly kind: 'players'; readonly who: 'opponents' | 'any' }
-  | { readonly kind: 'basicLandTypes' };
+  | { readonly kind: 'basicLandTypes' }
+  /** D627 - the SOURCE's power as it stands (`an amount of {G} equal to this creature's power`); a source with no power counts zero. */
+  | { readonly kind: 'selfPower' };
 
 export interface BoardScope {
   readonly kind: 'creature' | 'permanent' | 'player';

@@ -312,7 +312,8 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
     // still tap for {C} — and `tier3.ts` says on the card what is not enforced.
     const distinct = [...new Set(report.lands.misses.map((m) => m.split(' →')[0]))].sort();
     expect(distinct).toEqual([
-      "Baldur's Gate",
+      // D627 - Baldur's Gate left the list (its X is counted now); Forgotten Monument, past the twenty-entry cap until then,
+      // takes the slot (its any-colour ability is granted to other Caves, never its own).
       // ⚠️ FOUR LANDS JOINED THIS LIST IN D147, and every one of them was
       // OFFERING MANA IT CANNOT MAKE before that. Their any-colour ability is
       // not theirs to use: `Crumbling Vestige` and `Branch of Vitu-Ghazi` have
@@ -322,6 +323,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // — which is what they offer now.
       'Branch of Vitu-Ghazi',
       'Crumbling Vestige',
+      'Forgotten Monument',
       'Gond Gate',
       'Pit of Offerings',
       'Plaza of Harmony',
@@ -337,7 +339,8 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
     // no draft happens in Commander, so the card offers nothing, honestly. It
     // was 13 across five until D147 added four lands whose any-colour ability
     // turned out not to be theirs to use.
-    expect(report.lands.oneOption).toBe(27);
+    // D627 - 22: Baldur's Gate's printings left (its X is counted now), Forgotten Monument came inside the cap.
+    expect(report.lands.oneOption).toBe(22);
   });
 
   test('nothing throws', () => {
@@ -479,7 +482,8 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // silently reading as exactly one.
       'target:unparsedCount': 606,
       'ward:nonManaCost': 151,
-      'mana:variableAmount': 88,
+      // D627 - 46 down: a counted mana amount reads now (for each <noun>, X where X is, an amount equal to).
+      'mana:variableAmount': 42,
       'target:unparsedEnchant': 11,
       'mana:unknownSymbolInAbility': 10,
       'mana:noUsableOutput': 10,
@@ -532,7 +536,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // 1,125 lines — the mirror of `nonManaCost`'s second fall.
       payable: 42017, // D621: the activations gated on a ferocious or catch-up condition (22); D620: the activations gated on the city's blessing (9); D618: the 177 lines with a self-exile cost; D612: those lines and the self counter removals counted past five; D597: the 40 typed and once-each-turn equip lines (a mana cost); D559: the 37 transmute lines (the mana and the card's own discard); D553: the 71 saddle lines (the tap chooser pays them); D546: the 85 embalm and eternalize lines; D472: the numeric loyalty costs; D462: the 172 ninjutsu lines; D458: the 43 boast lines; D457: the 101 exhaust lines; D452: the 97 Channel lines; D451: the 90 discard-self lines and the 15 reinforces; D448: the 155 unearth abilities; D447: the 26 any-kind remove-a-counter lines.
       // ⚠️ 11,911 → 11,938: the 27 lines D116 taught the parser to read.
-      manaAbility: 11578,
+      manaAbility: 11618,
       targeted: 12409, // D612: the newly indexed lines' aims; D605: Support N (Joraga Auxiliary's activation aims now); D597: the typed equip lines (a creature of the quality you control); D451: the reinforce clauses.
     });
   });

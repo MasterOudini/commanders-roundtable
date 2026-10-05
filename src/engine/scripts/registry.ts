@@ -7,6 +7,14 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { HERONBLADE_ELITE_SCRIPT } from './cards/heronbladeElite';
+import { ELVISH_ARCHDRUID_SCRIPT } from './cards/elvishArchdruid';
+import { MARWYN_THE_NURTURER_SCRIPT } from './cards/marwynTheNurturer';
+import { LOTUS_BLOSSOM_SCRIPT } from './cards/lotusBlossom';
+import { FIVE_HUNDRED_YEAR_DIARY_SCRIPT } from './cards/fiveHundredYearDiary';
+import { S_ANCE_BOARD_SCRIPT } from './cards/sAnceBoard';
+import { RAINVEIL_REJUVENATOR_SCRIPT } from './cards/rainveilRejuvenator';
+import { SHRINE_OF_BOUNDLESS_GROWTH_SCRIPT } from './cards/shrineOfBoundlessGrowth';
 import { SCATHING_SHADELOCK_VENOMOUS_WORDS_SCRIPT } from './cards/scathingShadelockVenomousWords';
 import { SANAR_UNFINISHED_GENIUS_WILD_IDEA_SCRIPT } from './cards/sanarUnfinishedGeniusWildIdea';
 import { EMERITUS_OF_WOE_DEMONIC_TUTOR_SCRIPT } from './cards/emeritusOfWoeDemonicTutor';
@@ -9001,6 +9009,14 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  HERONBLADE_ELITE_SCRIPT,
+  ELVISH_ARCHDRUID_SCRIPT,
+  MARWYN_THE_NURTURER_SCRIPT,
+  LOTUS_BLOSSOM_SCRIPT,
+  FIVE_HUNDRED_YEAR_DIARY_SCRIPT,
+  S_ANCE_BOARD_SCRIPT,
+  RAINVEIL_REJUVENATOR_SCRIPT,
+  SHRINE_OF_BOUNDLESS_GROWTH_SCRIPT,
   SCATHING_SHADELOCK_VENOMOUS_WORDS_SCRIPT,
   SANAR_UNFINISHED_GENIUS_WILD_IDEA_SCRIPT,
   EMERITUS_OF_WOE_DEMONIC_TUTOR_SCRIPT,

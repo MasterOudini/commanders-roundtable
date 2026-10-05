@@ -21,6 +21,7 @@ import type { HybridOption, HybridSymbol, ManaCost, ManaPool, SpendConjunction, 
 import { EMPTY_POOL } from '../engine/types/mana';
 import type {
   ActivationCondition,
+  CountExpr,
   Keyword,
   ManaOutput,
   ManaProduction,
@@ -37,7 +38,7 @@ import { parseCostReductions, parseGrantedReductions } from './costParse';
 import { parseHandSize } from './handSizeParse';
 import { parseSpellTargets, parseTargetClauses } from './targetParse';
 import { parseActivatedAbilities, parseActivationConditions, parseAdditionalCost, parseAlternativeCost, readCostVerbs, type KickerVerb } from './activatedParse';
-import { parseEffects, partnerWithSearchSpec } from './effectParse';
+import { parseEffects, partnerWithSearchSpec, readManaCount } from './effectParse';
 import { parseModalFace } from './modalParse';
 import { parseEntersAsCopy, parseEntersPrepared, parseEntersTapped, parseChoosesColorOnEntry, parseChoosesTypeOnEntry, predicatesOf, type PermanentPredicate } from './replacementParse';
 
@@ -966,7 +967,8 @@ function chargeablePieces(cost: string, name: string): { readonly mana: ManaCost
   for (const raw of cost.split(',')) {
     const piece = raw.trim();
     if (piece === '' || piece === '{T}') continue;
-    if (/^(?:\{[WUBRGC]\}|\{\d+\})+$/i.test(piece)) {
+    // D627 - and a HYBRID symbol (a filter land's `{W/U}`): the charge tries every combination the pool can pay (`extraCostSpend`).
+    if (/^(?:\{[WUBRGC]\}|\{\d+\}|\{[WUBRG]\/[WUBRG]\})+$/i.test(piece)) {
       if (mana !== null) return null;
       mana = parseManaCost(piece);
       continue;
@@ -985,6 +987,47 @@ function chargeablePieces(cost: string, name: string): { readonly mana: ManaCost
   }
   if (mana === null && life === 0 && !sacrificeSelf) return null;
   return { mana, life, sacrificeSelf };
+}
+
+/**
+ * D627 - THE COUNTED MANA SENTENCE: `Add {G} for each creature you control.` (any symbols, one output multiplied), `Add X mana of
+ * any one color, where X is <count>.` (the any-colour amount multiplied) and `Add an amount of {G} equal to <count>.` (one symbol
+ * multiplied) - the whole effect, anchored at both ends; the count read by `readManaCount`. Null for anything else.
+ */
+const COUNTED_FOR_EACH_RE = /^\s*Add ((?:\{[WUBRGC]\})+) for each ([^.]+)\.\s*$/i;
+const COUNTED_ANY_RE = /^\s*Add X mana of any one colou?r, where X is ([^.]+)\.\s*$/i;
+const COUNTED_AMOUNT_RE = /^\s*Add an amount of (\{[WUBRGC]\}) equal to ([^.]+)\.\s*$/i;
+function countedMana(effect: string, name: string): { readonly outputs: ManaOutput[]; readonly anyColor: ManaProduction['anyColor']; readonly count: CountExpr } | null {
+  const symbolsOutput = (symbols: string): ManaOutput | null => {
+    const acc: Record<string, number> = {};
+    let amount = 0;
+    for (const t of symbols.match(/\{[^}]+\}/g) ?? []) {
+      const sym = t.slice(1, -1).toUpperCase();
+      if (!COLOR_LETTERS.has(sym) && sym !== 'C') return null;
+      acc[sym] = (acc[sym] ?? 0) + 1;
+      amount++;
+    }
+    return amount > 0 ? { mana: pool(acc as Partial<Record<keyof ManaPool, number>>), amount } : null;
+  };
+  const fe = COUNTED_FOR_EACH_RE.exec(effect);
+  if (fe) {
+    const out = symbolsOutput(fe[1] ?? '');
+    const count = readManaCount(fe[2] ?? '', 'forEach', name);
+    return out !== null && count !== null ? { outputs: [out], anyColor: null, count } : null;
+  }
+  const ax = COUNTED_ANY_RE.exec(effect);
+  if (ax) {
+    const count = readManaCount(ax[1] ?? '', 'where', name);
+    return count !== null ? { outputs: [], anyColor: { scope: 'all', amount: 1 }, count } : null;
+  }
+  const am = COUNTED_AMOUNT_RE.exec(effect);
+  if (am) {
+    const out = symbolsOutput(am[1] ?? '');
+    const phrase = (am[2] ?? '').trim();
+    const count = readManaCount(phrase.replace(/^the number of /i, 'the number of '), 'where', name);
+    return out !== null && count !== null ? { outputs: [out], anyColor: null, count } : null;
+  }
+  return null;
 }
 
 const CONDITIONAL_RE =
@@ -1251,6 +1294,26 @@ export function parseManaProduction(
         conditional: unchargedExtra,
         extraCost: charged,
         restriction,
+        text: printed,
+        line: lineIndex,
+      });
+      continue;
+    }
+
+    // D627 - THE COUNTED MANA AMOUNT. The effect (its spend restriction cut off) is exactly one counted sentence: the symbols
+    // for each <noun>, X of any one colour where X is the number of <nouns> or the source's power, an amount of one symbol
+    // equal to the same. The count rides the production (`count`, multiplied in `manaSourcesOf`); a count the reader cannot read
+    // falls through to the warnings below, conditional as before.
+    const counted = countedMana(spend.effectWithout, face.name);
+    if (counted !== null) {
+      push({
+        outputs: counted.outputs,
+        anyColor: counted.anyColor,
+        requiresTap,
+        conditional: unchargedExtra,
+        extraCost: charged,
+        restriction,
+        count: counted.count,
         text: printed,
         line: lineIndex,
       });

@@ -3762,6 +3762,20 @@ function readCountNoun(raw: string): CountExpr | null {
     named: g['named'] !== undefined ? g['named'].trim() : null,
   };
 }
+/**
+ * D627 - THE MANA LINE'S COUNT: `for each <noun>` (the noun as printed, singular), `the number of <nouns>` (plural - singularised),
+ * and the source's own power (`this creature's power`, `<name>'s power`) - D418's count-noun reader, so a mana amount and an effect's
+ * count can never read the same words two ways. Null for anything else (the line stays conditional).
+ */
+export function readManaCount(phrase: string, kind: 'forEach' | 'where', name: string): CountExpr | null {
+  const p = phrase.trim().replace(/[.]$/, '');
+  const short = (name.split(',')[0] ?? name).trim();
+  const own = [/^this (?:creature|permanent|artifact)'s power$/i.test(p), p.toLowerCase() === name.toLowerCase() + "'s power", p.toLowerCase() === short.toLowerCase() + "'s power"];
+  if (kind === 'where' && own.some(Boolean)) return { kind: 'selfPower' };
+  if (kind === 'forEach') return readCountNoun(p);
+  const m = /^the number of (.+)$/i.exec(p);
+  return m ? readCountNoun(singularCountNoun(m[1] ?? '')) : null;
+}
 /** `creatures you control` -> `creature you control`: the head word (the last before a qualifier or the end) loses its plural. */
 function singularCountNoun(plural: string): string {
   const words = plural.trim().split(/\s+/);

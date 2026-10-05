@@ -141,8 +141,13 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // staple carries its own killer; the driver aims the Blade at a random nonblack creature and the colorless 2/2 is one
   // (a Bolt would double-count: FIXED_CORE deals one a seat already, and the staple accounting is exact).
   // D514 - eight a seat: five read 11 over D513's 500-seed gate but 0 over the next 60-seed canary (the rotation moved again).
-  { names: ['Onulet', 'Doom Blade'], copiesPerSeat: 8,
-    counterKeys: ['diesTriggers'], rotHistory: 'D158 D175 D513 D514' },
+  // D627 - seven a seat: the eighth slots went to the counted mana pair below (the swap; diesTriggers 23 over D624's gate).
+  { names: ['Onulet', 'Doom Blade'], copiesPerSeat: 7,
+    counterKeys: ['diesTriggers'], rotHistory: 'D158 D175 D513 D514, D627' },
+  // D627 - THE COUNTED MANA AMOUNT: one Gaea's Cradle (a green per creature you control) and one Priest of Titania (a green per
+  // Elf on the battlefield) a seat, in the pair above's eighth slots (the seat's card count and the shuffle kept, D553's rule).
+  { names: ["Gaea's Cradle", 'Priest of Titania'], copiesPerSeat: 1,
+    counterKeys: ['countedManaMade'], rotHistory: 'D627' },
   // The only permanents in Magic that ARRIVE with counters (CR 306.5b/310.6).
   { names: ['Grist, the Hunger Tide', 'Invasion of Gobakhan // Lightshield Array'],
     copiesPerSeat: 1, counterKeys: ['enteredWithCounters'], rotHistory: 'D107 D176' },
@@ -1860,6 +1865,8 @@ interface Run {
   readonly preparedCasts: number;
   /** D626 - mana a GATED line made (`ManaAdded` off a source whose face prints a gated production of exactly that mana). */
   readonly gatedManaMade: number;
+  /** D627 - mana a COUNTED line made (`ManaAdded` off a source whose face prints a counted production). */
+  readonly countedManaMade: number;
   /** D534 - the coin flips a resolution made (`CoinFlipped` not caused by the manual tool's `FlipCoin` intent). */
   readonly rulesFlips: number;
   /** D535 - the spells cast with their buyback paid, and the ones that went back to hand as they resolved. */
@@ -2476,6 +2483,13 @@ function runOne(seed: number): Run {
     monstrosities: game.log.filter((e) => e.body.t === 'BecameMonstrous').length,
     preparedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.preparedFrom !== undefined).length,
     // D626 - counted off the event (the pool empties at every step): the source's face, read off the final state (a land rarely leaves).
+    // D627 - counted off the event; the source's face read off the final state (a land or a creature rarely leaves the record).
+    countedManaMade: game.log.filter((e) => {
+      if (e.body.t !== 'ManaAdded' || e.body.source === null) return false;
+      const inst = game.state.cards[e.body.source];
+      const card = inst ? ORACLE.byPrinting(inst.printingId) : undefined;
+      return inst !== undefined && card !== undefined && faceOf(card, inst.faceIndex).producesMana.some((p) => p.count !== undefined);
+    }).length,
     gatedManaMade: game.log.filter((e) => {
       if (e.body.t !== 'ManaAdded' || e.body.source === null) return false;
       const inst = game.state.cards[e.body.source];
@@ -2886,6 +2900,7 @@ const TOTAL_KEYS = [
   'monstrosities',
   'preparedCasts',
   'gatedManaMade',
+  'countedManaMade',
   'rulesFlips',
   'buybackCasts',
   'buybackReturns',
@@ -3446,6 +3461,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.preparedCasts).toBeGreaterThan(0);
         // D626 - mana a gated line made at gate size (Wastewood Verge and Temple of the False God, one a seat).
         expect(totals.gatedManaMade).toBeGreaterThan(0);
+        // D627 - mana a counted line made at gate size (Gaea's Cradle and Priest of Titania, one a seat).
+        expect(totals.countedManaMade).toBeGreaterThan(0);
         // D534 - a rules coin flip at gate size (Winter Sky, two a seat).
         expect(totals.rulesFlips).toBeGreaterThan(0);
         // D535 - a bought-back spell back in its owner's hand at gate size (Searing Touch, two a seat).

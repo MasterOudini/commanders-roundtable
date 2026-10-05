@@ -26,6 +26,8 @@ import type { SpendRestriction } from './types/mana';
 import { faceOf } from './oracle';
 import { isDetained } from './detain';
 import { activationConditionsHold } from './activationConditions';
+import { countOf } from './count';
+import type { EngineDeps } from './loop';
 
 /** One tappable mana ability, with its `anyColor` already expanded. */
 export interface ManaSource {
@@ -163,7 +165,13 @@ export function manaSourcesOf(
                   : prod.anyColor?.scope === 'legendaryGraveyard'
                     ? graveyardLegendaryCreatureColours(state, oracle, player)
                     : identity;
-      const outputs = expandOutputs(prod.outputs, prod.anyColor, scoped);
+      // D627 - THE COUNTED AMOUNT: each output (or the any-colour amount) multiplied by the count on the board as it stands;
+      // zero makes no source (a Cradle with no creature taps for nothing the solver could use).
+      const n = prod.count === undefined ? 1 : countOf(state, { oracle, scripts } as unknown as EngineDeps, player, prod.count, id, 0, opts.cache);
+      if (n <= 0) continue;
+      const outputs = prod.count === undefined
+        ? expandOutputs(prod.outputs, prod.anyColor, scoped)
+        : expandOutputs(prod.outputs.map((o) => ({ mana: scalePool(o.mana, n), amount: o.amount * n })), prod.anyColor === null ? null : { ...prod.anyColor, amount: prod.anyColor.amount * n }, scoped);
       if (outputs.length === 0) continue;
       out.push({
         card: id,
@@ -629,7 +637,10 @@ export function extraCostSpend(state: GameState, player: PlayerId, extra: NonNul
   if (extra.life > 0 && me.life < extra.life) return null;
   let mana: ManaPool | null = null;
   if (extra.mana) {
-    const concrete = hybridCombinations(buildPaymentProblem(extra.mana, 0, [], 0, 0))[0];
+    // D627 - EVERY hybrid combination, the first the pool pays (a filter land's {W/U} paid with blue alone); before D627 the
+    // first combination alone was tried.
+    const fitted = fitPool(me.pool, me.poolRestricted, purpose);
+    const concrete = hybridCombinations(buildPaymentProblem(extra.mana, 0, [], 0, 0)).find((c) => spendFromPool(fitted, c) !== null);
     if (!concrete) return null;
     // D397 - a mana ability's own price is an ABILITY of its source: restricted mana that
     // fits that purpose pays it, mana that does not is not in the pool it draws on.
@@ -638,6 +649,11 @@ export function extraCostSpend(state: GameState, player: PlayerId, extra: NonNul
     mana = spend;
   }
   return { mana, life: extra.life };
+}
+
+/** D627 - a pool every symbol of which is multiplied by n (a counted mana amount). */
+function scalePool(p: ManaPool, n: number): ManaPool {
+  return { W: p.W * n, U: p.U * n, B: p.B * n, R: p.R * n, G: p.G * n, C: p.C * n };
 }
 
 export { EMPTY_POOL, poolTotal };

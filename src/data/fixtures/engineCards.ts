@@ -9974,6 +9974,19 @@ export const TEMPLE_OF_THE_FALSE_GOD: CardData = F.TEMPLE_OF_THE_FALSE_GOD as Ca
 export const MOX_OPAL: CardData = F.MOX_OPAL as CardData;
 export const FANATIC_OF_RHONAS: CardData = F.FANATIC_OF_RHONAS as CardData;
 export const HIDDEN_LAIR: CardData = F.HIDDEN_LAIR as CardData;
+export const GAEA_S_CRADLE: CardData = F.GAEA_S_CRADLE as CardData;
+export const CABAL_COFFERS: CardData = F.CABAL_COFFERS as CardData;
+export const MYSTIC_GATE: CardData = F.MYSTIC_GATE as CardData;
+export const DEATHBLOOM_RITUALIST: CardData = F.DEATHBLOOM_RITUALIST as CardData;
+export const PRIEST_OF_TITANIA: CardData = F.PRIEST_OF_TITANIA as CardData;
+export const HERONBLADE_ELITE: CardData = F.HERONBLADE_ELITE as CardData;
+export const ELVISH_ARCHDRUID: CardData = F.ELVISH_ARCHDRUID as CardData;
+export const MARWYN_THE_NURTURER: CardData = F.MARWYN_THE_NURTURER as CardData;
+export const LOTUS_BLOSSOM: CardData = F.LOTUS_BLOSSOM as CardData;
+export const FIVE_HUNDRED_YEAR_DIARY: CardData = F.FIVE_HUNDRED_YEAR_DIARY as CardData;
+export const S_ANCE_BOARD: CardData = F.S_ANCE_BOARD as CardData;
+export const RAINVEIL_REJUVENATOR: CardData = F.RAINVEIL_REJUVENATOR as CardData;
+export const SHRINE_OF_BOUNDLESS_GROWTH: CardData = F.SHRINE_OF_BOUNDLESS_GROWTH as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -20228,6 +20241,19 @@ export const ENGINE_CARDS: CardData[] = [
   MOX_OPAL,
   FANATIC_OF_RHONAS,
   HIDDEN_LAIR,
+  GAEA_S_CRADLE,
+  CABAL_COFFERS,
+  MYSTIC_GATE,
+  DEATHBLOOM_RITUALIST,
+  PRIEST_OF_TITANIA,
+  HERONBLADE_ELITE,
+  ELVISH_ARCHDRUID,
+  MARWYN_THE_NURTURER,
+  LOTUS_BLOSSOM,
+  FIVE_HUNDRED_YEAR_DIARY,
+  S_ANCE_BOARD,
+  RAINVEIL_REJUVENATOR,
+  SHRINE_OF_BOUNDLESS_GROWTH,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

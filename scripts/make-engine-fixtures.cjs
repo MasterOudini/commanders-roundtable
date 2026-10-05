@@ -11198,6 +11198,22 @@ const WANTED = [
   'Mox Opal',
   'Fanatic of Rhonas',
   'Hidden Lair',
+  // D627 - the counted mana amount and the filter land: the seam's fixtures.
+  "Gaea's Cradle",
+  'Cabal Coffers',
+  'Mystic Gate',
+  'Deathbloom Ritualist',
+  'Priest of Titania',
+  'Heronblade Elite',
+  // D627 - THE SCOPE WORDS: the rows the whole-leftover row maker rowed once the opponents creatures, every creature and planeswalker, the creatures a player does not control, the tokens, the permanents gaining a keyword, the aimed players creatures and the multi-type sweeps were scopes the engine reads.
+  'Elvish Archdruid',
+  'Marwyn, the Nurturer',
+  'Lotus Blossom',
+  'Five Hundred Year Diary',
+  'Séance Board',
+  'Rainveil Rejuvenator',
+  'Shrine of Boundless Growth',
+  // D627 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

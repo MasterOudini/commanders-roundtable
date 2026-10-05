@@ -76,6 +76,9 @@ export function countOf(
         return expr.named === null || chars.name === expr.named;
       }).length;
     }
+    // D627 - the source's power as it stands (a mana line's `equal to this creature's power`); none counts zero.
+    case 'selfPower':
+      return source === null ? 0 : Math.max(0, d(source).power ?? 0);
     case 'basicLandTypes': {
       const seen = new Set<string>();
       for (const id of inPlay(state)) {

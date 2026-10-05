@@ -723,6 +723,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D627 - the counted mana amount reads; what stays is a card the row maker refuses for another reason.
+  ['City of Shadows', 'the row maker: cost: Exile a creature you control - its mana line reads since D627 (D627)'],
   // D625 - the prepared spell reads; what stays is a card the row maker refuses for another reason.
   ['Skycoach Waypoint', 'the row maker: a prepare clause aimed at a target (the fixture must be a creature with a prepare spell; not this wave): Targe - its clause reads since D625 (D625)'],
   // D624 - the scope words read; what stays is a card the row maker refuses for another reason.
